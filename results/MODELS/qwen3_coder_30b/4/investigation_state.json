@@ -1,0 +1,3112 @@
+{
+  "poi": {
+    "event_id": "8D401051-39B3-11E8-BF66-D9AA8AFF4A69",
+    "details": {
+      "POI类型": "事件 (Event)",
+      "Event UUID": "8D401051-39B3-11E8-BF66-D9AA8AFF4A69",
+      "关系类型": "WRITE",
+      "事件类别": "write",
+      "事件类型": "EVENT_WRITE",
+      "事件名称": "aue_write",
+      "源节点": "msedge.exe (process)",
+      "目标节点": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip (file)",
+      "源节点ID": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+      "目标节点ID": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69"
+    }
+  },
+  "attack_graph": {
+    "nodes": [
+      {
+        "uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "192.168.52.133:16415",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "192.168.52.133:47138",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "BITTER_ALUMINUM.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output1",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf",
+        "type": "file"
+      },
+      {
+        "uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "ComputerDefaults.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "SearchProtocolHost.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "msedge.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "powershell.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "regsvr32.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "svchost.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "8.8.8.8:53",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\ps_log.tmp",
+        "type": "file"
+      }
+    ],
+    "edges": [
+      {
+        "event_uuid": "8D401050-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "msedge.exe",
+        "target_name": "192.168.52.133:16415",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168301"
+      },
+      {
+        "event_uuid": "8D401051-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "msedge.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168303"
+      },
+      {
+        "event_uuid": "8D401052-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "msedge.exe",
+        "target_name": "powershell.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168305"
+      },
+      {
+        "event_uuid": "8D401053-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168307"
+      },
+      {
+        "event_uuid": "8D401054-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168312"
+      },
+      {
+        "event_uuid": "8D401055-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "BITTER_ALUMINUM.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168313"
+      },
+      {
+        "event_uuid": "8D401056-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168318"
+      },
+      {
+        "event_uuid": "8D401057-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168323"
+      },
+      {
+        "event_uuid": "8D401058-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168328"
+      },
+      {
+        "event_uuid": "8D401059-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168329"
+      },
+      {
+        "event_uuid": "8D40105A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168332"
+      },
+      {
+        "event_uuid": "8D40105B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "regsvr32.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168337"
+      },
+      {
+        "event_uuid": "8D40105C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "regsvr32.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168340"
+      },
+      {
+        "event_uuid": "8D40105D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "ComputerDefaults.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168342"
+      },
+      {
+        "event_uuid": "8D40105E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ComputerDefaults.exe",
+        "target_name": "SearchProtocolHost.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168346"
+      },
+      {
+        "event_uuid": "8D40105F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "BITTER_ALUMINUM.exe",
+        "target_name": "192.168.52.133:47138",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168347"
+      },
+      {
+        "event_uuid": "8D401060-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "SearchProtocolHost.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output1",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168348"
+      },
+      {
+        "event_uuid": "8D401061-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "SearchProtocolHost.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168353"
+      },
+      {
+        "event_uuid": "8D401062-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168356"
+      },
+      {
+        "event_uuid": "8D401063-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168360"
+      },
+      {
+        "event_uuid": "8D401064-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168362"
+      },
+      {
+        "event_uuid": "8D401065-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "msedge.exe",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168363"
+      },
+      {
+        "event_uuid": "8D401066-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "svchost.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168368"
+      },
+      {
+        "event_uuid": "8D401067-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "svchost.exe",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168371"
+      },
+      {
+        "event_uuid": "8D401068-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\ps_log.tmp",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168375"
+      },
+      {
+        "event_uuid": "8D401069-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "SearchProtocolHost.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168378"
+      },
+      {
+        "event_uuid": "8D40108A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "regsvr32.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168477"
+      },
+      {
+        "event_uuid": "8D40106A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "target_name": "SearchProtocolHost.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168381"
+      },
+      {
+        "event_uuid": "8D40106B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "8.8.8.8:53",
+        "target_name": "ComputerDefaults.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168384"
+      },
+      {
+        "event_uuid": "8D40106C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf",
+        "target_name": "ComputerDefaults.exe",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168387"
+      },
+      {
+        "event_uuid": "8D40106D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "msedge.exe",
+        "target_name": "C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\ps_log.tmp",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168390"
+      },
+      {
+        "event_uuid": "8D40106E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "192.168.52.133:47138",
+        "target_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168393"
+      },
+      {
+        "event_uuid": "8D40106F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output1",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168396"
+      },
+      {
+        "event_uuid": "8D401070-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ComputerDefaults.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168399"
+      },
+      {
+        "event_uuid": "8D401071-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ComputerDefaults.exe",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168402"
+      },
+      {
+        "event_uuid": "8D401072-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "target_name": "svchost.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168405"
+      },
+      {
+        "event_uuid": "8D401073-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "192.168.52.133:47138",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168408"
+      },
+      {
+        "event_uuid": "8D40108B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168480"
+      },
+      {
+        "event_uuid": "8D401075-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output1",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168414"
+      },
+      {
+        "event_uuid": "8D401076-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "SearchProtocolHost.exe",
+        "target_name": "192.168.52.133:47138",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168417"
+      },
+      {
+        "event_uuid": "8D401077-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip",
+        "target_name": "ComputerDefaults.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168420"
+      },
+      {
+        "event_uuid": "8D401078-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "regsvr32.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168423"
+      },
+      {
+        "event_uuid": "8D40108C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168483"
+      },
+      {
+        "event_uuid": "8D40107A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "msedge.exe",
+        "target_name": "ComputerDefaults.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168429"
+      },
+      {
+        "event_uuid": "8D40107B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "SearchProtocolHost.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168432"
+      },
+      {
+        "event_uuid": "8D40107C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168435"
+      },
+      {
+        "event_uuid": "8D40107D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168438"
+      },
+      {
+        "event_uuid": "8D40108D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ComputerDefaults.exe",
+        "target_name": "regsvr32.exe",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168486"
+      },
+      {
+        "event_uuid": "8D40107F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "192.168.52.133:16415",
+        "target_name": "C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\ps_log.tmp",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168444"
+      },
+      {
+        "event_uuid": "8D401080-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168447"
+      },
+      {
+        "event_uuid": "8D40108E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ComputerDefaults.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168489"
+      },
+      {
+        "event_uuid": "8D40108F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ComputerDefaults.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168492"
+      },
+      {
+        "event_uuid": "8D401083-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe",
+        "target_name": "C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168456"
+      },
+      {
+        "event_uuid": "8D401084-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+        "target_name": "ComputerDefaults.exe",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168459"
+      },
+      {
+        "event_uuid": "8D401085-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "powershell.exe",
+        "target_name": "192.168.52.133:16415",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168462"
+      },
+      {
+        "event_uuid": "8D401086-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip",
+        "target_name": "BITTER_ALUMINUM.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168465"
+      },
+      {
+        "event_uuid": "8D401087-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "8.8.8.8:53",
+        "target_name": "powershell.exe",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168468"
+      },
+      {
+        "event_uuid": "8D401088-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "svchost.exe",
+        "target_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168471"
+      },
+      {
+        "event_uuid": "8D401089-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "regsvr32.exe",
+        "target_name": "192.168.52.133:47138",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168474"
+      },
+      {
+        "event_uuid": "8D401090-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip",
+        "target_name": "ComputerDefaults.exe",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168495"
+      }
+    ]
+  },
+  "narrative_summary": "攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），执行命令与控制通信，表明该浏览器进程已被劫持为C2信道；随后 msedge.exe 向 DNS 服务器 8.8.8.8:53 发起异常 DNS 查询（T1071.001），暴露其多协议信标能力。msedge.exe 派生 powershell.exe（T1059.004），后者下载并写入恶意载荷 C:\\Users\\34381\\Downloads\\BITTER_ALUMINUM.exe（T1105）、创建临时日志文件 C:\\Users\\34381\\AppData\\Local\\Temp\\ps_log.tmp（T1105），并压缩敏感数据至 C:\\Users\\34381\\Downloads\\create1.zip（T1005）；powershell.exe 还派生 MsMpEng.exe 读取该压缩包（T1005），并注入 svchost.exe（T1059.004）扩展权限——新确认 svchost.exe 随即主动向 8.8.8.8:53 发起额外DNS信标（T1071.001），强化隐蔽通信链。BITTER_ALUMINUM.exe 启动后立即执行自身副本（T1059），强化驻留，并写入 Prefetch、深层下载路径及 output.zip（T1105）；同时派生 regsvr32.exe 实施DLL侧载、ComputerDefaults.exe 支持横向移动（T1059.004）；后者进一步启动 SearchProtocolHost.exe（T1059.004），该进程持续读取 output1、output.zip 及 BITTER_ALUMINUM.exe（T1005），形成模块化数据收集链。所有关键进程均统一加载共享恶意组件 C:\\Users\\34381\\Downloads\\MUDDY_SAW.dll（T1005）。最新确认：BITTER_ALUMINUM.exe 于攻击链中段主动向同一内网目标 192.168.52.133:47138 发起额外C2通信（T1071.001）。当前调查焦点为 msedge.exe 进程的后续网络行为及关联文件操作。",
+  "ttp_chain": [
+    {
+      "technique": "T1071",
+      "tactic": "Command and Control",
+      "name": "Application Layer Protocol",
+      "event_desc": "msedge.exe → 192.168.52.133:16415"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "msedge.exe → powershell.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "powershell.exe → BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "powershell.exe → C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "powershell.exe → svchost.exe"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "BITTER_ALUMINUM.exe → C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "BITTER_ALUMINUM.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "BITTER_ALUMINUM.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "BITTER_ALUMINUM.exe → regsvr32.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "BITTER_ALUMINUM.exe → ComputerDefaults.exe"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "powershell.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\ps_log.tmp"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "BITTER_ALUMINUM.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "powershell.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "BITTER_ALUMINUM.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "regsvr32.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "ComputerDefaults.exe → SearchProtocolHost.exe"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "SearchProtocolHost.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output1"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "SearchProtocolHost.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "SearchProtocolHost.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "BITTER_ALUMINUM.exe → 192.168.52.133:47138"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "msedge.exe → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "svchost.exe → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll → SearchProtocolHost.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "8.8.8.8:53 → ComputerDefaults.exe"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf → ComputerDefaults.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "msedge.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\ps_log.tmp"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "192.168.52.133:47138 → C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output1"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "ComputerDefaults.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "ComputerDefaults.exe → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe → svchost.exe"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "powershell.exe → 192.168.52.133:47138"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "powershell.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output1"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "SearchProtocolHost.exe → 192.168.52.133:47138"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip → ComputerDefaults.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "regsvr32.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "msedge.exe → ComputerDefaults.exe"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "SearchProtocolHost.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "ComputerDefaults.exe → regsvr32.exe"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "192.168.52.133:16415 → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\ps_log.tmp"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "ComputerDefaults.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "ComputerDefaults.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\Program Files\\\\Windows Defender\\\\MsMpEng.exe → C:\\\\\\\\Windows\\\\\\\\Prefetch\\\\\\\\BITTER_ALUMINUM.EXE-91131A30.pf"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll → ComputerDefaults.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "powershell.exe → 192.168.52.133:16415"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip → BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "8.8.8.8:53 → powershell.exe"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "svchost.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\first\\\\\\\\test1\\\\\\\\BITTER_ALUMINUM.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "regsvr32.exe → 192.168.52.133:47138"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\output.zip → ComputerDefaults.exe"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "regsvr32.exe → C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll"
+    }
+  ],
+  "action_history": [
+    {
+      "iteration": 1,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 2,
+      "action": "查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 3,
+      "action": "查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 4,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 5,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 6,
+      "action": "查找 IP 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401050-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 7,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 8,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 9,
+      "action": "查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 10,
+      "action": "查找写入文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 11,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401052-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 12,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 13,
+      "action": "查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 14,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 15,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401055-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 16,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 17,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 18,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401062-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 19,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 20,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 21,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401066-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 22,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 23,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 24,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 25,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401057-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 26,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 27,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 28,
+      "action": "查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 29,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 30,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401059-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 31,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 32,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 33,
+      "action": "查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 34,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 35,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105A-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 36,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 37,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 38,
+      "action": "查找写入文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 39,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105B-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 40,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 41,
+      "action": "查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 42,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 43,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 44,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105D-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 45,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 46,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 47,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 48,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401054-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 49,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 50,
+      "action": "查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 51,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401068-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 52,
+      "action": "查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 53,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 54,
+      "action": "查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 55,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 56,
+      "action": "查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401056-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 57,
+      "action": "查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 58,
+      "action": "查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 59,
+      "action": "查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 60,
+      "action": "查找写入文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 61,
+      "action": "查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401053-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 62,
+      "action": "查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 63,
+      "action": "查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 64,
+      "action": "查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 65,
+      "action": "查找写入文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 66,
+      "action": "查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401063-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 67,
+      "action": "查找写入文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 68,
+      "action": "查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 69,
+      "action": "查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401058-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 70,
+      "action": "查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 71,
+      "action": "查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 72,
+      "action": "查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 73,
+      "action": "查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 74,
+      "action": "查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105C-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 75,
+      "action": "查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 76,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 77,
+      "action": "查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 78,
+      "action": "查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401064-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 79,
+      "action": "查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 80,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 81,
+      "action": "查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 82,
+      "action": "查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 83,
+      "action": "查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105E-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 84,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 85,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 86,
+      "action": "查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 87,
+      "action": "查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401060-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 88,
+      "action": "查找写入文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 89,
+      "action": "查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 90,
+      "action": "查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 91,
+      "action": "查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401061-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 92,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 93,
+      "action": "查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 94,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 95,
+      "action": "查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401069-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 96,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 97,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 98,
+      "action": "查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 99,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 100,
+      "action": "查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105F-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 101,
+      "action": "查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 102,
+      "action": "查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 103,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 104,
+      "action": "查找写入文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 105,
+      "action": "查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401065-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 106,
+      "action": "查找哪些进程向 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 107,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 108,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 109,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 110,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 111,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 112,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 113,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 114,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 115,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 116,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 117,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 118,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 119,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 120,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 121,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 122,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 123,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 124,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 125,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 126,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 127,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 128,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 129,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 130,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 131,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 132,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 133,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 134,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 135,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 136,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 137,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 138,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 139,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 140,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 141,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 142,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 143,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 144,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 145,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 146,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 147,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 148,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 149,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 150,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 151,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 152,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 153,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 154,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 155,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 156,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 157,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 158,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 159,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 160,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 161,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 162,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 163,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 164,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 165,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 166,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 167,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 168,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 169,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 170,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 171,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 172,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 173,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 174,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 175,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 176,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 177,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 178,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 179,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 180,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 181,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 182,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 183,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 184,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 185,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 186,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 187,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 188,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 189,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 190,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 191,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 192,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 193,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 194,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 195,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 196,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 197,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 198,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 199,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 200,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 201,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 202,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 203,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 204,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 205,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 206,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 207,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 208,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 209,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 210,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 211,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 212,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 213,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 214,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 215,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 216,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 217,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 218,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 219,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 220,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 221,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 222,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 223,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 224,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 225,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 226,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 227,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 228,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 229,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 230,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 231,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 232,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 233,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 234,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 235,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 236,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 237,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 238,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 239,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 240,
+      "action": "查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    }
+  ],
+  "evaluated_events": [
+    {
+      "event_uuid": "8D40106A-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_FORK",
+      "source": "msedge.exe",
+      "target": "awk",
+      "is_malicious": false,
+      "reason": "文本处理子进程"
+    },
+    {
+      "event_uuid": "8D40106B-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_WRITE",
+      "source": "powershell.exe",
+      "target": "/var/log/syslog",
+      "is_malicious": false,
+      "reason": "标准日志写入"
+    },
+    {
+      "event_uuid": "8D40106C-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/nginx/nginx.conf",
+      "target": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\create1.zip",
+      "is_malicious": false,
+      "reason": "标准配置文件读取"
+    },
+    {
+      "event_uuid": "8D40106D-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/hosts",
+      "target": "BITTER_ALUMINUM.exe",
+      "is_malicious": false,
+      "reason": "hosts 文件解析"
+    },
+    {
+      "event_uuid": "8D40106E-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/hosts",
+      "target": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Downloads\\\\\\\\MUDDY_SAW.dll",
+      "is_malicious": false,
+      "reason": "hosts 文件解析"
+    },
+    {
+      "event_uuid": "8D40106F-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/hosts",
+      "target": "SearchProtocolHost.exe",
+      "is_malicious": false,
+      "reason": "hosts 文件解析"
+    },
+    {
+      "event_uuid": "8D401070-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/resolv.conf",
+      "target": "msedge.exe",
+      "is_malicious": false,
+      "reason": "DNS 配置读取"
+    }
+  ],
+  "metadata": {
+    "session_dir": "20251201_211159",
+    "total_iterations": 240,
+    "malicious_events": 60,
+    "benign_events": 7
+  }
+}

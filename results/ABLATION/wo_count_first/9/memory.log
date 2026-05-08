@@ -1,0 +1,1874 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T23:39:04.045878
+================================================================================
+
+[00:40:14.070] 
+============================================================
+[00:40:14.070] POI REGISTERED
+============================================================
+
+[00:40:14.070] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401060-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "firefox (process)",
+  "目标节点": "/tmp/ff_cache (file)",
+  "源节点ID": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[00:40:14.243] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:40:14.428] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:40:14.670] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:40:14.913] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:40:15.121] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:40:15.327] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:40:25.281] 
+============================================================
+[00:40:25.281] [迭代 5] MEMORY STATE UPDATE
+============================================================
+
+[00:40:25.281] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80 利用漏洞向 firefox 浏览器进程发起攻击（T1190），实现初始访问。当前调查焦点为 firefox 进程的后续行为。
+
+[00:40:25.281] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+
+[00:40:25.540] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:40:25.749] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:40:25.915] --- Action Recorded ---
+Action: 查找写入文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:40:26.058] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:40:26.163] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:40:26.329] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:40:35.541] 
+============================================================
+[00:40:35.541] [迭代 10] MEMORY STATE UPDATE
+============================================================
+
+[00:40:35.541] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80 和 104.228.117.212:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），实现初始访问。两个 C2 源均指向同一攻击阶段，表明存在多入口协同或冗余投送机制。当前调查焦点为 firefox 进程的后续行为。
+
+[00:40:35.541] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+
+[00:40:35.715] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:40:35.854] --- Action Recorded ---
+Action: 查找与 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:40:36.054] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:40:36.315] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:40:36.480] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:40:36.593] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:40:36.699] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:40:45.457] 
+============================================================
+[00:40:45.457] [迭代 16] MEMORY STATE UPDATE
+============================================================
+
+[00:40:45.457] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80 和 104.228.117.212:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），实现初始访问；随后，另一 C2 源 128.55.12.167:8018 也通过相同技术（T1190）向同一 firefox 进程发送恶意载荷。三个独立的入站连接均指向 firefox 进程，全部归类为“利用面向公众的应用程序”（T1190），表明攻击者采用了多源协同投送或高概率冗余渗透策略，以提升初始访问成功率。当前调查焦点为 firefox 进程的后续行为。
+
+[00:40:45.457] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+
+[00:40:45.709] --- Action Recorded ---
+Action: 查找与 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:40:45.867] --- Action Recorded ---
+Action: 查找 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:40:46.056] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:40:46.260] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:40:46.372] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:40:46.668] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:40:58.740] 
+============================================================
+[00:40:58.740] [迭代 21] MEMORY STATE UPDATE
+============================================================
+
+[00:40:58.740] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80 和 104.228.117.212:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），实现初始访问；随后，另一 C2 源 128.55.12.167:8018 也通过相同技术（T1190）向同一 firefox 进程发送恶意载荷；值得注意的是，DNS 服务器 8.8.8.8:53 亦被用作攻击入口，向 firefox 进程发送了可疑数据包（T1190），表明攻击者不仅滥用常规 Web 端口，还尝试将合法 DNS 流量武器化，实施隐蔽的初始访问。四次独立入站连接均指向 firefox 进程，全部归类为“利用面向公众的应用程序”（T1190），构成多源、多协议（HTTP/HTTP-alt/DNS）的协同渗透策略，显著提升绕过检测与达成初始立足点的概率。当前调查焦点为 firefox 进程的后续行为。
+
+[00:40:58.740] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+
+[00:40:59.026] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:40:59.291] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:40:59.495] --- Action Recorded ---
+Action: 查找与 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:40:59.753] --- Action Recorded ---
+Action: 查找 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:40:59.859] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:41:00.114] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:41:09.444] 
+============================================================
+[00:41:09.444] [迭代 26] MEMORY STATE UPDATE
+============================================================
+
+[00:41:09.444] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80 和 104.228.117.212:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），实现初始访问；随后，另一 C2 源 128.55.12.167:8018 也通过相同技术（T1190）向同一 firefox 进程发送恶意载荷；值得注意的是，DNS 服务器 8.8.8.8:53 亦被用作攻击入口，向 firefox 进程发送了可疑数据包（T1190），表明攻击者不仅滥用常规 Web 端口，还尝试将合法 DNS 流量武器化，实施隐蔽的初始访问。四次独立入站连接均指向 firefox 进程，全部归类为“利用面向公众的应用程序”（T1190），构成多源、多协议（HTTP/HTTP-alt/DNS）的协同渗透策略。成功立足后，firefox 进程立即派生 ps 子进程执行系统进程枚举（T1059.004），标志着攻击已从初始访问阶段转入执行阶段，旨在探查运行环境以规划后续横向移动或持久化操作。当前调查焦点为 firefox 进程派生的 ps 进程及其可能的后续行为。
+
+[00:41:09.444] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+
+[00:41:09.602] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:41:09.752] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:41:09.914] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:41:10.158] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:41:10.268] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:41:10.547] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:41:10.746] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:41:24.874] 
+============================================================
+[00:41:24.874] [迭代 32] MEMORY STATE UPDATE
+============================================================
+
+[00:41:24.874] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80 和 104.228.117.212:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），实现初始访问；随后，另一 C2 源 128.55.12.167:8018 也通过相同技术（T1190）向同一 firefox 进程发送恶意载荷；值得注意的是，DNS 服务器 8.8.8.8:53 亦被用作攻击入口，向 firefox 进程发送了可疑数据包（T1190），表明攻击者不仅滥用常规 Web 端口，还尝试将合法 DNS 流量武器化，实施隐蔽的初始访问。四次独立入站连接均指向 firefox 进程，全部归类为“利用面向公众的应用程序”（T1190），构成多源、多协议（HTTP/HTTP-alt/DNS）的协同渗透策略。成功立足后，firefox 进程立即派生 ps 子进程执行系统进程枚举（T1059.004），并同步派生 whoami 子进程查询当前用户权限（T1059.004），两步操作共同完成执行阶段的环境侦察，为后续横向移动或提权奠定基础。当前调查焦点为 firefox 进程派生的 whoami 进程及其可能触发的权限提升或凭证窃取行为。
+
+[00:41:24.874] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+
+[00:41:25.016] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:41:25.202] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:41:25.498] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:41:25.606] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:41:34.268] 
+============================================================
+[00:41:34.268] [迭代 35] MEMORY STATE UPDATE
+============================================================
+
+[00:41:34.268] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80 和 104.228.117.212:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），实现初始访问；随后，另一 C2 源 128.55.12.167:8018 也通过相同技术（T1190）向同一 firefox 进程发送恶意载荷；值得注意的是，DNS 服务器 8.8.8.8:53 亦被用作攻击入口，向 firefox 进程发送了可疑数据包（T1190），表明攻击者不仅滥用常规 Web 端口，还尝试将合法 DNS 流量武器化，实施隐蔽的初始访问。四次独立入站连接均指向 firefox 进程，全部归类为“利用面向公众的应用程序”（T1190），构成多源、多协议（HTTP/HTTP-alt/DNS）的协同渗透策略。成功立足后，firefox 进程立即派生 ps 子进程执行系统进程枚举（T1059.004），并同步派生 whoami 子进程查询当前用户权限（T1059.004），两步操作共同完成执行阶段的环境侦察；紧接着，firefox 又派生 clean 子进程（T1059.004），该行为极可能用于清理日志、临时文件或隐藏痕迹，标志着攻击已从侦察阶段转入隐匿与持久化准备阶段。当前调查焦点为 firefox 进程派生的 whoami 进程及其可能触发的权限提升或凭证窃取行为。
+
+[00:41:34.268] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+
+[00:41:34.517] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:41:34.691] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:41:34.939] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:41:35.064] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:41:35.318] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:41:47.848] 
+============================================================
+[00:41:47.848] [迭代 39] MEMORY STATE UPDATE
+============================================================
+
+[00:41:47.848] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问。立足后，firefox 迅速启动执行阶段：先派生 ps（T1059.004）枚举进程、whoami（T1059.004）探测权限，并调用 clean（T1059.004）进行痕迹清理；随后又派生 sh 子进程（T1059.004），该 shell 极可能承载后续横向移动、持久化或凭证窃取指令，标志着攻击正由环境侦察与隐匿准备转向主动控制扩展。当前调查焦点为 whoami 进程及其可能触发的权限提升行为，而新确认的 sh 进程作为最新执行节点，与 whoami 同属 firefox 直接派生，时间邻近、拓扑紧密，需重点关联分析其命令行参数、子进程链及网络外联行为。
+
+[00:41:47.848] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+
+[00:41:47.959] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:41:48.207] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:41:48.311] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:41:48.593] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:41:48.724] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:41:57.356] 
+============================================================
+[00:41:57.356] [迭代 43] MEMORY STATE UPDATE
+============================================================
+
+[00:41:57.356] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问。立足后，firefox 迅速启动执行阶段：先派生 ps（T1059.004）枚举进程；随后并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑。值得注意的是，clean 进程进一步派生了 whoami（T1059.004），表明攻击者在清理阶段仍持续验证执行上下文权限，强化了权限探测的冗余性与隐蔽意图。当前调查焦点为 whoami 进程——既包括 firefox 直接派生的原始实例，也涵盖 clean 派生的二次调用实例，二者时间邻近、拓扑紧密，需重点比对其执行环境、返回值及关联行为；sh 进程作为最新活跃节点，亦处于高优先级分析队列，重点关注其命令行参数、子进程链及网络外联行为。
+
+[00:41:57.356] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+
+[00:41:57.470] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:41:57.594] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:41:57.722] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:41:57.972] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:41:58.102] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:42:08.051] 
+============================================================
+[00:42:08.051] [迭代 47] MEMORY STATE UPDATE
+============================================================
+
+[00:42:08.051] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑。值得注意的是，clean 进程进一步派生了 whoami（T1059.004）与 uname（T1059.004），表明攻击者在清理阶段不仅持续验证执行上下文权限，还同步采集系统架构信息（如内核版本、硬件平台），强化了环境感知的冗余性与隐蔽意图。当前调查焦点为 whoami 进程——既包括 firefox 直接派生的原始实例，也涵盖 clean 派生的二次调用实例，二者时间邻近、拓扑紧密，需重点比对其执行环境、返回值及关联行为；sh 进程作为最新活跃节点，亦处于高优先级分析队列，重点关注其命令行参数、子进程链及网络外联行为。
+
+[00:42:08.051] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+
+[00:42:08.244] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:42:08.429] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:42:08.660] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:42:08.805] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:42:08.971] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:42:19.053] 
+============================================================
+[00:42:19.053] [迭代 51] MEMORY STATE UPDATE
+============================================================
+
+[00:42:19.053] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑。clean 进程进一步派生了 whoami（T1059.004）与 uname（T1059.004），持续验证执行上下文权限并采集系统架构信息；尤为关键的是，clean 还派生了 cat（T1059.004），用于读取本地敏感文件（如 /etc/passwd 或日志），表明攻击者已从环境探测阶段进入横向信息收集阶段，强化持久化与提权准备。当前调查焦点为 whoami 进程——既包括 firefox 直接派生的原始实例，也涵盖 clean 派生的二次调用实例，二者时间邻近、拓扑紧密，需重点比对其执行环境、返回值及关联行为；sh 进程作为最新活跃节点，亦处于高优先级分析队列，重点关注其命令行参数、子进程链及网络外联行为；同时，clean → cat 的新分支显著提升了对本地文件访问路径与数据渗出意图的研判紧迫性。
+
+[00:42:19.053] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+
+[00:42:19.158] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:42:19.418] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:42:19.543] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:42:19.747] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:42:20.022] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: success
+
+[00:42:20.136] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[00:42:34.341] 
+============================================================
+[00:42:34.341] [迭代 56] MEMORY STATE UPDATE
+============================================================
+
+[00:42:34.341] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑。值得注意的是，/home/admin/clean 文件被再次执行（T1059），表明攻击者已将清理工具持久化为独立可执行体，具备重复调用与模块化扩展能力。clean 进程进一步派生了 whoami（T1059.004）与 uname（T1059.004），持续验证执行上下文权限并采集系统架构信息；尤为关键的是，clean 还派生了 cat（T1059.004），用于读取本地敏感文件（如 /etc/passwd 或日志），表明攻击者已从环境探测阶段进入横向信息收集阶段，强化持久化与提权准备。当前调查焦点为 whoami 进程——既包括 firefox 直接派生的原始实例，也涵盖 clean 派生的二次调用实例，二者时间邻近、拓扑紧密，需重点比对其执行环境、返回值及关联行为；sh 进程作为最新活跃节点，亦处于高优先级分析队列，重点关注其命令行参数、子进程链及网络外联行为；同时，/home/admin/clean 的复用执行与 clean → cat 分支显著提升了对本地文件访问路径、数据渗出意图及持久化机制的研判紧迫性。
+
+[00:42:34.341] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+
+[00:42:34.587] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:42:34.814] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:42:35.037] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:42:35.147] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: success
+
+[00:42:35.281] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1083
+
+[00:42:46.278] 
+============================================================
+[00:42:46.278] [迭代 60] MEMORY STATE UPDATE
+============================================================
+
+[00:42:46.278] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑。值得注意的是，/home/admin/clean 文件被再次执行（T1059），表明攻击者已将清理工具持久化为独立可执行体；而新确认事件显示，隐藏在 /dev/glx_alsa_675 的可疑文件亦直接执行 clean（T1083），揭示其作为隐蔽入口点实施文件与目录发现（T1083）并复用已有工具链的意图。clean 进程进一步派生 whoami（T1059.004）、uname（T1059.004）持续验证权限与系统架构，并调用 cat（T1059.004）读取敏感文件（如 /etc/passwd），标志攻击已进入横向信息收集阶段。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数及外联行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:42:46.278] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+
+[00:42:46.475] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:42:46.596] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:42:46.843] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:42:47.084] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:43:01.704] 
+============================================================
+[00:43:01.704] [迭代 63] MEMORY STATE UPDATE
+============================================================
+
+[00:43:01.704] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑；同时，firefox 直接向 C2 服务器 146.153.68.151:80 发起外联（T1071.001），标志命令与控制通道已建立。随后，/home/admin/clean 文件被再次执行（T1059），表明攻击者已将其持久化为独立可执行体；而隐藏在 /dev/glx_alsa_675 的可疑文件亦直接执行 clean（T1083），揭示其作为隐蔽入口点实施文件与目录发现并复用已有工具链的意图。clean 进程进一步派生 whoami（T1059.004）、uname（T1059.004）持续验证权限与系统架构，并调用 cat（T1059.004）读取 /etc/passwd 等敏感文件，标志攻击已进入横向信息收集阶段。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数及外联行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:43:01.704] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+
+[00:43:01.872] --- Action Recorded ---
+Action: 查找写入文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:43:02.096] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:43:02.300] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:43:02.462] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:43:10.931] 
+============================================================
+[00:43:10.931] [迭代 66] MEMORY STATE UPDATE
+============================================================
+
+[00:43:10.931] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问；其中 firefox 向 8.8.8.8:53 的主动 sendto 行为（T1071.001）进一步强化了其作为双向 C2 信道节点的角色。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑；同时，firefox 直接向 C2 服务器 146.153.68.151:80 及 8.8.8.8:53 发起外联（T1071.001），标志命令与控制通道已多点冗余建立。随后，/home/admin/clean 文件被再次执行（T1059），表明攻击者已将其持久化为独立可执行体；而隐藏在 /dev/glx_alsa_675 的可疑文件亦直接执行 clean（T1083），揭示其作为隐蔽入口点实施文件与目录发现并复用已有工具链的意图。clean 进程进一步派生 whoami（T1059.004）、uname（T1059.004）持续验证权限与系统架构，并调用 cat（T1059.004）读取 /etc/passwd 等敏感文件，标志攻击已进入横向信息收集阶段。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数及外联行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:43:10.931] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+
+[00:43:11.115] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:43:11.238] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:43:11.520] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:43:11.655] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:43:11.809] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:43:12.004] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:43:25.052] 
+============================================================
+[00:43:25.052] [迭代 71] MEMORY STATE UPDATE
+============================================================
+
+[00:43:25.052] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问；其中 firefox 向 8.8.8.8:53 的主动 sendto 行为（T1071.001）强化其作为双向 C2 信道节点的角色。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑；同时，firefox 直接向 C2 服务器 146.153.68.151:80 及 8.8.8.8:53 发起外联（T1071.001），标志命令与控制通道已多点冗余建立。随后，/home/admin/clean 文件被再次执行（T1059），表明攻击者已将其持久化为独立可执行体；而隐藏在 /dev/glx_alsa_675 的可疑文件亦直接执行 clean（T1083），揭示其作为隐蔽入口点实施文件与目录发现并复用已有工具链的意图。clean 进程进一步派生 whoami（T1059.004）、uname（T1059.004）持续验证权限与系统架构，并调用 cat（T1059.004）读取 /etc/passwd 等敏感文件——最新确认该行为已实际完成对 /etc/passwd 的读取（T1005），标志攻击正式进入横向信息收集与凭证窃取准备阶段。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数及外联行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:43:25.052] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+
+[00:43:25.170] --- Action Recorded ---
+Action: 查找写入文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:43:25.291] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:43:25.431] --- Action Recorded ---
+Action: 查找写入文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:43:25.679] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:43:25.832] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:43:26.127] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:43:40.792] 
+============================================================
+[00:43:40.792] [迭代 76] MEMORY STATE UPDATE
+============================================================
+
+[00:43:40.792] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷，形成多协议（HTTP/HTTP-alt/DNS）协同的初始访问；其中 firefox 向 8.8.8.8:53 的主动 sendto 行为（T1071.001）强化其作为双向 C2 信道节点的角色。立足后，firefox 迅速启动执行阶段：派生 ps（T1059.004）枚举进程；并发执行 whoami（T1059.004）探测权限、clean（T1059.004）进行痕迹清理，并派生 sh 子进程（T1059.004）承载后续控制逻辑；同时，firefox 直接向 C2 服务器 146.153.68.151:80 及 8.8.8.8:53 发起外联（T1071.001），标志命令与控制通道已多点冗余建立。随后，/home/admin/clean 文件被再次执行（T1059），表明攻击者已将其持久化为独立可执行体；而隐藏在 /dev/glx_alsa_675 的可疑文件亦直接执行 clean（T1083），揭示其作为隐蔽入口点实施文件与目录发现并复用已有工具链的意图。clean 进程进一步派生 whoami（T1059.004）、uname（T1059.004）持续验证权限与系统架构，并调用 cat（T1059.004）读取敏感文件——最新确认该行为已实际完成对 /etc/passwd（T1005）及 /proc/version（T1005）的读取，标志攻击正式进入横向信息收集与系统环境深度测绘阶段。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数及外联行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:43:40.792] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+
+[00:43:40.938] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:43:41.147] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:43:41.329] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:43:41.614] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:43:41.846] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:43:42.010] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:43:55.756] 
+============================================================
+[00:43:55.756] [迭代 81] MEMORY STATE UPDATE
+============================================================
+
+[00:43:55.756] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；其中 firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点的能力。立足后，firefox 立即执行多阶段操作：首先将恶意载荷写入 /home/admin/clean（T1105），完成工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测、痕迹清理与控制逻辑承载；同时向 C2 服务器 146.153.68.151:80 及 8.8.8.8:53 外联（T1071.001），实现命令与控制通道冗余化。/home/admin/clean 被再次执行（T1059），表明已持久化为独立可执行体；而隐藏文件 /dev/glx_alsa_675 直接调用 clean（T1083），复用工具链实施文件系统探测。clean 进程持续执行 whoami、uname（T1059.004）验证环境，并通过 cat（T1059.004）成功读取 /etc/passwd 与 /proc/version（T1005），标志攻击进入深度系统测绘与敏感信息收集阶段。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数及外联行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:43:55.756] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+
+[00:43:56.010] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:43:56.221] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:43:56.428] --- Action Recorded ---
+Action: 查找写入文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:43:56.559] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:43:56.679] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:44:10.203] 
+============================================================
+[00:44:10.203] [迭代 85] MEMORY STATE UPDATE
+============================================================
+
+[00:44:10.203] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；其中 firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点的能力。立足后，firefox 立即执行多阶段操作：将恶意载荷写入 /home/admin/clean（T1105），同时新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测、痕迹清理与控制逻辑承载；并同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001），实现命令与控制通道冗余化。/home/admin/clean 被再次执行（T1059），表明已持久化为独立可执行体；而 /dev/glx_alsa_675 直接调用 clean（T1083），复用工具链实施文件系统探测。clean 进程持续执行 whoami、uname（T1059.004）验证环境，并通过 cat（T1059.004）成功读取 /etc/passwd 与 /proc/version（T1005），标志攻击进入深度系统测绘与敏感信息收集阶段。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数及外联行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:44:10.203] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+
+[00:44:10.356] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:44:10.489] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:44:10.769] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:44:10.999] --- Action Recorded ---
+Action: 查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:44:11.298] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:44:23.598] 
+============================================================
+[00:44:23.598] [迭代 89] MEMORY STATE UPDATE
+============================================================
+
+[00:44:23.598] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；其中 firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点的能力。立足后，firefox 立即执行多阶段操作：将恶意载荷写入 /home/admin/clean（T1105），同时新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测、痕迹清理与控制逻辑承载；并同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001），实现命令与控制通道冗余化。/home/admin/clean 被再次执行（T1059），表明已持久化为独立可执行体；而 /dev/glx_alsa_675 直接调用 clean（T1083），复用工具链实施文件系统探测。clean 进程持续执行 whoami、uname（T1059.004）验证环境，并通过 cat（T1059.004）成功读取 /etc/passwd 与 /proc/version（T1005），标志攻击进入深度系统测绘与敏感信息收集阶段。最新确认：sh 进程进一步读取了 /home/admin/.bashrc（T1005），暴露出攻击者对用户级持久化配置的探查意图，强化其横向扩展与隐蔽驻留能力。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数、外联行为及对 .bashrc 的读取动作），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:44:23.598] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+
+[00:44:23.751] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:44:23.922] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:44:24.141] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:44:24.408] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:44:24.699] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:44:24.895] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:44:25.020] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:44:38.043] 
+============================================================
+[00:44:38.043] [迭代 95] MEMORY STATE UPDATE
+============================================================
+
+[00:44:38.043] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；其中 firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点的能力。立足后，firefox 立即执行多阶段操作：将恶意载荷写入 /home/admin/clean（T1105），同时新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测、痕迹清理与控制逻辑承载；并同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001），实现命令与控制通道冗余化。/home/admin/clean 被再次执行（T1059），表明已持久化为独立可执行体；而 /dev/glx_alsa_675 直接调用 clean（T1083），复用工具链实施文件系统探测。clean 进程持续执行 whoami、uname（T1059.004）验证环境，并通过 cat（T1059.004）成功读取 /etc/passwd 与 /proc/version（T1005），标志攻击进入深度系统测绘与敏感信息收集阶段。最新确认：sh 进程读取 /home/admin/.bashrc（T1005），暴露用户级持久化探查意图；同时 clean 进程新增外联行为，主动向 161.116.88.72:80 发起 sendto（T1071.001），进一步扩展 C2 基础设施，强化通信弹性与隐蔽性。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数、外联行为及对 .bashrc 的读取动作），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:44:38.043] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+
+[00:44:38.201] --- Action Recorded ---
+Action: 查找 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:44:38.406] --- Action Recorded ---
+Action: 查找写入文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:44:38.685] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:44:38.813] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:44:38.924] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:44:39.163] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:44:39.414] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:44:54.289] 
+============================================================
+[00:44:54.289] [迭代 101] MEMORY STATE UPDATE
+============================================================
+
+[00:44:54.289] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；其中 firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点的能力。立足后，firefox 立即执行多阶段操作：将恶意载荷写入 /home/admin/clean（T1105），同时新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测、痕迹清理与控制逻辑承载；并同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001），实现命令与控制通道冗余化。/home/admin/clean 被再次执行（T1059），表明已持久化为独立可执行体；而 /dev/glx_alsa_675 直接调用 clean（T1083），复用工具链实施文件系统探测。clean 进程持续执行 whoami、uname（T1059.004）验证环境，并通过 cat（T1059.004）成功读取 /etc/passwd 与 /proc/version（T1005），标志攻击进入深度系统测绘与敏感信息收集阶段。最新确认：sh 进程除读取 /home/admin/.bashrc（T1005）外，进一步派生 ls 子进程（T1059.004），对当前目录结构进行枚举，强化用户环境感知能力；同时 clean 进程新增外联行为，主动向 161.116.88.72:80 发起 sendto（T1071.001），扩展 C2 基础设施。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数、外联行为、.bashrc 读取及新派生的 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:44:54.289] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+
+[00:44:54.567] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:44:54.694] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:44:54.888] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:44:55.086] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:44:55.380] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:45:08.381] 
+============================================================
+[00:45:08.381] [迭代 105] MEMORY STATE UPDATE
+============================================================
+
+[00:45:08.381] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；其中 firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点的能力。立足后，firefox 立即执行多阶段操作：将恶意载荷写入 /home/admin/clean（T1105），同时新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测、痕迹清理与控制逻辑承载；并同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001），实现命令与控制通道冗余化。/home/admin/clean 被再次执行（T1059），表明已持久化为独立可执行体；而 /dev/glx_alsa_675 直接调用 clean（T1083），复用工具链实施文件系统探测。clean 进程持续执行 whoami、uname（T1059.004）验证环境，并通过 cat（T1059.004）成功读取 /etc/passwd 与 /proc/version（T1005）；ps 进程亦读取 /proc/version（T1005），标志攻击者正多线程开展系统测绘。sh 进程除读取 /home/admin/.bashrc（T1005）外，进一步派生 ls 子进程（T1059.004）枚举当前目录结构，并伴随 clean 进程新增外联行为，主动向 161.116.88.72:80 发起 sendto（T1071.001），扩展 C2 基础设施。当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数、外联行为、.bashrc 读取及新派生的 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:45:08.381] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+
+[00:45:08.529] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:45:08.752] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:45:08.950] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:45:09.212] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:45:21.681] 
+============================================================
+[00:45:21.681] [迭代 108] MEMORY STATE UPDATE
+============================================================
+
+[00:45:21.681] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；其中 firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点的能力。立足后，firefox 立即执行多阶段操作：将恶意载荷写入 /home/admin/clean（T1105），同时新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测、痕迹清理与控制逻辑承载；并同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001），实现命令与控制通道冗余化。/home/admin/clean 被再次执行（T1059），表明已持久化为独立可执行体；而 /dev/glx_alsa_675 直接调用 clean（T1083），复用工具链实施文件系统探测。clean 进程持续执行 whoami、uname（T1059.004）验证环境，并通过 cat（T1059.004）成功读取 /etc/passwd 与 /proc/version（T1005）；ps 进程亦读取 /proc/version（T1005）。sh 进程除读取 /home/admin/.bashrc（T1005）外，进一步派生 ls 枚举目录（T1059.004），并伴随 clean 新增外联 161.116.88.72:80（T1071.001）。**最新确认：whoami 进程（含 firefox 与 clean 双源实例）均直接读取 /etc/passwd（T1005），印证攻击者正跨进程横向验证凭证与用户权限分布。** 当前调查焦点为 whoami 进程（含 firefox 与 clean 双源实例）、sh 进程（重点关注命令行参数、外联行为、.bashrc 读取及新派生的 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统的深度探测、工具复用能力及隐蔽持久化机制。
+
+[00:45:21.681] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+
+[00:45:21.841] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:45:22.031] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:45:22.137] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:45:22.386] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:45:34.859] 
+============================================================
+[00:45:34.859] [迭代 111] MEMORY STATE UPDATE
+============================================================
+
+[00:45:34.859] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点能力，并立即读取 /etc/hosts（T1005），初步探测本地网络配置与域名解析策略。立足后，firefox 将恶意载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测与控制逻辑承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。/home/admin/clean 被再次执行（T1059），实现持久化；/dev/glx_alsa_675 调用 clean（T1083）复用工具链。clean 与 whoami 进程（含 firefox 与 clean 双源实例）均多次读取 /etc/passwd（T1005）及 /proc/version（T1005），sh 进程读取 /home/admin/.bashrc（T1005）并派生 ls 枚举目录（T1059.004），clean 新增外联 161.116.88.72:80（T1071.001）。当前调查焦点为 whoami 进程（双源实例）、sh 进程（含命令行参数、.bashrc 读取及 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证与网络环境的深度测绘及隐蔽持久化机制。
+
+[00:45:34.859] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+
+[00:45:35.096] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:45:35.255] --- Action Recorded ---
+Action: 查找与 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:45:35.404] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:45:35.518] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:45:35.704] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:45:43.959] 
+============================================================
+[00:45:43.959] [迭代 115] MEMORY STATE UPDATE
+============================================================
+
+[00:45:43.959] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，均利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立其作为双向 C2 信道节点能力，并立即读取 /etc/hosts（T1005），初步探测本地网络配置与域名解析策略。立足后，firefox 将恶意载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），完成双路径工具注入；随即派生 ps、whoami、clean 和 sh 子进程（T1059.004），开展权限探测与控制逻辑承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。/home/admin/clean 被再次执行（T1059），实现持久化；/dev/glx_alsa_675 调用 clean（T1083）复用工具链。clean 与 whoami 进程（含 firefox 与 clean 双源实例）均多次读取 /etc/passwd（T1005）及 /proc/version（T1005），sh 进程读取 /home/admin/.bashrc（T1005）并派生 ls 枚举 /home/admin 目录（T1005），clean 新增外联 161.116.88.72:80（T1071.001）。当前调查焦点为 whoami 进程（双源实例）、sh 进程（含命令行参数、.bashrc 读取及 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证与网络环境的深度测绘及隐蔽持久化机制。
+
+[00:45:43.959] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+
+[00:45:44.151] --- Action Recorded ---
+Action: 查找写入文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:45:44.362] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:45:44.654] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:45:44.877] --- Action Recorded ---
+Action: 查找与 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:45:45.145] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:45:45.250] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:45:59.243] 
+============================================================
+[00:45:59.243] [迭代 120] MEMORY STATE UPDATE
+============================================================
+
+[00:45:59.243] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。/home/admin/clean 被再次执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。clean 与 whoami 进程（含双源实例）多次读取 /etc/passwd 和 /proc/version（T1005），sh 进程读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），clean 新增外联 161.116.88.72:80（T1071.001）。最新确认：cat 进程读取 /var/log/syslog（T1005），表明攻击者正扩大日志采集范围，强化对系统运行状态与安全事件痕迹的掌握。当前调查焦点为 whoami 进程（双源实例）、sh 进程（含命令行参数、.bashrc 读取及 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境及日志数据的深度测绘与隐蔽持久化机制。
+
+[00:45:59.243] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+
+[00:45:59.495] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:45:59.615] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:45:59.912] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:46:00.096] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: success
+
+[00:46:00.363] --- Malicious Event Added ---
+Event ID: 8D401073-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:46:14.825] 
+============================================================
+[00:46:14.825] [迭代 124] MEMORY STATE UPDATE
+============================================================
+
+[00:46:14.825] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。/home/admin/clean 被再次执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。clean 与 whoami 进程（含双源实例）多次读取 /etc/passwd 和 /proc/version（T1005），sh 进程读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），clean 新增外联 161.116.88.72:80（T1071.001）。cat 进程读取 /var/log/syslog（T1005），表明攻击者正扩大日志采集范围；更关键的是，cron 进程被篡改后向 /var/log/syslog 写入数据（T1105），暗示攻击者已获取定时任务控制权，试图污染或 suppress 日志以掩盖痕迹。当前调查焦点为 whoami 进程（双源实例）、sh 进程（含命令行参数、.bashrc 读取及 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境及日志数据的深度测绘、隐蔽持久化与反检测机制。
+
+[00:46:14.825] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+
+[00:46:14.961] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:46:15.178] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:46:15.441] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:46:15.684] --- Action Recorded ---
+Action: 查找写入文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:46:15.897] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:46:16.013] --- Malicious Event Added ---
+Event ID: 8D40106A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:46:27.008] 
+============================================================
+[00:46:27.008] [迭代 129] MEMORY STATE UPDATE
+============================================================
+
+[00:46:27.008] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。/home/admin/clean 被再次执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。clean 与 whoami 进程（含双源实例）多次读取 /etc/passwd 和 /proc/version（T1005），sh 进程读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），clean 新增外联 161.116.88.72:80（T1071.001）。cat 进程读取 /var/log/syslog（T1005），cron 进程被篡改后向该日志写入数据以污染或抑制痕迹（T1105）。最新确认：clean 进程进一步将采集或生成的数据写入 /tmp/data.log（T1105），表明攻击者正系统化归档敏感信息，强化横向移动与隐蔽驻留能力。当前调查焦点为 whoami 进程（双源实例）、sh 进程（含命令行参数、.bashrc 读取及 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:46:27.008] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+
+[00:46:27.293] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:46:27.455] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:46:27.723] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:46:27.960] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:46:41.769] 
+============================================================
+[00:46:41.769] [迭代 132] MEMORY STATE UPDATE
+============================================================
+
+[00:46:41.769] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。ps 进程进一步派生 grep（T1059.004），用于进程列表过滤，强化隐蔽性；clean 与 whoami 进程（含双源实例）多次读取 /etc/passwd 和 /proc/version（T1005），其中 ps → /proc/version、whoami → /etc/passwd 等行为构成横向验证链；sh 进程读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），cat 进程读取 /var/log/syslog（T1005），cron 进程被篡改后向该日志写入数据以污染或抑制痕迹（T1105）。/home/admin/clean 被再次执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083），clean 新增外联 161.116.88.72:80（T1071.001），并系统化将采集或生成的数据写入 /tmp/data.log（T1105），表明攻击者正深度归档敏感信息，支撑后续横向移动与长期驻留。当前调查焦点为 whoami 进程（双源实例）、sh 进程（含命令行参数、.bashrc 读取及 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:46:41.769] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+  30. [Execution] T1059.004 (Unix Shell) - ps → grep
+
+[00:46:41.997] --- Action Recorded ---
+Action: 查找写入文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:46:42.146] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:46:42.333] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[00:46:42.518] --- Malicious Event Added ---
+Event ID: 8D401071-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:46:53.880] 
+============================================================
+[00:46:53.880] [迭代 135] MEMORY STATE UPDATE
+============================================================
+
+[00:46:53.880] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。ps 进程进一步派生 grep（T1059.004）强化隐蔽性；clean 进程多次读取 /etc/passwd 和 /proc/version（T1005），并外联 161.116.88.72:80（T1071.001），系统化写入 /tmp/data.log（T1105）归档敏感信息；sh 进程读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），cat 进程读取 /var/log/syslog（T1005），cron 被篡改后向该日志写入数据以抑制痕迹（T1105）。值得注意的是，bash 进程新确认派生 whoami（T1059.004），构成与 firefox → whoami、clean → whoami 并行的第三条权限探测路径，表明攻击者正通过多源指令流交叉验证用户权限与环境一致性。/home/admin/clean 被再次执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。当前调查焦点为 whoami 进程（三源实例：firefox、clean、bash）、sh 进程（含命令行参数、.bashrc 读取及 ls 行为），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:46:53.880] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+  30. [Execution] T1059.004 (Unix Shell) - ps → grep
+  31. [Execution] T1059.004 (Unix Shell) - bash → whoami
+
+[00:46:54.105] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:46:54.268] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:46:54.521] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:46:54.628] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:46:54.853] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:46:55.022] --- Malicious Event Added ---
+Event ID: 8D401072-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:47:09.470] 
+============================================================
+[00:47:09.470] [迭代 140] MEMORY STATE UPDATE
+============================================================
+
+[00:47:09.470] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。ps 派生 grep（T1059.004）强化隐蔽性；clean 多次读取 /etc/passwd 和 /proc/version（T1005），外联 161.116.88.72:80（T1071.001），系统化写入 /tmp/data.log（T1105）归档敏感信息；sh 读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），cat 读取 /var/log/syslog（T1005），cron 被篡改后向该日志注入数据以抑制痕迹（T1105）。值得注意的是，bash 与 cron 均新确认派生 whoami（T1059.004），构成 firefox → whoami、clean → whoami、bash → whoami、cron → sh → whoami 四源并行的权限交叉验证路径；/home/admin/clean 被重复执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。当前调查焦点为 whoami 进程（四源实例）、sh 进程（含 .bashrc 读取、ls 枚举及 cron 派生上下文），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:47:09.470] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+  30. [Execution] T1059.004 (Unix Shell) - ps → grep
+  31. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  32. [Execution] T1059.004 (Unix Shell) - cron → sh
+
+[00:47:09.659] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:47:09.806] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:47:09.928] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:47:10.180] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:47:10.304] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:47:10.420] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:47:10.661] --- Malicious Event Added ---
+Event ID: 8D401074-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:47:25.263] 
+============================================================
+[00:47:25.263] [迭代 146] MEMORY STATE UPDATE
+============================================================
+
+[00:47:25.263] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。ps 派生 grep（T1059.004）强化隐蔽性，grep 进一步读取 /var/log/syslog（T1005），与 cat、sh、ls 等进程形成对系统日志、用户环境及运行状态的交叉测绘。clean 多次读取 /etc/passwd 和 /proc/version（T1005），外联 161.116.88.72:80（T1071.001），系统化写入 /tmp/data.log（T1105）归档敏感信息；sh 读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），cat 读取 /var/log/syslog（T1005），cron 被篡改后向该日志注入数据以抑制痕迹（T1105）。值得注意的是，bash 与 cron 均新确认派生 whoami（T1059.004），构成 firefox → whoami、clean → whoami、bash → whoami、cron → sh → whoami 四源并行的权限交叉验证路径；/home/admin/clean 被重复执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。当前调查焦点为 whoami 进程（四源实例）、sh 进程（含 .bashrc 读取、ls 枚举及 cron 派生上下文），以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:47:25.263] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+  30. [Execution] T1059.004 (Unix Shell) - ps → grep
+  31. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  32. [Execution] T1059.004 (Unix Shell) - cron → sh
+  33. [Collection] T1005 (Data from Local System) - grep → /var/log/syslog
+
+[00:47:25.437] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:47:25.572] --- Action Recorded ---
+Action: 查找 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:47:25.747] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:47:26.013] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[00:47:26.260] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:47:35.487] 
+============================================================
+[00:47:35.487] [迭代 150] MEMORY STATE UPDATE
+============================================================
+
+[00:47:35.487] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。ps 派生 grep（T1059.004）强化隐蔽性，grep 进一步读取 /var/log/syslog（T1005），与 cat、sh、ls 等进程形成对系统日志、用户环境及运行状态的交叉测绘。clean 多次读取 /etc/passwd 和 /proc/version（T1005），外联 161.116.88.72:80（T1071.001），系统化写入 /tmp/data.log（T1105）归档敏感信息；sh 读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），cat 读取 /var/log/syslog（T1005），cron 被篡改后向该日志注入数据以抑制痕迹（T1105）。值得注意的是，bash 与 cron 均新确认派生 whoami（T1059.004），构成 firefox → whoami、clean → whoami、bash → whoami、cron → sh → whoami 四源并行的权限交叉验证路径；/home/admin/clean 被重复执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。**最新确认：sshd 进程派生 bash（T1059.004），表明攻击者已通过 SSH 获取合法会话入口，正从服务端进程横向扩展至 shell 层，显著提升访问权限与隐蔽性。** 当前调查焦点为 whoami 进程（四源实例）、sh 进程（含 .bashrc 读取、ls 枚举及 cron 派生上下文）、sshd → bash 新路径，以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:47:35.487] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+  30. [Execution] T1059.004 (Unix Shell) - ps → grep
+  31. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  32. [Execution] T1059.004 (Unix Shell) - cron → sh
+  33. [Collection] T1005 (Data from Local System) - grep → /var/log/syslog
+  34. [Execution] T1059.004 (Unix Shell) - sshd → bash
+
+[00:47:35.657] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:47:35.835] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:47:35.963] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:47:36.245] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:47:36.370] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:47:47.776] 
+============================================================
+[00:47:47.776] [迭代 154] MEMORY STATE UPDATE
+============================================================
+
+[00:47:47.776] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。ps 派生 grep（T1059.004）强化隐蔽性，grep 进一步读取 /var/log/syslog（T1005），与 cat、sh、ls 等进程形成对系统日志、用户环境及运行状态的交叉测绘。clean 多次读取 /etc/passwd 和 /proc/version（T1005），外联 161.116.88.72:80（T1071.001），系统化写入 /tmp/data.log（T1105）归档敏感信息；sh 读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），cat 读取 /var/log/syslog（T1005），cron 被篡改后向该日志注入数据以抑制痕迹（T1105）。值得注意的是，bash 与 cron 均新确认派生 whoami（T1059.004），构成 firefox → whoami、clean → whoami、bash → whoami、cron → sh → whoami 四源并行的权限交叉验证路径；/home/admin/clean 被重复执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。最新确认：内部 IP 192.168.1.1:22 向 sshd 进程发起 recvfrom（T1190），表明攻击者已通过 SSH 横向渗透至内网主机；sshd 随即派生 bash（T1059.004），标志攻击者从服务端进程成功跃迁至交互式 shell 层，显著提升访问权限与隐蔽性。当前调查焦点为 whoami 进程（四源实例）、sh 进程（含 .bashrc 读取、ls 枚举及 cron 派生上下文）、sshd → bash 新路径，以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:47:47.776] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+  30. [Execution] T1059.004 (Unix Shell) - ps → grep
+  31. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  32. [Execution] T1059.004 (Unix Shell) - cron → sh
+  33. [Collection] T1005 (Data from Local System) - grep → /var/log/syslog
+  34. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  35. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:22 → sshd
+
+[00:47:47.909] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:47:48.038] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:47:48.164] --- Action Recorded ---
+Action: 查找与 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:47:48.264] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:47:48.381] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:47:56.931] 
+============================================================
+[00:47:56.931] [迭代 158] MEMORY STATE UPDATE
+============================================================
+
+[00:47:56.931] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 141.43.176.203:80、104.228.117.212:80、128.55.12.167:8018 及 DNS 服务器 8.8.8.8:53 四路并发，利用面向公众应用程序漏洞（T1190）向 firefox 进程投递恶意载荷；firefox 主动向 8.8.8.8:53 发起 sendto（T1071.001），确立双向 C2 能力，并立即读取 /etc/hosts（T1005）探测本地网络配置。随后将载荷写入 /home/admin/clean（T1105），新建隐藏文件 /dev/glx_alsa_675（T1105），并派生 ps、whoami、clean 和 sh 子进程（T1059.004）开展权限探测与控制承载；同步外联 C2 服务器 146.153.68.151:80 及 8.8.8.8:53（T1071.001）。ps 派生 grep（T1059.004）强化隐蔽性，grep 进一步读取 /var/log/syslog（T1005），与 cat、sh、ls 等进程形成对系统日志、用户环境及运行状态的交叉测绘。clean 多次读取 /etc/passwd 和 /proc/version（T1005），外联 161.116.88.72:80（T1071.001），系统化写入 /tmp/data.log（T1105）归档敏感信息；sh 读取 /home/admin/.bashrc 并派生 ls 枚举 /home/admin（T1005），cat 读取 /var/log/syslog（T1005），cron 被篡改后向该日志注入数据以抑制痕迹（T1105）。值得注意的是，bash 与 cron 均新确认派生 whoami（T1059.004），构成 firefox → whoami、clean → whoami、bash → whoami、cron → sh → whoami 四源并行的权限交叉验证路径；/home/admin/clean 被重复执行实现持久化（T1059），/dev/glx_alsa_675 复用 clean 工具链（T1083）。最新确认：内部 IP 192.168.1.1:22 向 sshd 进程发起 recvfrom（T1190），表明攻击者已通过 SSH 横向渗透至内网主机；sshd 随即派生 bash（T1059.004），并直接向 /var/log/auth.log 写入数据（T1105），意图混淆或覆盖真实登录审计痕迹，标志攻击者从服务端进程成功跃迁至交互式 shell 层，并启动日志层面的反检测操作。当前调查焦点为 whoami 进程（四源实例）、sh 进程（含 .bashrc 读取、ls 枚举及 cron 派生上下文）、sshd → bash 新路径，以及 /home/admin/clean 与 /dev/glx_alsa_675 的关联执行路径——二者共同指向攻击者对本地文件系统、用户凭证、运行环境、日志数据及临时存储空间的深度测绘、隐蔽持久化与反检测机制。
+
+[00:47:56.931] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167:8018 → firefox
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → firefox
+  5. [Execution] T1059.004 (Unix Shell) - firefox → ps
+  6. [Execution] T1059.004 (Unix Shell) - firefox → whoami
+  7. [Execution] T1059.004 (Unix Shell) - firefox → clean
+  8. [Execution] T1059.004 (Unix Shell) - firefox → sh
+  9. [Execution] T1059.004 (Unix Shell) - clean → whoami
+  10. [Execution] T1059.004 (Unix Shell) - clean → uname
+  11. [Execution] T1059.004 (Unix Shell) - clean → cat
+  12. [Execution] T1059 (Command and Scripting Interpreter) - /home/admin/clean → clean
+  13. [Discovery] T1083 (File and Directory Discovery) - /dev/glx_alsa_675 → clean
+  14. [Command and Control] T1071.001 (Web Protocols) - firefox → 146.153.68.151:80
+  15. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+  16. [Collection] T1005 (Data from Local System) - clean → /etc/passwd
+  17. [Collection] T1005 (Data from Local System) - clean → /proc/version
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/clean
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /dev/glx_alsa_675
+  20. [Collection] T1005 (Data from Local System) - sh → /home/admin/.bashrc
+  21. [Command and Control] T1071.001 (Web Protocols) - clean → 161.116.88.72:80
+  22. [Execution] T1059.004 (Unix Shell) - sh → ls
+  23. [Collection] T1005 (Data from Local System) - ps → /proc/version
+  24. [Collection] T1005 (Data from Local System) - whoami → /etc/passwd
+  25. [Collection] T1005 (Data from Local System) - firefox → /etc/hosts
+  26. [Collection] T1005 (Data from Local System) - ls → /home/admin
+  27. [Collection] T1005 (Data from Local System) - cat → /var/log/syslog
+  28. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - clean → /tmp/data.log
+  30. [Execution] T1059.004 (Unix Shell) - ps → grep
+  31. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  32. [Execution] T1059.004 (Unix Shell) - cron → sh
+  33. [Collection] T1005 (Data from Local System) - grep → /var/log/syslog
+  34. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  35. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:22 → sshd
+  36. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  37. [Execution] T1059 (Command and Scripting Interpreter) - 146.153.68.151:80 → /etc/passwd
+  38. [Collection] T1005 (Data from Local System) - grep → sshd
+  39. [Execution] T1059.004 (Unix Shell) - uname → /var/log/auth.log
+  40. [Collection] T1005 (Data from Local System) - 161.116.88.72:80 → /tmp/ff_cache
+  41. [Execution] T1059.004 (Unix Shell) - 8.8.8.8:53 → clean
+  42. [Command and Control] T1105 (Ingress Tool Transfer) - /proc/version → ls
+  43. [Execution] T1059.004 (Unix Shell) - uname → 161.116.88.72:80
+  44. [Execution] T1059 (Command and Scripting Interpreter) - bash → /etc/hosts
+  45. [Execution] T1059.004 (Unix Shell) - /etc/passwd → /dev/glx_alsa_675
+  46. [Collection] T1005 (Data from Local System) - 141.43.176.203:80 → ps
+  47. [Execution] T1059.004 (Unix Shell) - /var/log/auth.log → grep
+[00:47:57.213] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results

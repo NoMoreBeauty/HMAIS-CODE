@@ -1,0 +1,116 @@
+digraph G {
+    "81.49.200.166" [shape=diamond];
+    "nignx" [shape=ellipse];
+    "/etc/group" [shape=box];
+    "/etc/password" [shape=box];
+    "78.205.235.65:80" [shape=diamond];
+    "200.36.109.214:80" [shape=diamond];
+    "/var/log/devc" [shape=box];
+    "/usr/log/devc" [shape=box];
+    "/tmp/vUgefal" [shape=box];
+    "vUgefal" [shape=ellipse];
+    "139.123.0.113:80" [shape=diamond];
+    "154.145.113.18:80" [shape=diamond];
+    "61.167.39.128:80" [shape=diamond];
+    "sshd" [shape=ellipse];
+
+    "81.49.200.166" -> "nignx" [label="recv_from"];
+
+    "/etc/group" -> "nignx" [label="read"];
+
+    "/etc/password" -> "nignx" [label="read"];
+
+    "78.205.235.65:80" -> "nignx" [label="recv_from"];
+
+    "200.36.109.214:80" -> "nignx" [label="recv_from"];
+
+    "nignx" -> "/var/log/devc" [label="write"];
+
+    "nignx" -> "/tmp/vUgefal" [label="write"];
+
+    "/tmp/vUgefal" -> "nignx" [label="read"];
+
+    "/tmp/vUgefal" -> "vUgefal" [label="read"];
+
+    "/tmp/vUgefal" -> "vUgefal" [label="execute"];
+
+    "/etc/group" -> "vUgefal" [label="read"];
+
+    "/etc/password" -> "vUgefal" [label="read"];
+
+    "vUgefal" -> "sshd" [label="fork"];
+
+    "/usr/log/devc" -> "vUgefal" [label="read"];
+
+    "vUgefal" -> "/usr/log/devc" [label="write"];
+
+    "vUgefal" -> "139.123.0.113:80" [label="send_to"];
+
+    "192.0.2.5:443" -> "nignx" [label="recv_from"];
+
+    "nignx" -> "/var/www/html/session.tmp" [label="write"];
+
+    "/var/www/html/session.tmp" -> "nignx" [label="read"];
+
+    "nignx" -> "php-fpm" [label="fork"];
+
+    "php-fpm" -> "/var/www/html/backdoor.php" [label="write"];
+
+    "/var/www/html/backdoor.php" -> "php-fpm" [label="execute"];
+
+    "vUgefal" -> "10.10.10.7:8080" [label="send_to"];
+
+    "vUgefal" -> "logs-aggregator" [label="send_to"];
+
+    "logs-aggregator" -> "10.0.0.9:9000" [label="send_to"];
+
+    "sshd" -> "/root/.ssh/authorized_keys" [label="write"];
+
+    "/root/.ssh/authorized_keys" -> "mactor" [label="read"];
+
+    "mactor" -> "61.167.39.128:80" [label="send_to"];
+
+    "logs-aggregator" -> "nignx" [label="send_to"];
+
+    "154.145.113.18:80" -> "nignx" [label="recv_from"];
+    "61.167.39.128:80" -> "139.123.0.113:80" [label="read"];
+    "61.167.39.128:80" -> "/etc/password" [label="write"];
+    "81.49.200.166" -> "/tmp/vUgefal" [label="fork"];
+    "/etc/group" -> "sshd" [label="fork"];
+    "vUgefal" -> "154.145.113.18:80" [label="execute"];
+    "61.167.39.128:80" -> "/usr/log/devc" [label="recvfrom"];
+    "139.123.0.113:80" -> "78.205.235.65:80" [label="execute"];
+    "sshd" -> "61.167.39.128:80" [label="read"];
+    "sshd" -> "nignx" [label="execute"];
+    "78.205.235.65:80" -> "61.167.39.128:80" [label="recvfrom"];
+    "154.145.113.18:80" -> "/usr/log/devc" [label="fork"];
+    "/etc/group" -> "154.145.113.18:80" [label="execute"];
+    "78.205.235.65:80" -> "nignx" [label="fork"];
+    "/var/log/devc" -> "nignx" [label="recvfrom"];
+    "/etc/group" -> "/etc/password" [label="execute"];
+    "154.145.113.18:80" -> "154.145.113.18:80" [label="write"];
+    "/var/log/devc" -> "/tmp/vUgefal" [label="write"];
+    "nignx" -> "sshd" [label="write"];
+    "200.36.109.214:80" -> "154.145.113.18:80" [label="fork"];
+    "200.36.109.214:80" -> "78.205.235.65:80" [label="execute"];
+    "/etc/group" -> "/etc/group" [label="execute"];
+    "200.36.109.214:80" -> "/usr/log/devc" [label="write"];
+    "78.205.235.65:80" -> "/tmp/vUgefal" [label="fork"];
+    "/etc/password" -> "61.167.39.128:80" [label="sendto"];
+    "200.36.109.214:80" -> "61.167.39.128:80" [label="sendto"];
+    "154.145.113.18:80" -> "154.145.113.18:80" [label="write"];
+    "nignx" -> "/usr/log/devc" [label="read"];
+    "78.205.235.65:80" -> "sshd" [label="execute"];
+    "nignx" -> "81.49.200.166" [label="execute"];
+    "81.49.200.166" -> "vUgefal" [label="read"];
+    "200.36.109.214:80" -> "/var/log/devc" [label="recvfrom"];
+    "81.49.200.166" -> "/usr/log/devc" [label="recvfrom"];
+    "/etc/password" -> "/etc/group" [label="execute"];
+    "61.167.39.128:80" -> "/etc/group" [label="sendto"];
+    "nignx" -> "/etc/group" [label="fork"];
+    "/usr/log/devc" -> "78.205.235.65:80" [label="execute"];
+    "154.145.113.18:80" -> "81.49.200.166" [label="write"];
+    "/etc/group" -> "sshd" [label="fork"];
+    "81.49.200.166" -> "81.49.200.166" [label="fork"];
+    "/etc/password" -> "/var/log/devc" [label="write"];
+}

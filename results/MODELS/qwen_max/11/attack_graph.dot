@@ -1,0 +1,70 @@
+digraph G {
+    "81.49.200.166" [shape=diamond];
+    "nignx" [shape=ellipse];
+    "/etc/group" [shape=box];
+    "/etc/password" [shape=box];
+    "78.205.235.65:80" [shape=diamond];
+    "200.36.109.214:80" [shape=diamond];
+    "/var/log/devc" [shape=box];
+    "/usr/log/devc" [shape=box];
+    "/tmp/vUgefal" [shape=box];
+    "vUgefal" [shape=ellipse];
+    "139.123.0.113:80" [shape=diamond];
+    "154.145.113.18:80" [shape=diamond];
+    "61.167.39.128:80" [shape=diamond];
+    "sshd" [shape=ellipse];
+    "/root/.ssh/authorized_keys" -> "mactor" [label="read"];
+
+    "php-fpm" -> "/var/www/html/backdoor.php" [label="write"];
+
+    "154.145.113.18:80" -> "nignx" [label="recv_from"];
+
+    "vUgefal" -> "10.10.10.7:8080" [label="send_to"];
+
+    "nignx" -> "/var/www/html/session.tmp" [label="write"];
+
+    "/etc/group" -> "vUgefal" [label="read"];
+
+    "logs-aggregator" -> "nignx" [label="send_to"];
+
+    "78.205.235.65:80" -> "nignx" [label="recv_from"];
+
+    "mactor" -> "61.167.39.128:80" [label="send_to"];
+
+    "/etc/password" -> "vUgefal" [label="read"];
+
+    "/var/www/html/backdoor.php" -> "php-fpm" [label="execute"];
+
+    "sshd" -> "/root/.ssh/authorized_keys" [label="write"];
+
+    "logs-aggregator" -> "10.0.0.9:9000" [label="send_to"];
+
+    "/var/www/html/session.tmp" -> "nignx" [label="read"];
+
+    "/tmp/vUgefal" -> "vUgefal" [label="execute"];
+
+
+    "81.49.200.166" -> "nignx" [label="recv_from"];
+
+    "200.36.109.214:80" -> "nignx" [label="recv_from"];
+
+    "/tmp/vUgefal" -> "vUgefal" [label="read"];
+
+    "nignx" -> "php-fpm" [label="fork"];
+
+    "vUgefal" -> "logs-aggregator" [label="send_to"];
+
+    "nignx" -> "/tmp/vUgefal" [label="write"];
+
+    "/etc/group" -> "nignx" [label="read"];
+
+    "192.0.2.5:443" -> "nignx" [label="recv_from"];
+
+    "/tmp/vUgefal" -> "nignx" [label="read"];
+
+    "/etc/password" -> "nignx" [label="read"];
+
+    "nignx" -> "/var/log/devc" [label="write"];
+
+    "vUgefal" -> "139.123.0.113:80" [label="send_to"];
+}

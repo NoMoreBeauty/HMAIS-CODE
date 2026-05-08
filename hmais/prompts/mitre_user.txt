@@ -1,0 +1,7 @@
+当前恶意事件详情：
+{event_details}
+
+当前的攻击上下文（已知恶意事件序列）：
+{context}
+
+请推断该事件的 MITRE ATT&CK 映射。

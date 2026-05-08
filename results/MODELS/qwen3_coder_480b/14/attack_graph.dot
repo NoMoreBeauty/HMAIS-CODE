@@ -1,0 +1,119 @@
+digraph G {
+    "25.159.96.207:80" [shape=diamond];
+    "nginx" [shape=ellipse];
+    "/tmp/eWq10bVcx" [shape=box];
+    "76.56.184.25:80" [shape=diamond];
+    "155.162.39.48:80" [shape=diamond];
+    "/etc/group" [shape=box];
+    "/tmp/pEja72mA" [shape=box];
+    "/dev/gt_dl8_675" [shape=box];
+    "pEja72mA" [shape=ellipse];
+    "/etc/passwd" [shape=box];
+    "sshd" [shape=ellipse];
+    "198.115.236.119:80" [shape=diamond];
+    "/tmp/done.so" [shape=box];
+    "/tmp/eraseme" [shape=box];
+    "/tmp/memhelp.so" [shape=box];
+    "53.158.101.118:80" [shape=diamond];
+    "systemd" [shape=ellipse];
+    "/var/log/nginx/access.log" [shape=box];
+    "/var/log/nginx/error.log" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "bash" [shape=ellipse];
+    "/bin/whoami" [shape=ellipse];
+    "/bin/ls" [shape=ellipse];
+    "cron" [shape=ellipse];
+    "/usr/bin/curl" [shape=ellipse];
+    "8.8.8.8:53" [shape=diamond];
+    "/proc/version" [shape=box];
+    "/etc/hosts" [shape=box];
+    "127.0.0.1:9000" [shape=diamond];
+    "php-fpm" [shape=ellipse];
+    "/etc/ssh/sshd_config" [shape=box];
+
+    "25.159.96.207:80" -> "nginx" [label="recv_from"];
+
+    "/tmp/eWq10bVcx" -> "nginx" [label="read"];
+
+    "nginx" -> "/tmp/eWq10bVcx" [label="write"];
+
+    "76.56.184.25:80" -> "nginx" [label="recv_from"];
+
+    "155.162.39.48:80" -> "nginx" [label="recv_from"];
+
+    "/etc/group" -> "nginx" [label="read"];
+
+    "/etc/passwd" -> "nginx" [label="read"];
+
+    "nginx" -> "/dev/gt_dl8_675" [label="write"];
+
+    "nginx" -> "/tmp/pEja72mA" [label="write"];
+
+    "nginx" -> "pEja72mA" [label="fork"];
+
+    "/tmp/pEja72mA" -> "pEja72mA" [label="read"];
+
+    "/tmp/eWq10bVcx" -> "pEja72mA" [label="read"];
+
+    "pEja72mA" -> "198.115.236.119:80" [label="send_to"];
+
+    "pEja72mA" -> "53.158.101.118:80" [label="send_to"];
+
+    "pEja72mA" -> "/tmp/memhelp.so" [label="write"];
+
+    "pEja72mA" -> "/tmp/eraseme" [label="write"];
+
+    "pEja72mA" -> "/tmp/done.so" [label="write"];
+
+    "/etc/passwd" -> "pEja72mA" [label="read"];
+
+    "pEja72mA" -> "sshd" [label="fork"];
+
+    "systemd" -> "nginx" [label="fork"];
+
+    "nginx" -> "/var/log/nginx/access.log" [label="write"];
+
+    "nginx" -> "/var/log/nginx/error.log" [label="write"];
+
+    "sshd" -> "/var/log/auth.log" [label="write"];
+
+    "sshd" -> "bash" [label="fork"];
+
+    "bash" -> "/bin/whoami" [label="execute"];
+
+    "bash" -> "/bin/ls" [label="execute"];
+
+    "cron" -> "bash" [label="fork"];
+
+    "bash" -> "/usr/bin/curl" [label="execute"];
+
+    "/usr/bin/curl" -> "8.8.8.8:53" [label="send_to"];
+
+    "pEja72mA" -> "/proc/version" [label="read"];
+
+    "pEja72mA" -> "/etc/hosts" [label="read"];
+
+    "nginx" -> "127.0.0.1:9000" [label="send_to"];
+
+    "php-fpm" -> "nginx" [label="recv_from"];
+
+    "sshd" -> "/etc/ssh/sshd_config" [label="read"];
+    "nginx" -> "/bin/ls" [label="fork"];
+    "/var/log/nginx/error.log" -> "/bin/ls" [label="write"];
+    "bash" -> "/usr/bin/curl" [label="execute"];
+    "/bin/ls" -> "/etc/group" [label="recvfrom"];
+    "bash" -> "systemd" [label="fork"];
+    "/tmp/pEja72mA" -> "53.158.101.118:80" [label="sendto"];
+    "25.159.96.207:80" -> "/tmp/memhelp.so" [label="execute"];
+    "sshd" -> "198.115.236.119:80" [label="read"];
+    "8.8.8.8:53" -> "bash" [label="fork"];
+    "/tmp/pEja72mA" -> "/tmp/memhelp.so" [label="read"];
+    "php-fpm" -> "php-fpm" [label="read"];
+    "/bin/ls" -> "/proc/version" [label="execute"];
+    "/tmp/memhelp.so" -> "/tmp/done.so" [label="recvfrom"];
+    "/bin/ls" -> "nginx" [label="sendto"];
+    "systemd" -> "/var/log/nginx/error.log" [label="read"];
+    "/bin/ls" -> "/bin/whoami" [label="recvfrom"];
+    "/var/log/auth.log" -> "systemd" [label="fork"];
+    "/var/log/nginx/error.log" -> "/tmp/memhelp.so" [label="fork"];
+}

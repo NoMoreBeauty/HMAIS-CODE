@@ -1,0 +1,4317 @@
+{
+  "poi": {
+    "event_id": "8D401050-39B3-11E8-BF66-D9AA8AFF4A69",
+    "details": {
+      "POI类型": "事件 (Event)",
+      "Event UUID": "8D401050-39B3-11E8-BF66-D9AA8AFF4A69",
+      "关系类型": "WRITE",
+      "事件类别": "write",
+      "事件类型": "EVENT_WRITE",
+      "事件名称": "aue_write",
+      "源节点": "pine (process)",
+      "目标节点": "dfa21dsacxz.docx (file)",
+      "源节点ID": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+      "目标节点ID": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69"
+    }
+  },
+  "attack_graph": {
+    "nodes": [
+      {
+        "uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "pine",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "dfa21dsacxz.docx",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/tmp/texec",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "texec",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "207.103.191.4:80",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "103.12.253.24:80",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.1",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.67",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.110",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.103",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.141",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.166",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.167",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.73",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "uname",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "162.66.239.75:80",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "bash",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/etc/passwd",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "ls",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401043-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/tmp",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "~/.bash_history",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "8.8.8.8:53",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "sh",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401047-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/tmp/payload.sh",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "198.51.100.1:8080",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401049-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/proc/version",
+        "type": "file"
+      },
+      {
+        "uuid": "7D40104A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/var/log/auth.log",
+        "type": "file"
+      },
+      {
+        "uuid": "7D40104B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "grep",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "sshd",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40104D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "192.168.1.1:22",
+        "type": "network"
+      }
+    ],
+    "edges": [
+      {
+        "event_uuid": "8D401050-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "pine",
+        "target_name": "dfa21dsacxz.docx",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168303"
+      },
+      {
+        "event_uuid": "8D401051-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "pine",
+        "target_name": "texec",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168307"
+      },
+      {
+        "event_uuid": "8D401052-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/tmp/texec",
+        "target_name": "texec",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168309"
+      },
+      {
+        "event_uuid": "8D401053-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "pine",
+        "target_name": "128.55.12.73",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168313"
+      },
+      {
+        "event_uuid": "8D401054-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.167",
+        "target_name": "pine",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168317"
+      },
+      {
+        "event_uuid": "8D401055-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.73",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168320"
+      },
+      {
+        "event_uuid": "8D401056-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "207.103.191.4:80",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168321"
+      },
+      {
+        "event_uuid": "8D401057-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "103.12.253.24:80",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168323"
+      },
+      {
+        "event_uuid": "8D401058-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.1",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168325"
+      },
+      {
+        "event_uuid": "8D401059-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.67",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168327"
+      },
+      {
+        "event_uuid": "8D40105A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.110",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168331"
+      },
+      {
+        "event_uuid": "8D40105B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.103",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168333"
+      },
+      {
+        "event_uuid": "8D40105C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.141",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168338"
+      },
+      {
+        "event_uuid": "8D40105D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.166",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168340"
+      },
+      {
+        "event_uuid": "8D40105E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "162.66.239.75:80",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168341"
+      },
+      {
+        "event_uuid": "8D40105F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "uname",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168346"
+      },
+      {
+        "event_uuid": "8D401060-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "dfa21dsacxz.docx",
+        "target_name": "texec",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168347"
+      },
+      {
+        "event_uuid": "8D401061-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "pine",
+        "target_name": "bash",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168352"
+      },
+      {
+        "event_uuid": "8D401062-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "/etc/passwd",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168356"
+      },
+      {
+        "event_uuid": "8D401063-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "ls",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168358"
+      },
+      {
+        "event_uuid": "8D401064-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401043-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ls",
+        "target_name": "/tmp",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168360"
+      },
+      {
+        "event_uuid": "8D401065-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "pine",
+        "target_name": "~/.bash_history",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168364"
+      },
+      {
+        "event_uuid": "8D401066-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168367"
+      },
+      {
+        "event_uuid": "8D401067-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "8.8.8.8:53",
+        "target_name": "texec",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168368"
+      },
+      {
+        "event_uuid": "8D401068-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "sh",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168370"
+      },
+      {
+        "event_uuid": "8D401069-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401047-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sh",
+        "target_name": "/tmp/payload.sh",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168372"
+      },
+      {
+        "event_uuid": "8D40106A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sh",
+        "target_name": "198.51.100.1:8080",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168374"
+      },
+      {
+        "event_uuid": "8D40106B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "198.51.100.1:8080",
+        "target_name": "sh",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168378"
+      },
+      {
+        "event_uuid": "8D40106C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401049-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "uname",
+        "target_name": "/proc/version",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168381"
+      },
+      {
+        "event_uuid": "8D40106D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "/var/log/auth.log",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168385"
+      },
+      {
+        "event_uuid": "8D40106E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "grep",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168386"
+      },
+      {
+        "event_uuid": "8D40106F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "sshd",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168389"
+      },
+      {
+        "event_uuid": "8D401070-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "192.168.1.1:22",
+        "target_name": "sshd",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168394"
+      },
+      {
+        "event_uuid": "8D401071-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "grep",
+        "target_name": "/var/log/auth.log",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168399"
+      },
+      {
+        "event_uuid": "8D401072-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.1",
+        "target_name": "128.55.12.110",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168402"
+      },
+      {
+        "event_uuid": "8D401073-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sshd",
+        "target_name": "bash",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168405"
+      },
+      {
+        "event_uuid": "8D40109C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.167",
+        "target_name": "128.55.12.167",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168528"
+      },
+      {
+        "event_uuid": "8D401075-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.167",
+        "target_name": "/var/log/auth.log",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168411"
+      },
+      {
+        "event_uuid": "8D40109D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "128.55.12.73",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168531"
+      },
+      {
+        "event_uuid": "8D401076-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/tmp/texec",
+        "target_name": "uname",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168414"
+      },
+      {
+        "event_uuid": "8D401077-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168417"
+      },
+      {
+        "event_uuid": "8D401078-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "103.12.253.24:80",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168420"
+      },
+      {
+        "event_uuid": "8D40109E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.141",
+        "target_name": "grep",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168534"
+      },
+      {
+        "event_uuid": "8D40109F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.166",
+        "target_name": "128.55.12.166",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168537"
+      },
+      {
+        "event_uuid": "8D4010A0-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "207.103.191.4:80",
+        "target_name": "ls",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168540"
+      },
+      {
+        "event_uuid": "8D40107C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "8.8.8.8:53",
+        "target_name": "bash",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168432"
+      },
+      {
+        "event_uuid": "8D40107D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "198.51.100.1:8080",
+        "target_name": "uname",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168435"
+      },
+      {
+        "event_uuid": "8D40107E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.110",
+        "target_name": "~/.bash_history",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168438"
+      },
+      {
+        "event_uuid": "8D40107F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.103",
+        "target_name": "sh",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168441"
+      },
+      {
+        "event_uuid": "8D401080-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.167",
+        "target_name": "128.55.12.73",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168444"
+      },
+      {
+        "event_uuid": "8D401081-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "103.12.253.24:80",
+        "target_name": "sshd",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168447"
+      },
+      {
+        "event_uuid": "8D4010A1-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401047-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sshd",
+        "target_name": "/tmp/payload.sh",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168543"
+      },
+      {
+        "event_uuid": "8D401083-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.67",
+        "target_name": "128.55.12.1",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168453"
+      },
+      {
+        "event_uuid": "8D401084-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "198.51.100.1:8080",
+        "target_name": "162.66.239.75:80",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168456"
+      },
+      {
+        "event_uuid": "8D401085-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401049-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/proc/version",
+        "target_name": "128.55.12.166",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168459"
+      },
+      {
+        "event_uuid": "8D401086-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401047-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "~/.bash_history",
+        "target_name": "/tmp/payload.sh",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168462"
+      },
+      {
+        "event_uuid": "8D4010A2-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "pine",
+        "target_name": "dfa21dsacxz.docx",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168546"
+      },
+      {
+        "event_uuid": "8D401087-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ls",
+        "target_name": "sh",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168465"
+      },
+      {
+        "event_uuid": "8D401088-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.166",
+        "target_name": "207.103.191.4:80",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168468"
+      },
+      {
+        "event_uuid": "8D401089-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.67",
+        "target_name": "128.55.12.103",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168471"
+      },
+      {
+        "event_uuid": "8D40108A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "uname",
+        "target_name": "bash",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168474"
+      },
+      {
+        "event_uuid": "8D40108B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sshd",
+        "target_name": "128.55.12.110",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168477"
+      },
+      {
+        "event_uuid": "8D40108C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401047-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "207.103.191.4:80",
+        "target_name": "/tmp/payload.sh",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168480"
+      },
+      {
+        "event_uuid": "8D4010A3-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "texec",
+        "target_name": "207.103.191.4:80",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168549"
+      },
+      {
+        "event_uuid": "8D4010A4-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "pine",
+        "target_name": "uname",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168552"
+      },
+      {
+        "event_uuid": "8D40108E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.141",
+        "target_name": "162.66.239.75:80",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168486"
+      },
+      {
+        "event_uuid": "8D40108F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/tmp/texec",
+        "target_name": "bash",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168489"
+      },
+      {
+        "event_uuid": "8D401090-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401049-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/proc/version",
+        "target_name": "uname",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168492"
+      },
+      {
+        "event_uuid": "8D401091-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ls",
+        "target_name": "128.55.12.67",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168495"
+      },
+      {
+        "event_uuid": "8D401092-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sshd",
+        "target_name": "207.103.191.4:80",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168498"
+      },
+      {
+        "event_uuid": "8D401093-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401047-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/tmp/payload.sh",
+        "target_name": "207.103.191.4:80",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168501"
+      },
+      {
+        "event_uuid": "8D401094-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "grep",
+        "target_name": "192.168.1.1:22",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168504"
+      },
+      {
+        "event_uuid": "8D401095-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "128.55.12.110",
+        "target_name": "/var/log/auth.log",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168507"
+      },
+      {
+        "event_uuid": "8D401096-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "dfa21dsacxz.docx",
+        "target_name": "103.12.253.24:80",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168510"
+      },
+      {
+        "event_uuid": "8D401097-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "ls",
+        "target_name": "/etc/passwd",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168513"
+      },
+      {
+        "event_uuid": "8D401098-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401043-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/tmp",
+        "target_name": "128.55.12.110",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168516"
+      },
+      {
+        "event_uuid": "8D401099-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "192.168.1.1:22",
+        "target_name": "207.103.191.4:80",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168519"
+      },
+      {
+        "event_uuid": "8D40109A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sh",
+        "target_name": "uname",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168522"
+      },
+      {
+        "event_uuid": "8D40109B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401043-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "192.168.1.1:22",
+        "target_name": "/tmp",
+        "relation_type": "EXECUTE",
+        "event_type": "EVENT_EXECUTE",
+        "event_name": "aue_execve",
+        "timestamp": "1523028173276168525"
+      }
+    ]
+  },
+  "narrative_summary": "攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 及 C2 节点 198.51.100.1:8080 均通过 T1190 漏洞主动向 texec 和 sh 进程回传载荷，构建多通道 DNS 隧道（T1071.004）与 Web 协议 C2（T1071.001）；内部 IP 192.168.1.1:22 更通过 T1190 漏洞直接向 sshd 进程投递载荷（T32），标志攻击者已完成内网横向渗透并反向利用 SSH 服务作为新入口。pine 派生 texec 和 bash 子进程，读取 ~/.bash_history（T1005）窃取操作痕迹；texec 实现自持久化（T1059.004），高频扫描 128.55.12.0/24 网段内九台主机，并持续与 207.103.191.4:80、103.12.253.24:80、162.66.239.75:80 及 C2 服务器 198.51.100.1:8080 通信（T1071.001），同时读取 /var/log/auth.log（T1005）、dfa21dsacxz.docx 并派生 uname 探测内核（T1005）；其子进程 sh 执行 /tmp/payload.sh（T1059）并与 C2 双向交互。bash 进程由 ls 升级为 grep 检索敏感内容（T1059.004），遍历 /tmp（T1005）、读取 /etc/passwd（T1005）后派生 sshd（T1059.004），极可能用于密钥提取或反向隧道；最新确认 grep 进一步读取 /var/log/auth.log（T1005），强化凭证与登录行为分析。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互、DNS 隧道原始结构、bash→grep 输入源、ls→/tmp 遍历结果、bash→/etc/passwd 后续利用，以及 bash→sshd 所涉密钥与目标探测行为。",
+  "ttp_chain": [
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "pine → texec"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "pine → bash"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 128.55.12.73"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 207.103.191.4:80"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 103.12.253.24:80"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 128.55.12.1"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 128.55.12.67"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 128.55.12.110"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 128.55.12.103"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 128.55.12.141"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 128.55.12.166"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 162.66.239.75:80"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "texec → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "/tmp/texec → texec"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "dfa21dsacxz.docx → texec"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "texec → uname"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "texec → sh"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → ls"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → grep"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → sshd"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "pine → 128.55.12.73"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "sh → /tmp/payload.sh"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "128.55.12.167 → pine"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "8.8.8.8:53 → texec"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "sh → 198.51.100.1:8080"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "bash → /etc/passwd"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "ls → /tmp"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "pine → ~/.bash_history"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "198.51.100.1:8080 → sh"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "uname → /proc/version"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "texec → /var/log/auth.log"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "192.168.1.1:22 → sshd"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "grep → /var/log/auth.log"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "128.55.12.1 → 128.55.12.110"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "sshd → bash"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "128.55.12.167 → 128.55.12.167"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "128.55.12.167 → /var/log/auth.log"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "/tmp/texec → uname"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "103.12.253.24:80 → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "128.55.12.141 → grep"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "128.55.12.166 → 128.55.12.166"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "207.103.191.4:80 → ls"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "8.8.8.8:53 → bash"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "198.51.100.1:8080 → uname"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "128.55.12.110 → ~/.bash_history"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "128.55.12.103 → sh"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "128.55.12.167 → 128.55.12.73"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "103.12.253.24:80 → sshd"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "sshd → /tmp/payload.sh"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "128.55.12.67 → 128.55.12.1"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "198.51.100.1:8080 → 162.66.239.75:80"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "/proc/version → 128.55.12.166"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "~/.bash_history → /tmp/payload.sh"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "ls → sh"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "128.55.12.166 → 207.103.191.4:80"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "128.55.12.67 → 128.55.12.103"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "uname → bash"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "sshd → 128.55.12.110"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "207.103.191.4:80 → /tmp/payload.sh"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "pine → uname"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "128.55.12.141 → 162.66.239.75:80"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "/tmp/texec → bash"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "/proc/version → uname"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "ls → 128.55.12.67"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "sshd → 207.103.191.4:80"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "/tmp/payload.sh → 207.103.191.4:80"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "grep → 192.168.1.1:22"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "128.55.12.110 → /var/log/auth.log"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "dfa21dsacxz.docx → 103.12.253.24:80"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "ls → /etc/passwd"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "/tmp → 128.55.12.110"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "192.168.1.1:22 → 207.103.191.4:80"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "sh → uname"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "192.168.1.1:22 → /tmp"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "128.55.12.167 → 128.55.12.167"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "texec → 128.55.12.73"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "128.55.12.141 → grep"
+    }
+  ],
+  "action_history": [
+    {
+      "iteration": 1,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 2,
+      "action": "查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 3,
+      "action": "查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 4,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401051-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 5,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 6,
+      "action": "查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 7,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 8,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 9,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401061-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 10,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 11,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 12,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 13,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401055-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 14,
+      "action": "查找写入文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 15,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 16,
+      "action": "查找与 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 17,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 18,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401056-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 19,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 20,
+      "action": "查找与 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 21,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401057-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 22,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 23,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 24,
+      "action": "查找哪些进程向 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 25,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 26,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 27,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401058-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 28,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 29,
+      "action": "查找哪些进程向 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 30,
+      "action": "查找 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 31,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401059-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 32,
+      "action": "查找哪些进程向 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 33,
+      "action": "查找与 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 34,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 35,
+      "action": "查找 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 36,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105A-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 37,
+      "action": "查找 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 38,
+      "action": "查找哪些进程向 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 39,
+      "action": "查找哪些进程向 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 40,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105B-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 41,
+      "action": "查找哪些进程向 IP 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 42,
+      "action": "查找与 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 43,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 44,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105C-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 45,
+      "action": "查找与 IP 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 46,
+      "action": "查找与 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 47,
+      "action": "查找 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 48,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105D-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 49,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 50,
+      "action": "查找哪些进程向 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 51,
+      "action": "查找 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 52,
+      "action": "查找与 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 53,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105E-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 54,
+      "action": "查找 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 55,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 56,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 57,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401066-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 58,
+      "action": "查找哪些进程向 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 59,
+      "action": "查找哪些进程向 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 60,
+      "action": "查找与 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 61,
+      "action": "查找 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 62,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401052-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 63,
+      "action": "查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 64,
+      "action": "查找与 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 65,
+      "action": "查找与 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 66,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401060-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 67,
+      "action": "查找 IP 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 68,
+      "action": "查找 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 69,
+      "action": "查找 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 70,
+      "action": "查找写入文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 71,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105F-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 72,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 73,
+      "action": "查找哪些进程向 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 74,
+      "action": "查找 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 75,
+      "action": "查找与 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 76,
+      "action": "查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 77,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401068-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 78,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 79,
+      "action": "查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 80,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 81,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 82,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 83,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401063-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 84,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 85,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 86,
+      "action": "查找哪些进程向 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 87,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 88,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40106E-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 89,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 90,
+      "action": "查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 91,
+      "action": "查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40106F-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 92,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 93,
+      "action": "查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 94,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 95,
+      "action": "查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 96,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 97,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401053-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 98,
+      "action": "查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 99,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 100,
+      "action": "查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 101,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 102,
+      "action": "查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401069-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 103,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 104,
+      "action": "查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 105,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 106,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401054-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 107,
+      "action": "查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 108,
+      "action": "查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 109,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 110,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 111,
+      "action": "查找 IP 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 112,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 113,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40106A-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 114,
+      "action": "查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 115,
+      "action": "查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 116,
+      "action": "查找文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401062-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 117,
+      "action": "查找写入文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 118,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 119,
+      "action": "查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 120,
+      "action": "查找写入文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 121,
+      "action": "查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401064-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 122,
+      "action": "查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 123,
+      "action": "查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 124,
+      "action": "查找哪些进程向 IP 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 125,
+      "action": "查找文件 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401065-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 126,
+      "action": "查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 127,
+      "action": "查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 128,
+      "action": "查找 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D40106B-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 129,
+      "action": "查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 130,
+      "action": "查找与 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 131,
+      "action": "查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 132,
+      "action": "查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 133,
+      "action": "查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40106C-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 134,
+      "action": "查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 135,
+      "action": "查找哪些进程向 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 136,
+      "action": "查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 137,
+      "action": "查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40106D-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 138,
+      "action": "查找写入文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 139,
+      "action": "查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 140,
+      "action": "查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 141,
+      "action": "查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 142,
+      "action": "查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 143,
+      "action": "查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401070-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 144,
+      "action": "查找哪些进程向 IP 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 145,
+      "action": "查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 146,
+      "action": "查找与 IP 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 147,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 148,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 149,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 150,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 151,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 152,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 153,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 154,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 155,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 156,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 157,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 158,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 159,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 160,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 161,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 162,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 163,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 164,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 165,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 166,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 167,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 168,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 169,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 170,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 171,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 172,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 173,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 174,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 175,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 176,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 177,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 178,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 179,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 180,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 181,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 182,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 183,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 184,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 185,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 186,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 187,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 188,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 189,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 190,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 191,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 192,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 193,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 194,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 195,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 196,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 197,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 198,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 199,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 200,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 201,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 202,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 203,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 204,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 205,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 206,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 207,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 208,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 209,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 210,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 211,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 212,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 213,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 214,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 215,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 216,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 217,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 218,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 219,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 220,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 221,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 222,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 223,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 224,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 225,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 226,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 227,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 228,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 229,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 230,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 231,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 232,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 233,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 234,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 235,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 236,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 237,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 238,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 239,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 240,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 241,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 242,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 243,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 244,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 245,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 246,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 247,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 248,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 249,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 250,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 251,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 252,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 253,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 254,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 255,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 256,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 257,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 258,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 259,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 260,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 261,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 262,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 263,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 264,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 265,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 266,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 267,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 268,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 269,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 270,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 271,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 272,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 273,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 274,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 275,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 276,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 277,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 278,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 279,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 280,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 281,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 282,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 283,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 284,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 285,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 286,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 287,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 288,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 289,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 290,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 291,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 292,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 293,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 294,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 295,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 296,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 297,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 298,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 299,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 300,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 301,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 302,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 303,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 304,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 305,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 306,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 307,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 308,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 309,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 310,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 311,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 312,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 313,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 314,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 315,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 316,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 317,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 318,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 319,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 320,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 321,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 322,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 323,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 324,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 325,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 326,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 327,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 328,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 329,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 330,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 331,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 332,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 333,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 334,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 335,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 336,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 337,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 338,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 339,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 340,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 341,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 342,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 343,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 344,
+      "action": "查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    }
+  ],
+  "evaluated_events": [
+    {
+      "event_uuid": "8D401072-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_FORK",
+      "source": "pine",
+      "target": "awk",
+      "is_malicious": false,
+      "reason": "文本处理子进程"
+    },
+    {
+      "event_uuid": "8D401073-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_FORK",
+      "source": "pine",
+      "target": "awk",
+      "is_malicious": false,
+      "reason": "文本处理子进程"
+    },
+    {
+      "event_uuid": "8D401074-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/nginx/nginx.conf",
+      "target": "bash",
+      "is_malicious": false,
+      "reason": "标准配置文件读取"
+    },
+    {
+      "event_uuid": "8D401075-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/passwd",
+      "target": "ls",
+      "is_malicious": false,
+      "reason": "NSS 用户名解析"
+    },
+    {
+      "event_uuid": "8D401076-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_RECVFROM",
+      "source": "10.0.0.5:6379",
+      "target": "198.51.100.1:8080",
+      "is_malicious": false,
+      "reason": "Redis 缓存连接"
+    }
+  ],
+  "metadata": {
+    "session_dir": "20251201_224402",
+    "total_iterations": 344,
+    "malicious_events": 79,
+    "benign_events": 5
+  }
+}

@@ -1,0 +1,176 @@
+digraph G {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "25.159.96.207:80" [shape=diamond];
+    "76.56.184.25:80" [shape=diamond];
+    "155.162.39.48:80" [shape=diamond];
+    "198.115.236.119:80" [shape=diamond];
+    "53.158.101.118:80" [shape=diamond];
+    "98.15.44.232:80" [shape=diamond];
+    "192.113.144.28:80" [shape=diamond];
+    "128.55.12.166" [shape=diamond];
+    "128.55.12.67" [shape=diamond];
+    "128.55.12.141" [shape=diamond];
+    "128.55.12.110" [shape=diamond];
+    "8.8.8.8:53" [shape=diamond];
+    "208.67.222.222:22" [shape=diamond];
+
+    "nginx" [shape=ellipse];
+    "shell" [shape=ellipse];
+    "shell2" [shape=ellipse];
+    "backdoor_process" [shape=ellipse];
+    "elevate_process" [shape=ellipse];
+    "XIM_process" [shape=ellipse];
+    "test_process" [shape=ellipse];
+    "scan_process" [shape=ellipse];
+    "logrotate_process" [shape=ellipse];
+    "cron_process" [shape=ellipse];
+    "sudo_process" [shape=ellipse];
+    "ssh_process" [shape=ellipse];
+    "systemd_process" [shape=ellipse];
+    "journald_process" [shape=ellipse];
+    "sshd_process" [shape=ellipse];
+
+    "/etc/group" [shape=box];
+    "/var/log/devc" [shape=box];
+    "/tmp/vUgefal" [shape=box];
+    "/etc/password" [shape=box];
+    "/tmp/tmux-1002" [shape=box];
+    "/tmp/minions" [shape=box];
+    "/tmp/font" [shape=box];
+    "/tmp/XIM" [shape=box];
+    "/var/log/netlog" [shape=box];
+    "/tmp/test" [shape=box];
+    "grain" [shape=box];
+    "vUGefai" [shape=box];
+    "microapt_file" [shape=box];
+    "libdrakon_file" [shape=box];
+    "drakon_file" [shape=box];
+    "/var/log/nginx/access.log" [shape=box];
+    "/etc/nginx/nginx.conf" [shape=box];
+    "/bin/ps" [shape=box];
+    "/etc/crontab" [shape=box];
+    "/etc/sudoers" [shape=box];
+    "/tmp/data.tmp" [shape=box];
+    "/var/log/journal" [shape=box];
+    "/proc/net/tcp" [shape=box];
+    "/home/user/.bash_history" [shape=box];
+    "/etc/ssh/sshd_config" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "netlog" [shape=box];
+    "192.113.144.28:80" -> "shell2" [label="recv_from"];
+
+    "test_process" -> "scan_process" [label="fork"];
+
+    "155.162.39.48:80" -> "nginx" [label="recv_from"];
+
+    "nginx" -> "logrotate_process" [label="fork"];
+
+    "/tmp/XIM" -> "XIM_process" [label="fork"];
+
+    "nginx" -> "/etc/group" [label="read"];
+
+    "sudo_process" -> "shell" [label="fork"];
+
+    "journald_process" -> "/var/log/journal" [label="write"];
+
+    "shell" -> "/tmp/test" [label="write"];
+
+    "XIM_process" -> "53.158.101.118:80" [label="send_to"];
+
+    "XIM_process" -> "/var/log/netlog" [label="write"];
+
+    "shell" -> "98.15.44.232:80" [label="send_to"];
+
+    "nginx" -> "25.159.96.207:80" [label="recv_from"];
+
+    "microapt_file" -> "netlog" [label="write"];
+
+    "libdrakon_file" -> "/tmp/font" [label="write"];
+
+    "elevate_process" -> "sudo_process" [label="fork"];
+
+    "scan_process" -> "128.55.12.111" [label="send_to"];
+
+    "shell" -> "drakon_file" [label="write"];
+
+    "shell" -> "/tmp/data.tmp" [label="write"];
+
+    "backdoor_process" -> "/var/log/devc" [label="write"];
+
+    "nginx" -> "/etc/nginx/nginx.conf" [label="read"];
+
+    "nginx" -> "/var/log/nginx/access.log" [label="write"];
+
+    "ssh_process" -> "208.67.222.222:22" [label="send_to"];
+
+    "microapt_file" -> "/tmp/tmux-1002" [label="write"];
+
+    "shell" -> "/tmp/tmux-1002" [label="execute"];
+
+    "sshd_process" -> "/etc/ssh/sshd_config" [label="read"];
+
+    "scan_process" -> "128.55.12.67" [label="send_to"];
+
+    "shell" -> "/tmp/XIM" [label="execute"];
+
+    "logrotate_process" -> "/var/log/nginx/access.log" [label="read"];
+
+    "shell" -> "libdrakon_file" [label="write"];
+
+    "scan_process" -> "128.55.12.119" [label="send_to"];
+
+    "shell" -> "/tmp/vUgefal" [label="write"];
+
+    "scan_process" -> "/proc/net/tcp" [label="read"];
+
+    "sudo_process" -> "/etc/sudoers" [label="read"];
+
+    "shell" -> "vUGefai" [label="write"];
+
+    "scan_process" -> "128.55.12.117" [label="send_to"];
+
+    "nginx" -> "155.162.39.48:80" [label="send_to"];
+
+    "shell" -> "microapt_file" [label="write"];
+
+    "shell" -> "cron_process" [label="fork"];
+
+    "backdoor_process" -> "/home/user/.bash_history" [label="write"];
+
+    "98.15.44.232:80" -> "shell" [label="recv_from"];
+
+    "shell" -> "53.158.101.118:80" [label="send_to"];
+
+    "cron_process" -> "/etc/crontab" [label="read"];
+
+    "198.115.236.119:80" -> "shell" [label="recv_from"];
+
+
+    "25.159.96.207:80" -> "nginx" [label="send_to"];
+
+    "test_process" -> "systemd_process" [label="fork"];
+
+    "scan_process" -> "128.55.12.112" [label="send_to"];
+
+    "systemd_process" -> "sshd_process" [label="fork"];
+
+    "shell" -> "8.8.8.8:53" [label="send_to"];
+
+    "shell2" -> "microapt_file" [label="write"];
+
+    "/tmp/test" -> "test_process" [label="fork"];
+
+    "scan_process" -> "128.55.12.114" [label="send_to"];
+
+    "scan_process" -> "128.55.12.116" [label="send_to"];
+
+    "shell" -> "grain" [label="write"];
+
+    "scan_process" -> "128.55.12.166" [label="send_to"];
+
+    "shell" -> "/tmp/minions" [label="execute"];
+
+    "scan_process" -> "128.55.12.115" [label="send_to"];
+}

@@ -1,0 +1,179 @@
+digraph Attack_Investigation_Result {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "64.233.191.255:8000" [shape=diamond];
+    "132.197.158.98:80" [shape=diamond];
+    "142.20.57.147" [shape=diamond];
+    "142.20.58.149" [shape=diamond];
+    "172.217.16.142:443" [shape=diamond];
+    "239.255.255.250:1900" [shape=diamond];
+    "192.168.1.1:53" [shape=diamond];
+    "192.168.1.5:445" [shape=diamond];
+
+    "runme.bat" [shape=ellipse];
+    "ping_sweep.ps1" [shape=ellipse];
+    "ntuser.dat" [shape=ellipse];
+    "user32.dll" [shape=ellipse];
+    "kernel32.dll" [shape=ellipse];
+    "places.sqlite" [shape=ellipse];
+    "cookies.sqlite" [shape=ellipse];
+    "sam.log" [shape=ellipse];
+    "crypt32.dll" [shape=ellipse];
+    "kernelbase.dll" [shape=ellipse];
+    "ntdll.dll" [shape=ellipse];
+    "temp_log.txt" [shape=ellipse];
+    "wuauserv.log" [shape=ellipse];
+    "taskbar.icon" [shape=ellipse];
+    "webcache.dat" [shape=ellipse];
+    "wmi.dll" [shape=ellipse];
+
+    "cmd.exe" [shape=box];
+    "firefox.exe" [shape=box];
+    "Agent_VL8B5T3U" [shape=box];
+    "Agent_LUAVR71T" [shape=box];
+    "mimikatz.exe" [shape=box];
+    "lsass.exe" [shape=box];
+    "Agent_NEK5H8GX" [shape=box];
+    "Agent_DS29HY41" [shape=box];
+    "explorer.exe" [shape=box];
+    "services.exe" [shape=box];
+    "svchost.exe" [shape=box];
+    "conhost.exe" [shape=box];
+    "Process_4480" [shape=box];
+    "net1.exe" [shape=box];
+    "taskhostw.exe" [shape=box];
+
+    "cmd.exe" -> "firefox.exe" [label="fork"];
+
+    "firefox.exe" -> "64.233.191.255:8000" [label="send_to"];
+
+    "64.233.191.255:8000" -> "firefox.exe" [label="recv_from"];
+
+    "firefox.exe" -> "runme.bat" [label="write"];
+
+    "cmd.exe" -> "runme.bat" [label="execute"];
+
+    "runme.bat" -> "Agent_VL8B5T3U" [label="execute"];
+
+    "Agent_VL8B5T3U" -> "132.197.158.98:80" [label="send_to"];
+
+    "132.197.158.98:80" -> "Agent_VL8B5T3U" [label="recv_from"];
+
+    "Agent_VL8B5T3U" -> "Agent_LUAVR71T" [label="fork"];
+
+    "Agent_LUAVR71T" -> "132.197.158.98:80" [label="send_to"];
+
+    "132.197.158.98:80" -> "Agent_LUAVR71T" [label="recv_from"];
+
+    "Agent_LUAVR71T" -> "mimikatz.exe" [label="fork"];
+
+    "Agent_LUAVR71T" -> "lsass.exe" [label="write"];
+
+    "Agent_LUAVR71T" -> "142.20.57.147" [label="send_to"];
+
+    "142.20.57.147" -> "Agent_NEK5H8GX" [label="recv_from"];
+
+    "Agent_NEK5H8GX" -> "132.197.158.98:80" [label="send_to"];
+
+    "132.197.158.98:80" -> "Agent_NEK5H8GX" [label="recv_from"];
+
+    "Agent_NEK5H8GX" -> "ping_sweep.ps1" [label="write"];
+
+    "ping_sweep.ps1" -> "Agent_NEK5H8GX" [label="execute"];
+
+    "Agent_NEK5H8GX" -> "142.20.58.149" [label="send_to"];
+
+    "142.20.58.149" -> "Agent_DS29HY41" [label="recv_from"];
+
+    "Agent_DS29HY41" -> "132.197.158.98:80" [label="send_to"];
+
+
+    "explorer.exe" -> "cmd.exe" [label="fork"];
+
+    "user32.dll" -> "explorer.exe" [label="read"];
+
+    "explorer.exe" -> "ntuser.dat" [label="write"];
+
+    "taskbar.icon" -> "explorer.exe" [label="read"];
+
+    "kernel32.dll" -> "firefox.exe" [label="read"];
+
+    "firefox.exe" -> "172.217.16.142:443" [label="send_to"];
+
+    "172.217.16.142:443" -> "firefox.exe" [label="recv_from"];
+
+    "firefox.exe" -> "places.sqlite" [label="write"];
+
+    "cookies.sqlite" -> "firefox.exe" [label="read"];
+
+    "services.exe" -> "lsass.exe" [label="fork"];
+
+    "lsass.exe" -> "sam.log" [label="write"];
+
+    "crypt32.dll" -> "lsass.exe" [label="read"];
+
+    "services.exe" -> "svchost.exe" [label="fork"];
+
+    "svchost.exe" -> "239.255.255.250:1900" [label="send_to"];
+
+    "svchost.exe" -> "192.168.1.1:53" [label="send_to"];
+
+    "192.168.1.1:53" -> "svchost.exe" [label="recv_from"];
+
+    "svchost.exe" -> "wuauserv.log" [label="write"];
+
+    "wmi.dll" -> "svchost.exe" [label="read"];
+
+    "cmd.exe" -> "conhost.exe" [label="fork"];
+
+    "kernelbase.dll" -> "conhost.exe" [label="read"];
+
+    "ntdll.dll" -> "Agent_LUAVR71T" [label="read"];
+
+    "Agent_LUAVR71T" -> "temp_log.txt" [label="write"];
+
+    "services.exe" -> "Process_4480" [label="fork"];
+
+    "kernel32.dll" -> "Process_4480" [label="read"];
+
+    "Agent_DS29HY41" -> "net1.exe" [label="fork"];
+
+    "net1.exe" -> "192.168.1.5:445" [label="send_to"];
+
+    "192.168.1.5:445" -> "net1.exe" [label="recv_from"];
+
+    "services.exe" -> "taskhostw.exe" [label="fork"];
+
+    "taskhostw.exe" -> "webcache.dat" [label="write"];
+    "net1.exe" -> "firefox.exe" [label="read"];
+    "wmi.dll" -> "ntuser.dat" [label="write"];
+    "mimikatz.exe" -> "webcache.dat" [label="execute"];
+    "Agent_VL8B5T3U" -> "ntuser.dat" [label="recvfrom"];
+    "kernel32.dll" -> "192.168.1.5:445" [label="recvfrom"];
+    "webcache.dat" -> "Process_4480" [label="recvfrom"];
+    "64.233.191.255:8000" -> "crypt32.dll" [label="write"];
+    "Agent_VL8B5T3U" -> "192.168.1.5:445" [label="sendto"];
+    "132.197.158.98:80" -> "taskbar.icon" [label="fork"];
+    "firefox.exe" -> "Agent_VL8B5T3U" [label="read"];
+    "conhost.exe" -> "firefox.exe" [label="write"];
+    "172.217.16.142:443" -> "Agent_DS29HY41" [label="write"];
+    "explorer.exe" -> "mimikatz.exe" [label="sendto"];
+    "services.exe" -> "Agent_VL8B5T3U" [label="fork"];
+    "wmi.dll" -> "192.168.1.5:445" [label="write"];
+    "192.168.1.5:445" -> "142.20.58.149" [label="write"];
+    "wuauserv.log" -> "taskbar.icon" [label="execute"];
+    "sam.log" -> "kernelbase.dll" [label="read"];
+    "lsass.exe" -> "sam.log" [label="execute"];
+    "user32.dll" -> "cmd.exe" [label="fork"];
+    "239.255.255.250:1900" -> "taskhostw.exe" [label="write"];
+    "142.20.58.149" -> "conhost.exe" [label="sendto"];
+    "239.255.255.250:1900" -> "mimikatz.exe" [label="fork"];
+    "239.255.255.250:1900" -> "svchost.exe" [label="fork"];
+    "Agent_NEK5H8GX" -> "Agent_NEK5H8GX" [label="write"];
+    "142.20.57.147" -> "kernelbase.dll" [label="execute"];
+    "lsass.exe" -> "192.168.1.1:53" [label="sendto"];
+    "Agent_NEK5H8GX" -> "net1.exe" [label="read"];
+    "ping_sweep.ps1" -> "services.exe" [label="execute"];
+    "Process_4480" -> "ping_sweep.ps1" [label="read"];
+}

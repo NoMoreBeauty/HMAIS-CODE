@@ -1,0 +1,18 @@
+当前调查状态：
+{context}
+
+已执行的动作：
+{history}
+
+{feedback_section}
+
+📊 **调查进度统计**：
+- 已执行动作次数: {action_count}
+- 连续无新发现次数: {consecutive_failures}
+- 语法错误次数: {syntax_errors}
+
+⚠️ 如果 action_count >= 30（N_max）或 consecutive_failures >= 3（N_stag）或 syntax_errors >= 2，你**应当**设置 stop_investigation: true
+
+请基于以上信息，特别是 Initial POI，生成下一步的调查计划。
+如果这是第一次规划（还没有执行任何动作），请务必从 POI 开始分析。
+

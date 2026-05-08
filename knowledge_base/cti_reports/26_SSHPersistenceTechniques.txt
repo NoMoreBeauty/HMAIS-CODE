@@ -1,0 +1,84 @@
+SSH-BASED PERSISTENCE TECHNIQUES
+
+OVERVIEW
+This report documents common techniques used by threat actors to establish persistent access via SSH on compromised Linux systems. These techniques are observed across multiple campaigns targeting web servers and allow attackers to maintain long-term access [T1098.004].
+
+AUTHORIZED_KEYS MODIFICATION
+The most common SSH persistence technique involves modifying authorized_keys files:
+
+1. Root-Level Persistence:
+   - Attacker gains initial access via web exploitation
+   - Compromised process (nginx, sshd) writes to /root/.ssh/authorized_keys
+   - Attacker's public key enables passwordless root access
+
+2. Attack Chain Pattern:
+   - nginx → (exploitation) → malware_process → sshd → write /root/.ssh/authorized_keys
+   - Alternative: malware directly forks sshd child to perform write
+
+3. Observed Processes:
+   - sshd writing to authorized_keys (legitimate for normal SSH, suspicious if from web context)
+   - root-shell process writing keys after privilege escalation
+   - mactor or similar named processes reading keys for verification
+
+SSHD CONFIGURATION ABUSE
+Attackers modify SSH daemon configuration for persistence:
+
+1. Configuration Modification [T1098]:
+   - Access /etc/ssh/sshd_config
+   - Enable root login: PermitRootLogin yes
+   - Disable password authentication after key installation
+
+2. Detection Patterns:
+   - sshd process reading sshd_config followed by network activity
+   - Configuration changes without corresponding administrative actions
+
+SSH-BASED LATERAL MOVEMENT
+After establishing SSH persistence, attackers perform lateral movement:
+
+1. Internal Network SSH [T1021.004]:
+   - ssh_process connects to internal hosts (192.168.x.x, 10.x.x.x)
+   - Uses stolen or injected credentials
+   - Pattern: XIM_process → ssh_process → external_target:22
+
+2. External C2 via SSH:
+   - SSH tunneling to external servers
+   - Example: ssh_process → 208.67.222.222:22
+
+CREDENTIAL HARVESTING FOR SSH
+Techniques used to obtain SSH credentials:
+
+1. Credential File Access:
+   - Reading /tmp/data.tmp for stored credentials
+   - Accessing /home/user/.ssh/id_rsa (private keys)
+   - Reading /etc/passwd for username enumeration
+
+2. Auth Log Analysis:
+   - Writing to /var/log/auth.log to mask unauthorized access
+   - Or reading auth.log to identify legitimate SSH sessions
+
+COMMON ATTACK PATTERNS
+
+Pattern 1 - Web Shell to SSH:
+nginx → exploit → payload_write → execution → sshd_fork → authorized_keys_write
+
+Pattern 2 - Privilege Escalation to SSH:
+malware → root_shell → authorized_keys_write → sshd verification
+
+Pattern 3 - SSH Chaining:
+initial_sshd → bash → curl (download) → new_malware → ssh to internal
+
+INDICATORS OF COMPROMISE
+- Unauthorized modifications to /root/.ssh/authorized_keys
+- SSH connections from unexpected source processes
+- sshd child processes with unusual parent chains
+- Outbound SSH to unknown external addresses
+- Multiple SSH key additions in short timeframe
+- sshd configuration changes without maintenance windows
+
+MITRE ATT&CK TECHNIQUES
+[T1098.004] Account Manipulation: SSH Authorized Keys
+[T1021.004] Remote Services: SSH
+[T1552.004] Unsecured Credentials: Private Keys
+[T1087.001] Account Discovery: Local Account
+[T1070.006] Indicator Removal: Timestomp
+[T1563.001] Remote Service Session Hijacking: SSH Hijacking

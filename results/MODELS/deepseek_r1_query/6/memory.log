@@ -1,0 +1,1759 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T22:43:37.011182
+================================================================================
+
+[23:45:16.416] 
+============================================================
+[23:45:16.416] POI REGISTERED
+============================================================
+
+[23:45:16.416] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401071-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "svchost.exe (process)",
+  "目标节点": "C:\\\\\\\\ProgramData\\\\\\\\app.log (file)",
+  "源节点ID": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[23:45:16.697] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:45:16.904] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:45:17.131] --- Action Recorded ---
+Action: 查找写入文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:45:17.406] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:45:17.541] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:45:17.734] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[23:45:17.913] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:45:31.702] 
+============================================================
+[23:45:31.702] [迭代 6] MEMORY STATE UPDATE
+============================================================
+
+[23:45:31.702] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。该行为构成攻击链的初始执行阶段，表明攻击者已成功在目标系统落地并启动后续操作。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:45:31.702] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+
+[23:45:31.807] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:45:32.084] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:45:32.357] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:45:32.458] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:45:32.691] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:45:32.990] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:45:47.165] 
+============================================================
+[23:45:47.165] [迭代 11] MEMORY STATE UPDATE
+============================================================
+
+[23:45:47.165] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持；在此之前，该样本已读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），表明攻击者刻意利用系统预取机制进行行为隐蔽与执行痕迹混淆。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:45:47.165] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+
+[23:45:47.427] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:45:47.537] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:45:47.767] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:45:48.052] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:45:48.247] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:45:57.471] 
+============================================================
+[23:45:57.471] [迭代 15] MEMORY STATE UPDATE
+============================================================
+
+[23:45:57.471] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并进一步读取用户下载目录中的 ABSTRACT_MOONSCAPE.dll（T1005），完成本地敏感数据采集与载荷准备；随后，该样本通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:45:57.471] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+
+[23:45:57.675] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:45:57.912] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:45:58.088] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:45:58.367] --- Action Recorded ---
+Action: 查找写入文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:45:58.514] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:45:58.793] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:46:11.167] 
+============================================================
+[23:46:11.167] [迭代 20] MEMORY STATE UPDATE
+============================================================
+
+[23:46:11.167] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并进一步读取用户下载目录中的 ABSTRACT_MOONSCAPE.dll 和 ELECTRICAL_LEMUR.exe（T1005），完成多阶段本地敏感数据采集与载荷准备；随后，该样本通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:46:11.167] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+
+[23:46:11.290] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:46:11.565] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:46:11.860] --- Action Recorded ---
+Action: 查找写入文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:46:11.990] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:46:12.228] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:46:25.638] 
+============================================================
+[23:46:25.638] [迭代 24] MEMORY STATE UPDATE
+============================================================
+
+[23:46:25.638] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并依次读取用户下载目录中的 ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe 及新增发现的 INCREASING_MAKE.exe（T1005），完成多阶段本地敏感数据采集与载荷准备；随后，该样本通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:46:25.638] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+
+[23:46:25.761] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:46:25.995] --- Action Recorded ---
+Action: 查找写入文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:46:26.180] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:46:26.451] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:46:38.696] 
+============================================================
+[23:46:38.696] [迭代 27] MEMORY STATE UPDATE
+============================================================
+
+[23:46:38.696] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并持续遍历用户下载目录，依次读取 ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe 及最新发现的 MUDDY_SAW.dll（T1005），完成多阶段本地敏感数据采集与载荷准备；随后，该样本通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:46:38.696] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+
+[23:46:38.806] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:46:39.009] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:46:39.267] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:46:39.478] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:46:39.669] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:46:39.913] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:46:51.382] 
+============================================================
+[23:46:51.382] [迭代 32] MEMORY STATE UPDATE
+============================================================
+
+[23:46:51.382] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并持续遍历用户下载目录，依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe 及 MUDDY_SAW.dll（T1005）；最新确认其进一步访问子目录 C:\Users\34381\Downloads\new\ELECTRICAL_LEMUR.exe（T1005），完成多阶段本地敏感数据采集与载荷准备；随后，该样本通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:46:51.382] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+
+[23:46:51.577] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:46:51.720] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:46:51.825] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:46:52.095] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:46:52.293] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:46:52.462] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:47:00.472] 
+============================================================
+[23:47:00.472] [迭代 37] MEMORY STATE UPDATE
+============================================================
+
+[23:47:00.472] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并持续遍历用户下载目录，依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe 及 MUDDY_SAW.dll（T1005）；随后进一步访问子目录 C:\Users\34381\Downloads\new\ELECTRICAL_LEMUR.exe 和 C:\Users\34381\Downloads\start1\ELECTRICAL_LEMUR.exe（T1005），完成多阶段本地敏感数据采集与载荷准备；最终通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:47:00.472] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+
+[23:47:00.723] --- Action Recorded ---
+Action: 查找写入文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:47:00.998] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:47:01.190] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:47:01.301] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:47:01.424] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:47:11.376] 
+============================================================
+[23:47:11.376] [迭代 41] MEMORY STATE UPDATE
+============================================================
+
+[23:47:11.376] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），随后持续遍历用户下载目录，依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe 及 MUDDY_SAW.dll（T1005）；并进一步访问子目录 C:\Users\34381\Downloads\new\ELECTRICAL_LEMUR.exe、C:\Users\34381\Downloads\start1\ELECTRICAL_LEMUR.exe 以及最新发现的 C:\Users\34381\Downloads\start3\INCREASING_MAKE.exe（T1005），完成多阶段本地敏感数据采集与载荷准备；最终通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。上述操作构成攻击链的初始执行与本地数据收集阶段，证实攻击者已在目标系统完成落地、驻留及基础环境探测。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:47:11.376] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+
+[23:47:11.666] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:47:11.836] --- Action Recorded ---
+Action: 查找写入文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:47:11.969] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:47:12.268] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:47:23.845] 
+============================================================
+[23:47:23.845] [迭代 44] MEMORY STATE UPDATE
+============================================================
+
+[23:47:23.845] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并立即扩展数据采集范围，持续遍历用户下载目录：依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe 及 MUDDY_SAW.dll；进一步深入子目录，访问 C:\Users\34381\Downloads\new\ELECTRICAL_LEMUR.exe、C:\Users\34381\Downloads\start1\ELECTRICAL_LEMUR.exe 和 C:\Users\34381\Downloads\start3\INCREASING_MAKE.exe；最新确认其还读取了压缩包文件 C:\Users\34381\Downloads.zip（T1005），表明攻击者正系统性提取本地归档敏感数据。上述密集的 T1005 行为构成多阶段本地数据收集与载荷准备，最终通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:47:23.845] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+
+[23:47:23.975] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:47:24.235] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:47:24.413] --- Action Recorded ---
+Action: 查找写入文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:47:24.643] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:47:24.815] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:47:36.347] 
+============================================================
+[23:47:36.347] [迭代 48] MEMORY STATE UPDATE
+============================================================
+
+[23:47:36.347] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并同步读取系统核心模块 C:\Windows\System32\ntdll.dll（T1005），表明其在初始阶段即开展环境探测与基础库依赖分析。随后，该进程系统性遍历用户下载目录，密集采集本地载荷与敏感数据：依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll；深入子目录访问 new/、start1/、start3/ 下同名可疑文件；最新确认其还读取了压缩包 C:\Users\34381\Downloads.zip（T1005），印证攻击者正构建多层载荷投递与归档数据提取能力。上述全部 T1005 行为均服务于后续执行阶段——BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:47:36.347] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+
+[23:47:36.629] --- Action Recorded ---
+Action: 查找写入文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:47:36.882] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:47:37.131] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:47:37.278] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:47:37.554] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:47:37.814] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:47:37.968] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:47:50.254] 
+============================================================
+[23:47:50.254] [迭代 54] MEMORY STATE UPDATE
+============================================================
+
+[23:47:50.254] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并同步加载系统核心模块 C:\Windows\System32\ntdll.dll 与 C:\Windows\System32\kernel32.dll（T1005），表明其在初始阶段即开展深度环境探测、API 分析与基础运行时依赖构建。随后，该进程系统性遍历用户下载目录，密集采集本地载荷与归档数据：依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll，并深入 new/、start1/、start3/ 子目录访问同名可疑文件；最新确认其还读取了压缩包 C:\Users\34381\Downloads.zip（T1005），印证攻击者正构建多层载荷投递与批量敏感数据提取能力。上述全部 T1005 行为均服务于后续执行阶段——BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）派生出 svchost.exe 进程，实现进程伪装与权限维持。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:47:50.254] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+
+[23:47:50.522] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:47:50.658] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:47:50.763] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:47:50.870] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:47:51.015] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:47:51.184] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:48:01.702] 
+============================================================
+[23:48:01.702] [迭代 59] MEMORY STATE UPDATE
+============================================================
+
+[23:48:01.702] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并同步加载系统核心模块 C:\Windows\System32\ntdll.dll 与 C:\Windows\System32\kernel32.dll（T1005），表明其在初始阶段即开展深度环境探测、API 分析与基础运行时依赖构建。随后，该进程系统性遍历用户下载目录，密集采集本地载荷与归档数据：依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll，并深入 new/、start1/、start3/ 子目录访问同名可疑文件；最新确认其还读取了压缩包 C:\Users\34381\Downloads.zip（T1005），印证攻击者正构建多层载荷投递与批量敏感数据提取能力。在完成数据收集后，BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）先后派生出 svchost.exe 与 regsvr32.exe 进程，前者用于进程伪装与权限维持，后者为典型无文件执行载体（T1059.004），常被用于绕过检测并加载恶意 DLL。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:48:01.702] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+
+[23:48:01.803] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:48:02.024] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:48:02.183] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:48:02.384] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:48:02.533] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:48:17.162] 
+============================================================
+[23:48:17.162] [迭代 63] MEMORY STATE UPDATE
+============================================================
+
+[23:48:17.162] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并同步加载系统核心模块 C:\Windows\System32\ntdll.dll 与 C:\Windows\System32\kernel32.dll（T1005），表明其在初始阶段即开展深度环境探测与运行时依赖构建。随后，该进程系统性遍历用户下载目录，密集采集本地载荷：依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll，并深入 new/、start1/、start3/ 子目录访问同名可疑文件；还读取了压缩包 C:\Users\34381\Downloads.zip（T1005），印证多层载荷投递与批量数据提取能力。在完成数据收集后，BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）派生出 svchost.exe（用于进程伪装与权限维持）、regsvr32.exe（无文件执行载体，T1059.004），以及最新确认的 ELECTRICAL_LEMUR.exe（T1059.004）——该进程极可能作为第二阶段载荷启动后续横向移动或持久化操作。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:48:17.162] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+
+[23:48:17.315] --- Action Recorded ---
+Action: 查找写入文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:48:17.523] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:48:17.673] --- Action Recorded ---
+Action: 查找写入文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:48:17.829] --- Action Recorded ---
+Action: 查找写入文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:48:17.936] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:48:18.132] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:48:28.136] 
+============================================================
+[23:48:28.136] [迭代 68] MEMORY STATE UPDATE
+============================================================
+
+[23:48:28.136] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并同步加载系统核心模块 C:\Windows\System32\ntdll.dll 与 C:\Windows\System32\kernel32.dll（T1005），表明其在初始阶段即开展深度环境探测与运行时依赖构建。随后，该进程系统性遍历用户下载目录，密集采集本地载荷：依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll，并深入 new/、start1/、start3/ 子目录访问同名可疑文件；还读取了压缩包 C:\Users\34381\Downloads.zip（T1005），印证多层载荷投递与批量数据提取能力。在完成数据收集后，BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）派生出 svchost.exe（用于进程伪装与权限维持）、regsvr32.exe（无文件执行载体，T1059.004）、ELECTRICAL_LEMUR.exe（第二阶段载荷，T1059.004）以及最新确认的 INCREASING_MAKE.exe（T1059.004）——该进程极可能承担横向移动或持久化扩展任务。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:48:28.136] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+
+[23:48:28.325] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:48:28.589] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:48:28.696] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:48:28.974] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:48:29.243] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:48:29.520] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:48:44.099] 
+============================================================
+[23:48:44.099] [迭代 73] MEMORY STATE UPDATE
+============================================================
+
+[23:48:44.099] --- 叙述性攻击摘要 ---
+攻击始于恶意可执行文件 BITTER_ALUMINUM.exe 读取自身在 Windows 预取目录下的缓存文件 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf（T1005），并同步加载系统核心模块 C:\Windows\System32\ntdll.dll 与 C:\Windows\System32\kernel32.dll（T1005），表明其在初始阶段即开展深度环境探测与运行时依赖构建。随后，该进程系统性遍历用户下载目录，密集采集本地载荷：依次读取 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll，并深入 new/、start1/、start3/ 子目录访问同名可疑文件；还读取了压缩包 C:\Users\34381\Downloads.zip（T1005），印证多层载荷投递与批量数据提取能力。在完成数据收集后，BITTER_ALUMINUM.exe 通过命令行解释器技术（T1059.004）派生出 svchost.exe（用于进程伪装与权限维持）、regsvr32.exe（无文件执行载体）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（承担横向移动或持久化扩展任务），以及最新确认的 SearchProtocolHost.exe（T1059.004）——该进程常被滥用为合法搜索服务宿主，具备隐蔽执行与网络回连潜力。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:48:44.099] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+
+[23:48:44.279] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:48:44.384] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:48:44.670] --- Action Recorded ---
+Action: 查找写入文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:48:44.934] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:48:45.178] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:48:45.417] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[23:48:45.559] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:48:55.104] 
+============================================================
+[23:48:55.104] [迭代 79] MEMORY STATE UPDATE
+============================================================
+
+[23:48:55.104] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 通过命令行解释器技术（T1059.004）派生恶意可执行文件 BITTER_ALUMINUM.exe，构成初始执行入口。随后 BITTER_ALUMINUM.exe 立即开展深度环境探测：读取自身预取缓存 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf，并加载 ntdll.dll 与 kernel32.dll（T1005），同步构建运行时依赖。该进程系统性遍历用户下载目录，密集采集多层载荷——包括 ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe（在 Downloads 及 new/、start1/ 子目录中多次出现）、INCREASING_MAKE.exe（含 start3/ 路径变体）、MUDDY_SAW.dll，以及压缩包 Downloads.zip（T1005），体现强健的批量数据提取与多阶段投递能力。完成收集后，BITTER_ALUMINUM.exe 利用 T1059.004 技术派生多个子进程：svchost.exe（用于伪装与权限维持）、regsvr32.exe（支撑无文件执行）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化扩展）及 SearchProtocolHost.exe（隐蔽网络回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:48:55.104] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+
+[23:48:55.252] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:48:55.549] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:48:55.798] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:48:55.960] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:48:56.146] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:49:08.132] 
+============================================================
+[23:49:08.132] [迭代 83] MEMORY STATE UPDATE
+============================================================
+
+[23:49:08.132] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 通过命令行解释器技术（T1059.004）派生恶意可执行文件 BITTER_ALUMINUM.exe，构成初始执行入口；在此过程中，powershell.exe 还直接读取了用户下载目录下的压缩包 C:\Users\34381\Downloads\store.zip（T1005），扩展了早期数据采集范围。随后 BITTER_ALUMINUM.exe 立即开展深度环境探测：读取自身预取缓存 C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf，并加载 ntdll.dll 与 kernel32.dll（T1005）；同步系统性遍历用户下载目录，密集采集多层载荷——包括 ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe（在 Downloads 及 new/、start1/ 子目录中多次出现）、INCREASING_MAKE.exe（含 start3/ 路径变体）、MUDDY_SAW.dll，以及 Downloads.zip（T1005），体现强健的批量数据提取与多阶段投递能力。完成收集后，BITTER_ALUMINUM.exe 利用 T1059.004 派生多个子进程：svchost.exe（用于伪装与权限维持）、regsvr32.exe（支撑无文件执行）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化扩展）及 SearchProtocolHost.exe（隐蔽网络回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:49:08.132] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+
+[23:49:08.256] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:49:08.395] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:49:08.658] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:49:08.897] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:49:09.017] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:49:09.293] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:49:09.461] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:49:17.977] 
+============================================================
+[23:49:17.977] [迭代 89] MEMORY STATE UPDATE
+============================================================
+
+[23:49:17.977] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），随后通过命令行解释器技术（T1059.004）派生并执行 BITTER_ALUMINUM.exe，构成初始执行入口。BITTER_ALUMINUM.exe 立即开展深度环境探测：读取自身预取缓存（C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf）、系统核心 DLL（ntdll.dll、kernel32.dll）及用户下载目录中大量载荷文件——包括 ABSTRACT_MOONSCAPE.dll、多路径变体的 ELECTRICAL_LEMUR.exe（Downloads/、new/、start1/）、INCREASING_MAKE.exe（含 start3/ 路径）、MUDDY_SAW.dll 及 Downloads.zip（T1005），体现高度结构化的批量数据采集与多阶段投递能力。完成收集后，BITTER_ALUMINUM.exe 利用 T1059.004 派生多个子进程：svchost.exe（用于伪装与权限维持）、regsvr32.exe（支撑无文件执行）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化扩展）及 SearchProtocolHost.exe（隐蔽网络回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:49:17.977] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+
+[23:49:18.201] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:49:18.359] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:49:18.576] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:49:18.812] --- Action Recorded ---
+Action: 查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:19.096] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:49:19.381] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:49:31.707] 
+============================================================
+[23:49:31.707] [迭代 94] MEMORY STATE UPDATE
+============================================================
+
+[23:49:31.707] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并额外读取系统核心 DLL C:\Windows\System32\ntdll.dll（T1005），表明其在初始阶段即开展底层环境测绘；随后通过命令行解释器技术（T1059.004）派生并执行 BITTER_ALUMINUM.exe，构成初始执行入口。BITTER_ALUMINUM.exe 立即开展深度环境探测：读取自身预取缓存（C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf）、ntdll.dll 与 kernel32.dll，并批量采集用户下载目录及子路径（new/、start1/、start3/）中大量载荷文件——包括 ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll 及 Downloads.zip（T1005），体现高度结构化的数据收集与多阶段投递能力。完成探测后，该进程利用 T1059.004 派生 svchost.exe（用于伪装与权限维持）、regsvr32.exe（支撑无文件执行）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:49:31.707] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+
+[23:49:31.874] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:49:31.995] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:49:32.129] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:49:32.426] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:32.578] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:32.772] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:49:33.061] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:49:42.671] 
+============================================================
+[23:49:42.671] [迭代 100] MEMORY STATE UPDATE
+============================================================
+
+[23:49:42.671] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并同步采集系统核心 DLL——C:\Windows\System32\ntdll.dll 与 kernel32.dll（T1005），表明其在初始阶段即开展底层环境测绘与可信模块分析；随后通过命令行解释器技术（T1059.004）派生并执行 BITTER_ALUMINUM.exe，构成初始执行入口。BITTER_ALUMINUM.exe 立即开展深度环境探测：读取自身预取缓存（C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf）、ntdll.dll 与 kernel32.dll，并批量采集用户下载目录及子路径（new/、start1/、start3/）中大量载荷文件——包括 ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll 及 Downloads.zip（T1005），体现高度结构化的数据收集与多阶段投递能力。完成探测后，该进程利用 T1059.004 派生 svchost.exe（用于伪装与权限维持）、regsvr32.exe（支撑无文件执行）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:49:42.671] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+
+[23:49:42.924] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:49:43.193] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:43.429] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:49:43.686] --- Action Recorded ---
+Action: 查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:43.869] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[23:49:44.083] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[23:49:54.668] 
+============================================================
+[23:49:54.668] [迭代 105] MEMORY STATE UPDATE
+============================================================
+
+[23:49:54.668] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），同步采集系统核心 DLL（C:\Windows\System32\ntdll.dll、kernel32.dll）开展底层环境测绘；随后通过命令行解释器技术（T1059.004）直接执行同名载荷 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化初始执行链可信性。BITTER_ALUMINUM.exe 立即启动结构化探测：读取自身预取缓存（C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf）、双核心DLL，并批量采集下载目录及子路径（new/、start1/、start3/）中全部载荷文件，包括 ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll 及 Downloads.zip（T1005）。完成测绘后，该进程利用 T1059.004 派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:49:54.668] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+
+[23:49:54.892] --- Action Recorded ---
+Action: 查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:55.149] --- Action Recorded ---
+Action: 查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:55.273] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:49:55.433] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:49:55.643] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[23:49:55.844] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:50:07.548] 
+============================================================
+[23:50:07.548] [迭代 110] MEMORY STATE UPDATE
+============================================================
+
+[23:50:07.548] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），同步采集系统核心 DLL（C:\Windows\System32\ntdll.dll、kernel32.dll）开展底层环境测绘；随后通过命令行解释器技术（T1059.004）直接执行同名载荷 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化初始执行链可信性。BITTER_ALUMINUM.exe 立即启动结构化探测：读取自身预取缓存（C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf）、双核心DLL，并批量采集下载目录及子路径（new/、start1/、start3/）中全部载荷文件，包括 ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll 及 Downloads.zip（T1005）。值得注意的是，msedge.exe 进程亦被观察到读取 C:\Windows\System32\ntdll.dll（T1005），表明攻击者可能已劫持或滥用浏览器进程实施隐蔽环境探测。完成测绘后，该进程利用 T1059.004 派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:50:07.548] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+
+[23:50:07.693] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:50:07.943] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:50:08.185] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:50:08.437] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[23:50:08.711] --- Malicious Event Added ---
+Event ID: 8D401072-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:50:23.371] 
+============================================================
+[23:50:23.371] [迭代 114] MEMORY STATE UPDATE
+============================================================
+
+[23:50:23.371] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），同步采集系统核心 DLL（C:\Windows\System32\ntdll.dll、kernel32.dll）开展底层环境测绘；随后通过命令行解释器技术（T1059.004）直接执行同名载荷 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化初始执行链可信性。BITTER_ALUMINUM.exe 立即启动结构化探测：读取自身预取缓存（C:\Windows\Prefetch\BITTER_ALUMINUM.EXE-91131A30.pf）、双核心DLL，并批量采集下载目录及子路径（new/、start1/、start3/）中全部载荷文件，包括 ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll 及 Downloads.zip（T1005）。值得注意的是，msedge.exe 与 SearchProtocolHost.exe 进程均被观察到读取 C:\Windows\System32\ntdll.dll（T1005），表明攻击者正通过多进程复用系统模块实施隐蔽环境探测与持久化准备。完成测绘后，该进程利用 T1059.004 派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:50:23.371] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+
+[23:50:23.514] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:50:23.761] --- Action Recorded ---
+Action: 查找写入文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:50:24.051] --- Action Recorded ---
+Action: 查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:50:24.211] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:50:24.349] --- Action Recorded ---
+Action: 查找文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:50:24.472] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:50:34.743] 
+============================================================
+[23:50:34.743] [迭代 119] MEMORY STATE UPDATE
+============================================================
+
+[23:50:34.743] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），同步采集系统核心 DLL（C:\Windows\System32\ntdll.dll、kernel32.dll）开展底层环境测绘；值得注意的是，msedge.exe 同步读取了同一 store.zip 文件（T1005），表明攻击者利用多进程交叉采集增强载荷分发与环境感知的隐蔽性。随后通过命令行解释器技术（T1059.004）直接执行同名载荷 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化初始执行链可信性。BITTER_ALUMINUM.exe 立即启动结构化探测：读取自身预取缓存、双核心DLL，并批量采集下载目录及子路径（new/、start1/、start3/）中全部载荷文件，包括 ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll 及 Downloads.zip（T1005）。同时，msedge.exe 与 SearchProtocolHost.exe 均被观察到读取 ntdll.dll（T1005），印证攻击者正通过多进程复用系统模块实施隐蔽环境探测与持久化准备。完成测绘后，该进程利用 T1059.004 派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:50:34.743] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+
+[23:50:35.011] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:50:35.134] --- Action Recorded ---
+Action: 查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:50:35.368] --- Action Recorded ---
+Action: 查找写入文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:50:35.537] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:50:35.680] --- Action Recorded ---
+Action: 查找文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:50:35.888] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:50:50.825] 
+============================================================
+[23:50:50.825] [迭代 124] MEMORY STATE UPDATE
+============================================================
+
+[23:50:50.825] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），同步采集系统核心 DLL（C:\Windows\System32\ntdll.dll、kernel32.dll）开展底层环境测绘；msedge.exe 同步读取同一 store.zip 及 kernel32.dll、ntdll.dll（T1005），SearchProtocolHost.exe 亦读取 ntdll.dll（T1005），表明攻击者通过多进程交叉采集强化环境感知与隐蔽性。随后 BITTER_ALUMINUM.exe 直接执行自身路径载荷（T1059），并启动结构化探测：批量读取预取缓存、全部下载目录子路径（new/、start1/、start3/）中的载荷文件（ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）及双核心 DLL（T1005）。完成测绘后，该进程利用命令行解释器技术（T1059.004）派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:50:50.825] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+
+[23:50:51.041] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:50:51.254] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:50:51.393] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:50:51.530] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:50:51.793] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:50:52.067] --- Action Recorded ---
+Action: 查找 IP 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[23:50:52.169] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1071
+
+[23:51:06.960] 
+============================================================
+[23:51:06.960] [迭代 130] MEMORY STATE UPDATE
+============================================================
+
+[23:51:06.960] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），同步采集系统核心 DLL（C:\Windows\System32\ntdll.dll、kernel32.dll）开展底层环境测绘；msedge.exe 同步读取同一 store.zip 及 kernel32.dll、ntdll.dll（T1005），SearchProtocolHost.exe 亦读取 ntdll.dll（T1005），表明攻击者通过多进程交叉采集强化环境感知与隐蔽性。随后 BITTER_ALUMINUM.exe 直接执行自身路径载荷（T1059），并启动结构化探测：批量读取预取缓存及全部下载目录子路径（new/、start1/、start3/）中的载荷文件（ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）及双核心 DLL（T1005）。完成测绘后，该进程利用命令行解释器技术（T1059.004）派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。值得注意的是，msedge.exe 在此阶段主动向内网 C2 地址 192.168.52.133:16415 发起通信（T1071），拓展了攻击链的命令控制通道，凸显其被劫持参与回连的关键角色。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:51:06.960] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+
+[23:51:07.116] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:51:07.352] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:51:07.639] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:51:07.856] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:51:08.107] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:51:08.317] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:51:08.565] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:51:16.722] 
+============================================================
+[23:51:16.722] [迭代 136] MEMORY STATE UPDATE
+============================================================
+
+[23:51:16.722] --- 叙述性攻击摘要 ---
+攻击始于 powershell.exe 读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），同步采集 ntdll.dll、kernel32.dll 等核心系统 DLL（T1005）；msedge.exe 与 SearchProtocolHost.exe 亦同步读取相同文件，形成多进程交叉环境测绘（T1005），显著增强隐蔽性与感知鲁棒性。随后 BITTER_ALUMINUM.exe 直接执行自身路径载荷（T1059），并开展结构化数据采集：批量读取预取缓存（BITTER_ALUMINUM.EXE-91131A30.pf）及下载目录下全部子路径（new/、start1/、start3/）中的载荷文件（ABSTRACT_MOONSCAPE.dll、多变体 ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）及双核心 DLL（T1005）。完成测绘后，该进程通过命令行解释器技术（T1059.004）派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。值得注意的是，msedge.exe 不仅参与前期测绘，更主动向内网 C2 地址 192.168.52.133:16415 发起通信（T1071），且新确认其曾 fork 出 powershell.exe（T1059.004），表明其已深度劫持为攻击跳板。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:51:16.722] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  28. [Execution] T1059.004 (Unix Shell) - msedge.exe → powershell.exe
+
+[23:51:16.894] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:51:17.135] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:51:17.427] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[23:51:17.580] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:51:27.252] 
+============================================================
+[23:51:27.252] [迭代 139] MEMORY STATE UPDATE
+============================================================
+
+[23:51:27.252] --- 叙述性攻击摘要 ---
+攻击始于 explorer.exe 派生 msedge.exe（T1059.004），后者随即参与多进程交叉环境测绘：与 powershell.exe、SearchProtocolHost.exe 共同读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并同步采集 ntdll.dll、kernel32.dll 等核心系统 DLL（T1005），显著增强隐蔽性与感知鲁棒性。BITTER_ALUMINUM.exe 随后直接执行自身路径载荷（T1059），并开展结构化数据采集，批量读取预取缓存（BITTER_ALUMINUM.EXE-91131A30.pf）及下载目录下 new/、start1/、start3/ 子路径中的多变体载荷（ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）及双核心 DLL（T1005）。完成测绘后，该进程通过命令行解释器技术（T1059.004）派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段载荷）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。值得注意的是，msedge.exe 不仅向内网 C2 地址 192.168.52.133:16415 发起通信（T1071），更主动 fork 出 powershell.exe（T1059.004），表明其已被深度劫持为攻击跳板。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:51:27.252] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  28. [Execution] T1059.004 (Unix Shell) - msedge.exe → powershell.exe
+  29. [Execution] T1059.004 (Unix Shell) - explorer.exe → msedge.exe
+
+[23:51:27.533] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:51:27.686] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:51:27.797] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:51:27.942] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:51:28.160] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:51:28.399] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:51:40.863] 
+============================================================
+[23:51:40.863] [迭代 144] MEMORY STATE UPDATE
+============================================================
+
+[23:51:40.863] --- 叙述性攻击摘要 ---
+攻击始于 explorer.exe 派生 msedge.exe（T1059.004），后者随即与 powershell.exe、SearchProtocolHost.exe 协同开展环境测绘：批量读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并同步采集 ntdll.dll、kernel32.dll 等核心系统 DLL（T1005），强化隐蔽性与感知鲁棒性。BITTER_ALUMINUM.exe 执行自身路径载荷（T1059），系统性采集预取缓存（BITTER_ALUMINUM.EXE-91131A30.pf）及下载目录下多变体载荷（ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）和子路径（new/、start1/、start3/）中冗余载荷（T1005）。随后，该进程通过命令行解释器（T1059.004）派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。值得注意的是，msedge.exe 不仅向内网 C2 地址 192.168.52.133:16415 发起通信（T1071），还主动 fork powershell.exe（T1059.004），表明其已被深度劫持为攻击跳板。最新确认 regsvr32.exe 正在加载并执行 C:\\Users\\34381\\Downloads\\MUDDY_SAW.dll（T1005），构成无文件执行关键链环。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:51:40.863] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  28. [Execution] T1059.004 (Unix Shell) - msedge.exe → powershell.exe
+  29. [Execution] T1059.004 (Unix Shell) - explorer.exe → msedge.exe
+  30. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+
+[23:51:41.011] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:51:41.244] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:51:41.472] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:51:41.703] --- Action Recorded ---
+Action: 查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[23:51:41.936] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[23:51:50.516] 
+============================================================
+[23:51:50.516] [迭代 148] MEMORY STATE UPDATE
+============================================================
+
+[23:51:50.516] --- 叙述性攻击摘要 ---
+攻击始于 explorer.exe 派生 msedge.exe（T1059.004），后者随即与 powershell.exe、SearchProtocolHost.exe 协同开展环境测绘：批量读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并同步采集 ntdll.dll、kernel32.dll 等核心系统 DLL（T1005），强化隐蔽性与感知鲁棒性。BITTER_ALUMINUM.exe 执行自身路径载荷（T1059），系统性采集预取缓存（BITTER_ALUMINUM.EXE-91131A30.pf）及下载目录下多变体载荷（ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）和子路径（new/、start1/、start3/）中冗余载荷（T1005）。随后，该进程通过命令行解释器（T1059.004）派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。值得注意的是，msedge.exe 不仅向内网 C2 地址 192.168.52.133:16415 发起通信（T1071），还主动 fork powershell.exe（T1059.004），表明其已被深度劫持为攻击跳板。最新确认 regsvr32.exe 正在加载并执行 C:\Users\34381\Downloads\MUDDY_SAW.dll（T1005），构成无文件执行关键链环；同时 ELECTRICAL_LEMUR.exe 已启动并执行其同名载荷 C:\Users\34381\Downloads\ELECTRICAL_LEMUR.exe（T1059），形成第二阶段恶意执行闭环。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:51:50.516] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  28. [Execution] T1059.004 (Unix Shell) - msedge.exe → powershell.exe
+  29. [Execution] T1059.004 (Unix Shell) - explorer.exe → msedge.exe
+  30. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  31. [Execution] T1059 (Command and Scripting Interpreter) - ELECTRICAL_LEMUR.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+
+[23:51:50.699] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:51:50.971] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:51:51.132] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[23:51:51.428] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[23:51:59.865] 
+============================================================
+[23:51:59.865] [迭代 151] MEMORY STATE UPDATE
+============================================================
+
+[23:51:59.865] --- 叙述性攻击摘要 ---
+攻击始于 explorer.exe 派生 msedge.exe（T1059.004），后者随即与 powershell.exe、SearchProtocolHost.exe 协同开展环境测绘：批量读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并同步采集 ntdll.dll、kernel32.dll 等核心系统 DLL（T1005），强化隐蔽性与感知鲁棒性。BITTER_ALUMINUM.exe 执行自身路径载荷（T1059），系统性采集预取缓存（BITTER_ALUMINUM.EXE-91131A30.pf）及下载目录下多变体载荷（ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）和子路径（new/、start1/、start3/）中冗余载荷（T1005）。随后，该进程通过命令行解释器（T1059.004）派生 svchost.exe（伪装与权限维持）、regsvr32.exe（无文件执行支撑）、ELECTRICAL_LEMUR.exe（第二阶段）、INCREASING_MAKE.exe（横向移动/持久化）及 SearchProtocolHost.exe（隐蔽回连）。最新确认 regsvr32.exe 正在加载并执行 C:\Users\34381\Downloads\MUDDY_SAW.dll（T1005）；ELECTRICAL_LEMUR.exe 已启动并执行其同名载荷 C:\Users\34381\Downloads\ELECTRICAL_LEMUR.exe（T1059）；同时 INCREASING_MAKE.exe 亦已执行其同名载荷 C:\Users\34381\Downloads\INCREASING_MAKE.exe（T1059），完成横向移动关键闭环。msedge.exe 不仅向内网 C2 地址 192.168.52.133:16415 发起通信（T1071），还主动 fork powershell.exe（T1059.004），表明其已被深度劫持为攻击跳板。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:51:59.865] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  28. [Execution] T1059.004 (Unix Shell) - msedge.exe → powershell.exe
+  29. [Execution] T1059.004 (Unix Shell) - explorer.exe → msedge.exe
+  30. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  31. [Execution] T1059 (Command and Scripting Interpreter) - ELECTRICAL_LEMUR.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  32. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+
+[23:51:59.997] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:52:00.258] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:52:00.533] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:52:00.727] --- Malicious Event Added ---
+Event ID: 8D40106A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:52:15.619] 
+============================================================
+[23:52:15.619] [迭代 154] MEMORY STATE UPDATE
+============================================================
+
+[23:52:15.619] --- 叙述性攻击摘要 ---
+攻击始于 explorer.exe 派生 msedge.exe（T1059.004），后者随即被深度劫持为攻击跳板：一方面向内网 C2 服务器 192.168.52.133:16415 发起通信（T1071），另一方面主动 fork powershell.exe（T1059.004）协同开展环境测绘，批量读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并同步采集 ntdll.dll、kernel32.dll 等核心系统 DLL（T1005）。BITTER_ALUMINUM.exe 执行自身路径载荷（T1059），系统性采集预取缓存（BITTER_ALUMINUM.EXE-91131A30.pf）及下载目录下多变体载荷（ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）和子路径（new/、start1/、start3/）中冗余载荷（T1005）。随后，该进程派生 svchost.exe（伪装与权限维持）、regsvr32.exe（加载执行 C:\Users\34381\Downloads\MUDDY_SAW.dll，T1005）、ELECTRICAL_LEMUR.exe（执行同名载荷，T1059）、INCREASING_MAKE.exe（执行同名载荷完成横向移动闭环，T1059）及 SearchProtocolHost.exe（隐蔽回连）。最新确认 msedge.exe 还向外部 DNS 服务器 8.8.8.8:53 发起域名解析请求（T1071.001），表明其正拓展C2信道。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:52:15.619] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  28. [Execution] T1059.004 (Unix Shell) - msedge.exe → powershell.exe
+  29. [Execution] T1059.004 (Unix Shell) - explorer.exe → msedge.exe
+  30. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  31. [Execution] T1059 (Command and Scripting Interpreter) - ELECTRICAL_LEMUR.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  32. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  33. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → 8.8.8.8:53
+
+[23:52:15.853] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:52:16.062] --- Action Recorded ---
+Action: 查找 IP 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:52:16.329] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:52:16.595] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:52:27.735] 
+============================================================
+[23:52:27.735] [迭代 157] MEMORY STATE UPDATE
+============================================================
+
+[23:52:27.735] --- 叙述性攻击摘要 ---
+攻击始于 explorer.exe 派生 msedge.exe（T1059.004），后者被深度劫持为攻击跳板：一方面向内网 C2 服务器 192.168.52.133:16415 发起通信（T1071），另一方面 fork powershell.exe（T1059.004）协同开展环境测绘，批量读取用户下载目录下的 store.zip 和 BITTER_ALUMINUM.exe（T1005），并同步采集 ntdll.dll、kernel32.dll 等核心系统 DLL（T1005）。BITTER_ALUMINUM.exe 执行自身路径载荷（T1059），系统性采集预取缓存（BITTER_ALUMINUM.EXE-91131A30.pf）及下载目录下多变体载荷（ABSTRACT_MOONSCAPE.dll、ELECTRICAL_LEMUR.exe、INCREASING_MAKE.exe、MUDDY_SAW.dll、Downloads.zip）和子路径（new/、start1/、start3/）中冗余载荷（T1005）；同时，该进程新增向外部 DNS 服务器 8.8.8.8:53 发起域名解析请求（T1071.001），与 msedge.exe 的同类 DNS 请求形成双信道冗余。随后，BITTER_ALUMINUM.exe 派生 svchost.exe（伪装与权限维持）、regsvr32.exe（加载执行 MUDDY_SAW.dll，T1005）、ELECTRICAL_LEMUR.exe（执行同名载荷，T1059）、INCREASING_MAKE.exe（执行同名载荷完成横向移动闭环，T1059）及 SearchProtocolHost.exe（隐蔽回连）。当前调查焦点为 svchost.exe 进程的后续网络通信及文件操作行为。
+
+[23:52:27.735] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → svchost.exe
+  2. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf
+  3. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  4. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  5. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  6. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  7. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe
+  8. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe
+  9. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe
+  10. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads.zip
+  11. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  12. [Collection] T1005 (Data from Local System) - BITTER_ALUMINUM.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → ELECTRICAL_LEMUR.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → SearchProtocolHost.exe
+  17. [Execution] T1059.004 (Unix Shell) - powershell.exe → BITTER_ALUMINUM.exe
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  19. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  20. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  21. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  22. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  23. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  24. [Collection] T1005 (Data from Local System) - SearchProtocolHost.exe → C:\\\\Windows\\\\System32\\\\ntdll.dll
+  25. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  26. [Collection] T1005 (Data from Local System) - msedge.exe → C:\\\\Windows\\\\System32\\\\kernel32.dll
+  27. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  28. [Execution] T1059.004 (Unix Shell) - msedge.exe → powershell.exe
+  29. [Execution] T1059.004 (Unix Shell) - explorer.exe → msedge.exe
+  30. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  31. [Execution] T1059 (Command and Scripting Interpreter) - ELECTRICAL_LEMUR.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe
+  32. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  33. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → 8.8.8.8:53
+  34. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 8.8.8.8:53
+  35. [Execution] T1059.004 (Unix Shell) - C:\\\\Windows\\\\System32\\\\ntdll.dll → ELECTRICAL_LEMUR.exe
+  36. [Execution] T1059.004 (Unix Shell) - 192.168.52.133:16415 → 8.8.8.8:53
+  37. [Execution] T1059.004 (Unix Shell) - C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll → C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip
+  38. [Execution] T1059 (Command and Scripting Interpreter) - C:\\\\ProgramData\\\\app.log → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe

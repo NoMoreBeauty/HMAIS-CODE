@@ -1,0 +1,950 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2026-02-07T00:13:34.050958
+================================================================================
+
+[00:50:30.162] 
+============================================================
+[00:50:30.162] POI REGISTERED
+============================================================
+
+[00:50:30.162] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401051-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "firefox (process)",
+  "目标节点": "/dev/dev/yta_dsa_675 (file)",
+  "源节点ID": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[00:50:30.454] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:50:30.672] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:50:30.928] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:50:31.158] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:50:31.316] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:50:42.953] 
+============================================================
+[00:50:42.953] [迭代 4] MEMORY STATE UPDATE
+============================================================
+
+[00:50:42.953] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80 利用漏洞向 firefox 浏览器进程发起攻击（T1190），成功实现初始访问。当前调查焦点为 firefox 进程的后续行为。
+
+[00:50:42.953] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+
+[00:50:43.080] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:50:43.352] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:50:43.491] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:50:43.625] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:50:53.015] 
+============================================================
+[00:50:53.015] [迭代 7] MEMORY STATE UPDATE
+============================================================
+
+[00:50:53.015] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80 和 61.130.69.232:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成双重初始访问入口。两个恶意连接均指向同一目标进程，表明攻击者采用多源协同方式提升漏洞利用成功率。当前调查焦点为 firefox 进程在遭受攻击后的后续行为，包括可能的内存驻留、进程注入或载荷释放等动作。
+
+[00:50:53.015] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+
+[00:50:53.119] --- Action Recorded ---
+Action: 查找写入文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:50:53.323] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:50:53.447] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:50:53.627] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:50:53.856] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:51:03.532] 
+============================================================
+[00:51:03.532] [迭代 11] MEMORY STATE UPDATE
+============================================================
+
+[00:51:03.532] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80 和 61.130.69.232:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成双重初始访问入口；随后，另一独立恶意连接由 IP 2.233.33.53:80 发起，同样针对 firefox 进程实施漏洞利用（T1190），形成三源协同的初始访问模式，显著提升攻击成功率与冗余性。三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点，可能预置多套 exploit 载荷以适配不同补丁状态或环境变量。当前调查焦点为 firefox 进程在遭受多次 T1190 利用后的后续行为，包括可能的内存驻留、进程注入、shellcode 执行或恶意载荷释放等动作。
+
+[00:51:03.532] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+
+[00:51:03.746] --- Action Recorded ---
+Action: 查找与 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:51:03.943] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:51:04.102] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:51:04.301] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:51:04.547] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[00:51:14.528] 
+============================================================
+[00:51:14.528] [迭代 15] MEMORY STATE UPDATE
+============================================================
+
+[00:51:14.528] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式，显著提升攻击成功率与环境适配冗余性；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点，可能预置多套 exploit 载荷以应对不同补丁状态。在成功入侵后，firefox 进程立即读取系统凭证文件 /etc/passwd（T1552.001），试图提取本地用户账户信息，为后续横向移动或权限提升（如密码爆破、SSH 登录或提权利用）奠定基础。该读取行为发生在初始访问之后、尚未观察到明显载荷释放或进程注入前，标志着攻击已从单纯漏洞利用阶段转入凭证窃取阶段。当前调查焦点仍为 firefox 进程的后续行为，重点关注其是否执行内存驻留、shellcode 解密、恶意模块加载，或进一步尝试访问 /etc/shadow、.ssh/authorized_keys 等高价值凭证目标。
+
+[00:51:14.528] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+
+[00:51:14.827] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:51:15.059] --- Action Recorded ---
+Action: 查找 IP 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:51:15.298] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:51:15.433] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:51:15.579] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:51:24.193] 
+============================================================
+[00:51:24.193] [迭代 19] MEMORY STATE UPDATE
+============================================================
+
+[00:51:24.193] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式，显著提升攻击成功率与环境适配冗余性；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取系统凭证文件 /etc/passwd（T1552.001），提取本地用户账户信息；随后进一步读取 /etc/group（T1005），以获取用户组权限结构与潜在高权限组成员关系（如 wheel、sudo 组），为后续横向移动、提权或持久化铺路。这两项文件读取行为均发生在载荷释放或进程注入前，标志着攻击已从漏洞利用阶段快速转入系统信息侦察与凭证收集阶段。当前调查焦点仍为 firefox 进程的后续行为，重点关注其是否执行内存驻留、shellcode 解密、恶意模块加载，或进一步尝试访问 /etc/shadow、.ssh/authorized_keys 等高价值凭证目标。
+
+[00:51:24.193] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+
+[00:51:24.412] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:51:24.669] --- Action Recorded ---
+Action: 查找写入文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:51:24.881] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:51:25.001] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:51:25.189] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:51:36.092] 
+============================================================
+[00:51:36.092] [迭代 23] MEMORY STATE UPDATE
+============================================================
+
+[00:51:36.092] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式，显著提升攻击成功率与环境适配冗余性；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取系统凭证文件 /etc/passwd（T1552.001），提取本地用户账户信息；随后进一步读取 /etc/group（T1005），以获取用户组权限结构与潜在高权限组成员关系（如 wheel、sudo 组）。紧接着，firefox 进程将恶意载荷写入 /home/admin/cache（T1105），完成命令与控制阶段的关键一步——引入外部工具或后续载荷，该行为标志着攻击已从信息侦察转向主动投递与控制强化。当前调查焦点仍为 firefox 进程的后续行为，重点关注该 cache 文件是否被执行、解析或用于加载内存模块，以及是否触发进一步的横向移动、提权操作或对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证目标的访问尝试。
+
+[00:51:36.092] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+
+[00:51:36.364] --- Action Recorded ---
+Action: 查找写入文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:51:36.505] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:51:36.657] --- Action Recorded ---
+Action: 查找 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:51:36.786] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:51:37.034] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:51:37.310] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:51:37.568] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:51:48.586] 
+============================================================
+[00:51:48.586] [迭代 29] MEMORY STATE UPDATE
+============================================================
+
+[00:51:48.586] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式，显著提升攻击成功率与环境适配冗余性；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取系统凭证文件 /etc/passwd（T1552.001），提取本地用户账户信息；随后进一步读取 /etc/group（T1005），以获取用户组权限结构与潜在高权限组成员关系（如 wheel、sudo 组）。紧接着，firefox 进程将恶意载荷写入 /home/admin/cache（T1105），完成命令与控制阶段的关键一步——引入外部工具或后续载荷；随后又向 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 写入另一恶意动态库（T1105），该路径与命名格式（含 IP 地址 214.163.155）暗示其为远程 C2 下发的定制化 Linux 后门模块，具备内存加载与隐蔽执行能力。当前调查焦点仍为 firefox 进程的后续行为，重点关注上述两个文件（/home/admin/cache 与 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155）是否被加载执行、是否触发 dlopen/dlsym 等动态链接调用、是否尝试访问 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证目标，以及是否存在横向移动或提权操作迹象。
+
+[00:51:48.586] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+
+[00:51:48.800] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:51:49.090] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:51:49.390] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:51:49.620] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:51:59.080] 
+============================================================
+[00:51:59.080] [迭代 32] MEMORY STATE UPDATE
+============================================================
+
+[00:51:59.080] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式，显著提升攻击成功率与环境适配冗余性；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取系统凭证文件 /etc/passwd（T1552.001）及用户组配置 /etc/group（T1005），快速构建本地权限画像；随后将恶意载荷写入 /home/admin/cache（T1105），并同步写入定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），该路径含 C2 地址片段（214.163.155），具备内存加载与隐蔽执行能力。最新确认事件显示，firefox 进程已派生子进程执行 /home/admin/cache 文件（T1059.004），标志攻击进入执行阶段——该 shell 脚本极可能用于加载前述 .so 后门、调用 dlopen/dlsym、尝试读取 /etc/shadow 或 ~/.ssh/authorized_keys，并为横向移动或提权铺路。当前调查焦点仍为 firefox 进程及其派生的 cache 进程，重点追踪动态库加载行为、高价值凭证访问、以及潜在的提权与横向操作痕迹。
+
+[00:51:59.080] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+
+[00:51:59.343] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:51:59.613] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:51:59.832] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:51:59.951] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:52:00.213] --- Action Recorded ---
+Action: 查找与 IP 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:52:00.494] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:52:00.619] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:52:09.183] 
+============================================================
+[00:52:09.183] [迭代 38] MEMORY STATE UPDATE
+============================================================
+
+[00:52:09.183] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式，显著提升攻击成功率与环境适配冗余性；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取系统凭证文件 /etc/passwd（T1552.001）及用户组配置 /etc/group（T1005），快速构建本地权限画像；随后将恶意载荷写入 /home/admin/cache（T1105），并同步写入定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），该路径含 C2 地址片段（214.163.155），具备内存加载与隐蔽执行能力。最新确认事件显示，firefox 进程已派生子进程执行 /home/admin/cache 文件（T1059.004），同时另启 bash 进程（T1059.004），标志攻击正式进入执行阶段——cache 脚本极可能用于加载 .so 后门、调用 dlopen/dlsym，而 bash 进程则可能承担后续提权、凭证窃取（如 /etc/shadow、~/.ssh/authorized_keys）或横向移动任务。当前调查焦点仍为 firefox 进程及其派生的 cache 与 bash 进程，重点追踪动态库加载行为、高价值凭证访问痕迹，以及潜在的提权与横向操作链路。
+
+[00:52:09.183] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+
+[00:52:09.432] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:52:09.647] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:52:09.823] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:52:10.029] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:52:10.247] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:52:18.272] 
+============================================================
+[00:52:18.272] [迭代 42] MEMORY STATE UPDATE
+============================================================
+
+[00:52:18.272] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式，显著提升攻击成功率与环境适配冗余性；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取系统凭证文件 /etc/passwd（T1552.001）及用户组配置 /etc/group（T1005），快速构建本地权限画像；随后将恶意载荷写入 /home/admin/cache（T1105），并同步写入定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），该路径含 C2 地址片段（214.163.155），具备内存加载与隐蔽执行能力。最新确认事件显示，firefox 派生的 cache 子进程再次读取 /etc/group（T1005），印证其正执行本地信息收集任务；同时，cache 文件已被执行（T1059.004），并另启 bash 进程（T1059.004），标志攻击正式进入执行阶段——cache 脚本极可能用于加载 .so 后门、调用 dlopen/dlsym，而 bash 进程则可能承担后续提权、凭证窃取（如 /etc/shadow、~/.ssh/authorized_keys）或横向移动任务。当前调查焦点仍为 firefox 进程及其派生的 cache 与 bash 进程，重点追踪动态库加载行为、高价值凭证访问痕迹，以及潜在的提权与横向操作链路。
+
+[00:52:18.272] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+
+[00:52:18.561] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:52:18.854] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:52:19.118] --- Action Recorded ---
+Action: 查找写入文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:52:19.361] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:52:19.630] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[00:52:27.865] 
+============================================================
+[00:52:27.865] [迭代 46] MEMORY STATE UPDATE
+============================================================
+
+[00:52:27.865] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），快速构建本地权限画像；随后写入恶意脚本 /home/admin/cache（T1105）及定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本随即被执行（T1059.004），并派生 bash 进程（T1059.004），标志攻击进入执行阶段；cache 进程进一步重复读取 /etc/passwd（T1552.001）和 /etc/group（T1005），印证其持续开展凭证与组信息收集，为后续提权、横向移动或持久化铺路。当前调查焦点仍为 firefox 及其派生的 cache 与 bash 进程，重点追踪 .so 动态库加载行为、高价值凭证访问（如 /etc/shadow、~/.ssh/authorized_keys）及潜在的提权与横向操作链路。
+
+[00:52:27.865] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+
+[00:52:28.132] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:52:28.295] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:52:28.415] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:52:28.645] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:52:28.840] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:52:42.037] 
+============================================================
+[00:52:42.037] [迭代 50] MEMORY STATE UPDATE
+============================================================
+
+[00:52:42.037] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起攻击（T1190），构成三源协同的初始访问模式；三个连接均指向同一 firefox 进程，表明攻击者高度聚焦该入口点。成功入侵后，firefox 进程立即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），快速构建本地权限画像；随后写入恶意脚本 /home/admin/cache（T1105）及定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本随即被执行（T1059.004），并派生 bash 进程（T1059.004），标志攻击进入执行阶段；cache 进程进一步重复读取 /etc/passwd（T1552.001）和 /etc/group（T1005），印证其持续开展凭证与组信息收集，**并额外读取了已写入的后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1005）**，表明其正验证或预加载该动态库以支撑后续 C2 通信或提权操作。当前调查焦点仍为 firefox 及其派生的 cache 与 bash 进程，重点追踪 .so 动态库加载行为、高价值凭证访问（如 /etc/shadow、~/.ssh/authorized_keys）及潜在的提权与横向操作链路。
+
+[00:52:42.037] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+
+[00:52:42.233] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:52:42.526] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:52:42.735] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:52:42.908] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:52:43.032] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[00:52:43.213] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:52:54.284] 
+============================================================
+[00:52:54.284] [迭代 55] MEMORY STATE UPDATE
+============================================================
+
+[00:52:54.284] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同攻击（T1190），构成三源初始访问；成功入侵后，firefox 进程立即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），快速构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本随即被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；cache 进程重复读取 /etc/passwd、/etc/group 及已写入的后门模块（T1005/T1552.001），表明其正验证或预加载该动态库以支撑后续 C2 或提权。值得注意的是，sshd 进程亦被利用，派生出另一独立 bash 进程（T1059.004），揭示攻击者已获取系统级持久化入口并可能绕过浏览器沙箱限制开展横向操作。当前调查焦点扩展至 firefox、cache、bash（来自 firefox）及新发现的 sshd→bash 链路，重点追踪 .so 动态库实际加载行为、对 /etc/shadow 与 ~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权（如 sudo/suid 利用）与内网横向渗透活动。
+
+[00:52:54.284] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+
+[00:52:54.435] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:52:54.635] --- Action Recorded ---
+Action: 查找与 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:52:54.848] --- Action Recorded ---
+Action: 查找 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:52:55.053] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:52:55.159] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:52:55.262] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[00:52:55.553] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:53:04.431] 
+============================================================
+[00:53:04.431] [迭代 61] MEMORY STATE UPDATE
+============================================================
+
+[00:53:04.431] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同攻击（T1190），构成三源初始访问；成功入侵后，firefox 进程立即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），快速构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本随即被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及已写入的后门模块（T1005/T1552.001），表明其正验证或预加载该动态库以支撑后续 C2 或提权。与此同时，sshd 进程被利用派生独立 bash 进程（T1059.004），揭示系统级持久化入口；更关键的是，cron 进程亦被劫持并派生出另一 bash 进程（T1059.004），表明攻击者已建立时间驱动型隐蔽执行通道，极大增强了驻留鲁棒性。当前调查焦点扩展至 firefox、cache、bash（来自 firefox/sshd/cron）、以及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权（如 sudo/suid 利用）与内网横向渗透活动。
+
+[00:53:04.431] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+
+[00:53:04.682] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:53:04.883] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:53:05.132] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:53:05.390] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:53:05.551] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:53:14.496] 
+============================================================
+[00:53:14.496] [迭代 65] MEMORY STATE UPDATE
+============================================================
+
+[00:53:14.496] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同攻击（T1190），构成三源初始访问；成功入侵后，firefox 进程立即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），快速构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本随即被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及后门模块（T1005/T1552.001），表明其正验证或预加载该动态库以支撑后续 C2 或提权。与此同时，sshd 与 cron 进程被劫持，各自派生独立 bash 进程（T1059.004），分别建立会话级与时间驱动型持久化通道。最新确认：某 bash 进程向 /home/admin/.bash_history 写入记录（T1105），意图掩盖操作痕迹并模拟合法用户行为。当前调查焦点聚焦于 firefox、cache、各 bash 进程（来自 firefox/sshd/cron）及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权（如 sudo/suid 利用）与内网横向渗透活动。
+
+[00:53:14.496] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /home/admin/.bash_history
+
+[00:53:14.696] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:53:14.961] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:53:15.150] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:53:15.426] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:53:15.672] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:53:15.853] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:53:15.992] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:53:28.962] 
+============================================================
+[00:53:28.962] [迭代 71] MEMORY STATE UPDATE
+============================================================
+
+[00:53:28.962] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同初始访问（T1190）；成功入侵后，firefox 立即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本随即被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及后门模块（T1005/T1552.001），表明其正验证或预加载该动态库以支撑后续 C2 或提权。与此同时，sshd 与 cron 进程被劫持，各自派生独立 bash 进程（T1059.004），建立会话级与时间驱动型持久化通道；值得注意的是，内部 IP 192.168.0.1:22 随后直接向 sshd 进程发起 T1190 类型漏洞利用（RECVFROM），构成横向渗透回打行为，显著提升内网威胁等级。最新确认：某 bash 进程向 /home/admin/.bash_history 写入记录（T1105），意图掩盖操作痕迹并模拟合法用户行为。当前调查焦点聚焦于 firefox、cache、各 bash 进程（来自 firefox/sshd/cron）及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权（如 sudo/suid 利用）与内网横向渗透活动。
+
+[00:53:28.962] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /home/admin/.bash_history
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.0.1:22 → sshd
+
+[00:53:29.133] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:53:29.413] --- Action Recorded ---
+Action: 查找与 IP 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:53:29.567] --- Action Recorded ---
+Action: 查找 IP 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:53:29.746] --- Action Recorded ---
+Action: 查找写入文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:53:29.848] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[00:53:30.020] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[00:53:39.285] 
+============================================================
+[00:53:39.285] [迭代 76] MEMORY STATE UPDATE
+============================================================
+
+[00:53:39.285] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同初始访问（T1190）；成功入侵后，firefox 立即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本随即被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及后门模块（T1005/T1552.001），并进一步执行 /dev/dev/yta_dsa_675（T1059），强化其控制逻辑。与此同时，sshd 与 cron 进程被劫持，各自派生独立 bash 进程（T1059.004），建立会话级与时间驱动型持久化通道；内部 IP 192.168.0.1:22 随后直接向 sshd 进程发起 T1190 类型漏洞利用（RECVFROM），构成横向渗透回打行为。最新确认：某 bash 进程向 /home/admin/.bash_history 写入记录（T1105），意图掩盖操作痕迹并模拟合法用户行为。当前调查焦点聚焦于 firefox、cache、各 bash 进程（来自 firefox/sshd/cron）及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权（如 sudo/suid 利用）与内网横向渗透活动。
+
+[00:53:39.285] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /home/admin/.bash_history
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.0.1:22 → sshd
+  17. [Execution] T1059 (Command and Scripting Interpreter) - /dev/dev/yta_dsa_675 → cache
+
+[00:53:39.441] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:53:39.576] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:53:39.833] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:53:40.096] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:53:40.273] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[00:53:51.817] 
+============================================================
+[00:53:51.817] [迭代 80] MEMORY STATE UPDATE
+============================================================
+
+[00:53:51.817] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同初始访问（T1190）；firefox 随即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及后门模块（T1005/T1552.001），并执行 /dev/dev/yta_dsa_675（T1059）强化控制逻辑。sshd 与 cron 进程被劫持，各自派生独立 bash 进程（T1059.004），建立会话级与时间驱动型持久化通道；其中某 bash 进程最新向 /home/admin/.bash_history 写入记录（T1105），意图掩盖操作痕迹并模拟合法用户行为，且该 bash 进程亦直接读取 /etc/passwd（T1552.001）。与此同时，内部 IP 192.168.0.1:22 向 sshd 进程发起 T1190 类型漏洞利用（RECVFROM），构成横向渗透回打。当前调查焦点聚焦于 firefox、cache、各 bash 进程（来自 firefox/sshd/cron）及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权与内网横向渗透活动。
+
+[00:53:51.817] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /home/admin/.bash_history
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.0.1:22 → sshd
+  17. [Execution] T1059 (Command and Scripting Interpreter) - /dev/dev/yta_dsa_675 → cache
+  18. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → bash
+
+[00:53:52.075] --- Action Recorded ---
+Action: 查找写入文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:53:52.324] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:53:52.489] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:53:52.709] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:53:52.973] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:54:02.105] 
+============================================================
+[00:54:02.105] [迭代 84] MEMORY STATE UPDATE
+============================================================
+
+[00:54:02.105] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同初始访问（T1190）；firefox 随即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及后门模块（T1005/T1552.001），并执行 /dev/dev/yta_dsa_675（T1059）强化控制逻辑。sshd 与 cron 进程被劫持，各自派生独立 bash 进程（T1059.004），建立会话级与时间驱动型持久化通道；其中某 bash 进程最新向 /home/admin/.bash_history 写入记录（T1105），意图掩盖操作痕迹并模拟合法用户行为，且该 bash 进程亦直接读取 /etc/passwd（T1552.001）。与此同时，内部 IP 192.168.0.1:22 向 sshd 进程发起 T1190 类型漏洞利用（RECVFROM），构成横向渗透回打；劫持后的 sshd 进程进一步向系统日志 /var/log/auth.log 写入伪造条目（T1105），以混淆审计线索、干扰入侵检测。当前调查焦点聚焦于 firefox、cache、各 bash 进程（来自 firefox/sshd/cron）及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权与内网横向渗透活动。
+
+[00:54:02.105] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /home/admin/.bash_history
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.0.1:22 → sshd
+  17. [Execution] T1059 (Command and Scripting Interpreter) - /dev/dev/yta_dsa_675 → cache
+  18. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → bash
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+
+[00:54:02.298] --- Action Recorded ---
+Action: 查找写入文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:54:02.488] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:54:02.734] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:54:02.939] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:54:03.171] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:54:03.310] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:54:03.577] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:54:16.420] 
+============================================================
+[00:54:16.420] [迭代 90] MEMORY STATE UPDATE
+============================================================
+
+[00:54:16.420] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同初始访问（T1190）；firefox 随即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及后门模块（T1005/T1552.001），并执行 /dev/dev/yta_dsa_675（T1059）强化控制逻辑。sshd 与 cron 进程被劫持，各自派生独立 bash 进程（T1059.004），建立会话级与时间驱动型持久化通道；其中某 bash 进程最新向 /home/admin/.bash_history 写入记录（T1105），意图掩盖操作痕迹并模拟合法用户行为，且该 bash 进程亦直接读取 /etc/passwd（T1552.001）。与此同时，内部 IP 192.168.0.1:22 向 sshd 进程发起 T1190 类型漏洞利用（RECVFROM），构成横向渗透回打；劫持后的 sshd 进程向 /var/log/auth.log 写入伪造条目（T1105），cron 进程则新增向 /var/log/syslog 写入日志（T1105），二者协同污染系统审计线索，加剧检测难度。当前调查焦点聚焦于 firefox、cache、各 bash 进程（来自 firefox/sshd/cron）及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权与内网横向渗透活动。
+
+[00:54:16.420] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /home/admin/.bash_history
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.0.1:22 → sshd
+  17. [Execution] T1059 (Command and Scripting Interpreter) - /dev/dev/yta_dsa_675 → cache
+  18. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → bash
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+
+[00:54:16.548] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:54:16.709] --- Action Recorded ---
+Action: 查找文件 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:54:16.863] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:54:17.071] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:54:28.969] 
+============================================================
+[00:54:28.969] [迭代 93] MEMORY STATE UPDATE
+============================================================
+
+[00:54:28.969] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 145.199.103.57:80、61.130.69.232:80 和 2.233.33.53:80 先后利用漏洞向 firefox 浏览器进程发起协同初始访问（T1190）；firefox 随即读取 /etc/passwd（T1552.001）与 /etc/group（T1005），构建本地权限画像，并写入恶意脚本 /home/admin/cache 与定制化后门模块 /deploy/archive/libdrakon.linux.x64.so_5.214.163.155（T1105），后者路径嵌入 C2 地址片段（214.163.155），具备内存加载能力。cache 脚本被执行（T1059.004），派生 bash 子进程（T1059.004），标志执行阶段开启；该 cache 进程重复读取 /etc/passwd、/etc/group 及后门模块（T1005/T1552.001），并执行 /dev/dev/yta_dsa_675（T1059）强化控制逻辑。值得注意的是，firefox 进程在早期阶段即主动向 DNS 服务器 8.8.8.8:53 发起域名解析请求（T1071.001），疑似用于C2域名解析或基础设施探测。sshd 与 cron 进程被劫持，各自派生独立 bash 进程（T1059.004），建立会话级与时间驱动型持久化通道；其中某 bash 进程最新向 /home/admin/.bash_history 写入记录（T1105），意图掩盖操作痕迹并模拟合法用户行为，且该 bash 进程亦直接读取 /etc/passwd（T1552.001）。与此同时，内部 IP 192.168.0.1:22 向 sshd 进程发起 T1190 类型漏洞利用（RECVFROM），构成横向渗透回打；劫持后的 sshd 进程向 /var/log/auth.log 写入伪造条目（T1105），cron 进程则新增向 /var/log/syslog 写入日志（T1105），二者协同污染系统审计线索，加剧检测难度。当前调查焦点聚焦于 firefox、cache、各 bash 进程（来自 firefox/sshd/cron）及 .so 动态库的实际加载行为，重点追踪对 /etc/shadow、~/.ssh/authorized_keys 等高价值凭证文件的访问，以及潜在的提权与内网横向渗透活动。
+
+[00:54:28.969] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 145.199.103.57:80 → firefox
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 61.130.69.232:80 → firefox
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 2.233.33.53:80 → firefox
+  4. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → firefox
+  5. [Collection] T1005 (Data from Local System) - /etc/group → firefox
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /home/admin/cache
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - firefox → /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+  8. [Execution] T1059.004 (Unix Shell) - firefox → cache
+  9. [Execution] T1059.004 (Unix Shell) - firefox → bash
+  10. [Collection] T1005 (Data from Local System) - /etc/group → cache
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → cache
+  12. [Collection] T1005 (Data from Local System) - /deploy/archive/libdrakon.linux.x64.so_5.214.163.155 → cache
+  13. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  14. [Execution] T1059.004 (Unix Shell) - cron → bash
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /home/admin/.bash_history
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.0.1:22 → sshd
+  17. [Execution] T1059 (Command and Scripting Interpreter) - /dev/dev/yta_dsa_675 → cache
+  18. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → bash
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - cron → /var/log/syslog
+  21. [Command and Control] T1071.001 (Web Protocols) - firefox → 8.8.8.8:53
+
+[00:54:29.205] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:45:38.400] --- Malicious Event Added ---
+Event ID: 8D401080-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1082
+

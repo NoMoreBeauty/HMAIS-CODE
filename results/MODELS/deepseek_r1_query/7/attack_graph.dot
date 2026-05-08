@@ -1,0 +1,74 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "firefox" [shape=ellipse];
+    "cache" [shape=ellipse];
+    "bash" [shape=ellipse];
+    "sshd" [shape=ellipse];
+    "cron" [shape=ellipse];
+
+    "/dev/dev/yta_dsa_675" [shape=box];
+    "/etc/passwd" [shape=box];
+    "/etc/group" [shape=box];
+    "/home/admin/cache" [shape=box];
+    "/deploy/archive/libdrakon.linux.x64.so_5.214.163.155" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "/var/log/syslog" [shape=box];
+    "/home/admin/.bash_history" [shape=box];
+
+    "145.199.103.57:80" [shape=diamond];
+    "61.130.69.232:80" [shape=diamond];
+    "2.233.33.53:80" [shape=diamond];
+    "192.168.0.1:22" [shape=diamond];
+    "8.8.8.8:53" [shape=diamond];
+
+    "/dev/dev/yta_dsa_675" -> "cache" [label="execute"];
+
+    "firefox" -> "/dev/dev/yta_dsa_675" [label="write"];
+
+    "145.199.103.57:80" -> "firefox" [label="recv_from"];
+
+    "61.130.69.232:80" -> "firefox" [label="recv_from"];
+
+    "/etc/passwd" -> "firefox" [label="read"];
+
+    "/etc/group" -> "firefox" [label="read"];
+
+    "2.233.33.53:80" -> "firefox" [label="recv_from"];
+
+    "firefox" -> "/home/admin/cache" [label="write"];
+
+    "firefox" -> "/deploy/archive/libdrakon.linux.x64.so_5.214.163.155" [label="write"];
+
+    "firefox" -> "cache" [label="fork"];
+
+    "/etc/group" -> "cache" [label="read"];
+
+    "/etc/passwd" -> "cache" [label="read"];
+
+    "/deploy/archive/libdrakon.linux.x64.so_5.214.163.155" -> "cache" [label="read"];
+
+
+    "firefox" -> "bash" [label="fork"];
+
+    "bash" -> "/home/admin/.bash_history" [label="write"];
+
+    "/etc/passwd" -> "bash" [label="read"];
+
+    "sshd" -> "bash" [label="fork"];
+
+    "192.168.0.1:22" -> "sshd" [label="recv_from"];
+
+    "sshd" -> "/var/log/auth.log" [label="write"];
+
+    "cron" -> "bash" [label="fork"];
+
+    "cron" -> "/var/log/syslog" [label="write"];
+
+    "firefox" -> "8.8.8.8:53" [label="send_to"];
+    "firefox" -> "/deploy/archive/libdrakon.linux.x64.so_5.214.163.155" [label="fork"];
+    "cron" -> "145.199.103.57:80" [label="recvfrom"];
+    "192.168.0.1:22" -> "/home/admin/.bash_history" [label="write"];
+}

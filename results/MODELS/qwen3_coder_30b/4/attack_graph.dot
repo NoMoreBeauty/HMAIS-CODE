@@ -1,0 +1,112 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "192.168.52.133:16415" [shape=diamond];
+    "192.168.52.133:47138" [shape=diamond];
+    "BITTER_ALUMINUM.exe" [shape=ellipse];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\create1.zip" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\first\\\\test1\\\\BITTER_ALUMINUM.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\output.zip" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\output1" [shape=box];
+    "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [shape=box];
+    "ComputerDefaults.exe" [shape=ellipse];
+    "SearchProtocolHost.exe" [shape=ellipse];
+    "msedge.exe" [shape=ellipse];
+    "powershell.exe" [shape=ellipse];
+    "regsvr32.exe" [shape=ellipse];
+    "svchost.exe" [shape=ellipse];
+    "C:\\Program Files\\Windows Defender\\MsMpEng.exe" [shape=ellipse];
+    "8.8.8.8:53" [shape=diamond];
+    "C:\\Users\\34381\\AppData\\Local\\Temp\\ps_log.tmp" [shape=box];
+
+    "msedge.exe" -> "192.168.52.133:16415" [label="recv_from"];
+
+    "msedge.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\create1.zip" [label="write"];
+
+    "msedge.exe" -> "powershell.exe" [label="fork"];
+
+    "powershell.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\create1.zip" [label="read"];
+
+    "powershell.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="write"];
+
+    "powershell.exe" -> "BITTER_ALUMINUM.exe" [label="fork"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="execute"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [label="write"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\first\\\\test1\\\\BITTER_ALUMINUM.exe" [label="write"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\output.zip" [label="write"];
+
+    "BITTER_ALUMINUM.exe" -> "regsvr32.exe" [label="fork"];
+
+    "regsvr32.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "ComputerDefaults.exe" [label="fork"];
+
+    "ComputerDefaults.exe" -> "SearchProtocolHost.exe" [label="fork"];
+
+    "BITTER_ALUMINUM.exe" -> "192.168.52.133:47138" [label="send_to"];
+
+
+    "SearchProtocolHost.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\output1" [label="read"];
+
+    "SearchProtocolHost.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\output.zip" [label="read"];
+
+    "powershell.exe" -> "C:\\Program Files\\Windows Defender\\MsMpEng.exe" [label="fork"];
+
+    "C:\\Program Files\\Windows Defender\\MsMpEng.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\create1.zip" [label="read"];
+
+    "C:\\Program Files\\Windows Defender\\MsMpEng.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="read"];
+
+    "msedge.exe" -> "8.8.8.8:53" [label="send_to"];
+
+    "powershell.exe" -> "svchost.exe" [label="fork"];
+
+    "svchost.exe" -> "8.8.8.8:53" [label="send_to"];
+
+    "powershell.exe" -> "C:\\Users\\34381\\AppData\\Local\\Temp\\ps_log.tmp" [label="write"];
+
+    "SearchProtocolHost.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="read"];
+    "regsvr32.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="fork"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" -> "SearchProtocolHost.exe" [label="sendto"];
+    "8.8.8.8:53" -> "ComputerDefaults.exe" [label="fork"];
+    "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" -> "ComputerDefaults.exe" [label="write"];
+    "msedge.exe" -> "C:\\Users\\34381\\AppData\\Local\\Temp\\ps_log.tmp" [label="fork"];
+    "192.168.52.133:47138" -> "C:\\Program Files\\Windows Defender\\MsMpEng.exe" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\output1" [label="sendto"];
+    "ComputerDefaults.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="execute"];
+    "ComputerDefaults.exe" -> "8.8.8.8:53" [label="execute"];
+    "C:\\Program Files\\Windows Defender\\MsMpEng.exe" -> "svchost.exe" [label="fork"];
+    "powershell.exe" -> "192.168.52.133:47138" [label="execute"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\output.zip" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="recvfrom"];
+    "powershell.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\output1" [label="fork"];
+    "SearchProtocolHost.exe" -> "192.168.52.133:47138" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\create1.zip" -> "ComputerDefaults.exe" [label="fork"];
+    "regsvr32.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\output.zip" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\first\\\\test1\\\\BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="recvfrom"];
+    "msedge.exe" -> "ComputerDefaults.exe" [label="sendto"];
+    "SearchProtocolHost.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="write"];
+    "C:\\Program Files\\Windows Defender\\MsMpEng.exe" -> "8.8.8.8:53" [label="read"];
+    "C:\\Program Files\\Windows Defender\\MsMpEng.exe" -> "8.8.8.8:53" [label="read"];
+    "ComputerDefaults.exe" -> "regsvr32.exe" [label="recvfrom"];
+    "192.168.52.133:16415" -> "C:\\Users\\34381\\AppData\\Local\\Temp\\ps_log.tmp" [label="execute"];
+    "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="sendto"];
+    "ComputerDefaults.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\first\\\\test1\\\\BITTER_ALUMINUM.exe" [label="recvfrom"];
+    "ComputerDefaults.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="recvfrom"];
+    "C:\\Program Files\\Windows Defender\\MsMpEng.exe" -> "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [label="fork"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" -> "ComputerDefaults.exe" [label="execute"];
+    "powershell.exe" -> "192.168.52.133:16415" [label="fork"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\output.zip" -> "BITTER_ALUMINUM.exe" [label="fork"];
+    "8.8.8.8:53" -> "powershell.exe" [label="fork"];
+    "svchost.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\first\\\\test1\\\\BITTER_ALUMINUM.exe" [label="execute"];
+    "regsvr32.exe" -> "192.168.52.133:47138" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\output.zip" -> "ComputerDefaults.exe" [label="recvfrom"];
+}

@@ -1,0 +1,2967 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T19:55:33.935874
+================================================================================
+
+[21:20:05.089] 
+============================================================
+[21:20:05.089] POI REGISTERED
+============================================================
+
+[21:20:05.089] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401052-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "notepad++.exe (file)",
+  "目标节点": "update.exe (process)",
+  "源节点ID": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[21:20:05.382] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:20:05.621] --- Action Recorded ---
+Action: 查找写入文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:20:05.743] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:20:05.914] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:20:06.213] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[21:20:06.375] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[21:20:17.683] 
+============================================================
+[21:20:17.683] [迭代 5] MEMORY STATE UPDATE
+============================================================
+
+[21:20:17.683] --- 叙述性攻击摘要 ---
+攻击始于 notepad++.exe 进程向外部 C2 服务器 204.68.111.100 发起网络连接，使用 Web 协议进行命令与控制通信（T1071.001）。当前调查焦点为 notepad++.exe 进程的后续网络行为。
+
+[21:20:17.683] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+
+[21:20:17.906] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[21:20:18.136] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:20:18.434] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[21:20:18.614] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:20:18.754] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:20:18.910] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[21:20:19.115] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[21:20:30.167] 
+============================================================
+[21:20:30.167] [迭代 11] MEMORY STATE UPDATE
+============================================================
+
+[21:20:30.167] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 进程注入恶意载荷，实现初始访问；随后 notepad++.exe 被劫持，主动向同一服务器 204.68.111.100 发起基于 Web 协议的命令与控制通信（T1071.001）。该双向交互构成典型的“先渗透、后控台”攻击链，其中 T1190 事件为前置触发点，T1071.001 为后续持久化与指令执行阶段。当前调查焦点为 notepad++.exe 进程的后续网络行为，需重点分析其是否继续外连、建立隧道或下载附加载荷。
+
+[21:20:30.167] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+
+[21:20:30.269] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:20:30.519] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:20:30.624] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[21:20:30.897] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:20:31.131] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:20:31.403] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:20:45.917] 
+============================================================
+[21:20:45.917] [迭代 16] MEMORY STATE UPDATE
+============================================================
+
+[21:20:45.917] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 进程注入恶意载荷，实现初始访问；随后 notepad++.exe 被劫持，主动向同一服务器 204.68.111.100 发起基于 Web 协议的命令与控制通信（T1071.001），完成指令接收与响应。在此交互过程中，notepad++.exe 触发了后续进程行为：派生 update.exe 进程，并通过该进程执行 shell 命令，创建并启动恶意子进程 cKfGW.exe（T1059.004）。该 fork 行为标志着攻击从远程控台阶段进入本地横向执行阶段，cKfGW.exe 极可能承担后续载荷投递、权限提升或数据窃取等任务。当前调查焦点已延伸至 notepad++.exe 的后续网络行为及其派生进程 update.exe 与 cKfGW.exe 的文件操作、内存行为及外连活动，需重点分析 cKfGW.exe 是否尝试建立新通信通道、访问敏感目录或加载反射型 DLL。
+
+[21:20:45.917] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+
+[21:20:46.191] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:20:46.455] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:20:46.564] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:20:46.685] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:20:46.896] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:20:47.179] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:20:57.142] 
+============================================================
+[21:20:57.142] [迭代 21] MEMORY STATE UPDATE
+============================================================
+
+[21:20:57.142] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 进程注入恶意载荷，实现初始访问；随后 notepad++.exe 主动向该服务器发起基于 Web 协议的命令与控制通信（T1071.001），接收指令并响应。在此过程中，notepad++.exe 派生 update.exe 进程，后者进一步执行 shell 命令，创建并启动两个恶意子进程：cKfGW.exe 和 Process_1932（均属 T1059.004）。其中 cKfGW.exe 标志着攻击进入本地横向执行阶段，极可能承担载荷投递、权限提升或数据窃取等任务；而新确认的 Process_1932 进程则表明攻击者正通过 update.exe 扩展执行面，增强隐蔽性与持久化能力。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe 与 Process_1932）、二者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）的访问尝试，以及是否尝试建立新的外连通道（如连接非常用端口或新增 C2 IP）。需同步分析其是否加载反射型 DLL 或利用进程空心化（Process Hollowing）规避检测。
+
+[21:20:57.142] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+
+[21:20:57.439] --- Action Recorded ---
+Action: 查找写入文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:20:57.685] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:20:57.863] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[21:20:57.979] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[21:21:07.675] 
+============================================================
+[21:21:07.675] [迭代 24] MEMORY STATE UPDATE
+============================================================
+
+[21:21:07.675] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 进程注入恶意载荷，实现初始访问；随后 notepad++.exe 主动向该服务器发起基于 Web 协议的命令与控制通信（T1071.001），接收指令并响应。在此过程中，notepad++.exe 派生 update.exe 进程，后者执行 shell 命令，创建并启动两个恶意子进程：cKfGW.exe 和 Process_1932（均属 T1059.004）。其中 cKfGW.exe 进一步向外连接至新发现的 C2 地址 53.192.68.50:8080（T1071.001），表明攻击已扩展第二通信通道，强化冗余控制能力；Process_1932 则体现攻击者通过 update.exe 持续拓展执行面，增强隐蔽性与持久化。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe 与 Process_1932）、二者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）的访问尝试，以及是否尝试建立新的外连通道（如连接非常用端口或新增 C2 IP）。需同步分析其是否加载反射型 DLL 或利用进程空心化（Process Hollowing）规避检测。
+
+[21:21:07.675] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+
+[21:21:07.789] --- Action Recorded ---
+Action: 查找与 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[21:21:07.910] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[21:21:08.155] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[21:21:08.397] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[21:21:19.207] 
+============================================================
+[21:21:19.207] [迭代 27] MEMORY STATE UPDATE
+============================================================
+
+[21:21:19.207] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 进程注入恶意载荷，实现初始访问；随后 notepad++.exe 主动向该服务器发起基于 Web 协议的命令与控制通信（T1071.001），接收指令并响应。在此过程中，notepad++.exe 派生 update.exe 进程，后者执行 shell 命令，创建并启动两个恶意子进程：cKfGW.exe 和 Process_1932（均属 T1059.004）。cKfGW.exe 不仅连接至已知 C2 地址 53.192.68.50:8080（T1071.001），还新增向外通信至网段 142.20.56.0/22（T1071.001），表明攻击者正积极拓展多源、多路径的 C2 能力，提升抗阻断性与横向渗透潜力；Process_1932 则持续强化攻击执行面。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe 与 Process_1932）、二者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）的访问尝试，以及是否尝试建立新的外连通道（如连接非常用端口或新增 C2 IP）。需同步分析其是否加载反射型 DLL 或利用进程空心化（Process Hollowing）规避检测。
+
+[21:21:19.207] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+
+[21:21:19.332] --- Action Recorded ---
+Action: 查找与 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[21:21:19.593] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:21:19.695] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[21:21:19.894] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[21:21:32.702] 
+============================================================
+[21:21:32.702] [迭代 30] MEMORY STATE UPDATE
+============================================================
+
+[21:21:32.702] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。过程中，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe 和 Process_1932。cKfGW.exe 不仅持续连接原 C2 地址 53.192.68.50:8080（T1071.001），更于近期接收到来自该地址的反向漏洞利用指令（T1190），表明攻击者正对已控主机实施二次渗透强化；同时，cKfGW.exe 还主动扫描并尝试外连网段 142.20.56.0/22（T1071.001），进一步拓展多路径 C2 能力。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe 与 Process_1932）、二者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）的访问尝试，以及是否通过反射加载或进程空心化（T1055.002）规避检测。需重点分析 cKfGW.exe 接收 T1190 指令后的内存注入行为及潜在横向移动意图。
+
+[21:21:32.702] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+
+[21:21:32.855] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[21:21:33.141] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[21:21:33.302] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[21:21:33.590] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[21:21:46.610] 
+============================================================
+[21:21:46.610] [迭代 33] MEMORY STATE UPDATE
+============================================================
+
+[21:21:46.610] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe 和 Process_1932。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时，cKfGW.exe 还主动扫描网段 142.20.56.0/22（T1071.001），拓展多路径 C2 能力。值得注意的是，同一 C2 地址 53.192.68.50:8080 亦直接向 Process_1932 发起 T1190 漏洞利用（RECVFROM），表明攻击者正对多个子进程并行施加控制，意图构建冗余、高鲁棒性的驻留与横向移动能力。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe 与 Process_1932）、二者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）的访问尝试，以及是否通过反射加载或进程空心化（T1055.002）规避检测；需重点分析 cKfGW.exe 与 Process_1932 接收 T1190 指令后的内存注入行为、共享代码段复用痕迹及潜在横向移动意图。
+
+[21:21:46.610] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+
+[21:21:46.843] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:21:47.054] --- Action Recorded ---
+Action: 查找 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[21:21:47.313] --- Action Recorded ---
+Action: 查找写入文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:21:47.419] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[21:21:47.655] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[21:22:02.363] 
+============================================================
+[21:22:02.363] [迭代 37] MEMORY STATE UPDATE
+============================================================
+
+[21:22:02.363] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe 和 Process_1932。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时，cKfGW.exe 还主动扫描网段 142.20.56.0/22（T1071.001），拓展多路径 C2 能力。值得注意的是，同一 C2 地址 53.192.68.50:8080 亦直接向 Process_1932 与新发现的 Iwabeat.exe 进程发起 T1190 漏洞利用（RECVFROM），表明攻击者正对多个子进程并行施加控制，意图构建冗余、高鲁棒性的驻留与横向移动能力。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe、Process_1932 与 Iwabeat.exe）、三者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）的访问尝试，以及是否通过反射加载或进程空心化（T1055.002）规避检测；需重点分析三者接收 T1190 指令后的内存注入行为、共享代码段复用痕迹及潜在横向移动意图。
+
+[21:22:02.363] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+
+[21:22:02.479] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:22:02.740] --- Action Recorded ---
+Action: 查找写入文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:22:02.927] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:22:03.040] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:22:03.167] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:22:15.095] 
+============================================================
+[21:22:15.095] [迭代 41] MEMORY STATE UPDATE
+============================================================
+
+[21:22:15.095] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时扫描网段 142.20.56.0/22（T1071.001）以拓展多路径 C2 能力。值得注意的是，同一 C2 地址 53.192.68.50:8080 亦直接向 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留能力。最新确认：cKfGW.exe 进一步派生 cmd.exe 进程（T1059.004），标志着攻击链正从隐蔽信标阶段转向本地命令执行与潜在横向移动准备阶段。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe、Process_1932、Iwabeat.exe 及新发现的 cmd.exe）、四者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）的访问尝试，以及是否通过反射加载或进程空心化（T1055.002）规避检测；需重点分析 cmd.exe 的后续执行行为、三者接收 T1190 指令后的内存注入痕迹及共享代码段复用模式。
+
+[21:22:15.095] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+
+[21:22:15.383] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:22:15.683] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:22:15.843] --- Action Recorded ---
+Action: 查找写入文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:22:16.022] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:22:16.241] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:22:24.991] 
+============================================================
+[21:22:24.991] [迭代 45] MEMORY STATE UPDATE
+============================================================
+
+[21:22:24.991] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时扫描网段 142.20.56.0/22（T1071.001）以拓展多路径 C2 能力。同一 C2 地址亦直接向 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留能力。cKfGW.exe 进一步派生 cmd.exe（T1059.004）及 lsass.exe（T1059.004），标志着攻击链已从隐蔽信标阶段跃迁至本地高权限命令执行与横向移动准备阶段——尤其 lsass.exe 的异常派生高度提示凭证窃取或进程注入意图（T1003.001/T1055.002）。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe、Process_1932、Iwabeat.exe、cmd.exe 及新发现的 lsass.exe）、四者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）及 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:22:24.991] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+
+[21:22:25.162] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:22:25.319] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:22:25.576] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:22:25.715] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:22:25.878] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[21:22:26.010] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[21:22:37.261] 
+============================================================
+[21:22:37.261] [迭代 50] MEMORY STATE UPDATE
+============================================================
+
+[21:22:37.261] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时扫描网段 142.20.56.0/22（T1071.001）以拓展多路径 C2 能力。同一 C2 地址亦直接向 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留能力。cKfGW.exe 进一步派生 cmd.exe（T1059.004）及 lsass.exe（T1059.004），标志着攻击链已跃迁至本地高权限执行阶段。最新确认：lsass.exe 异常写入文件 myHbYXTpViwX.vbx（T1105），表明攻击者正通过 LSASS 进程实施工具投递，极可能为凭证窃取载荷或横向移动组件（T1003.001/T1021）。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe、Process_1932、Iwabeat.exe、cmd.exe 及 lsass.exe）、四者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）及 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:22:37.261] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+
+[21:22:37.492] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:22:37.639] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:22:37.753] --- Action Recorded ---
+Action: 查找写入文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:22:38.038] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:22:38.144] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:22:38.367] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[21:22:38.633] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[21:22:51.721] 
+============================================================
+[21:22:51.721] [迭代 56] MEMORY STATE UPDATE
+============================================================
+
+[21:22:51.721] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时扫描网段 142.20.56.0/22（T1071.001）以拓展多路径 C2 能力。同一 C2 地址亦直接向 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留能力。cKfGW.exe 进一步派生 cmd.exe 与 lsass.exe（均 T1059.004），标志着攻击链跃迁至本地高权限执行阶段。最新确认：lsass.exe 不仅异常写入文件 myHbYXTpViwX.vbx（T1105），还向注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 写入启动项 HKLM_Run_RTqWaEHv（T1105），表明攻击者正通过 LSASS 进程实施持久化部署与工具投递，极可能为凭证窃取载荷（T1003.001）或横向移动组件（T1021）。当前调查焦点集中于 update.exe 的完整子进程树（含 cKfGW.exe、Process_1932、Iwabeat.exe、cmd.exe 及 lsass.exe）、四者在内存中的行为特征、对敏感路径（如 %APPDATA%、System32）及 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:22:51.721] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+
+[21:22:51.824] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:22:52.051] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:22:52.338] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[21:22:52.592] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[21:23:06.102] 
+============================================================
+[21:23:06.102] [迭代 59] MEMORY STATE UPDATE
+============================================================
+
+[21:23:06.102] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时扫描网段 142.20.56.0/22（T1071.001）以拓展多路径 C2 能力。同一 C2 地址亦直接向 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留能力。cKfGW.exe 进一步派生 cmd.exe 与 lsass.exe（均 T1059.004），标志着攻击链跃迁至本地高权限执行阶段。最新确认：lsass.exe 不仅异常写入文件 myHbYXTpViwX.vbx（T1105），还在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 写入启动项 HKLM_Run_RTqWaEHv（T1105），并执行时间戳篡改操作（TimeStomped_Files，T1105），表明攻击者正通过 LSASS 进程实施深度持久化部署、工具投递与反取证规避，极可能为凭证窃取载荷（T1003.001）或横向移动组件（T1021）。当前调查焦点集中于 update.exe 的完整子进程树及四者在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:23:06.102] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+
+[21:23:06.230] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:23:06.350] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:23:06.515] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:23:06.688] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[21:23:06.920] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[21:23:17.646] 
+============================================================
+[21:23:17.646] [迭代 63] MEMORY STATE UPDATE
+============================================================
+
+[21:23:17.646] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷，实现初始访问；notepad++.exe 随即主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。随后，notepad++.exe 派生 update.exe 进程，后者通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），并接收其下发的反向漏洞利用指令（T1190），实施二次渗透强化；同时扫描网段 142.20.56.0/22（T1071.001）以拓展多路径 C2 能力。同一 C2 地址亦直接向 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留能力。cKfGW.exe 进一步派生 cmd.exe 与 lsass.exe（均 T1059.004），标志着攻击链跃迁至本地高权限执行阶段。最新确认：lsass.exe 不仅异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、执行时间戳篡改（T1105），还向本地管理员组（Local_Admin_Group）添加账户（T1105），表明攻击者正通过 LSASS 进程实施深度持久化部署、横向移动准备（T1021）、凭证窃取前置操作（T1003.001）及系统权限扩展，具备典型 APT 级后渗透特征。当前调查焦点集中于 update.exe 的完整子进程树及四者在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:23:17.646] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+
+[21:23:17.844] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:23:17.969] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:23:18.247] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:23:18.362] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:23:18.588] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[21:23:18.728] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[21:23:29.625] 
+============================================================
+[21:23:29.625] [迭代 68] MEMORY STATE UPDATE
+============================================================
+
+[21:23:29.625] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程（新确认环节），并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；同一 C2 地址亦直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段。最新确认：lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳（T1105），并向本地管理员组添加账户（T1105），表明攻击者正通过 LSASS 实施深度持久化（T1547.001）、横向移动准备（T1021）、凭证窃取前置（T1003.001）及权限扩展，具备典型 APT 级后渗透特征。当前调查焦点集中于 update.exe 的完整子进程树及四者在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:23:29.625] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+
+[21:23:29.913] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:23:30.122] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:23:30.329] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:23:30.542] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:23:43.395] 
+============================================================
+[21:23:43.395] [迭代 71] MEMORY STATE UPDATE
+============================================================
+
+[21:23:43.395] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；同一 C2 地址亦直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段。lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、并向本地管理员组添加账户（T1105），表明攻击者正通过 LSASS 实施深度持久化（T1547.001）、横向移动准备（T1021）、凭证窃取前置（T1003.001）及权限扩展。最新确认：lsass.exe 进一步派生 mimikatz.exe（T1059.004），明确指向凭证转储（T1003.001）行为，强化 APT 级后渗透特征。当前调查焦点集中于 update.exe 的完整子进程树及四者在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:23:43.395] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+
+[21:23:43.525] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:23:43.639] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:23:43.884] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:23:44.077] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:23:44.245] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:23:44.508] --- Action Recorded ---
+Action: 查找进程 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[21:23:44.779] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[21:23:54.493] 
+============================================================
+[21:23:54.493] [迭代 77] MEMORY STATE UPDATE
+============================================================
+
+[21:23:54.493] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；同一 C2 地址亦直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留。值得注意的是，Process_1932 当前正主动向 53.192.68.50:8080 发起外连（T1071.001），表明其已从被动接收转为双向 C2 参与者，强化横向协同能力。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段。lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、并向本地管理员组添加账户（T1105），表明攻击者正通过 LSASS 实施深度持久化（T1547.001）、横向移动准备（T1021）、凭证窃取前置（T1003.001）及权限扩展；其进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001），强化 APT 级后渗透特征。当前调查焦点集中于 update.exe 的完整子进程树及四者在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:23:54.493] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+
+[21:23:54.738] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:23:54.960] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:23:55.224] --- Action Recorded ---
+Action: 查找写入文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:23:55.521] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:23:55.703] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[21:23:55.934] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:24:06.687] 
+============================================================
+[21:24:06.687] [迭代 82] MEMORY STATE UPDATE
+============================================================
+
+[21:24:06.687] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；同一 C2 地址亦直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留。值得注意的是，Process_1932 当前正主动向 53.192.68.50:8080 发起外连（T1071.001），并新派生 Iwabeat.exe（T1059.004），强化横向协同与执行链冗余。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段。lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、并向本地管理员组添加账户（T1105），表明攻击者正通过 LSASS 实施深度持久化（T1547.001）、横向移动准备（T1021）、凭证窃取前置（T1003.001）及权限扩展；其进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001），强化 APT 级后渗透特征。当前调查焦点集中于 update.exe 的完整子进程树及四者（cKfGW.exe、Process_1932、Iwabeat.exe、Iwabeat.exe 新实例）在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:24:06.687] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+
+[21:24:06.986] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:24:07.231] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:24:07.335] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[21:24:07.610] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[21:24:22.387] 
+============================================================
+[21:24:22.387] [迭代 85] MEMORY STATE UPDATE
+============================================================
+
+[21:24:22.387] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；值得注意的是，该网段内主机亦主动对 cKfGW.exe 发起 T1190 漏洞利用（RECVFROM），形成双向渗透闭环，显著增强攻击鲁棒性。同一 C2 地址还直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留；Process_1932 当前正主动外连 53.192.68.50:8080（T1071.001），并新派生 Iwabeat.exe（T1059.004），强化横向协同。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段；lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、并向本地管理员组添加账户（T1105），表明攻击者正通过 LSASS 实施深度持久化（T1547.001）、横向移动准备（T1021）、凭证窃取前置（T1003.001）及权限扩展；其进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001），强化 APT 级后渗透特征。当前调查焦点集中于 update.exe 的完整子进程树及四者（cKfGW.exe、Process_1932、Iwabeat.exe、Iwabeat.exe 新实例）在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:24:22.387] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+
+[21:24:22.675] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:24:22.868] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:24:22.996] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:24:23.186] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:24:23.368] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[21:24:23.493] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:24:34.894] 
+============================================================
+[21:24:34.894] [迭代 90] MEMORY STATE UPDATE
+============================================================
+
+[21:24:34.894] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；该网段内主机亦主动对 cKfGW.exe 发起 T1190 漏洞利用（RECVFROM），形成双向渗透闭环。同一 C2 地址还直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留；Process_1932 当前正主动外连 53.192.68.50:8080（T1071.001），并新派生 Iwabeat.exe（T1059.004）。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段；lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、向本地管理员组添加账户（T1105），并调用 RDP_Service 读取本地管理员组信息（T1005），表明攻击者正深度操控系统身份上下文，为横向移动与持久化铺路；其进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树及四者（cKfGW.exe、Process_1932、Iwabeat.exe、Iwabeat.exe 新实例）在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:24:34.894] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+
+[21:24:35.107] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:24:35.273] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:24:35.494] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:24:35.765] --- Action Recorded ---
+Action: 查找写入文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:24:35.872] --- Action Recorded ---
+Action: 查找 IP 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 接收了哪些进程的数据
+Result: success
+
+[21:24:36.087] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071
+
+[21:24:45.046] 
+============================================================
+[21:24:45.046] [迭代 95] MEMORY STATE UPDATE
+============================================================
+
+[21:24:45.046] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；该网段内主机亦主动对 cKfGW.exe 发起 T1190 漏洞利用（RECVFROM），形成双向渗透闭环。同一 C2 地址还直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留；Process_1932 当前正主动外连 53.192.68.50:8080（T1071.001），并新派生 Iwabeat.exe（T1059.004）。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段；lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、向本地管理员组添加账户（T1105），并调用 RDP_Service 读取本地管理员组信息（T1005）；值得注意的是，外部 IP 203.0.113.55 主动向 RDP_Service 发起基于应用层协议的通信（T1071），表明攻击者已引入第三方协同 C2 节点，强化横向控制链路。lsass.exe 进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树及四者（cKfGW.exe、Process_1932、Iwabeat.exe、Iwabeat.exe 新实例）在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:24:45.046] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+
+[21:24:45.155] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[21:24:45.269] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:24:45.464] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:24:45.582] --- Action Recorded ---
+Action: 查找 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[21:24:45.754] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:24:45.892] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[21:24:46.180] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[21:24:56.466] 
+============================================================
+[21:24:56.466] [迭代 101] MEMORY STATE UPDATE
+============================================================
+
+[21:24:56.466] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；该网段内主机亦主动对 cKfGW.exe 发起 T1190 漏洞利用（RECVFROM），形成双向渗透闭环。同一 C2 地址还直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留；Process_1932 当前正主动外连 53.192.68.50:8080（T1071.001），并新派生 Iwabeat.exe（T1059.004）。Iwabeat.exe 此刻亦主动向 53.192.68.50:8080 发起 Web 协议通信（T1071.001），补全四节点协同 C2 架构。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段；lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、向本地管理员组添加账户（T1105），并调用 RDP_Service 读取本地管理员组信息（T1005）；值得注意的是，外部 IP 203.0.113.55 主动向 RDP_Service 发起基于应用层协议的通信（T1071），表明攻击者已引入第三方协同 C2 节点，强化横向控制链路。lsass.exe 进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树及四者（cKfGW.exe、Process_1932、Iwabeat.exe、Iwabeat.exe 新实例）在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:24:56.466] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+
+[21:24:56.629] --- Action Recorded ---
+Action: 查找与 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[21:24:56.848] --- Action Recorded ---
+Action: 查找 IP 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[21:24:57.043] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1071
+
+[21:25:10.806] 
+============================================================
+[21:25:10.806] [迭代 103] MEMORY STATE UPDATE
+============================================================
+
+[21:25:10.806] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；该网段内主机亦主动对 cKfGW.exe 发起 T1190 漏洞利用（RECVFROM），形成双向渗透闭环。同一 C2 地址还直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留；Process_1932 当前正主动外连 53.192.68.50:8080（T1071.001），并新派生 Iwabeat.exe（T1059.004）；Iwabeat.exe 同步向 53.192.68.50:8080 发起 Web 协议通信（T1071.001），补全四节点协同 C2 架构。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段；lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、向本地管理员组添加账户（T1105），并调用 RDP_Service 读取本地管理员组信息（T1005）。值得注意的是，RDP_Service 不仅被外部 IP 203.0.113.55 主动发起应用层协议通信（T1071），更于近期主动向该 IP 回传数据（RECVFROM, T1071），确认其已深度整合为第三方协同 C2 节点，强化横向控制链路。lsass.exe 进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树及四者（cKfGW.exe、Process_1932、Iwabeat.exe、Iwabeat.exe 新实例）在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:25:10.806] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+
+[21:25:11.019] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:25:11.240] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:25:23.764] 
+============================================================
+[21:25:23.764] [迭代 104] MEMORY STATE UPDATE
+============================================================
+
+[21:25:23.764] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe。cKfGW.exe 持续连接 C2 地址 53.192.68.50:8080（T1071.001），接收反向漏洞利用指令（T1190）实施二次渗透，并扫描网段 142.20.56.0/22（T1071.001）拓展多路径 C2 能力；该网段内主机亦主动对 cKfGW.exe 发起 T1190 漏洞利用（RECVFROM），形成双向渗透闭环。同一 C2 地址还直接对 Process_1932 与 Iwabeat.exe 发起 T1190 漏洞利用（RECVFROM），构建冗余驻留；Process_1932 当前正主动外连 53.192.68.50:8080（T1071.001），并新派生 Iwabeat.exe（T1059.004）；Iwabeat.exe 同步向 53.192.68.50:8080 发起 Web 协议通信（T1071.001），补全四节点协同 C2 架构。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（均 T1059.004），跃迁至本地高权限执行阶段；lsass.exe 异常写入文件 myHbYXTpViwX.vbx、在注册表 HKLM\Software\Microsoft\Windows\CurrentVersion\Run 创建启动项 HKLM_Run_RTqWaEHv、篡改文件时间戳、向本地管理员组添加账户（T1105），并调用 RDP_Service 读取本地管理员组信息（T1005）。值得注意的是，RDP_Service 不仅被外部 IP 203.0.113.55 主动发起应用层协议通信（T1071），更于近期主动向该 IP 回传数据（RECVFROM, T1071），确认其已深度整合为第三方协同 C2 节点。lsass.exe 进一步派生 mimikatz.exe（T1059.004）明确指向凭证转储（T1003.001）。**最新发现：cKfGW.exe 直接读取 ntdll.dll（T1005），表明其正进行内存取证规避或系统调用劫持准备，强化其在用户态持久化与隐蔽执行能力。** 当前调查焦点集中于 update.exe 的完整子进程树及四者（cKfGW.exe、Process_1932、Iwabeat.exe、Iwabeat.exe 新实例）在内存中的行为特征、对敏感路径与 LSASS 内存空间的访问尝试，以及是否通过反射加载或进程空心化规避检测。
+
+[21:25:23.764] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+
+[21:25:24.053] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:25:24.280] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:25:24.552] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:25:24.693] --- Malicious Event Added ---
+Event ID: 8D40106A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:25:33.961] 
+============================================================
+[21:25:33.961] [迭代 107] MEMORY STATE UPDATE
+============================================================
+
+[21:25:33.961] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe，构建四节点协同 C2 架构：三者均持续连接 53.192.68.50:8080（T1071.001），且该地址及网段 142.20.56.0/22 双向发起 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（T1059.004），跃迁至高权限阶段；lsass.exe 篡改注册表启动项（HKLM\Software\Microsoft\Windows\CurrentVersion\Run）、写入 myHbYXTpViwX.vbx 文件、篡改时间戳、提权添加本地管理员账户（T1105），并调用 RDP_Service 读取管理员组信息（T1005）；该服务已被确认为第三方协同 C2 节点，双向通信 203.0.113.55（T1071/T1071.001）。lsass.exe 进而派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），最新发现其直接读取 kernel32.dll（T1005），强化内存取证规避能力；此前 cKfGW.exe 已读取 ntdll.dll（T1005），表明攻击者正系统性实施用户态隐蔽驻留与系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe（含新实例）对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:25:33.961] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+
+[21:25:34.084] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:25:34.316] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:25:34.578] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:25:34.747] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[21:25:35.027] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:25:46.075] 
+============================================================
+[21:25:46.075] [迭代 111] MEMORY STATE UPDATE
+============================================================
+
+[21:25:46.075] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe，构建四节点协同 C2 架构：三者均持续连接 53.192.68.50:8080（T1071.001），且该地址及网段 142.20.56.0/22 双向发起 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 随后派生 cmd.exe 与 lsass.exe（T1059.004）；值得注意的是，新确认事件显示 wininit.exe 直接派生 lsass.exe（T1059.004），表明攻击者已绕过常规进程树依赖，实施更隐蔽的 LSASS 替代驻留。lsass.exe 篡改注册表启动项（HKLM\Software\Microsoft\Windows\CurrentVersion\Run）、写入 myHbYXTpViwX.vbx 文件、篡改时间戳、提权添加本地管理员账户（T1105），并调用 RDP_Service 读取管理员组信息（T1005）；该服务已被确认为第三方协同 C2 节点，双向通信 203.0.113.55（T1071/T1071.001）。lsass.exe 进而派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），最新发现其直接读取 kernel32.dll（T1005），强化内存取证规避能力；此前 cKfGW.exe 已读取 ntdll.dll（T1005），表明攻击者正系统性实施用户态隐蔽驻留与系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe（含新实例）对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:25:46.075] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+
+[21:25:46.334] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:25:46.443] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:25:46.633] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:25:46.822] --- Action Recorded ---
+Action: 查找进程 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[21:25:47.071] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:25:59.247] 
+============================================================
+[21:25:59.247] [迭代 115] MEMORY STATE UPDATE
+============================================================
+
+[21:25:59.247] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe，构建四节点协同 C2 架构：三者均持续连接 53.192.68.50:8080（T1071.001），且该地址及网段 142.20.56.0/22 双向发起 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 派生 cmd.exe 后，进一步通过 shell 执行（T1059.004）启动 lsass.exe；值得注意的是，新确认事件揭示其父进程链为 smss.exe → wininit.exe → lsass.exe（T1059.004），表明攻击者已绕过常规进程树依赖，实施更隐蔽的 LSASS 替代驻留。lsass.exe 篡改注册表启动项（HKLM\Software\Microsoft\Windows\CurrentVersion\Run）、写入 myHbYXTpViwX.vbx 文件、篡改时间戳、提权添加本地管理员账户（T1105），并调用 RDP_Service 读取管理员组信息（T1005）；该服务已被确认为第三方协同 C2 节点，双向通信 203.0.113.55（T1071/T1071.001）。lsass.exe 进而派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），并直接读取 kernel32.dll（T1005）；此前 cKfGW.exe 已读取 ntdll.dll（T1005），显示攻击者系统性实施用户态隐蔽驻留与系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe（含新实例）对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:25:59.247] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+
+[21:25:59.386] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:25:59.508] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:25:59.650] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:25:59.871] --- Malicious Event Added ---
+Event ID: 8D401075-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:26:09.552] 
+============================================================
+[21:26:09.552] [迭代 118] MEMORY STATE UPDATE
+============================================================
+
+[21:26:09.552] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe，构建四节点协同 C2 架构：三者均持续连接 53.192.68.50:8080（T1071.001），且该地址及网段 142.20.56.0/22 双向发起 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 派生 cmd.exe 后，进一步通过 shell 执行（T1059.004）启动 lsass.exe；其父进程链被完整还原为 smss.exe → wininit.exe → lsass.exe（T1059.004），且新确认事件揭示 smss.exe 同时派生 csrss.exe（T1059.004），表明攻击者在系统启动早期即深度劫持 Session Manager 子系统，实施 LSASS 替代驻留与会话隔离控制。lsass.exe 篡改注册表启动项（HKLM\Software\Microsoft\Windows\CurrentVersion\Run）、写入 myHbYXTpViwX.vbx 文件、篡改时间戳、提权添加本地管理员账户（T1105），并调用 RDP_Service 读取管理员组信息（T1005）；该服务已被确认为第三方协同 C2 节点，双向通信 203.0.113.55（T1071/T1071.001）。lsass.exe 进而派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），并直接读取 kernel32.dll（T1005）；此前 cKfGW.exe 已读取 ntdll.dll（T1005），显示攻击者系统性实施用户态隐蔽驻留与系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe（含新实例）对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:26:09.552] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+
+[21:26:09.773] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:26:09.954] --- Action Recorded ---
+Action: 查找文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:26:10.106] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:26:10.389] --- Malicious Event Added ---
+Event ID: 8D401077-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:26:20.952] 
+============================================================
+[21:26:20.952] [迭代 121] MEMORY STATE UPDATE
+============================================================
+
+[21:26:20.952] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe，构建四节点协同 C2 架构：三者均持续连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），且该地址双向发起 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 派生 cmd.exe 后，进一步通过 shell 执行（T1059.004）启动 lsass.exe；其父进程链被完整还原为 smss.exe → wininit.exe → lsass.exe（T1059.004），而新确认事件揭示 smss.exe 同时派生 winlogon.exe 和 csrss.exe（T1059.004），表明攻击者在系统启动最早期即劫持 Session Manager 子系统，实施 LSASS 替代驻留、会话隔离及登录流程操控。lsass.exe 篡改注册表启动项（HKLM\Software\Microsoft\Windows\CurrentVersion\Run）、写入 myHbYXTpViwX.vbx 文件、篡改时间戳、提权添加本地管理员账户（T1105），并调用 RDP_Service（双向通信 203.0.113.55，T1071/T1071.001）读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），并直接读取 kernel32.dll（T1005）；此前 cKfGW.exe 已读取 ntdll.dll（T1005），印证攻击者系统性开展用户态隐蔽驻留与系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe（含新实例）对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:26:20.952] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+
+[21:26:21.230] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:26:21.437] --- Action Recorded ---
+Action: 查找写入文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:26:21.695] --- Action Recorded ---
+Action: 查找文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:26:21.938] --- Action Recorded ---
+Action: 查找文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:26:22.157] --- Action Recorded ---
+Action: 查找进程 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:26:22.263] --- Malicious Event Added ---
+Event ID: 8D401078-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:26:35.746] 
+============================================================
+[21:26:35.746] [迭代 126] MEMORY STATE UPDATE
+============================================================
+
+[21:26:35.746] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe，构建四节点协同 C2 架构：三者均持续连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），且该地址双向发起 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 派生 cmd.exe 后，进一步通过 shell 执行（T1059.004）启动 lsass.exe；其父进程链被完整还原为 smss.exe → wininit.exe → lsass.exe（T1059.004），而新确认事件揭示 smss.exe 同时派生 winlogon.exe 和 csrss.exe（T1059.004），winlogon.exe 进而派生 LogonUI.exe（T1059.004），表明攻击者在系统启动最早期即劫持 Session Manager 子系统，实施 LSASS 替代驻留、会话隔离、登录流程操控及 UI 层隐蔽持久化。lsass.exe 篡改注册表启动项（HKLM\Software\Microsoft\Windows\CurrentVersion\Run）、写入 myHbYXTpViwX.vbx 文件、篡改时间戳、提权添加本地管理员账户（T1105），并调用 RDP_Service（双向通信 203.0.113.55，T1071/T1071.001）读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），并直接读取 kernel32.dll（T1005）；此前 cKfGW.exe 已读取 ntdll.dll（T1005），印证攻击者系统性开展用户态隐蔽驻留与系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe（含新实例）对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:26:35.746] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+
+[21:26:36.020] --- Action Recorded ---
+Action: 查找写入文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:26:36.137] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:26:36.246] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:26:36.517] --- Action Recorded ---
+Action: 查找进程 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:26:36.699] --- Malicious Event Added ---
+Event ID: 8D401079-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:26:46.313] 
+============================================================
+[21:26:46.313] [迭代 130] MEMORY STATE UPDATE
+============================================================
+
+[21:26:46.313] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）向 notepad++.exe 注入恶意载荷实现初始访问；notepad++.exe 随即通过 shell 执行（T1059）派生 update.exe 进程，并主动回连该服务器开展基于 Web 协议的命令与控制通信（T1071.001）。update.exe 进一步通过 shell 执行（T1059.004）启动 cKfGW.exe、Process_1932 与 Iwabeat.exe，构建四节点协同 C2 架构：三者均持续连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），且该地址双向发起 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 派生 cmd.exe 后，进一步通过 shell 执行（T1059.004）启动 lsass.exe；其父进程链被完整还原为 smss.exe → wininit.exe → lsass.exe（T1059.004），而新确认事件揭示 smss.exe 同时派生 winlogon.exe 和 csrss.exe（T1059.004），winlogon.exe 进而派生 LogonUI.exe 与 userinit.exe（T1059.004），表明攻击者在系统启动最早期即劫持 Session Manager 子系统，实施 LSASS 替代驻留、会话隔离、登录流程操控及 UI 层隐蔽持久化。lsass.exe 篡改注册表启动项（HKLM\Software\Microsoft\Windows\CurrentVersion\Run）、写入 myHbYXTpViwX.vbx 文件、篡改时间戳、提权添加本地管理员账户（T1105），并调用 RDP_Service（双向通信 203.0.113.55，T1071/T1071.001）读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），并直接读取 kernel32.dll（T1005）；此前 cKfGW.exe 已读取 ntdll.dll（T1005），印证攻击者系统性开展用户态隐蔽驻留与系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe（含新实例）对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:26:46.313] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+
+[21:26:46.424] --- Action Recorded ---
+Action: 查找文件 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:26:46.633] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:26:46.845] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:26:46.947] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[21:26:47.148] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:27:01.361] 
+============================================================
+[21:27:01.361] [迭代 134] MEMORY STATE UPDATE
+============================================================
+
+[21:27:01.361] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），标志着攻击者在系统启动最早期即劫持 Session Manager 子系统；smss.exe 随即派生 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004），后者进一步启动 LogonUI.exe 和 userinit.exe（T1059.004），实现登录流程操控与 UI 层隐蔽驻留。wininit.exe 派生合法 lsass.exe 进程，但该进程已被恶意替换——其实际由 cKfGW.exe 通过 shell 执行（T1059.004）注入并伪装，父进程链被伪造为 smss.exe → wininit.exe → lsass.exe。lsass.exe 篡改注册表启动项（HKLM\Run）、写入 myHbYXTpViwX.vbx 文件、时间戳篡改、提权添加本地管理员账户（T1105），并调用 RDP_Service（双向通信 203.0.113.55，T1071/T1071.001）读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），并直接读取 kernel32.dll（T1005）。此前，notepad++.exe 被外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入载荷，继而通过 shell 执行（T1059）启动 update.exe；update.exe 又派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者均持续连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），且该地址反向对三者实施 T1190 漏洞利用（RECVFROM），形成渗透闭环。cKfGW.exe 与 Process_1932 均读取 ntdll.dll（T1005），印证系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:27:01.361] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+
+[21:27:01.621] --- Action Recorded ---
+Action: 查找文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:27:01.873] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:27:02.019] --- Action Recorded ---
+Action: 查找文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:27:02.134] --- Action Recorded ---
+Action: 查找写入文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:27:02.352] --- Action Recorded ---
+Action: 查找进程 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:27:02.575] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:27:17.268] 
+============================================================
+[21:27:17.268] [迭代 139] MEMORY STATE UPDATE
+============================================================
+
+[21:27:17.268] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者随即启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 不仅派生了被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），还新确认派生 services.exe（T1059.004），为后续服务劫持或横向加载埋下伏笔。winlogon.exe 进一步启动 LogonUI.exe 和 userinit.exe（T1059.004），实现登录流程操控与 UI 层隐蔽驻留。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者均高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并遭其反向 T1190 漏洞利用，形成渗透闭环。cKfGW.exe 还直接派生 cmd.exe 与 lsass.exe（T1059.004），强化进程控制；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并调用 RDP_Service 与 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001），并读取 kernel32.dll（T1005）；cKfGW.exe 与 Process_1932 均读取 ntdll.dll（T1005），印证系统调用劫持准备。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:27:17.268] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+
+[21:27:17.382] --- Action Recorded ---
+Action: 查找写入文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:27:17.598] --- Action Recorded ---
+Action: 查找文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:27:17.767] --- Action Recorded ---
+Action: 查找写入文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:27:17.924] --- Action Recorded ---
+Action: 查找文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:27:18.158] --- Action Recorded ---
+Action: 查找进程 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:27:18.388] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:27:28.864] 
+============================================================
+[21:27:28.864] [迭代 144] MEMORY STATE UPDATE
+============================================================
+
+[21:27:28.864] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 不仅派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），还新确认派生 services.exe（T1059.004），并进一步派生 svchost.exe（T1059.004），为服务宿主劫持与持久化模块加载开辟新路径。winlogon.exe 启动 LogonUI.exe 和 userinit.exe（T1059.004），实现登录流程操控与 UI 层隐蔽驻留。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者均高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并遭其反向 T1190 漏洞利用，形成渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:27:28.864] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+
+[21:27:29.082] --- Action Recorded ---
+Action: 查找写入文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:27:29.238] --- Action Recorded ---
+Action: 查找文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:27:29.363] --- Action Recorded ---
+Action: 查找进程 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:27:29.501] --- Malicious Event Added ---
+Event ID: 8D401083-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:27:40.221] 
+============================================================
+[21:27:40.221] [迭代 147] MEMORY STATE UPDATE
+============================================================
+
+[21:27:40.221] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 不仅派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），还派生 services.exe（T1059.004），进而衍生 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004），显著拓展服务宿主劫持路径，强化持久化能力。winlogon.exe 启动 LogonUI.exe 和 userinit.exe（T1059.004），实现登录流程操控与 UI 层隐蔽驻留。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者均高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并遭其反向 T1190 漏洞利用，形成渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:27:40.221] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+
+[21:27:40.431] --- Action Recorded ---
+Action: 查找文件 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:27:40.710] --- Action Recorded ---
+Action: 查找文件 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:27:41.009] --- Action Recorded ---
+Action: 查找写入文件 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:27:41.129] --- Action Recorded ---
+Action: 查找文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:27:41.426] --- Action Recorded ---
+Action: 查找文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:27:41.598] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:27:51.926] 
+============================================================
+[21:27:51.926] [迭代 152] MEMORY STATE UPDATE
+============================================================
+
+[21:27:51.926] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 不仅派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），还派生 services.exe（T1059.004），进而衍生 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004）。新确认事件显示，svchost.exe（承载 wuauserv 服务）被用于读取 wuauserv.dll（T1005），强化其在系统更新机制中的隐蔽驻留能力。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者均高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并遭其反向 T1190 漏洞利用，形成渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:27:51.926] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+
+[21:27:52.130] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:27:52.319] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:27:52.427] --- Action Recorded ---
+Action: 查找文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:27:52.643] --- Action Recorded ---
+Action: 查找进程 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[21:27:52.932] --- Malicious Event Added ---
+Event ID: 8D401071-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[21:28:04.146] 
+============================================================
+[21:28:04.146] [迭代 156] MEMORY STATE UPDATE
+============================================================
+
+[21:28:04.146] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 不仅派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），还派生 services.exe（T1059.004），进而衍生 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004）。svchost.exe（承载 wuauserv 服务）除读取 wuauserv.dll（T1005）强化驻留外，新增向 192.168.1.1:53 发起 DNS 协议通信（T1071.001），扩展 C2 渠道。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者均高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并遭其反向 T1190 漏洞利用，形成渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:28:04.146] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+
+[21:28:04.269] --- Action Recorded ---
+Action: 查找文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:28:04.540] --- Action Recorded ---
+Action: 查找文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:28:04.701] --- Action Recorded ---
+Action: 查找进程 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[21:28:04.841] --- Malicious Event Added ---
+Event ID: 8D401072-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[21:28:13.419] 
+============================================================
+[21:28:13.419] [迭代 159] MEMORY STATE UPDATE
+============================================================
+
+[21:28:13.419] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 不仅派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），还派生 services.exe（T1059.004），进而衍生 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004）。svchost.exe（承载 wuauserv 服务）读取 wuauserv.dll（T1005）强化驻留，并新增向 192.168.1.1:53 发起 DNS 协议通信（T1071.001），且该 DNS 服务器反向利用 T1190 漏洞攻击 svchost.exe（T1190），扩展 C2 渠道并形成横向渗透闭环。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者均高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并遭其反向 T1190 漏洞利用（T1190），形成多跳渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:28:13.419] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+
+[21:28:13.619] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[21:28:13.872] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:28:14.035] --- Action Recorded ---
+Action: 查找文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:28:14.154] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:28:14.336] --- Action Recorded ---
+Action: 查找进程 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:28:14.473] --- Malicious Event Added ---
+Event ID: 8D401073-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:28:28.115] 
+============================================================
+[21:28:28.115] [迭代 164] MEMORY STATE UPDATE
+============================================================
+
+[21:28:28.115] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），并衍生 services.exe（T1059.004），进而启动 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004）。svchost.exe（承载 wuauserv 服务）读取 wuauserv.dll（T1005），新增向 192.168.1.1:53 发起 DNS 请求（T1071.001），遭该服务器反向利用 T1190 漏洞攻击，同时新发现其派生 taskhostw.exe（T1059.004）——该行为强化了横向控制能力。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭其反向 T1190 漏洞利用（T1190），形成多跳渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:28:28.115] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+
+[21:28:28.252] --- Action Recorded ---
+Action: 查找写入文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:28:28.439] --- Action Recorded ---
+Action: 查找文件 7D401059-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:28:28.653] --- Action Recorded ---
+Action: 查找与 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[21:28:28.773] --- Action Recorded ---
+Action: 查找文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:28:29.029] --- Action Recorded ---
+Action: 查找文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:28:29.287] --- Malicious Event Added ---
+Event ID: 8D401074-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:28:43.900] 
+============================================================
+[21:28:43.900] [迭代 169] MEMORY STATE UPDATE
+============================================================
+
+[21:28:43.900] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），并衍生 services.exe（T1059.004），进而启动 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004）。svchost.exe（承载 wuauserv 服务）读取 wuauserv.dll（T1005），新增向 192.168.1.1:53 发起 DNS 请求（T1071.001），遭该服务器反向利用 T1190 漏洞攻击，同时派生 taskhostw.exe（T1059.004），后者直接读取 WebCache 数据（T1005），强化了本地敏感信息收集能力。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭其反向 T1190 漏洞利用（T1190），形成多跳渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:28:43.900] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+
+[21:28:44.160] --- Action Recorded ---
+Action: 查找文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:28:44.443] --- Action Recorded ---
+Action: 查找写入文件 7D401059-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:28:44.665] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:28:44.775] --- Action Recorded ---
+Action: 查找 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[21:28:45.032] --- Action Recorded ---
+Action: 查找文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:28:45.224] --- Malicious Event Added ---
+Event ID: 8D401076-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:28:53.991] 
+============================================================
+[21:28:53.991] [迭代 174] MEMORY STATE UPDATE
+============================================================
+
+[21:28:53.991] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；其中 csrss.exe 被确认读取 winsrv.dll（T1005），强化其对会话管理模块的控制能力。wininit.exe 派生被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），并衍生 services.exe（T1059.004），进而启动 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004）。svchost.exe（承载 wuauserv 服务）读取 wuauserv.dll（T1005），新增向 192.168.1.1:53 发起 DNS 请求（T1071.001），遭该服务器反向利用 T1190 漏洞攻击，同时派生 taskhostw.exe（T1059.004），后者直接读取 WebCache 数据（T1005）。初始入口为 notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭其反向 T1190 漏洞利用（T1190），形成多跳渗透闭环。cKfGW.exe 直接派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run 启动项、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:28:53.991] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+
+[21:28:54.206] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:28:54.400] --- Action Recorded ---
+Action: 查找文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:28:54.620] --- Action Recorded ---
+Action: 查找写入文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:28:54.798] --- Action Recorded ---
+Action: 查找进程 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:28:55.030] --- Malicious Event Added ---
+Event ID: 8D40107A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:29:03.149] 
+============================================================
+[21:29:03.149] [迭代 178] MEMORY STATE UPDATE
+============================================================
+
+[21:29:03.149] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005）强化会话控制。winlogon.exe 派生 userinit.exe（T1059.004），后者进一步派生 explorer.exe（T1059.004），完成用户会话初始化。wininit.exe 启动被 cKfGW.exe 注入伪装的 lsass.exe（父链伪造为 smss→wininit→lsass），并衍生 services.exe（T1059.004），进而启动 svchost.exe（T1059.004）与 spoolsv.exe（T1059.004）。svchost.exe（wuauserv）读取 wuauserv.dll（T1005），向 192.168.1.1:53 发起 DNS 请求（T1071.001），遭反向 T1190 漏洞利用，并派生 taskhostw.exe（T1059.004）读取 WebCache（T1005）。初始入口为 notepad++.exe 被外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，继而通过 shell 执行（T1059）启动 update.exe；后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭其反向 T1190 漏洞利用（T1190），形成多跳渗透闭环。cKfGW.exe 派生 cmd.exe 与 lsass.exe（T1059.004）；lsass.exe 篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:29:03.149] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+
+[21:29:03.417] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:29:03.523] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:29:03.797] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:29:04.086] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:29:04.210] --- Action Recorded ---
+Action: 查找写入文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:29:04.367] --- Action Recorded ---
+Action: 查找进程 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:29:04.605] --- Malicious Event Added ---
+Event ID: 8D40107B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:29:16.295] 
+============================================================
+[21:29:16.295] [迭代 184] MEMORY STATE UPDATE
+============================================================
+
+[21:29:16.295] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005）强化会话控制，winlogon.exe 派生 userinit.exe（T1059.004），再启动 explorer.exe（T1059.004）。关键跳转点为 explorer.exe 主动派生 notepad++.exe（T1059.004），后者随即被外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，并通过 shell 执行（T1059）启动 update.exe。update.exe 进而派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭其反向 T1190 漏洞利用，形成多跳渗透闭环。cKfGW.exe 派生 cmd.exe 与伪装 lsass.exe（T1059.004），后者篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:29:16.295] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+
+[21:29:16.499] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:29:16.739] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[21:29:17.024] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:29:17.245] --- Action Recorded ---
+Action: 查找进程 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:29:17.449] --- Malicious Event Added ---
+Event ID: 8D40107E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:29:26.694] 
+============================================================
+[21:29:26.694] [迭代 188] MEMORY STATE UPDATE
+============================================================
+
+[21:29:26.694] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005）强化会话控制，winlogon.exe 派生 userinit.exe（T1059.004）并最终启动 explorer.exe（T1059.004）。值得注意的是，explorer.exe 同时派生 notepad++.exe（T1059.004）与 ctfmon.exe（T1059.004），前者遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，进而执行 update.exe（T1059）；后者作为隐蔽执行载体，可能参与横向或持久化活动。update.exe 派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均被该基础设施反向利用（T1190），形成多跳渗透闭环。cKfGW.exe 派生 cmd.exe 与伪装 lsass.exe（T1059.004），后者篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:29:26.694] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+  45. [Execution] T1059.004 (Unix Shell) - explorer.exe → ctfmon.exe
+
+[21:29:26.822] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:29:26.978] --- Action Recorded ---
+Action: 查找写入文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:29:27.132] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:29:27.378] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:29:27.566] --- Malicious Event Added ---
+Event ID: 8D40107C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:29:37.909] 
+============================================================
+[21:29:37.909] [迭代 192] MEMORY STATE UPDATE
+============================================================
+
+[21:29:37.909] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005）强化会话控制，winlogon.exe 派生 userinit.exe（T1059.004）并最终启动 explorer.exe（T1059.004）。explorer.exe 不仅派生 notepad++.exe（T1059.004）与 ctfmon.exe（T1059.004），还直接读取 desktop.ini 文件（T1005），表明其被用于持久化配置探测或恶意模板加载。notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，进而执行 update.exe（T1059）；update.exe 派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均被该基础设施反向利用（T1190），形成多跳渗透闭环。cKfGW.exe 派生 cmd.exe 与伪装 lsass.exe（T1059.004），后者篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:29:37.909] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+  45. [Execution] T1059.004 (Unix Shell) - explorer.exe → ctfmon.exe
+  46. [Collection] T1005 (Data from Local System) - explorer.exe → desktop.ini
+
+[21:29:38.137] --- Action Recorded ---
+Action: 查找文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[21:29:38.261] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[21:29:38.501] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:29:38.787] --- Malicious Event Added ---
+Event ID: 8D40107D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:29:49.577] 
+============================================================
+[21:29:49.577] [迭代 195] MEMORY STATE UPDATE
+============================================================
+
+[21:29:49.577] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005），winlogon.exe 派生 userinit.exe（T1059.004）并最终启动 explorer.exe（T1059.004）。explorer.exe 不仅派生 notepad++.exe（T1059.004）、ctfmon.exe（T1059.004），还持续读取 desktop.ini（T1005）与 shell32.dll（T1005），表明其被深度劫持用于持久化配置解析及恶意行为加载。notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，执行 update.exe（T1059）；update.exe 派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭该基础设施反向利用（T1190），形成多跳渗透闭环。cKfGW.exe 派生 cmd.exe 与伪装 lsass.exe（T1059.004），后者篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:29:49.577] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+  45. [Execution] T1059.004 (Unix Shell) - explorer.exe → ctfmon.exe
+  46. [Collection] T1005 (Data from Local System) - explorer.exe → desktop.ini
+  47. [Collection] T1005 (Data from Local System) - explorer.exe → shell32.dll
+
+[21:29:49.852] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:29:50.029] --- Action Recorded ---
+Action: 查找文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:29:50.169] --- Action Recorded ---
+Action: 查找文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:29:50.461] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:29:50.574] --- Action Recorded ---
+Action: 查找文件 7D401057-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:29:50.779] --- Malicious Event Added ---
+Event ID: 8D40107F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:30:02.414] 
+============================================================
+[21:30:02.414] [迭代 200] MEMORY STATE UPDATE
+============================================================
+
+[21:30:02.414] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005），winlogon.exe 派生 userinit.exe（T1059.004）并最终启动 explorer.exe（T1059.004）。explorer.exe 不仅派生 notepad++.exe（T1059.004）、ctfmon.exe（T1059.004），还持续读取 desktop.ini（T1005）与 shell32.dll（T1005），表明其被深度劫持用于持久化配置解析及恶意行为加载；新确认 ctfmon.exe 同步读取 msctf.dll（T1005），进一步佐证其作为合法进程被滥用以隐蔽加载恶意模块。notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，执行 update.exe（T1059）；update.exe 派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭该基础设施反向利用（T1190），形成多跳渗透闭环。cKfGW.exe 派生 cmd.exe 与伪装 lsass.exe（T1059.004），后者篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；随后派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:30:02.414] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+  45. [Execution] T1059.004 (Unix Shell) - explorer.exe → ctfmon.exe
+  46. [Collection] T1005 (Data from Local System) - explorer.exe → desktop.ini
+  47. [Collection] T1005 (Data from Local System) - explorer.exe → shell32.dll
+  48. [Collection] T1005 (Data from Local System) - ctfmon.exe → msctf.dll
+
+[21:30:02.676] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[21:30:02.955] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[21:30:03.186] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[21:30:03.413] --- Malicious Event Added ---
+Event ID: 8D401080-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[21:30:15.981] 
+============================================================
+[21:30:15.981] [迭代 203] MEMORY STATE UPDATE
+============================================================
+
+[21:30:15.981] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005），winlogon.exe 派生 userinit.exe（T1059.004）并最终启动 explorer.exe（T1059.004）。explorer.exe 不仅派生 notepad++.exe（T1059.004）、ctfmon.exe（T1059.004），还持续读取 desktop.ini（T1005）与 shell32.dll（T1005），表明其被深度劫持；ctfmon.exe 同步加载 msctf.dll（T1005），进一步佐证合法进程滥用。notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，执行 update.exe（T1059）；update.exe 派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭该基础设施反向利用（T1190）。cKfGW.exe 派生 cmd.exe 与伪装 lsass.exe（T1059.004），后者篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；cmd.exe 进一步派生 conhost.exe（T1059.004），强化隐蔽交互能力；随后 lsass.exe 派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:30:15.981] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+  45. [Execution] T1059.004 (Unix Shell) - explorer.exe → ctfmon.exe
+  46. [Collection] T1005 (Data from Local System) - explorer.exe → desktop.ini
+  47. [Collection] T1005 (Data from Local System) - explorer.exe → shell32.dll
+  48. [Collection] T1005 (Data from Local System) - ctfmon.exe → msctf.dll
+  49. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+
+[21:30:16.202] --- Action Recorded ---
+Action: 查找文件 7D401059-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[21:30:16.478] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:30:16.748] --- Action Recorded ---
+Action: 查找文件 7D401057-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[21:30:17.007] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[21:30:17.304] --- Action Recorded ---
+Action: 查找文件 7D401058-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[21:30:17.468] --- Malicious Event Added ---
+Event ID: 8D401081-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[21:30:30.313] 
+============================================================
+[21:30:30.313] [迭代 208] MEMORY STATE UPDATE
+============================================================
+
+[21:30:30.313] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；csrss.exe 读取 winsrv.dll（T1005），winlogon.exe 派生 userinit.exe（T1059.004）并最终启动 explorer.exe（T1059.004）。explorer.exe 不仅派生 notepad++.exe（T1059.004）、ctfmon.exe（T1059.004），还持续读取 desktop.ini（T1005）与 shell32.dll（T1005），表明其被深度劫持；ctfmon.exe 同步加载 msctf.dll（T1005），进一步佐证合法进程滥用。notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，执行 update.exe（T1059）；update.exe 派生 cKfGW.exe、Process_1932 与 Iwabeat.exe，三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭该基础设施反向利用（T1190）。cKfGW.exe 派生 cmd.exe 与伪装 lsass.exe（T1059.004），后者篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；cmd.exe 进一步派生 conhost.exe（T1059.004），后者随即读取 kernelbase.dll（T1005），强化隐蔽交互能力；随后 lsass.exe 派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:30:30.313] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+  45. [Execution] T1059.004 (Unix Shell) - explorer.exe → ctfmon.exe
+  46. [Collection] T1005 (Data from Local System) - explorer.exe → desktop.ini
+  47. [Collection] T1005 (Data from Local System) - explorer.exe → shell32.dll
+  48. [Collection] T1005 (Data from Local System) - ctfmon.exe → msctf.dll
+  49. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  50. [Collection] T1005 (Data from Local System) - conhost.exe → kernelbase.dll
+
+[21:30:30.546] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:30:30.672] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[21:30:30.927] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[21:30:31.175] --- Action Recorded ---
+Action: 查找写入文件 7D401057-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[21:30:31.327] --- Action Recorded ---
+Action: 查找进程 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[21:30:31.503] --- Malicious Event Added ---
+Event ID: 8D401082-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[21:30:45.748] 
+============================================================
+[21:30:45.748] [迭代 213] MEMORY STATE UPDATE
+============================================================
+
+[21:30:45.748] --- 叙述性攻击摘要 ---
+攻击始于 System 进程派生 smss.exe（T1059.004），后者启动 wininit.exe、csrss.exe 与 winlogon.exe（T1059.004）；wininit.exe 进一步派生 services.exe（T1059.004），后者加载 svchost.exe（T1059.004）并触发其向 192.168.1.1:53 发起 DNS 协议通信（T1071.001），随后遭该地址反向利用（T1190），导致 svchost.exe 写入 Windows EventLog（T1105）并派生 taskhostw.exe（T1059.004）——后者读取 WebCache 数据（T1005）。与此同时，winlogon.exe 派生 userinit.exe（T1059.004）并最终启动 explorer.exe（T1059.004）；explorer.exe 被深度劫持，持续读取 desktop.ini 与 shell32.dll（T1005），并派生 notepad++.exe（T1059.004）与 ctfmon.exe（T1059.004）；notepad++.exe 遭外部 C2 服务器 204.68.111.100 利用公开面应用漏洞（T1190）注入，执行 update.exe（T1059），后者派生 cKfGW.exe、Process_1932 与 Iwabeat.exe；三者高频连接 53.192.68.50:8080 及网段 142.20.56.0/22（T1071.001），并均遭该基础设施反向利用（T1190）；cKfGW.exe 派生伪装 lsass.exe（T1059.004），篡改 HKLM\Run、写入 myHbYXTpViwX.vbx、时间戳篡改、提权添加本地管理员账户（T1105），并与 RDP_Service 及 203.0.113.55 双向通信（T1071/T1071.001），读取管理员组信息（T1005）；lsass.exe 进而派生 mimikatz.exe（T1059.004）执行凭证转储（T1003.001）。当前调查焦点集中于 update.exe 的完整子进程树，以及 cKfGW.exe、Process_1932、Iwabeat.exe 对 LSASS 内存、敏感路径及反射加载行为的深度分析。
+
+[21:30:45.748] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - notepad++.exe → 204.68.111.100
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 204.68.111.100 → notepad++.exe
+  3. [Execution] T1059.004 (Unix Shell) - update.exe → cKfGW.exe
+  4. [Execution] T1059.004 (Unix Shell) - update.exe → Process_1932
+  5. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 53.192.68.50:8080
+  6. [Command and Control] T1071.001 (Web Protocols) - cKfGW.exe → 142.20.56.0/22
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → cKfGW.exe
+  8. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Process_1932
+  9. [Initial Access] T1190 (Exploit Public-Facing Application) - 53.192.68.50:8080 → Iwabeat.exe
+  10. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → cmd.exe
+  11. [Execution] T1059.004 (Unix Shell) - cKfGW.exe → lsass.exe
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → myHbYXTpViwX.vbx
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → HKLM_Run_RTqWaEHv
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → TimeStomped_Files
+  15. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → Local_Admin_Group
+  16. [Execution] T1059 (Command and Scripting Interpreter) - notepad++.exe → update.exe
+  17. [Execution] T1059.004 (Unix Shell) - lsass.exe → mimikatz.exe
+  18. [Command and Control] T1071.001 (Web Protocols) - Process_1932 → 53.192.68.50:8080
+  19. [Execution] T1059.004 (Unix Shell) - Process_1932 → Iwabeat.exe
+  20. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.56.0/22 → cKfGW.exe
+  21. [Collection] T1005 (Data from Local System) - RDP_Service → Local_Admin_Group
+  22. [Command and Control] T1071 (Application Layer Protocol) - 203.0.113.55 → RDP_Service
+  23. [Command and Control] T1071.001 (Web Protocols) - Iwabeat.exe → 53.192.68.50:8080
+  24. [Command and Control] T1071 (Application Layer Protocol) - RDP_Service → 203.0.113.55
+  25. [Collection] T1005 (Data from Local System) - cKfGW.exe → ntdll.dll
+  26. [Collection] T1005 (Data from Local System) - mimikatz.exe → kernel32.dll
+  27. [Execution] T1059.004 (Unix Shell) - wininit.exe → lsass.exe
+  28. [Execution] T1059.004 (Unix Shell) - smss.exe → wininit.exe
+  29. [Execution] T1059.004 (Unix Shell) - smss.exe → csrss.exe
+  30. [Execution] T1059.004 (Unix Shell) - smss.exe → winlogon.exe
+  31. [Execution] T1059.004 (Unix Shell) - winlogon.exe → LogonUI.exe
+  32. [Execution] T1059.004 (Unix Shell) - winlogon.exe → userinit.exe
+  33. [Execution] T1059.004 (Unix Shell) - System → smss.exe
+  34. [Execution] T1059.004 (Unix Shell) - wininit.exe → services.exe
+  35. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  36. [Execution] T1059.004 (Unix Shell) - services.exe → spoolsv.exe
+  37. [Collection] T1005 (Data from Local System) - svchost.exe → wuauserv.dll
+  38. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  39. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  40. [Execution] T1059.004 (Unix Shell) - svchost.exe → taskhostw.exe
+  41. [Collection] T1005 (Data from Local System) - taskhostw.exe → WebCache
+  42. [Collection] T1005 (Data from Local System) - csrss.exe → winsrv.dll
+  43. [Execution] T1059.004 (Unix Shell) - userinit.exe → explorer.exe
+  44. [Execution] T1059.004 (Unix Shell) - explorer.exe → notepad++.exe
+  45. [Execution] T1059.004 (Unix Shell) - explorer.exe → ctfmon.exe
+  46. [Collection] T1005 (Data from Local System) - explorer.exe → desktop.ini
+  47. [Collection] T1005 (Data from Local System) - explorer.exe → shell32.dll
+  48. [Collection] T1005 (Data from Local System) - ctfmon.exe → msctf.dll
+  49. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  50. [Collection] T1005 (Data from Local System) - conhost.exe → kernelbase.dll
+[21:30:45.893] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results

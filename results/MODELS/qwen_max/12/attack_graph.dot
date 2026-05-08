@@ -1,0 +1,47 @@
+digraph G {
+"25.159.96.207:80" [shape=diamond];
+"nginx" [shape=ellipse];
+"grain" [shape=ellipse];
+"/tmp/grain" [shape=box];
+"sshd" [shape=ellipse];
+"/etc/group" [shape=box];
+"/etc/passwd" [shape=box];
+"155.162.39.48:80" [shape=diamond];
+"76.56.184.25:80" [shape=diamond];
+"root-shell" [shape=ellipse];
+"/root/.ssh/authorized_keys" [shape=box];
+"203.0.113.12:8080" [shape=diamond];
+"bash" [shape=ellipse];
+"/tmp/.cache" [shape=box];
+"/usr/log/xsd" [shape=box];
+"crontab" [shape=ellipse];
+"nginx" -> "155.162.39.48:80" [label="send_to"];
+
+
+"25.159.96.207:80" -> "nginx" [label="recv_from"];
+
+"grain" -> "/usr/log/xsd" [label="write"];
+
+"76.56.184.25:80" -> "nginx" [label="recv_from"];
+
+"root-shell" -> "/root/.ssh/authorized_keys" [label="write"];
+
+"203.0.113.12:8080" -> "bash" [label="recv_from"];
+
+"nginx" -> "crontab" [label="fork"];
+
+"/root/.ssh/authorized_keys" -> "sshd" [label="read"];
+
+"nginx" -> "203.0.113.12:8080" [label="send_to"];
+
+
+"sshd" -> "root-shell" [label="fork"];
+
+"bash" -> "/tmp/.cache" [label="write"];
+
+"nginx" -> "/tmp/grain" [label="write"];
+
+"/etc/passwd" -> "crontab" [label="read"];
+
+"nginx" -> "sshd" [label="fork"];
+}

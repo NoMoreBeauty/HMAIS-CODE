@@ -1,0 +1,2921 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T16:58:10.763757
+================================================================================
+
+[18:22:48.176] 
+============================================================
+[18:22:48.176] POI REGISTERED
+============================================================
+
+[18:22:48.176] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401053-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "firefox.exe (file)",
+  "目标节点": "runme.bat (process)",
+  "源节点ID": "7D401049-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[18:22:48.358] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:22:48.600] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:22:48.782] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:22:48.938] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:22:49.206] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:22:59.634] 
+============================================================
+[18:22:59.634] [迭代 4] MEMORY STATE UPDATE
+============================================================
+
+[18:22:59.634] --- 叙述性攻击摘要 ---
+攻击始于 firefox.exe 进程向外部 C2 服务器 64.233.191.255:8000 发起 Web 协议通信（T1071.001），表明已建立命令与控制通道。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:22:59.634] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+
+[18:22:59.821] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[18:23:00.025] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[18:23:00.231] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:23:00.437] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:23:14.592] 
+============================================================
+[18:23:14.592] [迭代 7] MEMORY STATE UPDATE
+============================================================
+
+[18:23:14.592] --- 叙述性攻击摘要 ---
+攻击始于 firefox.exe 进程向外部 C2 服务器 64.233.191.255:8000 发起 Web 协议通信（T1071.001），建立初始命令与控制通道；随后，该进程又向另一 C2 服务器 172.217.16.142:443 发起加密 Web 协议通信（T1071.001），表明攻击者正在扩展或冗余化 C2 基础设施。两次通信均使用 Web 协议（HTTP/HTTPS），符合隐蔽信道特征，且目标 IP 分属不同网段，暗示多源指令分发或故障转移机制。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:23:14.592] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+
+[18:23:14.887] --- Action Recorded ---
+Action: 查找与 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[18:23:15.008] --- Action Recorded ---
+Action: 查找 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[18:23:15.127] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:23:15.287] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[18:23:15.476] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:23:27.413] 
+============================================================
+[18:23:27.413] [迭代 11] MEMORY STATE UPDATE
+============================================================
+
+[18:23:27.413] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现初始访问；随后，firefox.exe 主动向该 C2 服务器回连，建立首个 Web 协议命令与控制通道（T1071.001）；紧接着，firefox.exe 又向另一 C2 服务器 172.217.16.142:443 发起加密 Web 协议通信（T1071.001），表明攻击者正在扩展或冗余化 C2 基础设施。两次出站通信均采用 HTTP/HTTPS 协议，目标 IP 分属不同网段，符合隐蔽信道与多源指令分发特征。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:23:27.413] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+
+[18:23:27.568] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:23:27.668] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:23:27.926] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:23:28.167] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:23:28.437] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[18:23:28.541] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:23:38.107] 
+============================================================
+[18:23:38.107] [迭代 16] MEMORY STATE UPDATE
+============================================================
+
+[18:23:38.107] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现初始访问；几乎同时，另一 C2 服务器 172.217.16.142:443 也向同一 firefox.exe 进程发起漏洞利用（T1190），表明攻击者部署了双源、协同的初始入侵机制。随后，firefox.exe 主动向 64.233.191.255:8000 回连，建立首个 Web 协议命令与控制通道（T1071.001）；紧接着又向 172.217.16.142:443 发起加密 HTTPS 通信（T1071.001），形成双向、冗余的 C2 架构——既支持指令下发，也接收远程控制响应。两目标 IP 分属不同网段且协议特征一致（HTTP/HTTPS），凸显攻击者对隐蔽性与抗毁性的双重设计。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:23:38.107] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+
+[18:23:38.301] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:23:38.509] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:23:38.641] --- Action Recorded ---
+Action: 查找写入文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:23:38.919] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:23:39.023] --- Malicious Event Added ---
+Event ID: 8D40106A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:23:53.146] 
+============================================================
+[18:23:53.146] [迭代 20] MEMORY STATE UPDATE
+============================================================
+
+[18:23:53.146] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。在建立 C2 通信后，firefox.exe 进程通过加载 kernel32.dll 执行本地系统数据采集行为（T1005），表明攻击已从初始渗透阶段转入信息收集阶段。两 C2 地址分属不同网段但协议特征高度一致，凸显攻击者对隐蔽性与抗毁性的精心设计。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:23:53.146] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+
+[18:23:53.310] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:23:53.473] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:23:53.729] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:23:53.871] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:23:54.144] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:24:08.120] 
+============================================================
+[18:24:08.120] [迭代 24] MEMORY STATE UPDATE
+============================================================
+
+[18:24:08.120] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。在建立 C2 通信后，firefox.exe 进程迅速转入信息收集阶段——既通过加载 kernel32.dll 读取本地系统数据（T1005），又直接读取浏览器敏感文件 cookies.sqlite（T1005），表明攻击者正批量窃取用户身份凭证与会话状态。两 C2 地址分属不同网段但协议特征高度一致，凸显攻击者对隐蔽性与抗毁性的精心设计。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:24:08.120] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+
+[18:24:08.362] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:24:08.476] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:24:08.674] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:24:08.916] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[18:24:09.148] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:24:17.623] 
+============================================================
+[18:24:17.623] [迭代 28] MEMORY STATE UPDATE
+============================================================
+
+[18:24:17.623] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。在建立 C2 通信后，firefox.exe 迅速转入信息收集阶段——既通过加载 kernel32.dll 读取本地系统数据（T1005），又直接读取浏览器敏感文件 cookies.sqlite（T1005），批量窃取用户身份凭证与会话状态。值得注意的是，firefox.exe 还派生出 cmd.exe 进程并执行其指令（T1059.004），表明攻击者已获得本地命令执行能力，正由被动载荷转向主动横向控制。两 C2 地址分属不同网段但协议特征高度一致，凸显攻击者对隐蔽性与抗毁性的精心设计。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:24:17.623] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+
+[18:24:17.797] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:24:17.914] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:24:18.161] --- Action Recorded ---
+Action: 查找写入文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:24:18.381] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[18:24:18.645] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[18:24:28.947] 
+============================================================
+[18:24:28.947] [迭代 32] MEMORY STATE UPDATE
+============================================================
+
+[18:24:28.947] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。在建立 C2 通信后，firefox.exe 迅速转入信息收集阶段——既通过加载 kernel32.dll 读取本地系统数据（T1005），又直接读取浏览器敏感文件 cookies.sqlite（T1005），批量窃取用户身份凭证与会话状态。随后，firefox.exe 派生出 cmd.exe 进程（T1059.004），并由 cmd.exe 执行批处理脚本 runme.bat（T1059），标志攻击者已从被动载荷执行跃迁至持久化脚本控制阶段。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:24:28.947] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+
+[18:24:29.120] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:24:29.280] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:24:29.577] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:24:29.786] --- Action Recorded ---
+Action: 查找进程 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[18:24:30.024] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:24:42.052] 
+============================================================
+[18:24:42.052] [迭代 36] MEMORY STATE UPDATE
+============================================================
+
+[18:24:42.052] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。在建立 C2 通信后，firefox.exe 迅速转入信息收集阶段——既通过加载 kernel32.dll 读取本地系统数据（T1005），又直接读取浏览器敏感文件 cookies.sqlite（T1005），批量窃取用户身份凭证与会话状态。随后，firefox.exe 派生出 cmd.exe 进程执行 runme.bat（T1059.004 → T1059），标志攻击者已从被动载荷执行跃迁至持久化脚本控制阶段；与此同时，explorer.exe 亦被劫持并派生出另一实例 cmd.exe（T1059.004），表明攻击者正横向扩展执行能力，尝试绕过单一进程依赖、增强控制鲁棒性。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:24:42.052] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+
+[18:24:42.236] --- Action Recorded ---
+Action: 查找写入文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:24:42.426] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:24:42.660] --- Action Recorded ---
+Action: 查找文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:24:42.797] --- Action Recorded ---
+Action: 查找进程 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:24:42.985] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:24:57.844] 
+============================================================
+[18:24:57.844] [迭代 40] MEMORY STATE UPDATE
+============================================================
+
+[18:24:57.844] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。随后，firefox.exe 迅速转入信息收集阶段——通过加载 kernel32.dll（T1005）读取系统基础信息，并直接读取浏览器敏感文件 cookies.sqlite（T1005），批量窃取身份凭证与会话状态。与此同时，explorer.exe 被劫持，不仅派生出 cmd.exe 执行脚本（T1059.004 → T1059），还主动加载 user32.dll 进行本地数据采集（T1005），表明攻击者正多进程并行开展横向侦察与持久化准备。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:24:57.844] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+
+[18:24:57.983] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:24:58.093] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:24:58.344] --- Action Recorded ---
+Action: 查找进程 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:24:58.526] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:25:12.987] 
+============================================================
+[18:25:12.987] [迭代 43] MEMORY STATE UPDATE
+============================================================
+
+[18:25:12.987] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。随后，firefox.exe 迅速转入信息收集阶段——通过加载 kernel32.dll（T1005）读取系统基础信息，并直接读取浏览器敏感文件 cookies.sqlite（T1005），批量窃取身份凭证与会话状态。与此同时，explorer.exe 被劫持，不仅派生出 cmd.exe 执行脚本（T1059.004 → T1059），还主动加载 user32.dll（T1005）及读取 taskbar.icon（T1005），持续扩展本地数据采集范围，覆盖系统界面配置与用户行为痕迹。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:25:12.987] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+
+[18:25:13.226] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:25:13.494] --- Action Recorded ---
+Action: 查找文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:25:13.703] --- Action Recorded ---
+Action: 查找文件 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:25:13.925] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:25:14.063] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[18:25:14.216] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[18:25:25.852] 
+============================================================
+[18:25:25.852] [迭代 48] MEMORY STATE UPDATE
+============================================================
+
+[18:25:25.852] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。随后，firefox.exe 迅速转入信息收集阶段——通过加载 kernel32.dll（T1005）读取系统基础信息，并直接读取浏览器敏感文件 cookies.sqlite（T1005），批量窃取身份凭证与会话状态；同时派生 cmd.exe 执行脚本（T1059.004 → T1059），进而调用 runme.bat 启动恶意载荷 Agent_VL8B5T3U（T1059）。与此同时，explorer.exe 被劫持，派生 cmd.exe（T1059.004），并加载 user32.dll 及读取 taskbar.icon（均属 T1005），持续扩展本地数据采集范围。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:25:25.852] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+
+[18:25:26.110] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:25:26.325] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:25:26.625] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:25:26.859] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:25:26.991] --- Action Recorded ---
+Action: 查找写入文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:25:27.260] --- Action Recorded ---
+Action: 查找进程 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:25:27.519] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:25:39.236] 
+============================================================
+[18:25:39.236] [迭代 54] MEMORY STATE UPDATE
+============================================================
+
+[18:25:39.236] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 分别利用已知漏洞主动向 firefox.exe 进程发起攻击（T1190），实现双源协同的初始访问；几乎同步，firefox.exe 向两服务器回连：先以明文 HTTP 协议连接 64.233.191.255:8000（T1071.001），再以加密 HTTPS 协议连接 172.217.16.142:443（T1071.001），构建起双向、冗余的 Web 协议命令与控制通道。随后，firefox.exe 迅速转入信息收集阶段——通过加载 kernel32.dll（T1005）读取系统基础信息，并直接读取浏览器敏感文件 cookies.sqlite（T1005），批量窃取身份凭证与会话状态；同时派生 cmd.exe 执行脚本（T1059.004 → T1059），进而调用 runme.bat 启动恶意载荷 Agent_VL8B5T3U（T1059）。与此同时，explorer.exe 被劫持，派生 cmd.exe（T1059.004），并加载 user32.dll 及读取 taskbar.icon（均属 T1005），持续扩展本地数据采集范围。最新确认，Agent_VL8B5T3U 进程主动向新 C2 地址 132.197.158.98:80 发起 HTTP 通信（T1071.001），标志着攻击链已从初始浏览器进程演进至独立持久化载荷阶段，形成多跳、多协议、多C2的隐蔽控制体系。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:25:39.236] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+
+[18:25:39.346] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:25:39.639] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:25:39.878] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[18:25:40.098] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:25:49.926] 
+============================================================
+[18:25:49.926] [迭代 57] MEMORY STATE UPDATE
+============================================================
+
+[18:25:49.926] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。最新确认，Agent_VL8B5T3U 不仅主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），更于同一地址遭反向漏洞利用——该 C2 服务器（132.197.158.98:80）直接向 Agent_VL8B5T3U 发起新一轮 T1190 攻击，表明攻击者正通过多跳载荷实现控制权移交与协议级隐蔽演进。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:25:49.926] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+
+[18:25:50.143] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:25:50.344] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:25:50.450] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:25:50.577] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:25:50.712] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[18:25:50.903] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:25:59.422] 
+============================================================
+[18:25:59.422] [迭代 62] MEMORY STATE UPDATE
+============================================================
+
+[18:25:59.422] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），不仅触发自身二次失陷，更进一步将漏洞利用链延伸至新载荷 Agent_LUAVR71T——表明攻击者正通过多跳载荷实现控制权移交、协议级隐蔽演进及横向载荷扩散。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:25:59.422] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+
+[18:25:59.558] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:25:59.678] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:25:59.783] --- Action Recorded ---
+Action: 查找与 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[18:26:00.029] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:26:00.311] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:26:00.540] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[18:26:00.819] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:26:15.410] 
+============================================================
+[18:26:15.410] [迭代 68] MEMORY STATE UPDATE
+============================================================
+
+[18:26:15.410] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），不仅触发自身二次失陷，更进一步将漏洞利用链延伸至新载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX——表明攻击者正通过多跳载荷实现控制权移交、协议级隐蔽演进及横向载荷扩散。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:26:15.410] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+
+[18:26:15.616] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:26:15.723] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:26:16.012] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:26:16.217] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:26:16.379] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:26:16.581] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:26:25.621] 
+============================================================
+[18:26:25.621] [迭代 73] MEMORY STATE UPDATE
+============================================================
+
+[18:26:25.621] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），不仅触发自身二次失陷，更进一步将漏洞利用链延伸至新载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 已主动向同一 C2 地址 132.197.158.98:80 发起 HTTP 通信（T1071.001），表明多跳载荷已完成控制权移交，并正通过协议级隐蔽演进持续维持活跃信标。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:26:25.621] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+
+[18:26:25.838] --- Action Recorded ---
+Action: 查找写入文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:26:26.058] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:26:26.285] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:26:26.412] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:26:36.411] 
+============================================================
+[18:26:36.411] [迭代 76] MEMORY STATE UPDATE
+============================================================
+
+[18:26:36.411] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），不仅触发自身二次失陷，更进一步将漏洞利用链延伸至新载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 已主动向 132.197.158.98:80（T1071.001）及新增 C2 地址 142.20.57.147（T1071.001）发起 HTTP 通信，表明多跳载荷已完成控制权移交，并正通过协议级隐蔽演进持续维持活跃信标。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:26:36.411] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+
+[18:26:36.644] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:26:36.755] --- Action Recorded ---
+Action: 查找写入文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:26:36.936] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:26:37.071] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:26:37.339] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:26:37.519] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:26:46.577] 
+============================================================
+[18:26:46.577] [迭代 81] MEMORY STATE UPDATE
+============================================================
+
+[18:26:46.577] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），不仅触发自身二次失陷，更进一步将漏洞利用链延伸至新载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 已主动向 132.197.158.98:80 及新增 C2 地址 142.20.57.147 发起 HTTP 通信（T1071.001），并直接向 lsass.exe 进程写入恶意代码（T1105），表明攻击者已完成多跳载荷移交，正通过进程注入手段横向扩展权限、强化驻留能力。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:26:46.577] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+
+[18:26:46.729] --- Action Recorded ---
+Action: 查找文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:26:46.963] --- Action Recorded ---
+Action: 查找文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:26:47.078] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:26:47.350] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:26:47.590] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:26:47.778] --- Malicious Event Added ---
+Event ID: 8D40107B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:27:00.227] 
+============================================================
+[18:27:00.227] [迭代 86] MEMORY STATE UPDATE
+============================================================
+
+[18:27:00.227] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），不仅触发自身二次失陷，更进一步将漏洞利用链延伸至新载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 已主动向 132.197.158.98:80 及新增 C2 地址 142.20.57.147 发起 HTTP 通信（T1071.001），并直接向 lsass.exe 进程写入恶意代码（T1105）——同时向磁盘写入 temp_log.txt（T1105），表明攻击者已完成多跳载荷移交，正通过进程注入与本地文件落盘双重手段横向扩展权限、强化驻留能力。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:27:00.227] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+
+[18:27:00.352] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:27:00.507] --- Action Recorded ---
+Action: 查找写入文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:27:00.697] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:27:00.933] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:27:01.035] --- Action Recorded ---
+Action: 查找进程 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:27:01.311] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:27:15.296] 
+============================================================
+[18:27:15.296] [迭代 91] MEMORY STATE UPDATE
+============================================================
+
+[18:27:15.296] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并延伸出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 已向 132.197.158.98:80 及新增 C2 地址 142.20.57.147 发起 HTTP 通信（T1071.001），并直接向 lsass.exe 进程注入恶意代码、写入 temp_log.txt（T1105）；与此同时，Agent_NEK5H8GX 亦主动向 132.197.158.98:80 发起 HTTP 通信（T1071.001）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:27:15.296] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+
+[18:27:15.466] --- Action Recorded ---
+Action: 查找文件 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:27:15.625] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:27:15.864] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:27:16.032] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:27:16.239] --- Action Recorded ---
+Action: 查找进程 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:27:16.344] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:27:29.737] 
+============================================================
+[18:27:29.737] [迭代 96] MEMORY STATE UPDATE
+============================================================
+
+[18:27:29.737] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并延伸出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并直接注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 除持续连接 132.197.158.98:80 外，新增向 142.20.58.149 的 HTTP 通信（T1071.001）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:27:29.737] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+
+[18:27:30.019] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:27:30.304] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:27:30.406] --- Action Recorded ---
+Action: 查找与 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[18:27:30.513] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:27:30.786] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[18:27:30.990] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:27:45.770] 
+============================================================
+[18:27:45.770] [迭代 101] MEMORY STATE UPDATE
+============================================================
+
+[18:27:45.770] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并直接注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 除持续连接 132.197.158.98:80 外，新增向 142.20.58.149 的 HTTP 通信（T1071.001）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:27:45.770] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+
+[18:27:45.874] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:27:45.982] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:27:46.126] --- Action Recorded ---
+Action: 查找进程 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[18:27:46.268] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:27:57.712] 
+============================================================
+[18:27:57.712] [迭代 104] MEMORY STATE UPDATE
+============================================================
+
+[18:27:57.712] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并直接注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 除持续连接 132.197.158.98:80 外，新增向 142.20.58.149 的 HTTP 通信（T1071.001），且于近期遭 142.20.57.147 主动反向利用（T1190），形成闭环渗透链。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:27:57.712] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+
+[18:27:57.932] --- Action Recorded ---
+Action: 查找 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[18:27:58.047] --- Action Recorded ---
+Action: 查找 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[18:27:58.316] --- Action Recorded ---
+Action: 查找与 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[18:27:58.601] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:27:58.851] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[18:27:58.992] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:28:09.574] 
+============================================================
+[18:28:09.574] [迭代 109] MEMORY STATE UPDATE
+============================================================
+
+[18:28:09.574] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并直接注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 除持续连接 132.197.158.98:80 外，新增向 142.20.58.149 的 HTTP 通信（T1071.001），且于近期遭 142.20.57.147 主动反向利用（T1190），形成闭环渗透链；与此同时，services.exe 进程被利用，派生并注入 lsass.exe（T1059.004），进一步强化横向控制能力。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:28:09.574] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+
+[18:28:09.826] --- Action Recorded ---
+Action: 查找文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:28:10.107] --- Action Recorded ---
+Action: 查找写入文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:28:10.287] --- Action Recorded ---
+Action: 查找文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:28:10.460] --- Action Recorded ---
+Action: 查找文件 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:28:10.600] --- Action Recorded ---
+Action: 查找进程 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[18:28:10.816] --- Malicious Event Added ---
+Event ID: 8D401072-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:28:24.588] 
+============================================================
+[18:28:24.588] [迭代 114] MEMORY STATE UPDATE
+============================================================
+
+[18:28:24.588] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并直接注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 除持续连接 132.197.158.98:80 外，新增向 142.20.58.149 的 HTTP 通信（T1071.001），且于近期遭 142.20.57.147 主动反向利用（T1190）；与此同时，services.exe 进程被利用，派生并注入 lsass.exe（T1059.004），同时新派生 svchost.exe（T1059.004），进一步强化横向控制能力。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:28:24.588] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+
+[18:28:24.745] --- Action Recorded ---
+Action: 查找写入文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:28:25.017] --- Action Recorded ---
+Action: 查找文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:28:25.273] --- Action Recorded ---
+Action: 查找文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:28:25.456] --- Action Recorded ---
+Action: 查找进程 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[18:28:25.709] --- Malicious Event Added ---
+Event ID: 8D40107C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:28:36.542] 
+============================================================
+[18:28:36.542] [迭代 118] MEMORY STATE UPDATE
+============================================================
+
+[18:28:36.542] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并直接注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 除持续连接 132.197.158.98:80 外，新增向 142.20.58.149 的 HTTP 通信（T1071.001），且于近期遭 142.20.57.147 主动反向利用（T1190）；与此同时，services.exe 进程被利用，派生并注入 lsass.exe、新启 svchost.exe（T1059.004），并进一步派生 Process_4480（T1059.004），显著强化横向控制能力。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:28:36.542] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+
+[18:28:36.696] --- Action Recorded ---
+Action: 查找文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:28:36.820] --- Action Recorded ---
+Action: 查找文件 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:28:36.935] --- Action Recorded ---
+Action: 查找文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:28:37.098] --- Action Recorded ---
+Action: 查找文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:28:37.374] --- Action Recorded ---
+Action: 查找进程 7D401051-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[18:28:37.658] --- Malicious Event Added ---
+Event ID: 8D401081-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:28:51.071] 
+============================================================
+[18:28:51.071] [迭代 123] MEMORY STATE UPDATE
+============================================================
+
+[18:28:51.071] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。最新确认：Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并直接注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 除持续连接 132.197.158.98:80 外，新增向 142.20.58.149 的 HTTP 通信（T1071.001），且于近期遭 142.20.57.147 主动反向利用（T1190）；与此同时，services.exe 进程被利用，派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480（T1059.004），并进一步派生 taskhostw.exe（T1059.004），显著强化横向控制能力。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:28:51.071] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+
+[18:28:51.188] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:28:51.374] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:28:51.494] --- Action Recorded ---
+Action: 查找写入文件 7D401054-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:28:51.624] --- Action Recorded ---
+Action: 查找进程 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:28:51.884] --- Malicious Event Added ---
+Event ID: 8D401073-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:29:01.014] 
+============================================================
+[18:29:01.014] [迭代 127] MEMORY STATE UPDATE
+============================================================
+
+[18:29:01.014] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 持续连接 132.197.158.98:80 并新增向 142.20.58.149 的 HTTP 通信（T1071.001），且遭 142.20.57.147 反向利用（T1190）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004），显著强化横向控制能力。最新确认：svchost.exe 向组播地址 239.255.255.250:1900 发起 HTTP 协议通信（T1071.001），疑似用于局域网内服务发现或横向扩散。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:29:01.014] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+
+[18:29:01.213] --- Action Recorded ---
+Action: 查找写入文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:29:01.384] --- Action Recorded ---
+Action: 查找 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[18:29:01.532] --- Action Recorded ---
+Action: 查找进程 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:29:01.828] --- Malicious Event Added ---
+Event ID: 8D401074-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:29:12.327] 
+============================================================
+[18:29:12.327] [迭代 130] MEMORY STATE UPDATE
+============================================================
+
+[18:29:12.327] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 持续连接 132.197.158.98:80 并新增向 142.20.58.149 的 HTTP 通信（T1071.001），且遭 142.20.57.147 反向利用（T1190）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）。svchost.exe 随即向组播地址 239.255.255.250:1900（T1071.001）及本地 DNS 服务器 192.168.1.1:53（T1071.001）发起 HTTP 协议通信，疑似用于局域网服务发现与内网域名解析劫持。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:29:12.327] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+
+[18:29:12.467] --- Action Recorded ---
+Action: 查找与 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[18:29:12.605] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:29:12.772] --- Action Recorded ---
+Action: 查找 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[18:29:13.009] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:29:13.254] --- Action Recorded ---
+Action: 查找文件 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:29:13.541] --- Action Recorded ---
+Action: 查找进程 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[18:29:13.667] --- Malicious Event Added ---
+Event ID: 8D401075-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:29:26.385] 
+============================================================
+[18:29:26.385] [迭代 136] MEMORY STATE UPDATE
+============================================================
+
+[18:29:26.385] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），并注入 lsass.exe、写入 temp_log.txt（T1105）；Agent_NEK5H8GX 持续连接 132.197.158.98:80 并新增向 142.20.58.149 的 HTTP 通信（T1071.001），且遭 142.20.57.147 反向利用（T1190）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）。svchost.exe 随即向组播地址 239.255.255.250:1900（T1071.001）及本地 DNS 服务器 192.168.1.1:53（T1071.001）发起 HTTP 协议通信，而后者于 192.168.1.1:53 对 svchost.exe 实施反向漏洞利用（T1190），构成内网横向渗透闭环。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:29:26.385] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+
+[18:29:26.580] --- Action Recorded ---
+Action: 查找与 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[18:29:26.797] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[18:29:26.936] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:29:36.602] 
+============================================================
+[18:29:36.602] [迭代 138] MEMORY STATE UPDATE
+============================================================
+
+[18:29:36.602] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），注入 lsass.exe、写入 temp_log.txt（T1105），并进一步派生 mimikatz.exe（T1059.004）用于凭证转储；Agent_NEK5H8GX 持续连接 132.197.158.98:80 并新增向 142.20.58.149 的 HTTP 通信（T1071.001），且遭 142.20.57.147 反向利用（T1190）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）；svchost.exe 随即向组播地址 239.255.255.250:1900 及本地 DNS 服务器 192.168.1.1:53 发起 HTTP 协议通信（T1071.001），后者于 192.168.1.1:53 对其实施反向漏洞利用（T1190），构成内网横向渗透闭环。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:29:36.602] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+
+[18:29:36.900] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:29:37.078] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:29:37.367] --- Action Recorded ---
+Action: 查找文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:29:37.538] --- Action Recorded ---
+Action: 查找写入文件 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:29:37.761] --- Action Recorded ---
+Action: 查找进程 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:29:37.942] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:29:48.003] 
+============================================================
+[18:29:48.003] [迭代 143] MEMORY STATE UPDATE
+============================================================
+
+[18:29:48.003] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），注入 lsass.exe、写入 temp_log.txt（T1105），并进一步派生 mimikatz.exe（T1059.004）用于凭证转储；Agent_NEK5H8GX 持续连接 132.197.158.98:80 和 142.20.58.149（T1071.001），且遭 142.20.57.147 反向利用（T1190），最新确认其将恶意脚本 ping_sweep.ps1 写入本地磁盘（T1105），为后续内网探测做准备。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）；svchost.exe 随即向组播地址 239.255.255.250:1900 及本地 DNS 服务器 192.168.1.1:53 发起 HTTP 协议通信（T1071.001），后者于 192.168.1.1:53 对其实施反向漏洞利用（T1190），构成内网横向渗透闭环。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:29:48.003] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+
+[18:29:48.202] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:29:48.457] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:29:48.751] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:29:48.912] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:29:49.179] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:30:03.713] 
+============================================================
+[18:30:03.713] [迭代 147] MEMORY STATE UPDATE
+============================================================
+
+[18:30:03.713] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），注入 lsass.exe、写入 temp_log.txt（T1105），并进一步派生 mimikatz.exe（T1059.004）用于凭证转储；Agent_NEK5H8GX 持续连接 132.197.158.98:80 和 142.20.58.149（T1071.001），且遭 142.20.57.147 反向利用（T1190），最新确认其将恶意脚本 ping_sweep.ps1 写入本地磁盘（T1105）。值得注意的是，lsass.exe 进程被多次注入与操控后，最新确认其将敏感系统账户数据库导出为 sam.log 文件（T1105），构成高危凭证外泄事件。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）；svchost.exe 随即向组播地址 239.255.255.250:1900 及本地 DNS 服务器 192.168.1.1:53 发起 HTTP 协议通信（T1071.001），后者于 192.168.1.1:53 对其实施反向漏洞利用（T1190），构成内网横向渗透闭环。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:30:03.713] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+
+[18:30:03.974] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:30:04.204] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:30:04.345] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:30:04.578] --- Action Recorded ---
+Action: 查找进程 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:30:04.770] --- Malicious Event Added ---
+Event ID: 8D401076-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:30:12.806] 
+============================================================
+[18:30:12.806] [迭代 151] MEMORY STATE UPDATE
+============================================================
+
+[18:30:12.806] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），注入 lsass.exe、写入 temp_log.txt（T1105），并进一步派生 mimikatz.exe（T1059.004）用于凭证转储；Agent_NEK5H8GX 持续连接 132.197.158.98:80 和 142.20.58.149（T1071.001），且遭 142.20.57.147 反向利用（T1190），最新确认其将恶意脚本 ping_sweep.ps1 写入本地磁盘（T1105）。lsass.exe 进程被多次注入与操控后，最新确认其将敏感系统账户数据库导出为 sam.log 文件（T1105）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）；svchost.exe 随即向组播地址 239.255.255.250:1900 及本地 DNS 服务器 192.168.1.1:53 发起 HTTP 协议通信（T1071.001），后者于 192.168.1.1:53 对其实施反向漏洞利用（T1190），构成内网横向渗透闭环；**最新确认 svchost.exe 将 Windows 更新服务日志写入 wuauserv.log（T1105）**。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:30:12.806] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+
+[18:30:13.013] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:30:13.211] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:30:13.445] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:30:13.744] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:30:13.865] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[18:30:14.009] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[18:30:26.196] 
+============================================================
+[18:30:26.196] [迭代 156] MEMORY STATE UPDATE
+============================================================
+
+[18:30:26.196] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），注入 lsass.exe、写入 temp_log.txt（T1105），并进一步派生 mimikatz.exe（T1059.004）用于凭证转储；Agent_NEK5H8GX 持续连接 132.197.158.98:80 和 142.20.58.149（T1071.001），且遭 142.20.57.147 反向利用（T1190），最新确认其将恶意脚本 ping_sweep.ps1 写入本地磁盘（T1105），并由该脚本直接执行并操控 Agent_NEK5H8GX（T1059），构成新型脚本驱动的指令链。lsass.exe 进程被多次注入与操控后，最新确认其将敏感系统账户数据库导出为 sam.log 文件（T1105）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）；svchost.exe 随即向组播地址 239.255.255.250:1900 及本地 DNS 服务器 192.168.1.1:53 发起 HTTP 协议通信（T1071.001），后者于 192.168.1.1:53 对其实施反向漏洞利用（T1190），构成内网横向渗透闭环；最新确认 svchost.exe 将 Windows 更新服务日志写入 wuauserv.log（T1105）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:30:26.196] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+
+[18:30:26.334] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:30:26.460] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:30:26.573] --- Action Recorded ---
+Action: 查找 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[18:30:26.750] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:30:37.834] 
+============================================================
+[18:30:37.834] [迭代 159] MEMORY STATE UPDATE
+============================================================
+
+[18:30:37.834] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），注入 lsass.exe、写入 temp_log.txt（T1105），并进一步派生 mimikatz.exe（T1059.004）用于凭证转储；Agent_NEK5H8GX 持续连接 132.197.158.98:80 和 142.20.58.149（T1071.001），且遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最新确认其将恶意脚本 ping_sweep.ps1 写入本地磁盘（T1105），并由该脚本直接执行并操控 Agent_NEK5H8GX（T1059），构成新型脚本驱动的指令链；同时，142.20.58.149 新增对新载荷 Agent_DS29HY41 的漏洞利用（T1190）。lsass.exe 进程被多次注入与操控后，最新确认其将敏感系统账户数据库导出为 sam.log 文件（T1105）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）；svchost.exe 随即向组播地址 239.255.255.250:1900 及本地 DNS 服务器 192.168.1.1:53 发起 HTTP 协议通信（T1071.001），后者于 192.168.1.1:53 对其实施反向漏洞利用（T1190），构成内网横向渗透闭环；最新确认 svchost.exe 将 Windows 更新服务日志写入 wuauserv.log（T1105）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:30:37.834] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+
+[18:30:38.125] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:30:38.339] --- Action Recorded ---
+Action: 查找写入文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:30:38.534] --- Action Recorded ---
+Action: 查找进程 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:30:38.766] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:30:49.076] 
+============================================================
+[18:30:49.076] [迭代 162] MEMORY STATE UPDATE
+============================================================
+
+[18:30:49.076] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 向 132.197.158.98:80 及 142.20.57.147 发起 HTTP 通信（T1071.001），注入 lsass.exe、写入 temp_log.txt（T1105），并进一步派生 mimikatz.exe（T1059.004）用于凭证转储；Agent_NEK5H8GX 持续连接 132.197.158.98:80 和 142.20.58.149（T1071.001），且遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最新确认其将恶意脚本 ping_sweep.ps1 写入本地磁盘（T1105），并由该脚本直接执行并操控 Agent_NEK5H8GX（T1059），构成新型脚本驱动的指令链；同时，142.20.58.149 新增对新载荷 Agent_DS29HY41 的漏洞利用（T1190），该载荷现已确认向 132.197.158.98:80 发起 HTTP 通信（T1071.001）。lsass.exe 进程被多次注入与操控后，最新确认其将敏感系统账户数据库导出为 sam.log 文件（T1105）。services.exe 被利用后派生并注入 lsass.exe、新启 svchost.exe 与 Process_4480，并进一步派生 taskhostw.exe（T1059.004）；svchost.exe 随即向组播地址 239.255.255.250:1900 及本地 DNS 服务器 192.168.1.1:53 发起 HTTP 协议通信（T1071.001），后者于 192.168.1.1:53 对其实施反向漏洞利用（T1190），构成内网横向渗透闭环；最新确认 svchost.exe 将 Windows 更新服务日志写入 wuauserv.log（T1105）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:30:49.076] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+
+[18:30:49.188] --- Action Recorded ---
+Action: 查找文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:30:49.325] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:30:49.427] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:30:49.723] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:30:49.914] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:30:50.027] --- Action Recorded ---
+Action: 查找进程 7D401050-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:30:50.152] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:31:03.669] 
+============================================================
+[18:31:03.669] [迭代 168] MEMORY STATE UPDATE
+============================================================
+
+[18:31:03.669] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），窃取系统信息与浏览器凭证；同时派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，加载 user32.dll 并读取 taskbar.icon（T1005），扩大本地数据采集；最新确认其将用户配置文件 ntuser.dat 写入磁盘（T1105）。Agent_VL8B5T3U 主动向 132.197.158.98:80 发起 HTTP 回连（T1071.001），随即遭该服务器反向利用（T1190），触发自身二次失陷，并通过 T1059.004 派生出载荷 Agent_LUAVR71T 和 Agent_NEK5H8GX。Agent_LUAVR71T 注入 lsass.exe、写入 temp_log.txt（T1105），并派生 mimikatz.exe（T1059.004）进行凭证转储；Agent_NEK5H8GX 将 ping_sweep.ps1 写入本地并由其直接操控（T1105 → T1059），构成脚本驱动指令链；其还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），后者进一步植入 Agent_DS29HY41（T1190），该载荷已回连 132.197.158.98:80（T1071.001）。lsass.exe 导出 sam.log（T1105），services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:31:03.669] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+
+[18:31:03.770] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:31:03.972] --- Action Recorded ---
+Action: 查找文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:31:04.091] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:31:04.334] --- Action Recorded ---
+Action: 查找文件 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:31:04.528] --- Action Recorded ---
+Action: 查找进程 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:31:04.643] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:31:19.207] 
+============================================================
+[18:31:19.207] [迭代 173] MEMORY STATE UPDATE
+============================================================
+
+[18:31:19.207] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 并读取 cookies.sqlite（T1005），同时写入浏览器历史数据库 places.sqlite（T1105），持续窃取用户行为与凭证数据；其派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，读取 taskbar.icon（T1005）并写入 ntuser.dat（T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生出 Agent_LUAVR71T（注入 lsass.exe、写入 temp_log.txt、调用 mimikatz.exe 进行凭证转储）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。lsass.exe 导出 sam.log（T1105），services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:31:19.207] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+
+[18:31:19.419] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:31:19.630] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:31:19.731] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:31:19.991] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:31:20.111] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:31:20.322] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:31:20.497] --- Malicious Event Added ---
+Event ID: 8D401071-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:31:33.053] 
+============================================================
+[18:31:33.053] [迭代 179] MEMORY STATE UPDATE
+============================================================
+
+[18:31:33.053] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 与 crypt32.dll（T1005），并读取 cookies.sqlite、写入 places.sqlite（T1105），持续窃取用户行为与凭证数据；其派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后亦派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。lsass.exe 在被注入过程中遭 crypt32.dll 显式读取（T1005），进一步强化内存驻留与凭证提取能力；services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:31:33.053] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+
+[18:31:33.218] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[18:31:33.364] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:31:33.656] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:31:33.902] --- Action Recorded ---
+Action: 查找进程 7D401052-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:31:34.119] --- Malicious Event Added ---
+Event ID: 8D401077-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:31:44.101] 
+============================================================
+[18:31:44.101] [迭代 183] MEMORY STATE UPDATE
+============================================================
+
+[18:31:44.101] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 与 crypt32.dll（T1005），读取 cookies.sqlite、写入 places.sqlite（T1105），并派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。lsass.exe 在被注入过程中遭 crypt32.dll 显式读取（T1005），进一步强化内存驻留能力；services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）；值得注意的是，svchost.exe 还被 wmi.dll 显式加载读取（T1005），表明攻击者正通过 Windows 管理规范接口拓展横向控制面。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:31:44.101] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+
+[18:31:44.298] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:31:44.422] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:31:44.658] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:31:44.847] --- Action Recorded ---
+Action: 查找进程 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[18:31:44.985] --- Malicious Event Added ---
+Event ID: 8D401078-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:31:58.331] 
+============================================================
+[18:31:58.331] [迭代 187] MEMORY STATE UPDATE
+============================================================
+
+[18:31:58.331] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（均属 T1071.001），构建双向冗余控制通道。随后，firefox.exe 加载 kernel32.dll 与 crypt32.dll（T1005），读取 cookies.sqlite、写入 places.sqlite（T1105），并派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U。cmd.exe 进一步派生 conhost.exe（T1059.004），强化命令行子进程隐蔽性。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。lsass.exe 在被注入过程中遭 crypt32.dll 显式读取（T1005），services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）；svchost.exe 还被 wmi.dll 显式加载读取（T1005），表明攻击者正通过 WMI 拓展横向控制面。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:31:58.331] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+
+[18:31:58.465] --- Action Recorded ---
+Action: 查找文件 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:31:58.632] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:31:58.824] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:31:59.021] --- Action Recorded ---
+Action: 查找进程 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:31:59.241] --- Malicious Event Added ---
+Event ID: 8D401079-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:32:14.196] 
+============================================================
+[18:32:14.196] [迭代 191] MEMORY STATE UPDATE
+============================================================
+
+[18:32:14.196] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（T1071.001），构建双向冗余控制通道，并读取 cookies.sqlite、写入 places.sqlite（T1105），同时加载 kernel32.dll 与 crypt32.dll（T1005）。随后，firefox.exe 派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U；cmd.exe 进一步派生 conhost.exe（T1059.004），并在该过程中被 kernelbase.dll 显式读取（T1005），强化其隐蔽性。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。lsass.exe 在被注入过程中遭 crypt32.dll 显式读取（T1005），services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）；svchost.exe 还被 wmi.dll 显式加载读取（T1005），表明攻击者正通过 WMI 拓展横向控制面。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:32:14.196] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  44. [Collection] T1005 (Data from Local System) - kernelbase.dll → conhost.exe
+
+[18:32:14.389] --- Action Recorded ---
+Action: 查找文件 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:32:14.615] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:32:14.782] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:32:14.941] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[18:32:15.171] --- Malicious Event Added ---
+Event ID: 8D40107A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:32:26.623] 
+============================================================
+[18:32:26.623] [迭代 195] MEMORY STATE UPDATE
+============================================================
+
+[18:32:26.623] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（T1071.001），构建双向冗余控制通道，并读取 cookies.sqlite、写入 places.sqlite（T1105），同时加载 kernel32.dll 与 crypt32.dll（T1005）。随后，firefox.exe 派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U；cmd.exe 进一步派生 conhost.exe（T1059.004），其间被 kernelbase.dll 显式读取（T1005）。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。值得注意的是，Agent_LUAVR71T 在运行过程中被 ntdll.dll 显式读取（T1005），进一步暴露其内存驻留特征；lsass.exe 在被注入过程中遭 crypt32.dll 显式读取（T1005），services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）；svchost.exe 还被 wmi.dll 显式加载读取（T1005），表明攻击者正通过 WMI 拓展横向控制面。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:32:26.623] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  44. [Collection] T1005 (Data from Local System) - kernelbase.dll → conhost.exe
+  45. [Collection] T1005 (Data from Local System) - ntdll.dll → Agent_LUAVR71T
+
+[18:32:26.858] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:32:27.013] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:32:27.157] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:32:27.283] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[18:32:27.389] --- Malicious Event Added ---
+Event ID: 8D40107D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[18:32:38.514] 
+============================================================
+[18:32:38.514] [迭代 199] MEMORY STATE UPDATE
+============================================================
+
+[18:32:38.514] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（T1071.001），构建双向冗余控制通道，并读取 cookies.sqlite、写入 places.sqlite（T1105），同时加载 kernel32.dll 与 crypt32.dll（T1005）。值得注意的是，kernel32.dll 还被 services.exe 派生的 Process_4480 显式读取（T1005），表明攻击者正通过系统服务进程扩展内存驻留载体。随后，firefox.exe 派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U；cmd.exe 进一步派生 conhost.exe（T1059.004），其间被 kernelbase.dll 显式读取（T1005）。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。Agent_LUAVR71T 运行中被 ntdll.dll 显式读取（T1005），lsass.exe 在被注入过程中遭 crypt32.dll 显式读取（T1005）；services.exe 派生 svchost.exe 后遭内网 DNS 服务器 192.168.1.1:53 反向利用（T1190），并写入 wuauserv.log（T1105）；svchost.exe 还被 wmi.dll 显式加载读取（T1005），表明攻击者正通过 WMI 拓展横向控制面。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:32:38.514] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  44. [Collection] T1005 (Data from Local System) - kernelbase.dll → conhost.exe
+  45. [Collection] T1005 (Data from Local System) - ntdll.dll → Agent_LUAVR71T
+  46. [Collection] T1005 (Data from Local System) - kernel32.dll → Process_4480
+
+[18:32:38.697] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:32:38.852] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[18:32:39.105] --- Action Recorded ---
+Action: 查找进程 7D40104F-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[18:32:39.397] --- Malicious Event Added ---
+Event ID: 8D40107E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[18:32:49.270] 
+============================================================
+[18:32:49.270] [迭代 202] MEMORY STATE UPDATE
+============================================================
+
+[18:32:49.270] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（T1071.001），构建双向冗余控制通道，并读取 cookies.sqlite、写入 places.sqlite（T1105），同时加载 kernel32.dll 与 crypt32.dll（T1005）。kernel32.dll 还被 services.exe 派生的 Process_4480 显式读取（T1005），表明攻击者正通过系统服务扩展内存驻留。随后，firefox.exe 派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U；cmd.exe 进一步派生 conhost.exe（T1059.004），其间被 kernelbase.dll 显式读取（T1005）。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。当前，Agent_DS29HY41 进一步派生 net1.exe（T1059.004），标志着攻击进入横向探测与网络枚举阶段。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:32:49.270] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  44. [Collection] T1005 (Data from Local System) - kernelbase.dll → conhost.exe
+  45. [Collection] T1005 (Data from Local System) - ntdll.dll → Agent_LUAVR71T
+  46. [Collection] T1005 (Data from Local System) - kernel32.dll → Process_4480
+  47. [Execution] T1059.004 (Unix Shell) - Agent_DS29HY41 → net1.exe
+
+[18:32:49.435] --- Action Recorded ---
+Action: 查找文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[18:32:49.720] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:32:49.861] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[18:32:50.146] --- Action Recorded ---
+Action: 查找写入文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:32:50.340] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[18:32:50.608] --- Action Recorded ---
+Action: 查找进程 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[18:32:50.863] --- Malicious Event Added ---
+Event ID: 8D40107F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[18:33:04.402] 
+============================================================
+[18:33:04.402] [迭代 208] MEMORY STATE UPDATE
+============================================================
+
+[18:33:04.402] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（T1071.001），构建双向冗余控制通道，并读取 cookies.sqlite、写入 places.sqlite（T1105），同时加载 kernel32.dll 与 crypt32.dll（T1005）。kernel32.dll 还被 services.exe 派生的 Process_4480 显式读取（T1005），表明攻击者正通过系统服务扩展内存驻留。随后，firefox.exe 派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U；cmd.exe 进一步派生 conhost.exe（T1059.004），其间被 kernelbase.dll 显式读取（T1005）。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。当前，Agent_DS29HY41 进一步派生 net1.exe（T1059.004），后者立即向内网主机 192.168.1.5:445 发起 SMB 协议通信（T1071.001），标志着攻击正式进入横向移动与网络枚举阶段。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:33:04.402] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  44. [Collection] T1005 (Data from Local System) - kernelbase.dll → conhost.exe
+  45. [Collection] T1005 (Data from Local System) - ntdll.dll → Agent_LUAVR71T
+  46. [Collection] T1005 (Data from Local System) - kernel32.dll → Process_4480
+  47. [Execution] T1059.004 (Unix Shell) - Agent_DS29HY41 → net1.exe
+  48. [Command and Control] T1071.001 (Web Protocols) - net1.exe → 192.168.1.5:445
+
+[18:33:04.625] --- Action Recorded ---
+Action: 查找文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[18:33:04.749] --- Action Recorded ---
+Action: 查找进程 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:33:04.983] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[18:33:05.097] --- Action Recorded ---
+Action: 查找 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[18:33:05.278] --- Malicious Event Added ---
+Event ID: 8D401080-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[18:33:14.986] 
+============================================================
+[18:33:14.986] [迭代 212] MEMORY STATE UPDATE
+============================================================
+
+[18:33:14.986] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（T1071.001），构建双向冗余控制通道，并读取 cookies.sqlite、写入 places.sqlite（T1105），同时加载 kernel32.dll 与 crypt32.dll（T1005）。kernel32.dll 还被 services.exe 派生的 Process_4480 显式读取（T1005），表明攻击者正通过系统服务扩展内存驻留。随后，firefox.exe 派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U；cmd.exe 进一步派生 conhost.exe（T1059.004），其间被 kernelbase.dll 显式读取（T1005）。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。Agent_DS29HY41 进一步派生 net1.exe（T1059.004），后者立即向内网主机 192.168.1.5:445 发起 SMB 协议通信（T1071.001），而该连接随即被目标主机反向利用（T1190），标志着攻击已进入横向移动与内网渗透深化阶段。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:33:14.986] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  44. [Collection] T1005 (Data from Local System) - kernelbase.dll → conhost.exe
+  45. [Collection] T1005 (Data from Local System) - ntdll.dll → Agent_LUAVR71T
+  46. [Collection] T1005 (Data from Local System) - kernel32.dll → Process_4480
+  47. [Execution] T1059.004 (Unix Shell) - Agent_DS29HY41 → net1.exe
+  48. [Command and Control] T1071.001 (Web Protocols) - net1.exe → 192.168.1.5:445
+  49. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.5:445 → net1.exe
+
+[18:33:15.088] --- Action Recorded ---
+Action: 查找文件 7D401055-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[18:33:15.198] --- Action Recorded ---
+Action: 查找进程 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[18:33:15.354] --- Action Recorded ---
+Action: 查找写入文件 7D401053-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[18:33:15.526] --- Action Recorded ---
+Action: 查找进程 7D401056-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[18:33:15.671] --- Malicious Event Added ---
+Event ID: 8D401082-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[18:33:27.756] 
+============================================================
+[18:33:27.756] [迭代 216] MEMORY STATE UPDATE
+============================================================
+
+[18:33:27.756] --- 叙述性攻击摘要 ---
+攻击始于外部 C2 服务器 64.233.191.255:8000 和 172.217.16.142:443 利用已知漏洞主动向 firefox.exe 进程发起双源协同攻击（T1190），实现初始访问；firefox.exe 随即以明文 HTTP 连接 64.233.191.255:8000、加密 HTTPS 连接 172.217.16.142:443（T1071.001），构建双向冗余控制通道，并读取 cookies.sqlite、写入 places.sqlite（T1105），同时加载 kernel32.dll 与 crypt32.dll（T1005）。kernel32.dll 还被 services.exe 派生的 Process_4480 显式读取（T1005），表明攻击者正通过系统服务扩展内存驻留。随后，firefox.exe 派生 cmd.exe 执行 runme.bat（T1059.004 → T1059），启动持久化载荷 Agent_VL8B5T3U；cmd.exe 进一步派生 conhost.exe（T1059.004），其间被 kernelbase.dll 显式读取（T1005）。explorer.exe 被劫持后派生 cmd.exe，读取 taskbar.icon 并写入 ntuser.dat（T1005/T1105）。Agent_VL8B5T3U 回连 132.197.158.98:80（T1071.001）后遭反向利用（T1190），触发二次失陷，派生 Agent_LUAVR71T（注入 lsass.exe、调用 mimikatz.exe 凭证转储、导出 sam.log）和 Agent_NEK5H8GX（写入并执行 ping_sweep.ps1，T1105 → T1059）；后者还遭 142.20.57.147 与 142.20.58.149 先后反向利用（T1190），最终植入 Agent_DS29HY41 并回连同一 C2。Agent_DS29HY41 进一步派生 net1.exe（T1059.004），后者立即向内网主机 192.168.1.5:445 发起 SMB 协议通信（T1071.001），而该连接随即被目标主机反向利用（T1190），标志着攻击已进入横向移动与内网渗透深化阶段。与此同时，services.exe 派生 taskhostw.exe（T1059.004），后者将敏感数据写入 webcache.dat（T1105），进一步扩大本地数据窃取范围。当前调查焦点为 firefox.exe 进程的后续网络行为。
+
+[18:33:27.756] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 64.233.191.255:8000
+  2. [Command and Control] T1071.001 (Web Protocols) - firefox.exe → 172.217.16.142:443
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 64.233.191.255:8000 → firefox.exe
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 172.217.16.142:443 → firefox.exe
+  5. [Collection] T1005 (Data from Local System) - kernel32.dll → firefox.exe
+  6. [Collection] T1005 (Data from Local System) - cookies.sqlite → firefox.exe
+  7. [Execution] T1059.004 (Unix Shell) - cmd.exe → firefox.exe
+  8. [Execution] T1059 (Command and Scripting Interpreter) - cmd.exe → runme.bat
+  9. [Execution] T1059.004 (Unix Shell) - explorer.exe → cmd.exe
+  10. [Collection] T1005 (Data from Local System) - user32.dll → explorer.exe
+  11. [Collection] T1005 (Data from Local System) - taskbar.icon → explorer.exe
+  12. [Execution] T1059 (Command and Scripting Interpreter) - runme.bat → Agent_VL8B5T3U
+  13. [Command and Control] T1071.001 (Web Protocols) - Agent_VL8B5T3U → 132.197.158.98:80
+  14. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_VL8B5T3U
+  15. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_LUAVR71T
+  16. [Initial Access] T1190 (Exploit Public-Facing Application) - 132.197.158.98:80 → Agent_NEK5H8GX
+  17. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 132.197.158.98:80
+  18. [Command and Control] T1071.001 (Web Protocols) - Agent_LUAVR71T → 142.20.57.147
+  19. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → lsass.exe
+  20. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_LUAVR71T → temp_log.txt
+  21. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 132.197.158.98:80
+  22. [Command and Control] T1071.001 (Web Protocols) - Agent_NEK5H8GX → 142.20.58.149
+  23. [Execution] T1059.004 (Unix Shell) - Agent_VL8B5T3U → Agent_LUAVR71T
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.57.147 → Agent_NEK5H8GX
+  25. [Execution] T1059.004 (Unix Shell) - services.exe → lsass.exe
+  26. [Execution] T1059.004 (Unix Shell) - services.exe → svchost.exe
+  27. [Execution] T1059.004 (Unix Shell) - services.exe → Process_4480
+  28. [Execution] T1059.004 (Unix Shell) - services.exe → taskhostw.exe
+  29. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 239.255.255.250:1900
+  30. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → 192.168.1.1:53
+  31. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:53 → svchost.exe
+  32. [Execution] T1059.004 (Unix Shell) - Agent_LUAVR71T → mimikatz.exe
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - Agent_NEK5H8GX → ping_sweep.ps1
+  34. [Command and Control] T1105 (Ingress Tool Transfer) - lsass.exe → sam.log
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - svchost.exe → wuauserv.log
+  36. [Execution] T1059 (Command and Scripting Interpreter) - ping_sweep.ps1 → Agent_NEK5H8GX
+  37. [Initial Access] T1190 (Exploit Public-Facing Application) - 142.20.58.149 → Agent_DS29HY41
+  38. [Command and Control] T1071.001 (Web Protocols) - Agent_DS29HY41 → 132.197.158.98:80
+  39. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → ntuser.dat
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - firefox.exe → places.sqlite
+  41. [Collection] T1005 (Data from Local System) - crypt32.dll → lsass.exe
+  42. [Collection] T1005 (Data from Local System) - wmi.dll → svchost.exe
+  43. [Execution] T1059.004 (Unix Shell) - cmd.exe → conhost.exe
+  44. [Collection] T1005 (Data from Local System) - kernelbase.dll → conhost.exe
+  45. [Collection] T1005 (Data from Local System) - ntdll.dll → Agent_LUAVR71T
+  46. [Collection] T1005 (Data from Local System) - kernel32.dll → Process_4480
+  47. [Execution] T1059.004 (Unix Shell) - Agent_DS29HY41 → net1.exe
+  48. [Command and Control] T1071.001 (Web Protocols) - net1.exe → 192.168.1.5:445
+  49. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.5:445 → net1.exe
+[18:33:27.909] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[18:33:28.165] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[18:33:28.308] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results

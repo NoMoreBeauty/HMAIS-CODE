@@ -1,0 +1,1662 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2026-02-07T00:14:15.359652
+================================================================================
+
+[01:13:01.647] 
+============================================================
+[01:13:01.647] POI REGISTERED
+============================================================
+
+[01:13:01.647] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401052-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "nginx (process)",
+  "目标节点": "/tmp/eWq10bVcx (file)",
+  "源节点ID": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[01:13:01.837] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:13:02.135] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:13:02.429] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:13:02.647] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[01:13:02.910] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[01:13:13.706] 
+============================================================
+[01:13:13.706] [迭代 4] MEMORY STATE UPDATE
+============================================================
+
+[01:13:13.706] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵。当前调查焦点为 nginx 进程的后续行为。
+
+[01:13:13.706] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+
+[01:13:13.967] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:13:14.167] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:13:14.460] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:13:14.666] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[01:13:14.923] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[01:13:26.833] 
+============================================================
+[01:13:26.833] [迭代 8] MEMORY STATE UPDATE
+============================================================
+
+[01:13:26.833] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另一外部 IP 76.56.184.25:80 再次利用相同漏洞（T1190）向同一 nginx 进程发送恶意载荷，表明攻击者正在进行多源协同渗透或冗余投送以提升成功率。两次入侵均指向 nginx 服务的同一暴露面，强化了该组件为当前攻击链入口点的判断。当前调查焦点仍为 nginx 进程的后续行为，需重点分析其是否已执行代码注入、内存驻留或横向派生等进一步恶意动作。
+
+[01:13:26.833] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+
+[01:13:27.038] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:13:27.179] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:13:27.459] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:13:27.626] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[01:13:27.771] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[01:13:38.232] 
+============================================================
+[01:13:38.232] [迭代 12] MEMORY STATE UPDATE
+============================================================
+
+[01:13:38.232] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另一外部 IP 76.56.184.25:80 再次利用相同漏洞（T1190）向同一 nginx 进程发送恶意载荷；最新确认事件显示，第三源 IP 155.162.39.48:80 亦于相近时间窗口通过 T1190 技术对 nginx 发起攻击。三路独立但高度一致的 T1190 利用行为均指向 nginx 服务的同一暴露面，表明攻击者正实施多源协同渗透或冗余载荷投送，显著强化该组件作为当前攻击链唯一入口点的证据强度。三次网络通信在时间与手法上高度耦合，反映出攻击者对目标面的持续聚焦与战术一致性。当前调查焦点仍为 nginx 进程的后续行为，需重点分析其是否已执行代码注入、内存驻留、文件写入或横向派生等进一步恶意动作。
+
+[01:13:38.232] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+
+[01:13:38.451] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:13:38.696] --- Action Recorded ---
+Action: 查找 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:13:38.834] --- Action Recorded ---
+Action: 查找写入文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:13:39.083] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:13:39.287] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:13:39.464] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[01:13:39.712] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1071
+
+[01:13:54.260] 
+============================================================
+[01:13:54.260] [迭代 18] MEMORY STATE UPDATE
+============================================================
+
+[01:13:54.260] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另一外部 IP 76.56.184.25:80 及第三源 IP 155.162.39.48:80 在相近时间窗口内相继通过相同漏洞（T1190）对同一 nginx 服务实施多源协同渗透，强化其作为唯一入口点的证据。值得注意的是，nginx 进程随后与本地 php-fpm 进程发生反向网络通信（T1071），方向为 php-fpm → nginx，表明攻击链已突破初始边界，进入服务间横向交互阶段——该行为异常，因正常架构中 nginx 通常代理请求至 php-fpm，而非反向接收其主动连接，高度提示内存篡改、反向隧道建立或恶意模块注入等深度驻留动作。三次 T1190 入侵与后续 T1071 反向通信在时序与目标一致性上构成完整初始访问→控制信道建立的跃迁，显著提升攻击成熟度判断。当前调查焦点仍为 nginx 进程，亟需分析其是否已被植入持久化后门、执行非授权本地进程派生，或存在异常共享内存/套接字复用行为。
+
+[01:13:54.260] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+
+[01:13:54.373] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:13:54.617] --- Action Recorded ---
+Action: 查找 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:13:54.914] --- Action Recorded ---
+Action: 查找与 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:13:55.109] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:13:55.345] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:13:55.623] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:14:08.335] 
+============================================================
+[01:14:08.335] [迭代 23] MEMORY STATE UPDATE
+============================================================
+
+[01:14:08.335] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透同一 nginx 服务，强化其作为唯一入口点的证据。入侵成功后，nginx 进程异常地接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx——该行为违背正常代理架构，强烈提示内存篡改、反向隧道或恶意模块注入等深度驻留动作。在此控制信道建立基础上，nginx 进一步执行了可疑文件写入操作，将载荷写入特殊设备路径 /dev/gt_dl8_675（T1105），该路径非常规存储位置，极可能用于隐蔽加载内核模块、绕过文件系统监控或构建持久化通信通道。三次 T1190 入侵、T1071 反向通信与 T1105 非标准设备写入在时序与逻辑上构成“初始访问→信道控制→工具投送”的完整跃迁链，显著提升攻击成熟度与威胁等级。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备派生子进程、操纵/dev节点或复用套接字等高级驻留能力。
+
+[01:14:08.335] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+
+[01:14:08.524] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:14:08.648] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:14:08.934] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:14:09.221] --- Action Recorded ---
+Action: 查找与 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:14:09.443] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:14:09.633] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:14:22.396] 
+============================================================
+[01:14:22.396] [迭代 28] MEMORY STATE UPDATE
+============================================================
+
+[01:14:22.396] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透同一 nginx 服务，强化其作为唯一入口点的证据。入侵成功后，nginx 进程异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx——该行为违背正常代理架构，强烈提示内存篡改、反向隧道或恶意模块注入等深度驻留动作。在此控制信道建立基础上，nginx 进一步执行双重载荷投送：先将可疑工具写入特殊设备路径 /dev/gt_dl8_675（T1105），极可能用于隐蔽加载内核模块或构建持久化通信通道；继而向临时目录写入文件 /tmp/pEja72mA（T1105），该路径更利于后续执行阶段的快速调用与清理。三次 T1190 入侵、T1071 反向通信及两次 T1105 载荷投送（分别落于 /dev 和 /tmp）在时序与逻辑上构成“初始访问→信道控制→多路径工具投送”的完整跃迁链，显著提升攻击成熟度与规避能力。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备派生子进程、操纵 /dev 节点或复用套接字等高级驻留能力。
+
+[01:14:22.396] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+
+[01:14:22.496] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:14:22.727] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:14:22.842] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:14:22.973] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:14:23.170] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:14:23.437] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:14:32.483] 
+============================================================
+[01:14:32.483] [迭代 33] MEMORY STATE UPDATE
+============================================================
+
+[01:14:32.483] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透同一 nginx 服务，强化其作为唯一入口点的证据。入侵成功后，nginx 进程异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx——该行为违背正常代理架构，强烈提示内存篡改、反向隧道或恶意模块注入等深度驻留动作。在此控制信道建立基础上，nginx 进一步执行多路径载荷投送：先将可疑工具写入特殊设备路径 /dev/gt_dl8_675（T1105），极可能用于隐蔽加载内核模块；继而向临时目录写入文件 /tmp/pEja72mA（T1105）；最新确认事件显示，nginx 还向常规日志路径 /var/log/nginx/access.log 写入异常内容（T1105），此举兼具日志污染、隐蔽信道复用与绕过文件监控三重意图。三次 T1190 入侵、T1071 反向通信及三次 T1105 载荷投送（分别落于 /dev、/tmp 和 /var/log/nginx/）构成“初始访问→信道控制→多模态工具投送”的高成熟度攻击链。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志文件篡改、设备节点操纵与套接字复用等高级驻留能力。
+
+[01:14:32.483] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+
+[01:14:32.654] --- Action Recorded ---
+Action: 查找写入文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:14:32.818] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:14:33.011] --- Action Recorded ---
+Action: 查找写入文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:14:33.149] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:14:33.314] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:14:43.742] 
+============================================================
+[01:14:43.742] [迭代 37] MEMORY STATE UPDATE
+============================================================
+
+[01:14:43.742] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透同一 nginx 服务，强化其作为唯一入口点的证据。入侵成功后，nginx 进程异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx——该行为违背正常代理架构，强烈提示内存篡改、反向隧道或恶意模块注入等深度驻留动作。在此控制信道建立基础上，nginx 执行多路径载荷投送：将可疑工具写入特殊设备路径 /dev/gt_dl8_675（T1105），极可能用于隐蔽加载内核模块；向临时目录写入文件 /tmp/pEja72mA（T1105）；向常规日志路径 /var/log/nginx/access.log 写入异常内容（T1105），兼具日志污染、隐蔽信道复用与绕过监控三重意图；最新确认事件显示，nginx 还向另一关键日志路径 /var/log/nginx/error.log 写入恶意数据（T1105），进一步扩大日志文件滥用范围，增强持久化与隐匿能力。三次 T1190 入侵、一次 T1071 反向通信及四次 T1105 载荷投送（分别落于 /dev、/tmp、/var/log/nginx/access.log 和 /var/log/nginx/error.log）构成“初始访问→信道控制→多模态工具投送”的高成熟度攻击链。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志文件篡改、设备节点操纵与套接字复用等高级驻留能力。
+
+[01:14:43.742] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+
+[01:14:43.953] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:14:44.105] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:14:44.377] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:14:44.544] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:14:44.763] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[01:14:45.001] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1059.004
+
+[01:14:55.546] 
+============================================================
+[01:14:55.546] [迭代 42] MEMORY STATE UPDATE
+============================================================
+
+[01:14:55.546] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透同一 nginx 服务，强化其作为唯一入口点的证据。入侵成功后，nginx 进程异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx——该行为违背正常代理架构，强烈提示内存篡改、反向隧道或恶意模块注入等深度驻留动作。在此控制信道建立基础上，nginx 执行多路径载荷投送：将可疑工具写入特殊设备路径 /dev/gt_dl8_675（T1105），极可能用于隐蔽加载内核模块；向临时目录写入文件 /tmp/pEja72mA（T1105）；向常规日志路径 /var/log/nginx/access.log 和 /var/log/nginx/error.log 写入异常内容（T1105），兼具日志污染、隐蔽信道复用与绕过监控三重意图。最新确认事件显示，nginx 进程进一步读取并执行了位于 /tmp/eWq10bVcx 的脚本（T1059.004），表明攻击者已从载荷投送阶段进入主动执行阶段，具备完整 shell 控制能力。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、四次 T1105 载荷投送及一次 T1059.004 命令执行，形成“初始访问→信道控制→多模态投送→交互式执行”的高成熟度攻击闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志文件篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:14:55.546] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+
+[01:14:55.718] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:14:55.930] --- Action Recorded ---
+Action: 查找进程 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:14:56.187] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:14:56.313] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:14:56.530] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[01:14:56.667] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[01:15:09.528] 
+============================================================
+[01:15:09.528] [迭代 47] MEMORY STATE UPDATE
+============================================================
+
+[01:15:09.528] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透同一 nginx 服务，强化其作为唯一入口点的证据。入侵成功后，nginx 进程异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx——该行为违背正常代理架构，强烈提示内存篡改、反向隧道或恶意模块注入等深度驻留动作。在此控制信道建立基础上，nginx 执行多路径载荷投送：将可疑工具写入特殊设备路径 /dev/gt_dl8_675（T1105），极可能用于隐蔽加载内核模块；向临时目录写入文件 /tmp/pEja72mA（T1105）；向常规日志路径 /var/log/nginx/access.log 和 /var/log/nginx/error.log 写入异常内容（T1105），兼具日志污染、隐蔽信道复用与绕过监控三重意图。最新确认事件显示，nginx 进程进一步读取并执行了位于 /tmp/eWq10bVcx 的脚本（T1059.004），表明攻击者已从载荷投送阶段进入主动执行阶段；随即，该进程又读取系统用户组配置文件 /etc/group（T1005），标志攻击者正开展横向移动前的权限与账户信息收集。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、四次 T1105 载荷投送、一次 T1059.004 命令执行及一次 T1005 本地数据采集，形成“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集”的高成熟度攻击闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志文件篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:15:09.528] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+
+[01:15:09.714] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:15:09.875] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:15:10.101] --- Action Recorded ---
+Action: 查找写入文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:15:10.235] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:15:10.526] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:15:10.733] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[01:15:10.870] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[01:15:25.746] 
+============================================================
+[01:15:25.746] [迭代 53] MEMORY STATE UPDATE
+============================================================
+
+[01:15:25.746] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx，违背正常代理架构，提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675（T1105）、临时文件 /tmp/pEja72mA（T1105），并污染 /var/log/nginx/access.log 与 error.log（T1105），兼具隐蔽信道与监控绕过意图。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并进一步读取 /etc/passwd（T1552.001）以提取凭证信息，标志攻击者已从驻留转向横向移动准备。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、四次 T1105 载荷投送、一次 T1059.004 执行、一次 T1005 本地数据采集及一次 T1552.001 凭证窃取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取”的高成熟度攻击闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:15:25.746] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+
+[01:15:25.891] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:15:26.081] --- Action Recorded ---
+Action: 查找写入文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:15:26.194] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:15:26.484] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:15:35.341] 
+============================================================
+[01:15:35.341] [迭代 56] MEMORY STATE UPDATE
+============================================================
+
+[01:15:35.341] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（MITRE T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx，违背正常代理架构，提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并进一步读取 /etc/passwd（T1552.001）以提取凭证信息。关键新发现是：nginx 进程直接 fork 出子进程 pEja72mA（T1059.004），表明攻击者已利用该临时载荷建立持久化执行环境，具备脱离父进程独立运行能力。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、四次 T1105 载荷投送、两次 T1059.004 执行（/tmp/eWq10bVcx 与 pEja72mA）、一次 T1005 本地数据采集及一次 T1552.001 凭证窃取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→子进程驻留”的高成熟度攻击闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:15:35.341] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+
+[01:15:35.618] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:15:35.743] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:15:35.910] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[01:15:36.047] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1059.004
+
+[01:15:47.721] 
+============================================================
+[01:15:47.721] [迭代 59] MEMORY STATE UPDATE
+============================================================
+
+[01:15:47.721] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx，提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并进一步读取 /etc/passwd（T1552.001）以提取凭证信息。关键新发现是：nginx 不仅 fork 出子进程 pEja72mA（T1059.004），更进一步读取并直接执行该同名文件 /tmp/pEja72mA（T1059.004），表明攻击者已构建双重执行链——既通过父进程派生驻留，又实现独立脚本解释器级持久化，显著提升隐蔽性与抗清理能力。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、四次 T1105 载荷投送、三次 T1059.004 执行（/tmp/eWq10bVcx、pEja72mA 派生、/tmp/pEja72mA 直接执行）、一次 T1005 本地数据采集及一次 T1552.001 凭证窃取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→双模驻留”的高成熟度攻击闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:15:47.721] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+
+[01:15:47.896] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:15:48.179] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:15:48.390] --- Action Recorded ---
+Action: 查找写入文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:15:48.543] --- Action Recorded ---
+Action: 查找写入文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:15:48.794] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[01:15:48.936] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1059.004
+
+[01:16:00.340] 
+============================================================
+[01:16:00.340] [迭代 64] MEMORY STATE UPDATE
+============================================================
+
+[01:16:00.340] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx，提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并进一步读取 /etc/passwd（T1552.001）以提取凭证信息。关键新发现是：/tmp/eWq10bVcx 脚本不仅触发 nginx fork 出子进程 pEja72mA（T1059.004），更直接读取自身内容并派生该同名进程（T1059.004），同时 nginx 也独立执行 /tmp/pEja72mA（T1059.004），形成三重执行链——脚本解释器级调用、父进程派生、及直接文件执行，显著增强驻留鲁棒性与检测规避能力。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、四次 T1105 载荷投送、四次 T1059.004 执行（/tmp/eWq10bVcx 启动、pEja72mA 派生、/tmp/pEja72mA 直接执行、/tmp/eWq10bVcx → pEja72mA 读取派生）、一次 T1005 本地数据采集及一次 T1552.001 凭证窃取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留”的高成熟度攻击闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:16:00.340] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+
+[01:16:00.473] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:16:00.620] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:16:00.741] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:16:00.863] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:16:01.086] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:16:01.194] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[01:16:01.421] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[01:16:14.676] 
+============================================================
+[01:16:14.676] [迭代 70] MEMORY STATE UPDATE
+============================================================
+
+[01:16:14.676] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），方向为 php-fpm → nginx，提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已从父进程延伸至子进程层级，增强横向信息捕获能力。关键驻留机制进一步明确：/tmp/eWq10bVcx 脚本触发 nginx fork 出 pEja72mA（T1059.004），同时自身读取并派生同名进程，且 nginx 也直接执行 /tmp/pEja72mA，形成三重执行链（T1059.004×4），显著提升鲁棒性与检测规避能力。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、四次 T1105 载荷投送、四次 T1059.004 执行及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:16:14.676] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+
+[01:16:14.873] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:16:15.108] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:16:15.267] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:16:28.302] 
+============================================================
+[01:16:28.302] [迭代 72] MEMORY STATE UPDATE
+============================================================
+
+[01:16:28.302] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。关键驻留机制进一步明确：/tmp/eWq10bVcx 触发 nginx fork 出 pEja72mA（T1059.004），同时自身及 nginx 均执行 /tmp/pEja72mA，形成三重执行链（T1059.004×4）；最新确认 pEja72mA 进程向 /tmp/memhelp.so 写入恶意共享库（T1105），显著增强其内存驻留与持久化能力。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、五次 T1105 载荷投送（含 memhelp.so）、四次 T1059.004 执行及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留→内存级扩展”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:16:28.302] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+
+[01:16:28.404] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:16:28.681] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:16:28.808] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:16:29.014] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:16:29.148] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:16:42.727] 
+============================================================
+[01:16:42.727] [迭代 76] MEMORY STATE UPDATE
+============================================================
+
+[01:16:42.727] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。关键驻留机制进一步明确：/tmp/eWq10bVcx 触发 nginx fork 出 pEja72mA（T1059.004），同时自身及 nginx 均执行 /tmp/pEja72mA，形成三重执行链（T1059.004×4）；pEja72mA 进程向 /tmp/memhelp.so 写入恶意共享库（T1105），显著增强其内存驻留能力；最新确认该进程还向 /tmp/eraseme 写入未知载荷（T1105），构成第七次 T1105 投送，可能用于日志擦除、痕迹混淆或后续横向移动准备。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、七次 T1105 载荷投送（含 memhelp.so 与 eraseme）、四次 T1059.004 执行及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留→内存级扩展→痕迹操控”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:16:42.727] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+
+[01:16:43.019] --- Action Recorded ---
+Action: 查找写入文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:16:43.213] --- Action Recorded ---
+Action: 查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:16:43.319] --- Action Recorded ---
+Action: 查找写入文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:16:43.583] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:16:43.709] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:16:54.309] 
+============================================================
+[01:16:54.309] [迭代 80] MEMORY STATE UPDATE
+============================================================
+
+[01:16:54.309] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。关键驻留机制进一步明确：/tmp/eWq10bVcx 触发 nginx fork 出 pEja72mA（T1059.004），同时自身及 nginx 均执行 /tmp/pEja72mA，形成三重执行链（T1059.004×4）；pEja72mA 进程向 /tmp/memhelp.so 与 /tmp/eraseme 写入恶意载荷（T1105），最新确认其还向 /tmp/done.so 写入第八大 T1105 投送（T1105），该库极可能用于动态链接劫持或运行时钩子扩展，完善内存级持久化闭环。当前攻击链涵盖三次 T1190 入侵、一次 T1071 反向通信、八次 T1105 载荷投送（含 memhelp.so、eraseme、done.so）、四次 T1059.004 执行及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留→内存级扩展→痕迹操控”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:16:54.309] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+
+[01:16:54.467] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:16:54.693] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:16:54.794] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:16:55.057] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:17:06.575] 
+============================================================
+[01:17:06.575] [迭代 83] MEMORY STATE UPDATE
+============================================================
+
+[01:17:06.575] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，最新确认其主动向 C2 服务器 198.115.236.119:80 发起 HTTP 协议通信（T1071.001），标志着攻击已从被动信道演进为具备自主外联能力的活跃控制节点。当前攻击链涵盖三次 T1190 入侵、两次 T1071 类通信（含一次反向、一次主动外联）、八次 T1105 载荷投送、四次 T1059.004 执行及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留→内存级扩展→主动外联→痕迹操控”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:17:06.575] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+
+[01:17:06.722] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:17:07.001] --- Action Recorded ---
+Action: 查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:17:07.296] --- Action Recorded ---
+Action: 查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:17:07.497] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:17:07.613] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:17:16.276] 
+============================================================
+[01:17:16.276] [迭代 87] MEMORY STATE UPDATE
+============================================================
+
+[01:17:16.276] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，最新确认其连续向两个 C2 服务器发起 HTTP 主动外联：先连接 198.115.236.119:80（T1071.001），再连接 53.158.101.118:80（T1071.001），证实攻击者已建立冗余、高可用的双向控制通道。当前攻击链涵盖三次 T1190 入侵、三次 T1071 类通信（含一次反向、两次主动外联）、八次 T1105 载荷投送、四次 T1059.004 执行及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留→内存级扩展→主动外联→痕迹操控”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:17:16.276] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+
+[01:17:16.451] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:17:16.693] --- Action Recorded ---
+Action: 查找 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:17:16.976] --- Action Recorded ---
+Action: 查找与 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:17:17.090] --- Action Recorded ---
+Action: 查找与 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:17:17.269] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+
+[01:17:30.764] 
+============================================================
+[01:17:30.764] [迭代 92] MEMORY STATE UPDATE
+============================================================
+
+[01:17:30.764] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，最新确认其连续向两个 C2 服务器发起 HTTP 主动外联：先连接 198.115.236.119:80（T1071.001），再连接 53.158.101.118:80（T1071.001），并读取系统内核版本信息 /proc/version（T1005），进一步佐证其正进行环境测绘以适配后续内存驻留或提权操作。当前攻击链涵盖三次 T1190 入侵、四次 T1071 类通信（含一次反向、三次主动外联）、八次 T1105 载荷投送、四次 T1059.004 执行、三次 T1005 数据采集及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留→环境测绘→主动外联→痕迹操控”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:17:30.764] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+
+[01:17:31.023] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:17:31.225] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:17:31.446] --- Action Recorded ---
+Action: 查找 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:17:31.736] --- Action Recorded ---
+Action: 查找文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:17:32.030] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[01:17:32.265] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[01:17:44.051] 
+============================================================
+[01:17:44.051] [迭代 97] MEMORY STATE UPDATE
+============================================================
+
+[01:17:44.051] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，最新确认其连续向两个 C2 服务器发起 HTTP 主动外联：先连接 198.115.236.119:80（T1071.001），再连接 53.158.101.118:80（T1071.001），并读取系统内核版本信息 /proc/version（T1005）及本地域名解析配置 /etc/hosts（T1005），进一步佐证其正进行环境测绘与网络基础设施感知，为后续横向移动或 DNS 劫持做准备。当前攻击链涵盖三次 T1190 入侵、四次 T1071 类通信（含一次反向、三次主动外联）、八次 T1105 载荷投送、四次 T1059.004 执行、五次 T1005 数据采集及两次 T1552.001 凭证提取，完整呈现“初始访问→信道控制→多模态投送→交互式执行→敏感信息收集→凭证提取→多路径驻留→环境与网络测绘→主动外联→痕迹操控”闭环。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:17:44.051] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+
+[01:17:44.265] --- Action Recorded ---
+Action: 查找写入文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:17:44.409] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:17:44.584] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:17:44.874] --- Action Recorded ---
+Action: 查找写入文件 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:17:45.047] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[01:17:45.179] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:17:59.177] 
+============================================================
+[01:17:59.177] [迭代 102] MEMORY STATE UPDATE
+============================================================
+
+[01:17:59.177] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。值得注意的是，systemd 进程异常派生 nginx（T1059.004），表明攻击者可能已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，最新确认其连续向两个 C2 服务器发起 HTTP 主动外联：先连接 198.115.236.119:80（T1071.001），再连接 53.158.101.118:80（T1071.001），并读取系统内核版本信息 /proc/version（T1005）及本地域名解析配置 /etc/hosts（T1005），进一步佐证其正进行环境测绘与网络基础设施感知。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:17:59.177] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+
+[01:17:59.451] --- Action Recorded ---
+Action: 查找写入文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:17:59.567] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:17:59.862] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:18:00.012] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:18:00.281] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:18:00.438] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:18:10.404] 
+============================================================
+[01:18:10.404] [迭代 107] MEMORY STATE UPDATE
+============================================================
+
+[01:18:10.404] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。值得注意的是，systemd 进程异常派生 nginx（T1059.004），表明攻击者可能已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，最新确认其派生 sshd 进程（T1059.004），并持续向两个 C2 服务器发起 HTTP 主动外联：198.115.236.119:80（T1071.001）与 53.158.101.118:80（T1071.001），同时读取 /proc/version（T1005）和 /etc/hosts（T1005）以完成环境测绘。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:18:10.404] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+
+[01:18:10.685] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:18:10.967] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:18:11.081] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:18:11.191] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:18:11.464] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+
+[01:18:24.453] 
+============================================================
+[01:18:24.453] [迭代 112] MEMORY STATE UPDATE
+============================================================
+
+[01:18:24.453] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。值得注意的是，systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。最新确认 sshd 进程向 /var/log/auth.log 写入数据（T1105），进一步暴露其日志混淆与身份伪装意图。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:18:24.453] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+
+[01:18:24.667] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:18:24.833] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:18:24.953] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+
+[01:18:36.275] 
+============================================================
+[01:18:36.275] [迭代 115] MEMORY STATE UPDATE
+============================================================
+
+[01:18:36.275] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；最新确认其派生 bash 子进程（T1059.004），标志着攻击链已延伸至交互式命令执行阶段，具备横向移动与提权操作能力。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:18:36.275] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+
+[01:18:36.388] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:18:36.505] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:18:36.615] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[01:18:36.876] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[01:18:47.235] 
+============================================================
+[01:18:47.235] [迭代 118] MEMORY STATE UPDATE
+============================================================
+
+[01:18:47.235] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；最新确认其派生 bash 子进程（T1059.004），bash 随即执行 /bin/whoami（T1059），标志攻击链已进入交互式命令执行与权限验证阶段，具备横向移动与提权操作能力。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:18:47.235] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  27. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/whoami
+
+[01:18:47.422] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:18:47.621] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:18:47.842] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:18:48.075] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[01:18:48.295] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[01:18:58.550] 
+============================================================
+[01:18:58.550] [迭代 122] MEMORY STATE UPDATE
+============================================================
+
+[01:18:58.550] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；其派生的 bash 子进程（T1059.004）已执行 /bin/whoami（T1059）完成权限验证，并紧接着执行 /bin/ls（T1059），标志攻击链全面进入交互式命令执行阶段，具备横向移动、目录枚举与提权操作能力。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:18:58.550] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  27. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/whoami
+  28. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/ls
+
+[01:18:58.752] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:18:59.038] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:18:59.142] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:18:59.332] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:18:59.482] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[01:18:59.656] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[01:19:08.754] 
+============================================================
+[01:19:08.754] [迭代 127] MEMORY STATE UPDATE
+============================================================
+
+[01:19:08.754] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；其派生的 bash 子进程（T1059.004）已执行 /bin/whoami（T1059）完成权限验证，并紧接着执行 /bin/ls（T1059）与 /usr/bin/curl（T1059），标志攻击链全面进入交互式命令执行与外联载荷拉取阶段，具备横向移动、目录枚举、提权及远程资源下载能力。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:19:08.754] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  27. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/whoami
+  28. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/ls
+  29. [Execution] T1059 (Command and Scripting Interpreter) - bash → /usr/bin/curl
+
+[01:19:09.041] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:19:09.165] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:19:09.308] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:19:09.478] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:19:09.646] --- Action Recorded ---
+Action: 查找进程 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+
+[01:19:23.559] 
+============================================================
+[01:19:23.559] [迭代 132] MEMORY STATE UPDATE
+============================================================
+
+[01:19:23.559] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；其派生的 bash 子进程（T1059.004）已执行 /bin/whoami（T1059）完成权限验证，并紧接着执行 /bin/ls（T1059）与 /usr/bin/curl（T1059），标志攻击链全面进入交互式命令执行与外联载荷拉取阶段。值得注意的是，cron 进程亦被劫持并派生 bash（T1059.004），揭示攻击者已植入定时任务实现隐蔽持久化，进一步扩大控制面。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:19:23.559] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  27. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/whoami
+  28. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/ls
+  29. [Execution] T1059 (Command and Scripting Interpreter) - bash → /usr/bin/curl
+  30. [Execution] T1059.004 (Unix Shell) - cron → bash
+
+[01:19:23.683] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:19:23.967] --- Action Recorded ---
+Action: 查找写入文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:19:24.144] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:19:24.375] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:19:24.662] --- Action Recorded ---
+Action: 查找进程 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:19:24.854] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:19:39.322] 
+============================================================
+[01:19:39.322] [迭代 137] MEMORY STATE UPDATE
+============================================================
+
+[01:19:39.322] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；其派生的 bash 子进程（T1059.004）已执行 /bin/whoami（T1059）完成权限验证，并紧接着执行 /bin/ls（T1059）与 /usr/bin/curl（T1059），标志攻击链全面进入交互式命令执行与外联载荷拉取阶段。值得注意的是，cron 进程亦被劫持并派生 bash（T1059.004），揭示攻击者已植入定时任务实现隐蔽持久化。最新发现，该 bash 派生的 curl 进程进一步向 DNS 服务器 8.8.8.8:53 发起非标准端口 DNS 查询（T1071.001），表明攻击者正尝试构建隐蔽信道或进行域名解析探测，当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:19:39.322] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  27. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/whoami
+  28. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/ls
+  29. [Execution] T1059 (Command and Scripting Interpreter) - bash → /usr/bin/curl
+  30. [Execution] T1059.004 (Unix Shell) - cron → bash
+  31. [Command and Control] T1071.001 (Web Protocols) - /usr/bin/curl → 8.8.8.8:53
+
+[01:19:39.567] --- Action Recorded ---
+Action: 查找与 IP 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:19:39.689] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:19:39.948] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:19:40.141] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:19:40.409] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[01:19:40.618] --- Malicious Event Added ---
+Event ID: 8D401071-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[01:19:50.462] 
+============================================================
+[01:19:50.462] [迭代 142] MEMORY STATE UPDATE
+============================================================
+
+[01:19:50.462] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；其派生的 bash 子进程（T1059.004）已执行 /bin/whoami（T1059）、/bin/ls（T1059）与 /usr/bin/curl（T1059），标志攻击链全面进入交互式命令执行与外联载荷拉取阶段；值得注意的是，该 sshd 进程还读取了 /etc/ssh/sshd_config（T1005），旨在探测 SSH 配置以支持后续横向移动或后门加固。cron 进程亦被劫持并派生 bash（T1059.004），揭示攻击者已植入定时任务实现隐蔽持久化；最新发现，该 bash 派生的 curl 进程进一步向 DNS 服务器 8.8.8.8:53 发起非标准端口 DNS 查询（T1071.001），表明攻击者正尝试构建隐蔽信道或进行域名解析探测。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:19:50.462] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  27. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/whoami
+  28. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/ls
+  29. [Execution] T1059 (Command and Scripting Interpreter) - bash → /usr/bin/curl
+  30. [Execution] T1059.004 (Unix Shell) - cron → bash
+  31. [Command and Control] T1071.001 (Web Protocols) - /usr/bin/curl → 8.8.8.8:53
+  32. [Collection] T1005 (Data from Local System) - sshd → /etc/ssh/sshd_config
+
+[01:19:50.592] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:19:50.743] --- Action Recorded ---
+Action: 查找文件 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:19:50.904] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:19:51.042] --- Action Recorded ---
+Action: 查找进程 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:19:51.180] --- Action Recorded ---
+Action: 查找 IP 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:19:51.450] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:19:51.593] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:20:02.208] 
+============================================================
+[01:20:02.208] [迭代 148] MEMORY STATE UPDATE
+============================================================
+
+[01:20:02.208] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始入侵；随后，另两源 IP 76.56.184.25:80 和 155.162.39.48:80 在相近时间窗口内通过相同漏洞（T1190）协同渗透，强化 nginx 作为唯一入口点的证据。systemd 异常派生 nginx（T1059.004），表明攻击者已取得系统级持久化控制并主动重建受控服务实例。入侵成功后，nginx 异常接收来自本地 php-fpm 的反向网络连接（T1071），提示内存篡改或恶意模块注入；最新确认，nginx 还主动向 127.0.0.1:9000 发起 sendto 调用（T1071.001），进一步印证其已被劫持为双向通信枢纽，可能用于与 php-fpm 协同实现隐蔽信道或进程间指令中继。在此控制信道基础上，nginx 执行多路径载荷投送：写入特殊设备路径 /dev/gt_dl8_675、临时文件 /tmp/pEja72mA、以及污染 /var/log/nginx/access.log 与 error.log（均属 T1105）。随后，nginx 读取并执行脚本 /tmp/eWq10bVcx（T1059.004），进入主动执行阶段；继而读取 /etc/group（T1005）开展权限侦察，并两次读取 /etc/passwd——首次由 nginx 直接执行（T1552.001），第二次由新派生的 pEja72mA 进程执行（T1552.001），表明凭证窃取行为已延伸至子进程层级。pEja72mA 进程除向 /tmp/memhelp.so、/tmp/eraseme 和 /tmp/done.so 写入恶意载荷（T1105）外，还派生 sshd 进程（T1059.004），并持续向两个 C2 服务器 198.115.236.119:80 与 53.158.101.118:80 发起 HTTP 主动外联（T1071.001），同时读取 /proc/version 与 /etc/hosts 完成环境测绘（T1005）。sshd 进程进一步向 /var/log/auth.log 写入数据（T1105），暴露其日志混淆意图；其派生的 bash 子进程（T1059.004）已执行 /bin/whoami、/bin/ls 与 /usr/bin/curl（T1059），标志攻击链全面进入交互式命令执行与外联载荷拉取阶段；值得注意的是，该 sshd 进程还读取了 /etc/ssh/sshd_config（T1005），旨在探测 SSH 配置以支持后续横向移动或后门加固。cron 进程亦被劫持并派生 bash（T1059.004），揭示攻击者已植入定时任务实现隐蔽持久化；最新发现，该 bash 派生的 curl 进程进一步向 DNS 服务器 8.8.8.8:53 发起非标准端口 DNS 查询（T1071.001），表明攻击者正尝试构建隐蔽信道或进行域名解析探测。当前调查焦点仍为 nginx 进程，亟需深入分析其内存镜像、已加载模块及是否具备日志篡改、设备节点操纵、套接字复用与脚本解释器劫持等高级驻留能力。
+
+[01:20:02.208] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 155.162.39.48:80 → nginx
+  4. [Command and Control] T1071 (Application Layer Protocol) - php-fpm → nginx
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /dev/gt_dl8_675
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /tmp/pEja72mA
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/access.log
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - nginx → /var/log/nginx/error.log
+  9. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → nginx
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → nginx
+  12. [Execution] T1059.004 (Unix Shell) - nginx → pEja72mA
+  13. [Execution] T1059.004 (Unix Shell) - /tmp/pEja72mA → pEja72mA
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/eWq10bVcx → pEja72mA
+  15. [Credential Access] T1552.001 (Credentials In Files) - /etc/passwd → pEja72mA
+  16. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/memhelp.so
+  17. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/eraseme
+  18. [Command and Control] T1105 (Ingress Tool Transfer) - pEja72mA → /tmp/done.so
+  19. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 198.115.236.119:80
+  20. [Command and Control] T1071.001 (Web Protocols) - pEja72mA → 53.158.101.118:80
+  21. [Collection] T1005 (Data from Local System) - pEja72mA → /proc/version
+  22. [Collection] T1005 (Data from Local System) - pEja72mA → /etc/hosts
+  23. [Execution] T1059.004 (Unix Shell) - systemd → nginx
+  24. [Execution] T1059.004 (Unix Shell) - pEja72mA → sshd
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /var/log/auth.log
+  26. [Execution] T1059.004 (Unix Shell) - sshd → bash
+  27. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/whoami
+  28. [Execution] T1059 (Command and Scripting Interpreter) - bash → /bin/ls
+  29. [Execution] T1059 (Command and Scripting Interpreter) - bash → /usr/bin/curl
+  30. [Execution] T1059.004 (Unix Shell) - cron → bash
+  31. [Command and Control] T1071.001 (Web Protocols) - /usr/bin/curl → 8.8.8.8:53
+  32. [Collection] T1005 (Data from Local System) - sshd → /etc/ssh/sshd_config
+  33. [Command and Control] T1071.001 (Web Protocols) - nginx → 127.0.0.1:9000
+
+[01:20:02.443] --- Action Recorded ---
+Action: 查找与 IP 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:20:02.591] --- Action Recorded ---
+Action: 查找 IP 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results

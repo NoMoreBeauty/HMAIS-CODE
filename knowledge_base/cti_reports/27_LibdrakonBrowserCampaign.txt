@@ -1,0 +1,83 @@
+LIBDRAKON BROWSER EXPLOITATION CAMPAIGN
+
+OVERVIEW
+This campaign exploits Firefox browser vulnerabilities to deploy the libdrakon shared library implant on Linux systems. The attack uses fake device files for persistence and leverages legitimate system processes for defense evasion [T1189].
+
+INITIAL ACCESS
+Victims are compromised through malicious web content delivered to Firefox:
+- 145.199.103.57:80 - Primary payload delivery
+- 61.130.69.232:80 - Secondary payload server
+- 2.233.33.53:80 - Tertiary C2 endpoint
+
+Firefox browser receives and processes malicious content triggering code execution [T1189].
+
+EXECUTION
+The exploited Firefox process performs the following actions:
+
+1. Device File Creation [T1036.005]:
+   - Creates /dev/dev/yta_dsa_675 (fake device file)
+   - Unusual nested /dev/dev path to evade detection
+   - Device file used as malware storage
+
+2. Shared Library Deployment [T1574.006]:
+   - Writes /deploy/archive/libdrakon.linux.x64.so_5.214.163.155
+   - Versioned naming convention for library management
+   - Library provides persistence and C2 capabilities
+
+3. Cache Process Execution:
+   - Firefox forks "cache" process (masquerading name)
+   - /dev/dev/yta_dsa_675 executed by cache process
+   - cache loads libdrakon shared library
+
+CREDENTIAL ACCESS
+The malware performs credential harvesting:
+- Reads /etc/passwd for user enumeration [T1087.001]
+- Reads /etc/group for group membership discovery
+- Accesses /home/admin/.bash_history for command history [T1552.003]
+
+Both firefox and cache processes read credential files independently.
+
+PERSISTENCE
+Multiple persistence mechanisms are established:
+
+1. Shared Library Persistence [T1574.006]:
+   - libdrakon.so loaded by legitimate-appearing cache process
+   - Survives process restarts
+
+2. SSH Integration [T1098.004]:
+   - sshd process forks bash for interactive access
+   - Writes to /var/log/auth.log to cover tracks
+   - Receives connections from internal network (192.168.0.1:22)
+
+3. Cron Execution [T1053.003]:
+   - cron spawns bash for scheduled execution
+   - Writes to /var/log/syslog for logging
+
+COMMAND AND CONTROL
+- DNS queries via 8.8.8.8:53 for connectivity and tunneling [T1071.004]
+- Multiple HTTP-based C2 servers on port 80
+- cache process maintains persistent C2 channel
+
+DEFENSE EVASION
+- Fake device file in nested /dev/dev directory
+- Process named "cache" to appear as legitimate caching service
+- Library stored in /deploy/archive with version numbering
+- Leveraging legitimate processes (sshd, cron, bash)
+
+INDICATORS OF COMPROMISE
+- Unusual device files: /dev/dev/yta_dsa_675 or similar patterns
+- Firefox spawning unexpected child processes
+- Shared libraries with libdrakon in filename
+- Files in /deploy/archive directory
+- Process named "cache" not associated with legitimate caching
+- Firefox reading /etc/passwd directly
+
+MITRE ATT&CK TECHNIQUES
+[T1189] Drive-by Compromise
+[T1036.005] Masquerading: Match Legitimate Name or Location
+[T1574.006] Hijack Execution Flow: Dynamic Linker Hijacking
+[T1087.001] Account Discovery: Local Account
+[T1552.003] Unsecured Credentials: Bash History
+[T1098.004] Account Manipulation: SSH Authorized Keys
+[T1053.003] Scheduled Task/Job: Cron
+[T1071.004] Application Layer Protocol: DNS

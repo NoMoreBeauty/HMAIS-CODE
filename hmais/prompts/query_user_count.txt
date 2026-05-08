@@ -1,0 +1,12 @@
+请为以下调查动作生成 Cypher **计数查询**（只输出代码）：
+
+调查动作：{action}
+
+**重要：必须返回 count(r)，不要返回节点！**
+
+示例格式：
+```cypher
+MATCH (s:node)-[r:FORK]->(t:node)
+WHERE r.end_node_uuid = 'xxx'
+RETURN count(r)
+```

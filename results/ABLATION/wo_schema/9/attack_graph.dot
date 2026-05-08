@@ -1,0 +1,111 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "141.43.176.203:80" [shape=diamond];
+    "104.228.117.212:80" [shape=diamond];
+    "128.55.12.167:8018" [shape=diamond];
+    "146.153.68.151:80" [shape=diamond];
+    "161.116.88.72:80" [shape=diamond];
+    "8.8.8.8:53" [shape=diamond];
+    "192.168.1.1:22" [shape=diamond];
+
+    "firefox" [shape=ellipse];
+    "ps" [shape=ellipse];
+    "whoami" [shape=ellipse];
+    "clean" [shape=ellipse];
+    "sh" [shape=ellipse];
+    "ls" [shape=ellipse];
+    "uname" [shape=ellipse];
+    "cat" [shape=ellipse];
+    "grep" [shape=ellipse];
+    "sshd" [shape=ellipse];
+    "bash" [shape=ellipse];
+    "cron" [shape=ellipse];
+
+    "/home/admin/clean" [shape=box];
+    "/dev/glx_alsa_675" [shape=box];
+    "/etc/hosts" [shape=box];
+    "/tmp/ff_cache" [shape=box];
+    "/home/admin/.bashrc" [shape=box];
+    "/home/admin" [shape=box];
+    "/etc/passwd" [shape=box];
+    "/proc/version" [shape=box];
+    "/var/log/syslog" [shape=box];
+    "/tmp/data.log" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "clean" -> "whoami" [label="fork"];
+
+    "clean" -> "/proc/version" [label="read"];
+
+    "sshd" -> "bash" [label="fork"];
+
+    "sshd" -> "/var/log/auth.log" [label="write"];
+
+    "firefox" -> "/tmp/ff_cache" [label="write"];
+
+    "ps" -> "grep" [label="fork"];
+
+    "/dev/glx_alsa_675" -> "clean" [label="execute"];
+
+    "ls" -> "/home/admin" [label="read"];
+
+
+    "141.43.176.203:80" -> "firefox" [label="recv_from"];
+
+    "128.55.12.167:8018" -> "firefox" [label="recv_from"];
+
+    "grep" -> "/var/log/syslog" [label="read"];
+
+
+    "firefox" -> "8.8.8.8:53" [label="send_to"];
+
+    "bash" -> "whoami" [label="fork"];
+
+    "firefox" -> "/dev/glx_alsa_675" [label="write"];
+
+    "clean" -> "cat" [label="fork"];
+
+    "sh" -> "/home/admin/.bashrc" [label="read"];
+
+    "clean" -> "/tmp/data.log" [label="write"];
+
+    "clean" -> "161.116.88.72:80" [label="send_to"];
+
+    "/home/admin/clean" -> "clean" [label="execute"];
+
+    "firefox" -> "/home/admin/clean" [label="write"];
+
+    "sh" -> "ls" [label="fork"];
+
+    "clean" -> "uname" [label="fork"];
+
+    "ps" -> "/proc/version" [label="read"];
+
+    "firefox" -> "clean" [label="fork"];
+
+    "192.168.1.1:22" -> "sshd" [label="recv_from"];
+
+    "firefox" -> "146.153.68.151:80" [label="send_to"];
+
+    "firefox" -> "sh" [label="fork"];
+
+    "cron" -> "sh" [label="fork"];
+
+    "firefox" -> "ps" [label="fork"];
+
+    "104.228.117.212:80" -> "firefox" [label="recv_from"];
+
+    "clean" -> "/etc/passwd" [label="read"];
+
+    "cron" -> "/var/log/syslog" [label="write"];
+
+    "whoami" -> "/etc/passwd" [label="read"];
+
+    "cat" -> "/var/log/syslog" [label="read"];
+
+    "8.8.8.8:53" -> "firefox" [label="recv_from"];
+
+    "firefox" -> "whoami" [label="fork"];
+}

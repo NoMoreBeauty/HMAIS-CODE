@@ -1,0 +1,648 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T23:39:14.963431
+================================================================================
+
+[00:07:20.341] 
+============================================================
+[00:07:20.341] POI REGISTERED
+============================================================
+
+[00:07:20.341] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401052-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "nginx (process)",
+  "目标节点": "/tmp/grain (file)",
+  "源节点ID": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[00:07:20.613] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:07:20.810] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:07:21.018] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:07:21.249] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:07:21.501] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:07:21.638] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:07:21.757] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:07:35.978] 
+============================================================
+[00:07:35.978] [迭代 6] MEMORY STATE UPDATE
+============================================================
+
+[00:07:35.978] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始访问，成功建立恶意连接。当前调查焦点为 nginx 进程的后续行为。
+
+[00:07:35.978] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+
+[00:07:36.195] --- Action Recorded ---
+Action: 查找写入文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:07:36.424] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:07:36.565] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:07:36.833] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:07:48.710] 
+============================================================
+[00:07:48.710] [迭代 9] MEMORY STATE UPDATE
+============================================================
+
+[00:07:48.710] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始访问，成功建立恶意连接；随后另一外部 IP 76.56.184.25:80 同样通过 T1190 技术对 nginx 发起二次利用，表明攻击者正在多源协同尝试持久化或扩大入侵面。两次 T1190 行为均指向同一 nginx 进程，强化了该服务作为攻击入口点的确定性。当前调查焦点仍为 nginx 进程的后续行为，需重点分析其是否已执行载荷写入、进程派生或横向通信等阶段动作。
+
+[00:07:48.710] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+
+[00:07:48.877] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:07:49.014] --- Action Recorded ---
+Action: 查找与 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:07:49.142] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:07:49.249] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:07:49.416] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:07:49.602] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:07:49.774] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:08:04.551] 
+============================================================
+[00:08:04.551] [迭代 15] MEMORY STATE UPDATE
+============================================================
+
+[00:08:04.551] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始访问，成功建立恶意连接；随后另一外部 IP 76.56.184.25:80 同样通过 T1190 技术对 nginx 发起二次利用，表明攻击者正在多源协同尝试持久化或扩大入侵面。两次 T1190 行为均指向同一 nginx 进程，强化了该服务作为攻击入口点的确定性。紧接着，nginx 进程派生出 sshd 子进程（T1059.004），标志着攻击已从初始访问阶段进入执行阶段——该行为极可能用于隐蔽执行恶意载荷、维持驻留或规避检测，因 sshd 通常具备高权限且通信流量易与正常运维混淆。当前调查焦点已转向 sshd 进程的后续行为，需重点分析其是否开展文件写入、网络外连（尤其是反向 shell 或 C2 通信）、权限提升（T1068）或横向移动等动作。
+
+[00:08:04.551] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+
+[00:08:04.655] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:08:04.882] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:08:05.085] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:08:05.198] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:08:05.435] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:08:15.288] 
+============================================================
+[00:08:15.288] [迭代 19] MEMORY STATE UPDATE
+============================================================
+
+[00:08:15.288] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始访问；随后另一外部 IP 76.56.184.25:80 同样通过 T1190 技术对同一 nginx 进程实施二次利用，表明攻击者正多源协同扩大入侵面。在成功立足后，nginx 进程先后派生出两个恶意子进程：一是 sshd（T1059.004），用于隐蔽执行与高权限通信；二是 crontab（T1059.004），极可能用于持久化驻留——通过写入恶意定时任务实现重启后自动激活。两次 shell 派生行为均源自同一 nginx 进程，凸显其已被完全劫持为攻击枢纽。当前调查焦点已转向 sshd 进程的后续行为，需重点分析其是否开展反向 shell、C2 外连（如连接异常 IP 或端口）、权限提升（T1068）或横向移动；同时需同步核查 crontab 是否已创建可疑计划任务（如指向 /tmp/ 或 /var/spool/cron/ 下的非常规路径），以确认持久化机制是否已生效。
+
+[00:08:15.288] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+
+[00:08:15.440] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:08:15.684] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:08:15.964] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:08:16.108] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:08:16.214] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:08:16.439] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:08:25.235] 
+============================================================
+[00:08:25.235] [迭代 24] MEMORY STATE UPDATE
+============================================================
+
+[00:08:25.235] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始访问；随后另一外部 IP 76.56.184.25:80 同样通过 T1190 技术对同一 nginx 进程实施二次利用，表明攻击者正多源协同扩大入侵面。立足后，nginx 进程不仅派生出 sshd（T1059.004）用于隐蔽执行与高权限通信，还派生 crontab（T1059.004）以实现持久化驻留——极可能通过写入恶意定时任务达成重启自启。值得注意的是，nginx 进程在派生子进程的同时，还主动向 C2 服务器 155.162.39.48:80 发起 Web 协议通信（T1071.001），证实其已沦为攻击中枢，兼具载荷分发、指令接收与横向控制功能。当前调查焦点为 sshd 进程的后续行为，需重点分析其是否建立反向 shell、外连异常 IP/端口、尝试权限提升（T1068）或横向移动；同时须同步核查 crontab 是否已在 /var/spool/cron/ 或 /tmp/ 等非常规路径创建可疑计划任务，以确认持久化机制是否已生效。
+
+[00:08:25.235] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+
+[00:08:25.386] --- Action Recorded ---
+Action: 查找 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:08:25.675] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:08:25.974] --- Action Recorded ---
+Action: 查找与 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:08:26.173] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:08:26.446] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:08:26.627] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:08:37.828] 
+============================================================
+[00:08:37.828] [迭代 29] MEMORY STATE UPDATE
+============================================================
+
+[00:08:37.828] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 先后利用面向公众的应用漏洞（T1190）对 nginx 进程实施协同入侵，快速扩大初始访问面。立足后，nginx 进程迅速派生 sshd（T1059.004）用于隐蔽执行与高权限通信，并派生 crontab（T1059.004）以实现持久化驻留——极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务达成重启自启。与此同时，nginx 作为攻击中枢，已主动向两个 C2 服务器发起 Web 协议通信：先是 155.162.39.48:80（T1071.001），继而扩展至 203.0.113.12:8080（T1071.001），表明其正强化指令接收与载荷分发能力，具备多通道冗余控制特征。当前调查焦点为 sshd 进程的后续行为，需重点分析其是否建立反向 shell、外连异常 IP/端口、尝试权限提升（T1068）或横向移动；同时须同步核查 crontab 是否已在非常规路径创建可疑计划任务，以确认持久化机制是否已生效。
+
+[00:08:37.828] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+
+[00:08:38.105] --- Action Recorded ---
+Action: 查找 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:08:38.344] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:08:38.470] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:08:38.733] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:08:47.348] 
+============================================================
+[00:08:47.348] [迭代 32] MEMORY STATE UPDATE
+============================================================
+
+[00:08:47.348] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 先后利用面向公众的应用漏洞（T1190）对 nginx 进程实施协同入侵，快速扩大初始访问面。立足后，nginx 迅速派生 sshd（T1059.004）与 crontab（T1059.004）进程：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限并启动高权限交互式会话；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现重启自启（T1053.003）。与此同时，nginx 作为攻击中枢，主动向 C2 服务器 155.162.39.48:80（T1071.001）及 203.0.113.12:8080（T1071.001）发起 Web 协议通信，构建多通道冗余控制能力。当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同时须同步核查 crontab 是否已在非常规路径创建可疑计划任务，以确认持久化机制是否已生效。
+
+[00:08:47.348] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+
+[00:08:47.460] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:08:47.587] --- Action Recorded ---
+Action: 查找与 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:08:47.697] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:08:47.970] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[00:08:48.075] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[00:08:59.404] 
+============================================================
+[00:08:59.404] [迭代 36] MEMORY STATE UPDATE
+============================================================
+
+[00:08:59.404] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 先后利用面向公众的应用漏洞（T1190）对 nginx 进程实施协同入侵，快速扩大初始访问面。立足后，nginx 迅速派生 sshd（T1059.004）与 crontab（T1059.004）进程：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限并启动高权限交互式会话；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现重启自启（T1053.003）。与此同时，nginx 作为攻击中枢，主动向 C2 服务器 155.162.39.48:80（T1071.001）及 203.0.113.12:8080（T1071.001）发起 Web 协议通信，构建多通道冗余控制能力。值得注意的是，攻击链中新增关键执行环节：/tmp/grain 文件被直接执行，启动 grain 进程（T1059），该行为发生在 root-shell 活跃期间，极可能是其调用或衍生的后续载荷，用于扩展横向移动、凭证窃取（T1003）或隐蔽驻留。当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同时须同步核查 crontab 是否已在非常规路径创建可疑计划任务，并确认 /tmp/grain 的来源及 grain 进程的网络与文件操作行为，以完整还原持久化与横向扩展路径。
+
+[00:08:59.404] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+
+[00:08:59.550] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:08:59.766] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:09:00.014] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:09:00.167] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:09:00.306] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:09:00.444] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:09:12.675] 
+============================================================
+[00:09:12.675] [迭代 41] MEMORY STATE UPDATE
+============================================================
+
+[00:09:12.675] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 先后利用面向公众的应用漏洞（T1190）对 nginx 进程实施协同入侵，快速扩大初始访问面。立足后，nginx 迅速派生 sshd（T1059.004）与 crontab（T1059.004）进程：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限并启动高权限交互式会话；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现重启自启（T1053.003）。与此同时，nginx 主动向 C2 服务器 155.162.39.48:80 及 203.0.113.12:8080 发起 Web 协议通信（T1071.001），构建多通道冗余控制能力。在 root-shell 活跃期间，/tmp/grain 文件被直接执行，启动 grain 进程（T1059）；该进程随即向本地路径 /usr/log/xsd 写入新文件（T1105），极可能是为后续载荷投递、日志混淆或持久化埋点做准备。当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同时须同步核查 crontab 是否已在非常规路径创建可疑计划任务，确认 /tmp/grain 的来源，并深入分析 grain 进程对 /usr/log/xsd 的写入内容及其后续网络与文件操作，以完整还原持久化、横向扩展与C2演进路径。
+
+[00:09:12.675] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - grain → /usr/log/xsd
+
+[00:09:12.938] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:09:13.192] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:09:13.341] --- Action Recorded ---
+Action: 查找写入文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:09:13.514] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:09:13.709] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:09:13.885] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:09:24.248] 
+============================================================
+[00:09:24.248] [迭代 46] MEMORY STATE UPDATE
+============================================================
+
+[00:09:24.248] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 先后利用面向公众的应用漏洞（T1190）对 nginx 进程实施协同入侵，快速扩大初始访问面。立足后，nginx 迅速派生 sshd（T1059.004）与 crontab（T1059.004）进程：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限并启动高权限交互式会话；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现重启自启（T1053.003）。与此同时，nginx 主动向 C2 服务器 155.162.39.48:80 及 203.0.113.12:8080 发起 Web 协议通信（T1071.001），构建多通道冗余控制能力。在 root-shell 活跃期间，/tmp/grain 文件被直接执行，启动 grain 进程（T1059）；该进程随即向本地路径 /usr/log/xsd 写入新文件（T1105），极可能是为后续载荷投递、日志混淆或持久化埋点做准备。值得注意的是，nginx 进程还直接读取了 /etc/group 文件（T1005），表明攻击者早期即开展本地账户信息收集，以支撑权限提升、横向移动或凭证复用策略。当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同时须同步核查 crontab 是否已在非常规路径创建可疑计划任务，确认 /tmp/grain 的来源，并深入分析 grain 进程对 /usr/log/xsd 的写入内容及其后续网络与文件操作，以完整还原持久化、横向扩展与C2演进路径。
+
+[00:09:24.248] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - grain → /usr/log/xsd
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+
+[00:09:24.473] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:09:24.692] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:09:24.801] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:09:24.999] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:09:25.227] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:09:38.202] 
+============================================================
+[00:09:38.202] [迭代 50] MEMORY STATE UPDATE
+============================================================
+
+[00:09:38.202] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 先后利用面向公众的应用漏洞（T1190）对 nginx 进程实施协同入侵，快速扩大初始访问面。立足后，nginx 迅速派生 sshd（T1059.004）与 crontab（T1059.004）进程：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限并启动高权限交互式会话；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现重启自启（T1053.003）。与此同时，nginx 主动向 C2 服务器 155.162.39.48:80 及 203.0.113.12:8080 发起 Web 协议通信（T1071.001），构建多通道冗余控制能力。在 root-shell 活跃期间，/tmp/grain 文件被直接执行，启动 grain 进程（T1059）；该进程随即向本地路径 /usr/log/xsd 写入新文件（T1105），极可能是为后续载荷投递或日志混淆做准备。值得注意的是，nginx 还读取了 /etc/group 文件（T1005），表明攻击者早期即开展本地账户信息收集。**最新确认：root-shell 进程向 /root/.ssh/authorized_keys 写入内容（T1105），完成持久化后门部署，确保长期免密 SSH 登录能力。** 当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同时须同步核查 crontab 是否已在非常规路径创建可疑计划任务，确认 /tmp/grain 的来源，并深入分析 grain 进程对 /usr/log/xsd 的写入内容及其后续网络与文件操作，以完整还原持久化、横向扩展与C2演进路径。
+
+[00:09:38.202] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - grain → /usr/log/xsd
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - root-shell → /root/.ssh/authorized_keys
+
+[00:09:38.488] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:09:38.673] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:09:38.883] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:09:39.043] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:09:39.144] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:09:39.326] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[00:09:49.556] 
+============================================================
+[00:09:49.556] [迭代 55] MEMORY STATE UPDATE
+============================================================
+
+[00:09:49.556] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 先后利用面向公众的应用漏洞（T1190）对 nginx 进程实施协同入侵，快速扩大初始访问面。立足后，nginx 迅速派生 sshd（T1059.004）与 crontab（T1059.004）进程：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限并启动高权限交互式会话；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现重启自启（T1053.003）。与此同时，nginx 主动向 C2 服务器 155.162.39.48:80 及 203.0.113.12:8080 发起 Web 协议通信（T1071.001），构建多通道冗余控制能力。nginx 还读取了 /etc/group 文件（T1005），开展早期本地账户信息收集。在 root-shell 活跃期间，/tmp/grain 文件被直接执行，启动 grain 进程（T1059）；该进程随即向 /usr/log/xsd 写入新文件（T1105），疑似为载荷投递或日志混淆准备。**最新确认：root-shell 向 /root/.ssh/authorized_keys 写入公钥（T1105），随后 sshd 进程读取该文件完成凭证复用（T1552.001），正式建立免密 SSH 持久化后门。** 当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同时须同步核查 crontab 是否已在非常规路径创建可疑计划任务，确认 /tmp/grain 的来源，并深入分析 grain 进程对 /usr/log/xsd 的写入内容及其后续网络与文件操作，以完整还原持久化、横向扩展与 C2 演进路径。
+
+[00:09:49.556] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - grain → /usr/log/xsd
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - root-shell → /root/.ssh/authorized_keys
+  12. [Credential Access] T1552.001 (Credentials In Files) - /root/.ssh/authorized_keys → sshd
+
+[00:09:49.693] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:09:49.800] --- Action Recorded ---
+Action: 查找进程 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:09:49.959] --- Action Recorded ---
+Action: 查找文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:09:50.181] --- Action Recorded ---
+Action: 查找写入文件 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:09:50.366] --- Action Recorded ---
+Action: 查找 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[00:09:50.556] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:10:04.892] 
+============================================================
+[00:10:04.892] [迭代 60] MEMORY STATE UPDATE
+============================================================
+
+[00:10:04.892] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 利用面向公众的应用漏洞（T1190）协同入侵 nginx 进程，快速扩大初始访问面。立足后，nginx 派生 sshd 与 crontab 进程（T1059.004）：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现持久化（T1053.003）。nginx 同时向 C2 服务器 155.162.39.48:80 及 203.0.113.12:8080 发起 Web 协议通信（T1071.001），并读取 /etc/group（T1005）开展本地账户侦察。root-shell 随即向 /root/.ssh/authorized_keys 写入公钥（T1105），sshd 读取该文件完成凭证复用（T1552.001），建立免密 SSH 持久化后门。此外，/tmp/grain 被执行启动 grain 进程（T1059），后者向 /usr/log/xsd 写入文件（T1105），疑似载荷投递或日志混淆。**最新确认：C2 服务器 203.0.113.12:8080 反向利用 T1190 漏洞直接攻击 bash 进程，形成闭环渗透链**。当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同步核查 crontab 任务、/tmp/grain 来源及 grain 对 /usr/log/xsd 的写入内容与后续操作，以完整还原持久化、横向扩展与 C2 演进路径。
+
+[00:10:04.892] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - grain → /usr/log/xsd
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - root-shell → /root/.ssh/authorized_keys
+  12. [Credential Access] T1552.001 (Credentials In Files) - /root/.ssh/authorized_keys → sshd
+  13. [Initial Access] T1190 (Exploit Public-Facing Application) - 203.0.113.12:8080 → bash
+
+[00:10:05.176] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:10:05.474] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:10:05.774] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:10:05.920] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:10:06.066] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:10:14.847] 
+============================================================
+[00:10:14.847] [迭代 64] MEMORY STATE UPDATE
+============================================================
+
+[00:10:14.847] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 利用面向公众的应用漏洞（T1190）协同入侵 nginx 进程，快速扩大初始访问面。立足后，nginx 派生 sshd 与 crontab 进程（T1059.004）：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限；crontab 极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现持久化（T1053.003）。nginx 同时向 C2 服务器 155.162.39.48:80 及 203.0.113.12:8080 发起 Web 协议通信（T1071.001），并读取 /etc/group（T1005）开展本地账户侦察。root-shell 随即向 /root/.ssh/authorized_keys 写入公钥（T1105），sshd 读取该文件完成凭证复用（T1552.001），建立免密 SSH 持久化后门。此外，/tmp/grain 被执行启动 grain 进程（T1059），后者向 /usr/log/xsd 写入文件（T1105），疑似载荷投递或日志混淆。**最新确认：C2 服务器 203.0.113.12:8080 反向利用 T1190 漏洞直接攻击 bash 进程，形成闭环渗透链；该 bash 进程随即向 /tmp/.cache 写入数据（T1105），强化隐蔽信道或缓存恶意工具。** 当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令（如 /usr/bin/whoami、/bin/cat /etc/shadow）、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同步核查 crontab 任务、/tmp/grain 来源、grain 对 /usr/log/xsd 的写入内容，以及 /tmp/.cache 文件性质与 bash 的完整指令流，以完整还原持久化、横向扩展与 C2 演进路径。
+
+[00:10:14.847] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - grain → /usr/log/xsd
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - root-shell → /root/.ssh/authorized_keys
+  12. [Credential Access] T1552.001 (Credentials In Files) - /root/.ssh/authorized_keys → sshd
+  13. [Initial Access] T1190 (Exploit Public-Facing Application) - 203.0.113.12:8080 → bash
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - bash → /tmp/.cache
+
+[00:10:14.976] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:10:15.084] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:10:15.246] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:10:15.363] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[00:10:28.122] 
+============================================================
+[00:10:28.122] [迭代 67] MEMORY STATE UPDATE
+============================================================
+
+[00:10:28.122] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 25.159.96.207:80 和 76.56.184.25:80 利用面向公众的应用漏洞（T1190）协同入侵 nginx 进程，快速扩大初始访问面。立足后，nginx 派生 sshd 与 crontab 进程（T1059.004）：sshd 进一步派生 root-shell（T1059.004），表明攻击者已获取 root 权限；crontab 在执行过程中读取 /etc/passwd（T1552.001），开展凭证信息收集，并极可能通过写入 /var/spool/cron/ 或 /tmp/ 下的恶意定时任务实现持久化（T1053.003）。nginx 同时向 C2 服务器 155.162.39.48:80 及 203.0.113.12:8080 发起 Web 协议通信（T1071.001），并读取 /etc/group（T1005）开展本地账户侦察。root-shell 随即向 /root/.ssh/authorized_keys 写入公钥（T1105），sshd 读取该文件完成凭证复用（T1552.001），建立免密 SSH 持久化后门。此外，/tmp/grain 被执行启动 grain 进程（T1059），后者向 /usr/log/xsd 写入文件（T1105），疑似载荷投递或日志混淆。最新确认：C2 服务器 203.0.113.12:8080 反向利用 T1190 漏洞直接攻击 bash 进程，形成闭环渗透链；该 bash 进程随即向 /tmp/.cache 写入数据（T1105），强化隐蔽信道或缓存恶意工具。当前调查焦点为 root-shell 进程的后续行为，需重点分析其是否执行敏感命令、尝试横向移动（T1021）、窃取凭证（T1003）或部署额外载荷；同步核查 crontab 任务、/tmp/grain 来源、grain 对 /usr/log/xsd 的写入内容，以及 /tmp/.cache 文件性质与 bash 的完整指令流，以完整还原持久化、横向扩展与 C2 演进路径。
+
+[00:10:28.122] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 25.159.96.207:80 → nginx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 76.56.184.25:80 → nginx
+  3. [Execution] T1059.004 (Unix Shell) - nginx → sshd
+  4. [Execution] T1059.004 (Unix Shell) - nginx → crontab
+  5. [Command and Control] T1071.001 (Web Protocols) - nginx → 155.162.39.48:80
+  6. [Command and Control] T1071.001 (Web Protocols) - nginx → 203.0.113.12:8080
+  7. [Execution] T1059.004 (Unix Shell) - sshd → root-shell
+  8. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/grain → grain
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - grain → /usr/log/xsd
+  10. [Collection] T1005 (Data from Local System) - /etc/group → nginx
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - root-shell → /root/.ssh/authorized_keys
+  12. [Credential Access] T1552.001 (Credentials In Files) - /root/.ssh/authorized_keys → sshd
+  13. [Initial Access] T1190 (Exploit Public-Facing Application) - 203.0.113.12:8080 → bash
+[00:10:28.393] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:10:28.607] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:10:28.848] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:10:29.027] --- Action Recorded ---
+Action: 查找 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results

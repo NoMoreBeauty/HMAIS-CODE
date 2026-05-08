@@ -1,0 +1,147 @@
+digraph Attack_Investigation_Result {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "64.233.191.255:8000" [shape=diamond];
+    "132.197.158.98:80" [shape=diamond];
+    "142.20.57.147" [shape=diamond];
+    "142.20.58.149" [shape=diamond];
+    "172.217.16.142:443" [shape=diamond];
+    "239.255.255.250:1900" [shape=diamond];
+    "192.168.1.1:53" [shape=diamond];
+    "192.168.1.5:445" [shape=diamond];
+
+    "runme.bat" [shape=ellipse];
+    "ping_sweep.ps1" [shape=ellipse];
+    "ntuser.dat" [shape=ellipse];
+    "user32.dll" [shape=ellipse];
+    "kernel32.dll" [shape=ellipse];
+    "places.sqlite" [shape=ellipse];
+    "cookies.sqlite" [shape=ellipse];
+    "sam.log" [shape=ellipse];
+    "crypt32.dll" [shape=ellipse];
+    "kernelbase.dll" [shape=ellipse];
+    "ntdll.dll" [shape=ellipse];
+    "temp_log.txt" [shape=ellipse];
+    "wuauserv.log" [shape=ellipse];
+    "taskbar.icon" [shape=ellipse];
+    "webcache.dat" [shape=ellipse];
+    "wmi.dll" [shape=ellipse];
+
+    "cmd.exe" [shape=box];
+    "firefox.exe" [shape=box];
+    "Agent_VL8B5T3U" [shape=box];
+    "Agent_LUAVR71T" [shape=box];
+    "mimikatz.exe" [shape=box];
+    "lsass.exe" [shape=box];
+    "Agent_NEK5H8GX" [shape=box];
+    "Agent_DS29HY41" [shape=box];
+    "explorer.exe" [shape=box];
+    "services.exe" [shape=box];
+    "svchost.exe" [shape=box];
+    "conhost.exe" [shape=box];
+    "Process_4480" [shape=box];
+    "net1.exe" [shape=box];
+    "taskhostw.exe" [shape=box];
+    "svchost.exe" -> "192.168.1.1:53" [label="send_to"];
+
+    "services.exe" -> "svchost.exe" [label="fork"];
+
+    "svchost.exe" -> "239.255.255.250:1900" [label="send_to"];
+
+    "services.exe" -> "lsass.exe" [label="fork"];
+
+    "Agent_VL8B5T3U" -> "132.197.158.98:80" [label="send_to"];
+
+    "Agent_LUAVR71T" -> "lsass.exe" [label="write"];
+
+    "services.exe" -> "Process_4480" [label="fork"];
+
+    "142.20.57.147" -> "Agent_NEK5H8GX" [label="recv_from"];
+
+    "cmd.exe" -> "runme.bat" [label="execute"];
+
+    "ntdll.dll" -> "Agent_LUAVR71T" [label="read"];
+
+    "Agent_DS29HY41" -> "net1.exe" [label="fork"];
+
+    "Agent_NEK5H8GX" -> "142.20.58.149" [label="send_to"];
+
+    "172.217.16.142:443" -> "firefox.exe" [label="recv_from"];
+
+    "kernel32.dll" -> "Process_4480" [label="read"];
+
+    "runme.bat" -> "Agent_VL8B5T3U" [label="execute"];
+
+    "lsass.exe" -> "sam.log" [label="write"];
+
+    "Agent_VL8B5T3U" -> "Agent_LUAVR71T" [label="fork"];
+
+    "kernel32.dll" -> "firefox.exe" [label="read"];
+
+    "svchost.exe" -> "wuauserv.log" [label="write"];
+
+
+    "cmd.exe" -> "firefox.exe" [label="fork"];
+
+    "cookies.sqlite" -> "firefox.exe" [label="read"];
+
+    "firefox.exe" -> "64.233.191.255:8000" [label="send_to"];
+
+
+    "explorer.exe" -> "cmd.exe" [label="fork"];
+
+    "Agent_NEK5H8GX" -> "132.197.158.98:80" [label="send_to"];
+
+    "142.20.58.149" -> "Agent_DS29HY41" [label="recv_from"];
+
+    "explorer.exe" -> "ntuser.dat" [label="write"];
+
+    "132.197.158.98:80" -> "Agent_NEK5H8GX" [label="recv_from"];
+
+    "wmi.dll" -> "svchost.exe" [label="read"];
+
+    "taskbar.icon" -> "explorer.exe" [label="read"];
+
+    "crypt32.dll" -> "lsass.exe" [label="read"];
+
+    "cmd.exe" -> "conhost.exe" [label="fork"];
+
+    "services.exe" -> "taskhostw.exe" [label="fork"];
+
+    "taskhostw.exe" -> "webcache.dat" [label="write"];
+
+    "firefox.exe" -> "172.217.16.142:443" [label="send_to"];
+
+    "firefox.exe" -> "runme.bat" [label="write"];
+
+    "192.168.1.5:445" -> "net1.exe" [label="recv_from"];
+
+    "user32.dll" -> "explorer.exe" [label="read"];
+
+    "firefox.exe" -> "places.sqlite" [label="write"];
+
+    "Agent_LUAVR71T" -> "mimikatz.exe" [label="fork"];
+
+    "Agent_LUAVR71T" -> "temp_log.txt" [label="write"];
+
+    "192.168.1.1:53" -> "svchost.exe" [label="recv_from"];
+
+    "Agent_NEK5H8GX" -> "ping_sweep.ps1" [label="write"];
+
+    "Agent_LUAVR71T" -> "142.20.57.147" [label="send_to"];
+
+    "ping_sweep.ps1" -> "Agent_NEK5H8GX" [label="execute"];
+
+    "Agent_DS29HY41" -> "132.197.158.98:80" [label="send_to"];
+
+    "132.197.158.98:80" -> "Agent_LUAVR71T" [label="recv_from"];
+
+    "132.197.158.98:80" -> "Agent_VL8B5T3U" [label="recv_from"];
+
+    "kernelbase.dll" -> "conhost.exe" [label="read"];
+
+    "64.233.191.255:8000" -> "firefox.exe" [label="recv_from"];
+
+    "Agent_LUAVR71T" -> "132.197.158.98:80" [label="send_to"];
+}

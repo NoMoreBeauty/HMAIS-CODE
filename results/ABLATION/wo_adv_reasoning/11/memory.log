@@ -1,0 +1,1384 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T23:39:11.331851
+================================================================================
+
+[00:28:34.622] 
+============================================================
+[00:28:34.622] POI REGISTERED
+============================================================
+
+[00:28:34.622] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401056-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "nignx (process)",
+  "目标节点": "/tmp/vUgefal (file)",
+  "源节点ID": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[00:28:34.753] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:28:35.016] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:28:35.173] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:28:35.418] --- Action Recorded ---
+Action: 查找写入文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:28:35.634] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:28:35.881] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:28:36.159] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:28:49.883] 
+============================================================
+[00:28:49.883] [迭代 6] MEMORY STATE UPDATE
+============================================================
+
+[00:28:49.883] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 81.49.200.166 利用面向公众的应用漏洞（T1190）向 nignx 进程发起攻击，成功实现初始访问。当前调查焦点为 nignx 进程的后续行为。
+
+[00:28:49.883] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+
+[00:28:50.071] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:28:50.316] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:28:50.443] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:28:50.736] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:28:50.844] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:29:01.093] 
+============================================================
+[00:29:01.093] [迭代 10] MEMORY STATE UPDATE
+============================================================
+
+[00:29:01.093] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 81.49.200.166 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始攻击，成功实现初始访问；随后，另一外部 IP 78.205.235.65:80 再次利用相同漏洞（T1190）对 nginx 进程发起攻击，表明攻击者可能采用多源协同或冗余投递策略扩大入侵面。两次攻击均指向同一目标进程 nginx，强化了该服务作为攻击入口点的高风险性。当前调查焦点仍为 nginx 进程的后续行为，需重点分析其在遭受多次 T1190 攻击后是否已执行恶意载荷、派生子进程、写入临时文件或建立外连通道。
+
+[00:29:01.093] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+
+[00:29:01.369] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:29:01.665] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:29:01.873] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:29:01.987] --- Action Recorded ---
+Action: 查找 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:29:02.196] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:29:02.297] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:29:14.764] 
+============================================================
+[00:29:14.764] [迭代 15] MEMORY STATE UPDATE
+============================================================
+
+[00:29:14.764] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 81.49.200.166 利用面向公众的应用漏洞（T1190）向 nginx 进程发起初始攻击，成功实现初始访问；随后，IP 78.205.235.65:80 再次利用相同漏洞（T1190）对 nginx 发起攻击，表明攻击者采用多源协同或冗余投递策略扩大入侵面；最新确认事件显示，第三路攻击流量来自 IP 200.36.109.214:80，同样以 T1190 技术直接 targeting nginx 进程。三起 T1190 攻击均无明确时间戳，故按发现顺序并列呈现，共同指向 nginx 作为高危入口点，显著提升其已被植入恶意载荷、派生子进程、写入临时文件或建立外连通道的可能性。当前调查焦点仍为 nginx 进程的后续行为，需紧急分析其内存状态、子进程树、临时文件写入（如 /tmp/、/var/www/ 下异常文件）及可疑网络连接（尤其是非标准端口或非常规目标 IP 的 outbound 流量）。
+
+[00:29:14.764] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+
+[00:29:14.938] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:29:15.103] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:29:15.288] --- Action Recorded ---
+Action: 查找与 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:29:15.420] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:29:15.536] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:29:15.787] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:29:23.960] 
+============================================================
+[00:29:23.960] [迭代 20] MEMORY STATE UPDATE
+============================================================
+
+[00:29:23.960] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80 及最新确认的 192.0.2.5:443 均直接 targeting nginx 进程，构成四路独立但技术一致的初始访问尝试。所有事件均属 T1190，无明确时间戳，故按发现顺序并列呈现，凸显攻击者对 nginx 这一入口点的高度聚焦与冗余投递策略，极大提升了其已被植入恶意载荷、派生子进程、写入临时文件（如 /tmp/ 或 /var/www/ 下异常二进制或脚本）或建立加密外连通道（尤其是指向非常规 C2 IP 如 192.0.2.5 的 443 端口流量）的可能性。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像中是否存在 shellcode 或注入代码、子进程树中是否隐藏 bash/python 等解释器进程、文件系统中是否有近期创建的可疑临时文件，以及网络连接中是否出现非业务必需的 outbound 流量（如连接 192.0.2.5:443 或其他已知恶意 IP）。
+
+[00:29:23.960] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+
+[00:29:24.229] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:29:24.370] --- Action Recorded ---
+Action: 查找 IP 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:29:24.650] --- Action Recorded ---
+Action: 查找与 IP 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:29:24.830] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:29:25.073] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[00:29:25.215] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[00:29:38.626] 
+============================================================
+[00:29:38.626] [迭代 25] MEMORY STATE UPDATE
+============================================================
+
+[00:29:38.626] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及最新确认的 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。所有事件均属 T1190，无明确时间戳，故按发现顺序并列呈现，凸显攻击者对 nginx 这一入口点的高度聚焦与冗余投递策略——尤其新增的 154.145.113.18:80 流量进一步强化了其持续探测与横向验证意图。该大规模并发利用极大提升了 nginx 内存中已被注入 shellcode、派生隐蔽 bash/python 子进程、写入 /tmp/ 或 /var/www/ 下异常二进制或脚本文件，或建立加密外连通道（如指向 192.0.2.5:443 或其他非常规 C2 IP 的 outbound TLS 流量）的可能性。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、子进程树是否隐藏解释器进程、文件系统中是否有近期创建的可疑临时文件，以及网络连接中是否出现非业务必需的 outbound 流量（特别是与上述五个恶意 IP 的通信）。
+
+[00:29:38.626] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+
+[00:29:38.893] --- Action Recorded ---
+Action: 查找 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:29:39.147] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:29:39.301] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:29:39.434] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:29:47.819] 
+============================================================
+[00:29:47.819] [迭代 28] MEMORY STATE UPDATE
+============================================================
+
+[00:29:47.819] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及最新确认的 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。所有 T1190 事件均无时间戳，按发现顺序并列呈现，凸显攻击者对 nginx 入口点的高度聚焦与冗余投递策略。在成功立足后，受控 nginx 进程进一步执行了本地数据收集行为——读取系统用户组配置文件 /etc/group（T1005），表明攻击已从初始渗透阶段进入横向侦察环节，意图枚举权限上下文以支撑后续提权或横向移动。该操作虽未显式关联子进程或外连，但强化了 nginx 内存中存在持久化 shellcode 或已派生隐蔽解释器进程（如 bash/python）的推断，并可能伴随向 C2 服务器回传敏感信息的行为。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、子进程树是否隐藏解释器进程、文件系统中是否有近期创建的可疑临时文件，以及网络连接中是否出现非业务必需的 outbound 流量（特别是与上述五个恶意 IP 的通信）。
+
+[00:29:47.819] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+
+[00:29:48.002] --- Action Recorded ---
+Action: 查找与 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:29:48.128] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:29:48.238] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:29:48.377] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:29:57.689] 
+============================================================
+[00:29:57.689] [迭代 31] MEMORY STATE UPDATE
+============================================================
+
+[00:29:57.689] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。所有 T1190 事件均无时间戳，按发现顺序并列呈现，凸显攻击者对 nginx 入口点的高度聚焦与冗余投递策略。成功立足后，受控 nginx 进程迅速开展本地数据收集——先后读取系统用户组配置文件 /etc/group（T1005）和用户账户文件 /etc/password（T1005），表明攻击已从初始渗透阶段进入深度侦察环节，旨在全面枚举权限结构、识别高权限账户及潜在提权路径。这两项 T1005 操作虽未显式关联子进程或外连行为，但强烈暗示 nginx 内存中已驻留持久化 shellcode 或已派生隐蔽解释器进程（如 bash/python），并极可能伴随向 C2 回传敏感信息的 outbound 流量。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、子进程树是否隐藏解释器进程、文件系统中是否有近期创建的可疑临时文件（如 /tmp/ 下的可执行脚本），以及网络连接中是否出现与上述五个恶意 IP 的非业务通信。
+
+[00:29:57.689] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+
+[00:29:57.818] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:29:57.977] --- Action Recorded ---
+Action: 查找 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:29:58.276] --- Action Recorded ---
+Action: 查找写入文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:29:58.442] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:29:58.640] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:29:58.882] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:29:59.030] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1059.004
+
+[00:30:09.965] 
+============================================================
+[00:30:09.965] [迭代 37] MEMORY STATE UPDATE
+============================================================
+
+[00:30:09.965] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。成功立足后，受控 nginx 进程迅速开展本地数据收集——读取 /etc/group 和 /etc/password（T1005），完成权限结构枚举；随后执行位于 /tmp/vUgefal 的脚本（T1059.004），表明已派生或复用 shell 环境进入命令执行阶段，该文件极可能为攻击者植入的恶意载荷或中继执行器。上述 T1190 事件均无时间戳，视为最早发生；T1005 与 T1059.004 操作虽未提供具体时间，但按攻击链逻辑紧随其后，体现从渗透、侦察到执行的快速演进。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、子进程树是否隐藏解释器进程、文件系统中 /tmp/vUgefal 的创建时间与内容、以及网络连接中是否出现与上述五个恶意 IP 的非业务通信。
+
+[00:30:09.965] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+
+[00:30:10.193] --- Action Recorded ---
+Action: 查找与 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:30:10.462] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:30:10.592] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:30:10.816] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:30:11.094] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:30:11.338] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:30:23.430] 
+============================================================
+[00:30:23.430] [迭代 42] MEMORY STATE UPDATE
+============================================================
+
+[00:30:23.430] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。成功立足后，受控 nginx 进程迅速开展本地数据收集——先后读取 /etc/group、/etc/password（T1005），完成系统权限结构枚举；继而读取 Web 应用会话文件 /var/www/html/session.tmp（T1005），表明攻击者正定向窃取用户会话凭证等高价值业务数据；随后执行位于 /tmp/vUgefal 的脚本（T1059.004），确认已进入命令执行阶段，该文件极可能为恶意载荷或中继执行器。上述 T1190 事件均无时间戳，视为最早发生；T1005 与 T1059.004 操作虽未提供具体时间，但按攻击链逻辑紧密衔接，体现从渗透、多维度侦察（系统配置+业务数据）到执行的快速演进。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、子进程树是否隐藏解释器进程、文件系统中 /tmp/vUgefal 的创建时间与内容、/var/www/html/session.tmp 的访问上下文，以及网络连接中是否出现与上述五个恶意 IP 的非业务通信。
+
+[00:30:23.430] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+
+[00:30:23.729] --- Action Recorded ---
+Action: 查找写入文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:30:23.893] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:30:24.102] --- Action Recorded ---
+Action: 查找写入文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:30:24.379] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:30:24.508] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:30:24.710] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:30:24.812] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:30:34.973] 
+============================================================
+[00:30:34.973] [迭代 48] MEMORY STATE UPDATE
+============================================================
+
+[00:30:34.973] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。成功立足后，受控 nginx 进程迅速开展本地数据收集——先后读取 /etc/group、/etc/password（T1005），完成系统权限结构枚举；继而读取 Web 应用会话文件 /var/www/html/session.tmp（T1005），表明攻击者正定向窃取用户会话凭证等高价值业务数据；随后执行位于 /tmp/vUgefal 的脚本（T1059.004），确认已进入命令执行阶段。最新确认事件显示，nginx 进程进一步向 /var/log/devc 写入数据（T1105），该路径非常规日志位置，极可能用于隐蔽落盘 C2 工具、加密密钥或窃取数据，构成从侦察、执行到工具部署的关键闭环。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、子进程树是否隐藏解释器进程、/tmp/vUgefal 与 /var/log/devc 的创建时间及内容关联性、/var/www/html/session.tmp 的访问上下文，以及网络连接中是否出现与上述五个恶意 IP 的非业务通信。
+
+[00:30:34.973] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+
+[00:30:35.116] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:30:35.294] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:30:35.420] --- Action Recorded ---
+Action: 查找写入文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:30:35.560] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:30:35.724] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:30:36.014] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:30:47.662] 
+============================================================
+[00:30:47.662] [迭代 53] MEMORY STATE UPDATE
+============================================================
+
+[00:30:47.662] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 进程立即开展本地数据收集——读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；继而两次访问 /var/www/html/session.tmp：先读取以窃取用户会话凭证（T1005），随后向该文件写入恶意载荷（T1105），表明攻击者正复用业务路径实施隐蔽落盘；与此同时，执行 /tmp/vUgefal 脚本（T1059.004）进入命令执行阶段；最终向非常规路径 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥，形成从初始访问、侦察、凭证窃取、执行到工具投递的完整闭环。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 与两次 /var/www/html/session.tmp 操作的时间关联性及内容一致性、/var/log/devc 文件性质，以及所有网络连接中是否隐含与上述五个恶意IP的非业务通信。
+
+[00:30:47.662] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+
+[00:30:47.778] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:30:47.989] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1059.004
+
+[00:31:00.931] 
+============================================================
+[00:31:00.931] [迭代 54] MEMORY STATE UPDATE
+============================================================
+
+[00:31:00.931] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 进程立即开展本地数据收集——读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；继而两次访问 /var/www/html/session.tmp：先读取以窃取用户会话凭证（T1005），随后向该文件写入恶意载荷（T1105）；与此同时，执行 /tmp/vUgefal 脚本（T1059.004），且该脚本自身被 nginx 读取并解析执行，形成自持式命令执行链；最终向非常规路径 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 的完整执行上下文（含时间戳与参数）、两次 /var/www/html/session.tmp 操作的时序与内容一致性、/var/log/devc 文件性质，以及所有网络连接中是否隐含与上述五个恶意IP的非业务通信。
+
+[00:31:00.931] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+
+[00:31:01.041] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:31:01.257] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:31:01.518] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:31:01.708] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:31:01.890] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:31:11.154] 
+============================================================
+[00:31:11.154] [迭代 58] MEMORY STATE UPDATE
+============================================================
+
+[00:31:11.154] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 立即执行本地数据收集——先后读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；随后两次访问 /var/www/html/session.tmp：先读取窃取用户会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），该脚本被 nginx 读取并解析执行，形成自持式命令执行链；值得注意的是，/tmp/vUgefal 自身亦读取 /etc/group（T1005），表明其具备横向权限分析能力；最终，nginx 向非常规路径 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 的完整执行上下文（含时间戳与参数）、两次 /var/www/html/session.tmp 操作的时序与内容一致性、/var/log/devc 文件性质，以及所有网络连接中是否隐含与上述五个恶意IP的非业务通信。
+
+[00:31:11.154] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+
+[00:31:11.388] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:31:11.585] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:31:11.824] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:31:12.066] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:31:12.343] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:31:23.073] 
+============================================================
+[00:31:23.073] [迭代 62] MEMORY STATE UPDATE
+============================================================
+
+[00:31:23.073] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 立即执行本地数据收集——读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；随后两次访问 /var/www/html/session.tmp：先读取窃取用户会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004）。该脚本被 nginx 加载后，进一步自我执行（T1059.004），并重复读取 /etc/group 和 /etc/password（T1005），强化其横向权限分析能力；最终，nginx 向非常规路径 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 的完整执行上下文（含时间戳与参数）、两次 /var/www/html/session.tmp 操作的时序与内容一致性、/var/log/devc 文件性质，以及所有网络连接中是否隐含与上述五个恶意IP的非业务通信。
+
+[00:31:23.073] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+
+[00:31:23.285] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:31:23.389] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[00:31:23.654] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[00:31:33.989] 
+============================================================
+[00:31:33.989] [迭代 64] MEMORY STATE UPDATE
+============================================================
+
+[00:31:33.989] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 立即执行本地数据收集——读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；随后两次访问 /var/www/html/session.tmp：先读取窃取用户会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004）。该脚本被 nginx 加载后自我执行（T1059.004），重复读取 /etc/group 和 /etc/password（T1005），并新增读取 /usr/log/devc（T1005），表明其正从隐蔽日志路径提取持久化配置或密钥材料；最终，nginx 向非常规路径 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 的完整执行上下文（含时间戳与参数）、两次 /var/www/html/session.tmp 操作的时序与内容一致性、/var/log/devc 与 /usr/log/devc 文件关联性，以及所有网络连接中是否隐含与上述五个恶意IP的非业务通信。
+
+[00:31:33.989] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+
+[00:31:34.259] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:31:34.501] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:31:34.645] --- Action Recorded ---
+Action: 查找写入文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:31:34.761] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:31:34.935] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:31:35.185] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:31:49.382] 
+============================================================
+[00:31:49.382] [迭代 69] MEMORY STATE UPDATE
+============================================================
+
+[00:31:49.382] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 立即执行本地数据收集——读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；随后两次访问 /var/www/html/session.tmp：先读取窃取用户会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004）。该脚本被 nginx 加载后自我执行（T1059.004），重复读取 /etc/group 和 /etc/password（T1005），并新增读取 /usr/log/devc（T1005），表明其正从隐蔽日志路径提取持久化配置或密钥材料；最终，vUgefal 进程主动向 C2 服务器 139.123.0.113:80 发起 HTTP 协议通信（T1071.001），完成命令与控制阶段的关键外联。与此同时，nginx 还向 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 的完整执行上下文（含时间戳与参数）、两次 /var/www/html/session.tmp 操作的时序与内容一致性、/var/log/devc 与 /usr/log/devc 文件关联性，以及所有网络连接中是否隐含与上述五个恶意IP及新发现C2地址 139.123.0.113:80 的非业务通信。
+
+[00:31:49.382] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+
+[00:31:49.637] --- Action Recorded ---
+Action: 查找 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:31:49.845] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:31:49.980] --- Action Recorded ---
+Action: 查找与 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:31:50.153] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:31:50.433] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:31:59.102] 
+============================================================
+[00:31:59.102] [迭代 73] MEMORY STATE UPDATE
+============================================================
+
+[00:31:59.102] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 立即执行本地数据收集——读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；随后两次访问 /var/www/html/session.tmp：先读取窃取用户会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004）。该脚本被 nginx 加载后自我执行（T1059.004），重复读取 /etc/group 和 /etc/password（T1005），并新增读取 /usr/log/devc（T1005），表明其正从隐蔽日志路径提取持久化配置或密钥材料；最终，vUgefal 进程不仅向 C2 服务器 139.123.0.113:80 发起 HTTP 协议通信（T1071.001），还新增向内网地址 10.10.10.7:8080 的 HTTP 外联（T1071.001），揭示其具备横向渗透能力与双C2冗余机制。与此同时，nginx 还向 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 的完整执行上下文（含时间戳与参数）、两次 /var/www/html/session.tmp 操作的时序与内容一致性、/var/log/devc 与 /usr/log/devc 文件关联性，以及所有网络连接中是否隐含与上述五个恶意IP及两个C2地址（139.123.0.113:80、10.10.10.7:8080）的非业务通信。
+
+[00:31:59.102] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+
+[00:31:59.359] --- Action Recorded ---
+Action: 查找 IP 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:31:59.519] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:31:59.786] --- Action Recorded ---
+Action: 查找与 IP 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:31:59.995] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:32:00.215] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071
+
+[00:32:09.694] 
+============================================================
+[00:32:09.694] [迭代 77] MEMORY STATE UPDATE
+============================================================
+
+[00:32:09.694] --- 叙述性攻击摘要 ---
+攻击始于多源协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 均直接 targeting nginx 进程，构成五路独立但技术一致的初始访问尝试。立足后，nginx 立即执行本地数据收集——读取 /etc/group 与 /etc/password（T1005）完成权限结构枚举；随后两次访问 /var/www/html/session.tmp：先读取窃取用户会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004）。该脚本被 nginx 加载后自我执行（T1059.004），重复读取 /etc/group 和 /etc/password（T1005），并新增读取 /usr/log/devc（T1005），表明其正从隐蔽日志路径提取持久化配置或密钥材料；最终，vUgefal 进程不仅向 C2 服务器 139.123.0.113:80 和内网地址 10.10.10.7:8080 发起 HTTP 协议通信（T1071.001），还新增向 logs-aggregator 服务发送数据（T1071），揭示其具备日志投毒与协议混淆能力，进一步强化C2隐蔽性。与此同时，nginx 向 /var/log/devc 写入数据（T1105），极可能部署C2工具或加密密钥。当前调查焦点仍为 nginx 进程本身，亟需分析其内存镜像是否存在注入代码、/tmp/vUgefal 的完整执行上下文（含时间戳与参数）、两次 /var/www/html/session.tmp 操作的时序与内容一致性、/var/log/devc 与 /usr/log/devc 文件关联性，以及所有网络连接中是否隐含与上述五个恶意IP及三个C2目标（139.123.0.113:80、10.10.10.7:8080、logs-aggregator）的非业务通信。
+
+[00:32:09.694] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+
+[00:32:09.914] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:32:10.071] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:32:10.294] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:32:10.403] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:32:10.634] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: success
+
+[00:32:10.855] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[00:32:23.547] 
+============================================================
+[00:32:23.547] [迭代 82] MEMORY STATE UPDATE
+============================================================
+
+[00:32:23.547] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004）。该脚本被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及隐蔽日志路径 /usr/log/devc（T1005），强化凭证与密钥提取；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071），实现多通道C2与日志投毒。与此同时，nginx 向 /var/log/devc 写入数据（T1105），疑似部署加密密钥或C2组件。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 的完整执行上下文（含启动时间戳与参数）、两次 session.tmp 操作的时序一致性、/var/log/devc 与 /usr/log/devc 的文件关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标的非业务交互。
+
+[00:32:23.547] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+
+[00:32:23.797] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:32:24.040] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:32:24.142] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:32:24.316] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:32:24.497] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:32:35.093] 
+============================================================
+[00:32:35.093] [迭代 86] MEMORY STATE UPDATE
+============================================================
+
+[00:32:35.093] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004）。该脚本被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及隐蔽日志路径 /usr/log/devc（T1005），强化凭证与密钥提取；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071），实现多通道C2与日志投毒。与此同时，nginx 向 /var/log/devc 写入数据（T1105），疑似部署加密密钥或C2组件。最新确认：/tmp/vUgefal 进程进一步派生 sshd 进程（T1059.004），表明攻击者正尝试建立持久化远程访问通道，可能用于横向移动或特权维持。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 的完整执行上下文（含启动时间戳与参数）、两次 session.tmp 操作的时序一致性、/var/log/devc 与 /usr/log/devc 的文件关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标的非业务交互。
+
+[00:32:35.093] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+
+[00:32:35.242] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:32:35.540] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:32:35.649] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:32:35.939] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[00:32:36.098] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[00:32:48.105] 
+============================================================
+[00:32:48.105] [迭代 90] MEMORY STATE UPDATE
+============================================================
+
+[00:32:48.105] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并额外 fork 出 php-fpm 进程（T1059.004），疑似用于隐蔽持久化或绕过进程监控。该脚本被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及隐蔽日志路径 /usr/log/devc（T1005），强化凭证与密钥提取；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071），实现多通道C2与日志投毒。与此同时，nginx 向 /var/log/devc 写入数据（T1105），疑似部署加密密钥或C2组件；/tmp/vUgefal 进程进一步派生 sshd 进程（T1059.004），表明攻击者正尝试建立持久化远程访问通道。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 的完整执行上下文、两次 session.tmp 操作的时序一致性、/var/log/devc 与 /usr/log/devc 的文件关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标的非业务交互。
+
+[00:32:48.105] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+
+[00:32:48.307] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:32:48.481] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:32:48.712] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:32:48.916] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[00:32:49.213] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:32:49.337] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:33:01.032] 
+============================================================
+[00:33:01.032] [迭代 95] MEMORY STATE UPDATE
+============================================================
+
+[00:33:01.032] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程随即向 Web 根目录写入持久化后门文件 /var/www/html/backdoor.php（T1105），显著强化横向渗透与二次利用能力。/tmp/vUgefal 被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及 /usr/log/devc（T1005），强化凭证与密钥提取；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071）；nginx 同步向 /var/log/devc 写入数据（T1105），疑似部署加密组件；/tmp/vUgefal 进一步派生 sshd 进程（T1059.004），尝试建立隐蔽远程访问通道。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制、两次 session.tmp 操作的完整性、/var/log/devc 与 /usr/log/devc 的关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标的非业务交互。
+
+[00:33:01.032] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+
+[00:33:01.231] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:33:01.344] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:33:01.520] --- Action Recorded ---
+Action: 查找写入文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:33:01.727] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:33:01.873] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:33:16.684] 
+============================================================
+[00:33:16.684] [迭代 99] MEMORY STATE UPDATE
+============================================================
+
+[00:33:16.684] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程随即向 Web 根目录写入持久化后门文件 /var/www/html/backdoor.php（T1105）。/tmp/vUgefal 被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及 /usr/log/devc（T1005）；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071）；值得注意的是，logs-aggregator 进程进一步主动向 10.0.0.9:9000 发起外联（T1071.001），表明攻击已延伸至日志聚合层并构建二级C2通道；nginx 同步向 /var/log/devc 写入数据（T1105），疑似部署加密组件；/tmp/vUgefal 还派生 sshd 进程（T1059.004），尝试建立隐蔽远程访问通道。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制、两次 session.tmp 操作的完整性、/var/log/devc 与 /usr/log/devc 的关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标（含新增 10.0.0.9:9000）的非业务交互。
+
+[00:33:16.684] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+  23. [Command and Control] T1071.001 (Web Protocols) - logs-aggregator → 10.0.0.9:9000
+
+[00:33:16.879] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:33:17.038] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[00:33:17.263] --- Action Recorded ---
+Action: 查找进程 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:33:17.437] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071
+
+[00:33:32.017] 
+============================================================
+[00:33:32.017] [迭代 102] MEMORY STATE UPDATE
+============================================================
+
+[00:33:32.017] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程随即向 Web 根目录写入持久化后门文件 /var/www/html/backdoor.php（T1105）。/tmp/vUgefal 被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及 /usr/log/devc（T1005）；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071）；logs-aggregator 进程不仅主动外联 10.0.0.9:9000（T1071.001），更反向向 nginx 发起应用层协议通信（T1071），形成闭环C2信道；nginx 同步向 /var/log/devc 写入数据（T1105），疑似部署加密组件；/tmp/vUgefal 还派生 sshd 进程（T1059.004），尝试建立隐蔽远程访问通道。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制、两次 session.tmp 操作的完整性、/var/log/devc 与 /usr/log/devc 的关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标（含新增 10.0.0.9:9000）的非业务交互。
+
+[00:33:32.017] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+  23. [Command and Control] T1071.001 (Web Protocols) - logs-aggregator → 10.0.0.9:9000
+  24. [Command and Control] T1071 (Application Layer Protocol) - logs-aggregator → nignx
+
+[00:33:32.123] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:33:32.394] --- Action Recorded ---
+Action: 查找 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[00:33:32.622] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[00:33:32.771] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:33:33.068] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:33:47.876] 
+============================================================
+[00:33:47.876] [迭代 106] MEMORY STATE UPDATE
+============================================================
+
+[00:33:47.876] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程随即向 Web 根目录写入持久化后门文件 /var/www/html/backdoor.php（T1105）。/tmp/vUgefal 被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及 /usr/log/devc（T1005），并**新增向 /usr/log/devc 写入数据行为（T1105）**；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071）；logs-aggregator 进程不仅主动外联 10.0.0.9:9000（T1071.001），更反向向 nginx 发起应用层协议通信（T1071），形成闭环C2信道；nginx 同步向 /var/log/devc 写入数据（T1105），疑似部署加密组件；/tmp/vUgefal 还派生 sshd 进程（T1059.004），尝试建立隐蔽远程访问通道。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制、两次 session.tmp 操作的完整性、/var/log/devc 与 /usr/log/devc 的关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标（含新增 10.0.0.9:9000）的非业务交互。
+
+[00:33:47.876] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+  23. [Command and Control] T1071.001 (Web Protocols) - logs-aggregator → 10.0.0.9:9000
+  24. [Command and Control] T1071 (Application Layer Protocol) - logs-aggregator → nignx
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - vUgefal → /usr/log/devc
+
+[00:33:48.114] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[00:33:48.410] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[00:33:48.597] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[00:33:48.752] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[00:34:03.256] 
+============================================================
+[00:34:03.256] [迭代 109] MEMORY STATE UPDATE
+============================================================
+
+[00:34:03.256] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程随即向 Web 根目录写入持久化后门文件 /var/www/html/backdoor.php（T1105），**并于后续被该 backdoor.php 主动调用执行（T1059）**，形成双向执行闭环。/tmp/vUgefal 被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及 /usr/log/devc（T1005），并新增向 /usr/log/devc 写入数据行为（T1105）；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071）；logs-aggregator 进程不仅主动外联 10.0.0.9:9000（T1071.001），更反向向 nginx 发起应用层协议通信（T1071），形成闭环C2信道；nginx 同步向 /var/log/devc 写入数据（T1105），疑似部署加密组件；/tmp/vUgefal 还派生 sshd 进程（T1059.004），尝试建立隐蔽远程访问通道。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制与执行上下文、两次 session.tmp 操作的完整性、/var/log/devc 与 /usr/log/devc 的关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标（含新增 10.0.0.9:9000）的非业务交互。
+
+[00:34:03.256] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+  23. [Command and Control] T1071.001 (Web Protocols) - logs-aggregator → 10.0.0.9:9000
+  24. [Command and Control] T1071 (Application Layer Protocol) - logs-aggregator → nignx
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - vUgefal → /usr/log/devc
+  26. [Execution] T1059 (Command and Scripting Interpreter) - /var/www/html/backdoor.php → php-fpm
+
+[00:34:03.395] --- Action Recorded ---
+Action: 查找与 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[00:34:03.505] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:34:03.733] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[00:34:04.014] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[00:34:04.245] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[00:34:12.629] 
+============================================================
+[00:34:12.629] [迭代 113] MEMORY STATE UPDATE
+============================================================
+
+[00:34:12.629] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程随即向 Web 根目录写入持久化后门文件 /var/www/html/backdoor.php（T1105），并于后续被该 backdoor.php 主动调用执行（T1059），形成双向执行闭环。/tmp/vUgefal 被加载后自我重复执行（T1059.004/T1059），持续读取 /etc/group、/etc/password 及 /usr/log/devc（T1005），并新增向 /usr/log/devc 写入数据行为（T1105）；随后向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆型通信（T1071.001/T1071）；logs-aggregator 进程不仅主动外联 10.0.0.9:9000（T1071.001），更反向向 nginx 发起应用层协议通信（T1071），形成闭环C2信道；nginx 同步向 /var/log/devc 写入数据（T1105），疑似部署加密组件；/tmp/vUgefal 还派生 sshd 进程（T1059.004），并由该 sshd 进程向 /root/.ssh/authorized_keys 写入密钥（T1105），完成隐蔽持久化远程访问通道构建。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制与执行上下文、两次 session.tmp 操作的完整性、/var/log/devc 与 /usr/log/devc 的关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标（含新增 10.0.0.9:9000）的非业务交互。
+
+[00:34:12.629] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+  23. [Command and Control] T1071.001 (Web Protocols) - logs-aggregator → 10.0.0.9:9000
+  24. [Command and Control] T1071 (Application Layer Protocol) - logs-aggregator → nignx
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - vUgefal → /usr/log/devc
+  26. [Execution] T1059 (Command and Scripting Interpreter) - /var/www/html/backdoor.php → php-fpm
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /root/.ssh/authorized_keys
+
+[00:34:12.900] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[00:34:13.180] --- Action Recorded ---
+Action: 查找写入文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[00:34:13.291] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[00:34:13.546] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[00:34:13.731] --- Malicious Event Added ---
+Event ID: 8D40106A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1552.001
+
+[00:34:27.967] 
+============================================================
+[00:34:27.967] [迭代 117] MEMORY STATE UPDATE
+============================================================
+
+[00:34:27.967] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/password（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程向 Web 根目录写入持久化后门 /var/www/html/backdoor.php（T1105），随后被其主动调用执行（T1059），形成双向执行闭环。/tmp/vUgefal 持续自我重复执行（T1059.004/T1059），遍历敏感文件（/etc/group、/etc/password、/usr/log/devc，T1005），并向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆通信（T1071.001/T1071）；logs-aggregator 不仅外联 10.0.0.9:9000（T1071.001），更反向与 nginx 建立应用层信道（T1071），构成闭环C2。关键新增行为：sshd 进程（由 vUgefal 派生）向 /root/.ssh/authorized_keys 写入密钥（T1105），而 mactor 进程随即从中读取凭证（T1552.001），标志攻击者已获取高权限横向移动能力。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制、session.tmp 完整性、/var/log/devc 与 /usr/log/devc 关联性，以及所有网络连接中是否隐含与五个初始IP及三个C2目标（含 10.0.0.9:9000）的非业务交互。
+
+[00:34:27.967] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+  23. [Command and Control] T1071.001 (Web Protocols) - logs-aggregator → 10.0.0.9:9000
+  24. [Command and Control] T1071 (Application Layer Protocol) - logs-aggregator → nignx
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - vUgefal → /usr/log/devc
+  26. [Execution] T1059 (Command and Scripting Interpreter) - /var/www/html/backdoor.php → php-fpm
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /root/.ssh/authorized_keys
+  28. [Credential Access] T1552.001 (Credentials In Files) - /root/.ssh/authorized_keys → mactor
+
+[00:34:28.132] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[00:34:28.252] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[00:34:28.472] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[00:34:28.733] --- Action Recorded ---
+Action: 查找进程 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[00:34:28.953] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[00:34:43.022] 
+============================================================
+[00:34:43.022] [迭代 121] MEMORY STATE UPDATE
+============================================================
+
+[00:34:43.022] --- 叙述性攻击摘要 ---
+攻击始于五路协同的面向公众应用漏洞利用（T1190）：外部IP 81.49.200.166、78.205.235.65:80、200.36.109.214:80、192.0.2.5:443 及 154.145.113.18:80 同步 targeting nginx 进程，构成高可信度初始入侵。立足后，nginx 立即执行权限结构枚举——读取 /etc/group 与 /etc/passwd（T1005），并两次操作 /var/www/html/session.tmp：先窃取会话凭证（T1005），再写入恶意载荷（T1105）；同时派生执行 /tmp/vUgefal 脚本（T1059.004），并 fork 出 php-fpm 进程（T1059.004）。该 php-fpm 进程向 Web 根目录写入持久化后门 /var/www/html/backdoor.php（T1105），随后被其主动调用执行（T1059），形成双向执行闭环。/tmp/vUgefal 持续自我重复执行（T1059.004/T1059），遍历敏感文件（/etc/group、/etc/passwd、/usr/log/devc，T1005），并向 C2 服务器 139.123.0.113:80、内网地址 10.10.10.7:8080 及 logs-aggregator 服务发起 HTTP 与协议混淆通信（T1071.001/T1071）；logs-aggregator 不仅外联 10.0.0.9:9000（T1071.001），更反向与 nginx 建立应用层信道（T1071），构成闭环C2。关键新增行为：sshd 进程（由 vUgefal 派生）向 /root/.ssh/authorized_keys 写入密钥（T1105），而 mactor 进程随即从中读取凭证（T1552.001），并立即向新发现的 C2 地址 61.167.39.128:80 发起外联（T1071.001），标志攻击者已扩展远程控制能力。当前调查焦点仍为 nginx 进程，亟需分析其内存注入痕迹、/tmp/vUgefal 与 php-fpm 的父子关系及执行时序、backdoor.php 的触发机制、session.tmp 完整性、/var/log/devc 与 /usr/log/devc 关联性，以及所有网络连接中是否隐含与五个初始IP及四个C2目标（含 10.0.0.9:9000 和 61.167.39.128:80）的非业务交互。
+
+[00:34:43.022] --- MITRE TTP 链 ---
+  1. [Initial Access] T1190 (Exploit Public-Facing Application) - 81.49.200.166 → nignx
+  2. [Initial Access] T1190 (Exploit Public-Facing Application) - 78.205.235.65:80 → nignx
+  3. [Initial Access] T1190 (Exploit Public-Facing Application) - 200.36.109.214:80 → nignx
+  4. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.0.2.5:443 → nignx
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 154.145.113.18:80 → nignx
+  6. [Collection] T1005 (Data from Local System) - /etc/group → nignx
+  7. [Collection] T1005 (Data from Local System) - /etc/password → nignx
+  8. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → nignx
+  9. [Collection] T1005 (Data from Local System) - /var/www/html/session.tmp → nignx
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/log/devc
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - nignx → /var/www/html/session.tmp
+  12. [Execution] T1059.004 (Unix Shell) - /tmp/vUgefal → vUgefal
+  13. [Collection] T1005 (Data from Local System) - /etc/group → vUgefal
+  14. [Collection] T1005 (Data from Local System) - /etc/password → vUgefal
+  15. [Collection] T1005 (Data from Local System) - /usr/log/devc → vUgefal
+  16. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 139.123.0.113:80
+  17. [Command and Control] T1071.001 (Web Protocols) - vUgefal → 10.10.10.7:8080
+  18. [Command and Control] T1071 (Application Layer Protocol) - vUgefal → logs-aggregator
+  19. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/vUgefal → vUgefal
+  20. [Execution] T1059.004 (Unix Shell) - vUgefal → sshd
+  21. [Execution] T1059.004 (Unix Shell) - nignx → php-fpm
+  22. [Command and Control] T1105 (Ingress Tool Transfer) - php-fpm → /var/www/html/backdoor.php
+  23. [Command and Control] T1071.001 (Web Protocols) - logs-aggregator → 10.0.0.9:9000
+  24. [Command and Control] T1071 (Application Layer Protocol) - logs-aggregator → nignx
+  25. [Command and Control] T1105 (Ingress Tool Transfer) - vUgefal → /usr/log/devc
+  26. [Execution] T1059 (Command and Scripting Interpreter) - /var/www/html/backdoor.php → php-fpm
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - sshd → /root/.ssh/authorized_keys
+  28. [Credential Access] T1552.001 (Credentials In Files) - /root/.ssh/authorized_keys → mactor
+  29. [Command and Control] T1071.001 (Web Protocols) - mactor → 61.167.39.128:80
+  30. [Execution] T1059.004 (Unix Shell) - /usr/log/devc → sshd
+  31. [Execution] T1059.004 (Unix Shell) - sshd → vUgefal
+  32. [Command and Control] T1105 (Ingress Tool Transfer) - /var/log/devc → /usr/log/devc
+  33. [Command and Control] T1105 (Ingress Tool Transfer) - /etc/group → /etc/group
+  34. [Collection] T1005 (Data from Local System) - 78.205.235.65:80 → /tmp/vUgefal
+  35. [Command and Control] T1105 (Ingress Tool Transfer) - /etc/group → 61.167.39.128:80
+  36. [Execution] T1059 (Command and Scripting Interpreter) - 200.36.109.214:80 → 139.123.0.113:80
+  37. [Execution] T1059.004 (Unix Shell) - 139.123.0.113:80 → 81.49.200.166

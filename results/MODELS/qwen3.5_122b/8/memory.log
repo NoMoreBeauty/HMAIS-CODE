@@ -1,0 +1,1686 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T22:44:02.957991
+================================================================================
+
+[23:40:16.279] 
+============================================================
+[23:40:16.279] POI REGISTERED
+============================================================
+
+[23:40:16.279] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401050-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "pine (process)",
+  "目标节点": "dfa21dsacxz.docx (file)",
+  "源节点ID": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[23:40:16.452] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:40:16.637] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:40:16.780] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:40:16.902] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:40:17.156] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:40:28.851] 
+============================================================
+[23:40:28.851] [迭代 4] MEMORY STATE UPDATE
+============================================================
+
+[23:40:28.851] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式派生出 texec 子进程（T1059.004）。当前调查焦点为 texec 进程的后续行为。
+
+[23:40:28.851] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+
+[23:40:29.027] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:40:29.286] --- Action Recorded ---
+Action: 查找文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:40:29.443] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:40:29.569] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:40:29.787] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:40:29.984] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:40:41.938] 
+============================================================
+[23:40:41.938] [迭代 9] MEMORY STATE UPDATE
+============================================================
+
+[23:40:41.938] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程。其中，texec 进程为当前调查焦点，其后续行为尚待深入分析；而 bash 进程作为并行执行分支，同样源于 pine 的恶意指令分发，表明攻击者采用了多路径执行策略以提升隐蔽性与成功率。此前摘要中仅体现 texec 分支，现补充 bash 分支后，完整呈现了 pine 进程在初始阶段的双重执行行为。
+
+[23:40:41.938] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+
+[23:40:42.229] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:40:42.520] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:40:42.800] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:40:42.964] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:40:43.169] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:40:52.693] 
+============================================================
+[23:40:52.693] [迭代 13] MEMORY STATE UPDATE
+============================================================
+
+[23:40:52.693] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。其中，texec 进程随即向 C2 服务器 128.55.12.73 发起网络通信（T1071.001），表明其已进入命令与控制阶段；bash 进程作为并行分支，当前尚未观测到具体行为，但其存在本身强化了初始指令分发的恶意意图。此前摘要仅聚焦 texec 分支，现结合新确认的 sendto 事件，完整勾勒出 pine 在执行层（T1059.004）触发双线程后，texec 迅速转入 C2 通信（T1071.001）的关键链路。当前调查焦点仍为 texec 进程的后续网络活动及潜在载荷交互。
+
+[23:40:52.693] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+
+[23:40:52.812] --- Action Recorded ---
+Action: 查找写入文件 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:40:53.032] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:40:53.225] --- Action Recorded ---
+Action: 查找与 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:40:53.383] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:40:53.593] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:40:53.706] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:41:02.877] 
+============================================================
+[23:41:02.877] [迭代 18] MEMORY STATE UPDATE
+============================================================
+
+[23:41:02.877] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。其中，texec 进程迅速进入命令与控制阶段：先向 C2 服务器 128.55.12.73 发起网络通信（T1071.001），随后又连接另一 C2 地址 207.103.191.4:80（T1071.001），表明存在冗余或轮询式 C2 架构，旨在提升通信鲁棒性与规避检测。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在本身强化了初始指令分发的恶意意图。此前摘要仅聚焦 texec 对 128.55.12.73 的通信，现结合新确认的 sendto 事件，完整揭示 texec 在 C2 阶段已开展多次 Web 协议通信（T1071.001），覆盖至少两个不同 IP 及端口，凸显其活跃的远程交互能力。当前调查焦点为 texec 进程的后续网络活动及潜在载荷交互。
+
+[23:41:02.877] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+
+[23:41:03.010] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:41:03.160] --- Action Recorded ---
+Action: 查找与 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:41:03.268] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:41:03.447] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:41:16.588] 
+============================================================
+[23:41:16.588] [迭代 21] MEMORY STATE UPDATE
+============================================================
+
+[23:41:16.588] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。其中，texec 进程迅速进入命令与控制阶段：先后向三个不同 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80 及最新确认的 103.12.253.24:80，表明其构建了具备地理分散性与协议一致性（均为 HTTP/80）的多节点 C2 架构，显著提升通信鲁棒性、规避基于单 IP 或单端口的检测规则。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在强化了初始指令分发的恶意意图。此前摘要已揭示 texec 对前两个 C2 地址的活跃交互，本次新增事件进一步证实其持续、高频的远程控制能力。当前调查焦点为 texec 进程的后续网络活动及潜在载荷交互。
+
+[23:41:16.588] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+
+[23:41:16.777] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:41:17.068] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:41:17.349] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:41:17.457] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:41:17.666] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:41:17.856] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:41:18.126] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:41:32.582] 
+============================================================
+[23:41:32.582] [迭代 27] MEMORY STATE UPDATE
+============================================================
+
+[23:41:32.582] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：先后向四个 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80 及最新确认的 128.55.12.1（无端口，默认 HTTP/80），表明其构建了具备地理分散性、协议一致性及拓扑冗余性的多节点 C2 架构，显著提升通信鲁棒性与反检测能力。其中，128.55.12.1 与 128.55.12.73 属同一网段，暗示攻击者可能部署了内网跳板或私有 C2 子集群。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在强化了初始指令分发的恶意意图。此前摘要已揭示 texec 对前三个 C2 地址的活跃交互，本次新增事件进一步证实其持续、高频且具备网络拓扑适应性的远程控制能力。当前调查焦点为 texec 进程的后续网络活动及潜在载荷交互。
+
+[23:41:32.582] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+
+[23:41:32.881] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:41:33.128] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:41:33.279] --- Action Recorded ---
+Action: 查找 IP 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:41:33.523] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:41:33.787] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:41:45.290] 
+============================================================
+[23:41:45.290] [迭代 31] MEMORY STATE UPDATE
+============================================================
+
+[23:41:45.290] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：先后向五个 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80、128.55.12.1（默认 HTTP/80）及最新确认的 128.55.12.67（无端口，默认 HTTP/80）。该 C2 集群呈现显著地理分散性与拓扑冗余性，其中 128.55.12.73、128.55.12.1 与新增的 128.55.12.67 同属 128.55.12.0/24 网段，强烈暗示攻击者部署了内网跳板或私有 C2 子集群，进一步提升通信鲁棒性与反检测能力。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在强化了初始指令分发的恶意意图。当前调查焦点为 texec 进程的后续网络活动及潜在载荷交互。
+
+[23:41:45.290] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+
+[23:41:45.464] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:41:45.678] --- Action Recorded ---
+Action: 查找与 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:41:45.824] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:41:45.943] --- Action Recorded ---
+Action: 查找 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:41:46.102] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:41:46.209] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:41:59.039] 
+============================================================
+[23:41:59.039] [迭代 36] MEMORY STATE UPDATE
+============================================================
+
+[23:41:59.039] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：先后向六个 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80、128.55.12.1（默认 HTTP/80）、128.55.12.67（无端口，默认 HTTP/80）及最新确认的 128.55.12.110（无端口，默认 HTTP/80）。该 C2 集群呈现显著地理分散性与拓扑冗余性，其中 128.55.12.73、128.55.12.1、128.55.12.67 与新增的 128.55.12.110 同属 128.55.12.0/24 网段，构成高度集中的私有 C2 子集群，强烈暗示攻击者部署了内网跳板或受控代理节点，进一步提升通信鲁棒性、规避出口检测并支持横向扩展。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在强化了初始指令分发的恶意意图。当前调查焦点为 texec 进程与 128.55.12.110 的载荷交互细节及该 IP 的响应内容分析。
+
+[23:41:59.039] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+
+[23:41:59.252] --- Action Recorded ---
+Action: 查找 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:41:59.485] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:41:59.659] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:41:59.766] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:41:59.937] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:42:11.113] 
+============================================================
+[23:42:11.113] [迭代 40] MEMORY STATE UPDATE
+============================================================
+
+[23:42:11.113] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：先后向七个 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80、128.55.12.1、128.55.12.67、128.55.12.110 及最新确认的 128.55.12.103（均默认 HTTP/80）。该 C2 集群呈现显著地理分散性与拓扑冗余性，其中 128.55.12.73、128.55.12.1、128.55.12.67、128.55.12.110 与新增的 128.55.12.103 同属 128.55.12.0/24 网段，构成高度集中的私有 C2 子集群，强烈暗示攻击者部署了内网跳板或受控代理节点，进一步提升通信鲁棒性、规避出口检测并支持横向扩展。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在强化了初始指令分发的恶意意图。当前调查焦点为 texec 进程与 128.55.12.103 的载荷交互细节及该 IP 的响应内容分析。
+
+[23:42:11.113] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+
+[23:42:11.234] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:42:11.372] --- Action Recorded ---
+Action: 查找与 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:42:11.571] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:42:11.831] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:42:12.070] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:42:21.352] 
+============================================================
+[23:42:21.352] [迭代 44] MEMORY STATE UPDATE
+============================================================
+
+[23:42:21.352] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：已确认其先后向八个 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80、128.55.12.1、128.55.12.67、128.55.12.110、128.55.12.103 及最新发现的 128.55.12.141（均默认 HTTP/80）。其中，128.55.12.73、128.55.12.1、128.55.12.67、128.55.12.110、128.55.12.103 与新增的 128.55.12.141 共六台服务器同属 128.55.12.0/24 网段，构成高度集中的私有 C2 子集群，显著强化地理分散性与拓扑冗余性，强烈暗示攻击者部署了内网跳板或受控代理节点，旨在提升通信鲁棒性、规避出口检测并支持横向扩展。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在进一步佐证初始指令分发的恶意意图。当前调查焦点为 texec 进程与最新 C2 地址 128.55.12.141 的载荷交互细节及该 IP 的响应内容分析。
+
+[23:42:21.352] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+
+[23:42:21.542] --- Action Recorded ---
+Action: 查找与 IP 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:42:21.666] --- Action Recorded ---
+Action: 查找与 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:42:21.789] --- Action Recorded ---
+Action: 查找 IP 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:42:21.965] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:42:22.173] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:42:31.049] 
+============================================================
+[23:42:31.049] [迭代 48] MEMORY STATE UPDATE
+============================================================
+
+[23:42:31.049] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：已确认其先后向九个 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80、128.55.12.1、128.55.12.67、128.55.12.110、128.55.12.103、128.55.12.141 及最新发现的 128.55.12.166（均默认 HTTP/80）。其中，128.55.12.73、128.55.12.1、128.55.12.67、128.55.12.110、128.55.12.103、128.55.12.141 与新增的 128.55.12.166 共七台服务器同属 128.55.12.0/24 网段，构成高度集中的私有 C2 子集群，显著强化地理分散性与拓扑冗余性，强烈暗示攻击者部署了内网跳板或受控代理节点，旨在提升通信鲁棒性、规避出口检测并支持横向扩展。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在进一步佐证初始指令分发的恶意意图。当前调查焦点为 texec 进程与最新 C2 地址 128.55.12.166 的载荷交互细节及该 IP 的响应内容分析。
+
+[23:42:31.049] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+
+[23:42:31.234] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:42:31.486] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:42:31.699] --- Action Recorded ---
+Action: 查找 IP 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:42:31.842] --- Action Recorded ---
+Action: 查找与 IP 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:42:32.115] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:42:32.360] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:42:44.524] 
+============================================================
+[23:42:44.524] [迭代 53] MEMORY STATE UPDATE
+============================================================
+
+[23:42:44.524] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：已确认其向十台 C2 服务器发起 Web 协议通信（T1071.001），包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80、128.55.12.1、128.55.12.67、128.55.12.110、128.55.12.103、128.55.12.141、128.55.12.166 及最新发现的 162.66.239.75:80。其中，前七台（含新增的 128.55.12.166）同属 128.55.12.0/24 网段，构成高度集中的私有 C2 子集群；而 162.66.239.75:80 为跨网段独立节点，显著拓展了C2拓扑广度，暗示攻击者可能启用多云或混合基础设施支撑持久化通信。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在进一步佐证初始指令分发的恶意意图。当前调查焦点为 texec 进程与最新 C2 地址 162.66.239.75:80 的载荷交互细节及该 IP 的响应内容分析。
+
+[23:42:44.524] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+
+[23:42:44.643] --- Action Recorded ---
+Action: 查找 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:42:44.937] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:42:45.136] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:42:45.370] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:42:45.619] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:42:56.232] 
+============================================================
+[23:42:56.232] [迭代 57] MEMORY STATE UPDATE
+============================================================
+
+[23:42:56.232] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）同时派生出 texec 和 bash 两个子进程，体现攻击者采用多路径执行策略以增强隐蔽性与成功率。texec 进程迅速进入命令与控制阶段：已确认其向十一台 C2 服务器发起通信，包括 128.55.12.73、207.103.191.4:80、103.12.253.24:80、128.55.12.1、128.55.12.67、128.55.12.110、128.55.12.103、128.55.12.141、128.55.12.166、162.66.239.75:80，以及最新发现的 DNS 协议通信目标 8.8.8.8:53（T1071.001）。其中前九台 IP 同属 128.55.12.0/24 网段，构成高度集中的私有 C2 子集群；162.66.239.75:80 为跨网段独立节点，显著拓展拓扑广度；而向公共 DNS 服务器 8.8.8.8:53 的发包行为，暗示攻击者可能启用 DNS 隧道化技术进行隐蔽数据外传或域名解析劫持（T1071.004），进一步强化持久化能力。bash 进程作为并行分支，当前尚未观测到具体行为，但其存在佐证初始指令分发的恶意意图。当前调查焦点为 texec 进程与最新 C2 地址 162.66.239.75:80 的载荷交互细节、该 IP 的响应内容，以及向 8.8.8.8:53 发送数据的原始载荷结构与协议特征分析。
+
+[23:42:56.232] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+
+[23:42:56.506] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:42:56.682] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:42:56.808] --- Action Recorded ---
+Action: 查找与 IP 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:42:56.929] --- Action Recorded ---
+Action: 查找 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:42:57.218] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[23:42:57.379] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1059.004
+
+[23:43:06.537] 
+============================================================
+[23:43:06.537] [迭代 62] MEMORY STATE UPDATE
+============================================================
+
+[23:43:06.537] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 协议流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联或域名劫持。bash 进程虽暂未观测到活跃行为，但其与 texec 的并行派生进一步佐证初始指令分发的恶意意图。当前调查焦点为 texec 进程与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，以及向 8.8.8.8:53 发送数据的原始载荷结构与协议特征。
+
+[23:43:06.537] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+
+[23:43:06.818] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:43:07.056] --- Action Recorded ---
+Action: 查找与 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:43:07.341] --- Action Recorded ---
+Action: 查找与 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:43:07.578] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[23:43:07.827] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:43:21.438] 
+============================================================
+[23:43:21.438] [迭代 66] MEMORY STATE UPDATE
+============================================================
+
+[23:43:21.438] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 协议流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联或域名劫持。值得注意的是，texec 进程还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入横向渗透后的数据收集阶段。bash 进程虽暂未观测到活跃行为，但其与 texec 的并行派生进一步佐证初始指令分发的恶意意图。当前调查焦点为 texec 进程与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，以及向 8.8.8.8:53 发送数据的原始载荷结构与协议特征。
+
+[23:43:21.438] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+
+[23:43:21.647] --- Action Recorded ---
+Action: 查找 IP 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:43:21.821] --- Action Recorded ---
+Action: 查找 IP 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:43:22.063] --- Action Recorded ---
+Action: 查找 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:43:22.332] --- Action Recorded ---
+Action: 查找写入文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:43:22.475] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:43:22.648] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:43:36.161] 
+============================================================
+[23:43:36.161] [迭代 71] MEMORY STATE UPDATE
+============================================================
+
+[23:43:36.161] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 协议流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联或域名劫持。值得注意的是，texec 进程还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入横向渗透后的数据收集阶段；并进一步派生 uname 进程（T1059.004），执行系统信息探测，强化环境感知能力。bash 进程虽暂未观测到活跃行为，但其与 texec 的并行派生进一步佐证初始指令分发的恶意意图。当前调查焦点为 texec 进程与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，以及向 8.8.8.8:53 发送数据的原始载荷结构与协议特征。
+
+[23:43:36.161] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+
+[23:43:36.392] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:43:36.501] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:43:36.791] --- Action Recorded ---
+Action: 查找 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:43:36.967] --- Action Recorded ---
+Action: 查找与 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:43:37.075] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:43:37.281] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:43:37.525] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:43:48.233] 
+============================================================
+[23:43:48.233] [迭代 77] MEMORY STATE UPDATE
+============================================================
+
+[23:43:48.233] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 协议流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联或域名劫持。texec 还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入数据收集阶段；并进一步派生 uname（T1059.004）和 sh（T1059.004）两个子进程，强化环境感知与后续指令执行能力。bash 进程虽暂未观测到活跃行为，但其与 texec 的并行派生佐证初始恶意分发意图。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，以及向 8.8.8.8:53 发送数据的原始载荷结构与协议特征。
+
+[23:43:48.233] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+
+[23:43:48.396] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:43:48.625] --- Action Recorded ---
+Action: 查找文件 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:43:48.862] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:43:49.123] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:43:49.330] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:43:49.500] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:43:49.690] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:44:00.440] 
+============================================================
+[23:44:00.440] [迭代 83] MEMORY STATE UPDATE
+============================================================
+
+[23:44:00.440] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 协议流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联或域名劫持。texec 还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入数据收集阶段；并进一步派生 uname（T1059.004）和 sh（T1059.004）两个子进程，强化环境感知与后续指令执行能力。与此同时，此前暂未活跃的 bash 进程现已执行 ls 命令（T1059.004），标志其正式参与横向探测或目录枚举，佐证初始分发意图正转化为实际侦察行为。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，以及向 8.8.8.8:53 发送数据的原始载荷结构与协议特征，并新增对 bash → ls 行为的上下文溯源与执行参数分析。
+
+[23:44:00.440] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+
+[23:44:00.585] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:44:00.856] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:44:01.150] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:44:01.421] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:44:01.596] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:44:01.791] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:44:12.123] 
+============================================================
+[23:44:12.123] [迭代 88] MEMORY STATE UPDATE
+============================================================
+
+[23:44:12.123] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 协议流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联或域名劫持。texec 还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入数据收集阶段；并进一步派生 uname（T1059.004）和 sh（T1059.004）两个子进程，强化环境感知与后续指令执行能力。与此同时，bash 进程已从初始 ls 命令（T1059.004）升级为执行 grep（T1059.004），表明其正由目录枚举转向敏感内容检索（如密钥、凭证或配置片段），攻击意图从广域侦察深化为定向数据筛选。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，向 8.8.8.8:53 发送数据的原始载荷结构与协议特征，以及 bash → grep 行为的输入源、匹配模式与目标文件范围溯源。
+
+[23:44:12.123] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+
+[23:44:12.289] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:44:12.570] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:44:12.674] --- Action Recorded ---
+Action: 查找进程 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:44:12.813] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:44:27.267] 
+============================================================
+[23:44:27.267] [迭代 91] MEMORY STATE UPDATE
+============================================================
+
+[23:44:27.267] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 协议流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联或域名劫持。texec 还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入数据收集阶段；并进一步派生 uname（T1059.004）和 sh（T1059.004）两个子进程，强化环境感知与后续指令执行能力。与此同时，bash 进程已从初始 ls 命令（T1059.004）升级为执行 grep（T1059.004），表明其正由目录枚举转向敏感内容检索；最新确认其进一步派生 sshd 进程（T1059.004），极可能用于横向移动准备或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，向 8.8.8.8:53 发送数据的原始载荷结构与协议特征，bash → grep 的输入源与匹配模式，以及新发现的 bash → sshd 行为所关联的配置文件、密钥使用及目标主机探测痕迹。
+
+[23:44:27.267] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+
+[23:44:27.485] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:44:27.699] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:44:27.824] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:44:27.984] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:44:28.259] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:44:28.416] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:44:28.567] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:44:40.075] 
+============================================================
+[23:44:40.075] [迭代 97] MEMORY STATE UPDATE
+============================================================
+
+[23:44:40.075] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略。值得注意的是，pine 进程自身亦直接向 128.55.12.73 发起 Web 协议通信（T1071.001），表明其未完全退出控制链，仍参与 C2 活动。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（含重复出现的 128.55.12.73、.1、.67、.110、.103、.141、.166 及未标注端口的 .1、.73）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联。texec 还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入数据收集阶段；并进一步派生 uname（T1059.004）和 sh（T1059.004）子进程以强化环境感知。与此同时，bash 进程已从初始 ls（T1059.004）升级为执行 grep（T1059.004），转向敏感内容检索；最新确认其派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，向 8.8.8.8:53 发送数据的原始载荷结构与协议特征，bash → grep 的输入源与匹配模式，以及 bash → sshd 行为所关联的配置文件、密钥使用及目标主机探测痕迹。
+
+[23:44:40.075] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+
+[23:44:40.360] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:44:40.534] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:44:40.705] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:44:40.949] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:44:41.150] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[23:44:41.444] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[23:44:53.417] 
+============================================================
+[23:44:53.417] [迭代 102] MEMORY STATE UPDATE
+============================================================
+
+[23:44:53.417] --- 叙述性攻击摘要 ---
+攻击始于 pine 进程通过 Unix Shell 执行方式（T1059.004）派生出 texec 和 bash 两个子进程，体现多路径执行策略；同时 pine 自身亦直接向 128.55.12.73 发起 Web 协议通信（T1071.001），持续参与 C2 活动。texec 进程立即从磁盘加载并重执行 /tmp/texec 文件（T1059.004），完成自持久化；随后高频发起命令与控制通信：向 128.55.12.0/24 网段内九台 IP（含重复出现的 128.55.12.73、.1、.67、.110、.103、.141、.166）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 流量（T1071.001）；另向跨网段节点 162.66.239.75:80 建立连接，当前正重点分析其载荷交互细节与响应内容；同时向公共 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化实现隐蔽外联。texec 还主动读取本地文件 dfa21dsacxz.docx（T1005），表明攻击已进入数据收集阶段；并进一步派生 uname 和 sh 子进程以强化环境感知——其中 sh 进程新确认执行了 /tmp/payload.sh 脚本（T1059），构成新一轮恶意载荷投递。与此同时，bash 进程已从初始 ls 升级为执行 grep，转向敏感内容检索；最新确认其派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互、该 IP 的响应内容，向 8.8.8.8:53 发送数据的原始载荷结构与协议特征，bash → grep 的输入源与匹配模式，bash → sshd 行为所关联的配置文件、密钥使用及目标主机探测痕迹，以及 sh → /tmp/payload.sh 的脚本内容、执行上下文与后续衍生行为。
+
+[23:44:53.417] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+
+[23:44:53.658] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:44:53.938] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:44:54.107] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:44:54.243] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[23:44:54.503] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[23:45:06.998] 
+============================================================
+[23:45:06.998] [迭代 106] MEMORY STATE UPDATE
+============================================================
+
+[23:45:06.998] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵，实现初始访问。随后 pine 通过 Unix Shell 执行方式（T1059.004）派生 texec 和 bash 子进程，形成多路径执行策略；同时 pine 自身亦持续向 128.55.12.73 发起 Web 协议通信（T1071.001），深度参与 C2 活动。texec 进程立即重执行 /tmp/texec 文件完成自持久化（T1059.004），并高频向 128.55.12.0/24 网段内九台主机（含 .1、.67、.73、.103、.110、.141、.166、.167）及 207.103.191.4:80、103.12.253.24:80 共十一台服务器发送 Web 流量（T1071.001）；另与跨网段 C2 服务器 162.66.239.75:80 建立连接，并向 DNS 服务器 8.8.8.8:53 发送数据（T1071.004），高度疑似启用 DNS 隧道化；同时读取敏感文档 dfa21dsacxz.docx（T1005），并派生 uname 和 sh 进程——后者执行 /tmp/payload.sh（T1059），构成新一轮载荷投递。bash 进程则由 ls 升级为 grep 实施敏感内容检索，并新确认派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互及响应内容、DNS 隧道原始载荷结构、bash → grep 的输入源与匹配模式、bash → sshd 所涉密钥与目标探测痕迹，以及 sh → /tmp/payload.sh 的脚本逻辑与后续衍生行为。
+
+[23:45:06.998] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+
+[23:45:07.156] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:45:07.371] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:45:07.499] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:45:07.774] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[23:45:08.053] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[23:45:16.237] 
+============================================================
+[23:45:16.237] [迭代 110] MEMORY STATE UPDATE
+============================================================
+
+[23:45:16.237] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵，实现初始访问；另确认 DNS 服务器 8.8.8.8:53 向 texec 进程主动回传数据（T1190），表明攻击者已通过 DNS 通道完成双向载荷投递与指令下发，强化了 DNS 隧道化（T1071.004）的战术闭环。随后 pine 通过 Unix Shell（T1059.004）派生 texec 和 bash 子进程：texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），并高频向 128.55.12.0/24 网段内九台主机（.1、.67、.73、.103、.110、.141、.166、.167）、207.103.191.4:80、103.12.253.24:80 及跨网段 C2 服务器 162.66.239.75:80 发起 Web 协议通信（T1071.001），同时持续与 8.8.8.8:53 交互，构成多协议冗余 C2 架构；texec 还读取敏感文档 dfa21dsacxz.docx（T1005），并派生 uname 和 sh 进程——后者执行 /tmp/payload.sh（T1059），触发新一轮载荷扩散。bash 进程由 ls 升级为 grep 实施敏感内容检索，并新确认派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 的载荷交互及响应内容、DNS 隧道原始载荷结构、bash → grep 的输入源与匹配模式、bash → sshd 所涉密钥与目标探测痕迹，以及 sh → /tmp/payload.sh 的脚本逻辑与后续衍生行为。
+
+[23:45:16.237] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+
+[23:45:16.455] --- Action Recorded ---
+Action: 查找 IP 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:45:16.589] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:45:16.841] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:45:17.013] --- Malicious Event Added ---
+Event ID: 8D40106A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:45:27.388] 
+============================================================
+[23:45:27.388] [迭代 113] MEMORY STATE UPDATE
+============================================================
+
+[23:45:27.388] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 主动向 texec 进程回传数据（T1190），建立 DNS 隧道化 C2（T1071.004）。pine 派生 texec 和 bash 子进程：texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），并高频向 128.55.12.0/24 网段内九台主机（.1、.67、.73、.103、.110、.141、.166、.167）、207.103.191.4:80、103.12.253.24:80 及跨网段 C2 服务器 162.66.239.75:80 发起 Web 协议通信（T1071.001），同时持续与 8.8.8.8:53 交互；此外，新确认其子进程 sh 向 198.51.100.1:8080 发起 Web 协议通信（T1071.001），扩展了 C2 节点矩阵。texec 还读取敏感文档 dfa21dsacxz.docx（T1005），并派生 uname 和 sh 进程——后者执行 /tmp/payload.sh（T1059），触发新一轮载荷扩散。bash 进程由 ls 升级为 grep 实施敏感内容检索，并派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 及新发现的 198.51.100.1:8080 的载荷交互与响应内容、DNS 隧道原始载荷结构、bash → grep 的输入源与匹配模式、bash → sshd 所涉密钥与目标探测痕迹，以及 sh → /tmp/payload.sh 的脚本逻辑与后续衍生行为。
+
+[23:45:27.388] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+
+[23:45:27.492] --- Action Recorded ---
+Action: 查找进程 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:45:27.594] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:45:27.767] --- Action Recorded ---
+Action: 查找文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:45:27.890] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:45:36.065] 
+============================================================
+[23:45:36.065] [迭代 116] MEMORY STATE UPDATE
+============================================================
+
+[23:45:36.065] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 主动向 texec 进程回传数据（T1190），建立 DNS 隧道化 C2（T1071.004）。pine 派生 texec 和 bash 子进程：texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），并高频向 128.55.12.0/24 网段内九台主机（.1、.67、.73、.103、.110、.141、.166、.167）、207.103.191.4:80、103.12.253.24:80 及跨网段 C2 服务器 162.66.239.75:80 发起 Web 协议通信（T1071.001），同时持续与 8.8.8.8:53 交互；新确认其子进程 sh 向 198.51.100.1:8080 发起 Web 协议通信（T1071.001），扩展 C2 节点矩阵。texec 还读取敏感文档 dfa21dsacxz.docx（T1005），并派生 uname 和 sh 进程——后者执行 /tmp/payload.sh（T1059），触发新一轮载荷扩散。bash 进程由 ls 升级为 grep 实施敏感内容检索（T1059.004），并新确认直接读取系统用户凭证文件 /etc/passwd（T1005），同时派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互与响应内容、DNS 隧道原始载荷结构、bash → grep 的输入源与匹配模式、bash → /etc/passwd 的读取上下文及后续利用痕迹、bash → sshd 所涉密钥与目标探测行为，以及 sh → /tmp/payload.sh 的脚本逻辑与衍生活动。
+
+[23:45:36.065] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+
+[23:45:36.354] --- Action Recorded ---
+Action: 查找写入文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:45:36.505] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:45:36.697] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:45:36.901] --- Action Recorded ---
+Action: 查找写入文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:45:37.155] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:45:37.315] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:45:47.399] 
+============================================================
+[23:45:47.399] [迭代 121] MEMORY STATE UPDATE
+============================================================
+
+[23:45:47.399] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 主动向 texec 进程回传数据（T1190），建立 DNS 隧道化 C2（T1071.004）。pine 派生 texec 和 bash 子进程：texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），并高频向 128.55.12.0/24 网段内九台主机（.1、.67、.73、.103、.110、.141、.166、.167）、207.103.191.4:80、103.12.253.24:80 及跨网段 C2 服务器 162.66.239.75:80 发起 Web 协议通信（T1071.001），同时持续与 8.8.8.8:53 交互；新确认其子进程 sh 向 198.51.100.1:8080 发起 Web 协议通信（T1071.001），扩展 C2 节点矩阵。texec 还读取敏感文档 dfa21dsacxz.docx（T1005），并派生 uname 和 sh 进程——后者执行 /tmp/payload.sh（T1059），触发新一轮载荷扩散。bash 进程由 ls 升级为 grep 实施敏感内容检索（T1059.004），新确认其父进程 ls 直接读取 /tmp 目录（T1005），且 bash 自身读取 /etc/passwd（T1005），同时派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互与响应内容、DNS 隧道原始载荷结构、bash → grep 的输入源与匹配模式、ls → /tmp 的遍历意图与结果、bash → /etc/passwd 的读取上下文及后续利用痕迹、bash → sshd 所涉密钥与目标探测行为，以及 sh → /tmp/payload.sh 的脚本逻辑与衍生活动。
+
+[23:45:47.399] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+  27. [Collection] T1005 (Data from Local System) - ls → /tmp
+
+[23:45:47.504] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:45:47.796] --- Action Recorded ---
+Action: 查找进程 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:45:47.977] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:45:48.159] --- Action Recorded ---
+Action: 查找文件 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:45:48.309] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:45:58.081] 
+============================================================
+[23:45:58.081] [迭代 125] MEMORY STATE UPDATE
+============================================================
+
+[23:45:58.081] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 主动向 texec 进程回传数据（T1190），建立 DNS 隧道化 C2（T1071.004）。pine 派生 texec 和 bash 子进程，并新确认其读取用户命令历史文件 ~/.bash_history（T1005），意图窃取操作痕迹与敏感凭证。texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），并高频向 128.55.12.0/24 网段内九台主机（.1、.67、.73、.103、.110、.141、.166、.167）、207.103.191.4:80、103.12.253.24:80 及跨网段 C2 服务器 162.66.239.75:80 发起 Web 协议通信（T1071.001），同时持续与 8.8.8.8:53 交互；其子进程 sh 新增向 198.51.100.1:8080 发起 Web 协议通信（T1071.001），扩展 C2 节点矩阵。texec 还读取敏感文档 dfa21dsacxz.docx（T1005），并派生 uname 和 sh 进程——后者执行 /tmp/payload.sh（T1059），触发新一轮载荷扩散。bash 进程由 ls 升级为 grep 实施敏感内容检索（T1059.004），其父进程 ls 直接遍历 /tmp 目录（T1005），bash 自身读取 /etc/passwd（T1005），并派生 sshd 进程（T1059.004），极可能用于横向移动或反向隧道构建。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互与响应内容、DNS 隧道原始载荷结构、bash → grep 的输入源与匹配模式、ls → /tmp 的遍历意图与结果、bash → /etc/passwd 的读取上下文及后续利用痕迹、bash → sshd 所涉密钥与目标探测行为，以及 sh → /tmp/payload.sh 的脚本逻辑与衍生活动。
+
+[23:45:58.081] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+  27. [Collection] T1005 (Data from Local System) - ls → /tmp
+  28. [Collection] T1005 (Data from Local System) - pine → ~/.bash_history
+
+[23:45:58.359] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:45:58.479] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:45:58.595] --- Action Recorded ---
+Action: 查找 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[23:45:58.835] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[23:46:07.199] 
+============================================================
+[23:46:07.199] [迭代 128] MEMORY STATE UPDATE
+============================================================
+
+[23:46:07.199] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 及新增 C2 节点 198.51.100.1:8080 均通过 T1190 漏洞主动向 texec 和 sh 进程回传载荷，构建多通道 DNS 隧道（T1071.004）与 Web 协议 C2（T1071.001）。pine 派生 texec 和 bash 子进程，并读取 ~/.bash_history（T1005）窃取操作痕迹。texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），高频向 128.55.12.0/24 网段内九台主机、207.103.191.4:80、103.12.253.24:80、162.66.239.75:80 及 198.51.100.1:8080 发起 Web 通信（T1071.001），同时持续与 8.8.8.8:53 交互；其子进程 sh 新增与 198.51.100.1:8080 的双向通信（T1190/T1071.001），并执行 /tmp/payload.sh（T1059）扩散载荷。bash 进程由 ls 升级为 grep 检索敏感内容（T1059.004），ls 遍历 /tmp（T1005），bash 读取 /etc/passwd（T1005）并派生 sshd（T1059.004），极可能用于横向移动或反向隧道；texec 还读取敏感文档 dfa21dsacxz.docx（T1005）并派生 uname/sh。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互、DNS 隧道原始结构、bash→grep 输入源、ls→/tmp 遍历结果、bash→/etc/passwd 后续利用，以及 bash→sshd 所涉密钥与目标探测行为。
+
+[23:46:07.199] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+  27. [Collection] T1005 (Data from Local System) - ls → /tmp
+  28. [Collection] T1005 (Data from Local System) - pine → ~/.bash_history
+  29. [Initial Access] T1190 (Exploit Public-Facing Application) - 198.51.100.1:8080 → sh
+
+[23:46:07.379] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:46:07.503] --- Action Recorded ---
+Action: 查找与 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:46:07.626] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:46:07.729] --- Action Recorded ---
+Action: 查找进程 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:46:08.001] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:46:08.204] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:46:17.699] 
+============================================================
+[23:46:17.699] [迭代 133] MEMORY STATE UPDATE
+============================================================
+
+[23:46:17.699] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 及 C2 节点 198.51.100.1:8080 均通过 T1190 漏洞主动向 texec 和 sh 进程回传载荷，构建多通道 DNS 隧道（T1071.004）与 Web 协议 C2（T1071.001）。pine 派生 texec 和 bash 子进程，并读取 ~/.bash_history（T1005）窃取操作痕迹。texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），高频向 128.55.12.0/24 网段内九台主机（含 128.55.12.1、128.55.12.73 等）、207.103.191.4:80、103.12.253.24:80、162.66.239.75:80 及 198.51.100.1:8080 发起 Web 通信（T1071.001），同时持续与 8.8.8.8:53 交互；其子进程 sh 新增与 198.51.100.1:8080 的双向通信（T1190/T1071.001），并执行 /tmp/payload.sh（T1059）扩散载荷。texec 还读取敏感文档 dfa21dsacxz.docx（T1005），派生 uname 进程读取 /proc/version（T1005）以探测系统环境，并派生 sh 执行后续指令；bash 进程由 ls 升级为 grep 检索敏感内容（T1059.004），ls 遍历 /tmp（T1005），bash 读取 /etc/passwd（T1005）并派生 sshd（T1059.004），极可能用于横向移动或反向隧道。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互、DNS 隧道原始结构、bash→grep 输入源、ls→/tmp 遍历结果、bash→/etc/passwd 后续利用，以及 bash→sshd 所涉密钥与目标探测行为。
+
+[23:46:17.699] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+  27. [Collection] T1005 (Data from Local System) - ls → /tmp
+  28. [Collection] T1005 (Data from Local System) - pine → ~/.bash_history
+  29. [Initial Access] T1190 (Exploit Public-Facing Application) - 198.51.100.1:8080 → sh
+  30. [Collection] T1005 (Data from Local System) - uname → /proc/version
+
+[23:46:17.909] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:46:18.094] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:46:18.279] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:46:18.560] --- Action Recorded ---
+Action: 查找文件 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:46:18.710] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:46:26.805] 
+============================================================
+[23:46:26.805] [迭代 137] MEMORY STATE UPDATE
+============================================================
+
+[23:46:26.805] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 及 C2 节点 198.51.100.1:8080 均通过 T1190 漏洞主动向 texec 和 sh 进程回传载荷，构建多通道 DNS 隧道（T1071.004）与 Web 协议 C2（T1071.001）。pine 派生 texec 和 bash 子进程，并读取 ~/.bash_history（T1005）窃取操作痕迹。texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），高频向 128.55.12.0/24 网段内九台主机（含 128.55.12.1、128.55.12.73 等）、207.103.191.4:80、103.12.253.24:80、162.66.239.75:80 及 198.51.100.1:8080 发起 Web 通信（T1071.001），同时持续与 8.8.8.8:53 交互；其子进程 sh 新增与 198.51.100.1:8080 的双向通信（T1190/T1071.001），并执行 /tmp/payload.sh（T1059）扩散载荷。texec 还读取敏感文档 dfa21dsacxz.docx（T1005）、系统认证日志 /var/log/auth.log（T1005）以提取凭据线索，派生 uname 进程读取 /proc/version（T1005）探测环境，并派生 sh 执行后续指令；bash 进程由 ls 升级为 grep 检索敏感内容（T1059.004），ls 遍历 /tmp（T1005），bash 读取 /etc/passwd（T1005）并派生 sshd（T1059.004），极可能用于横向移动或反向隧道。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互、DNS 隧道原始结构、bash→grep 输入源、ls→/tmp 遍历结果、bash→/etc/passwd 后续利用，以及 bash→sshd 所涉密钥与目标探测行为。
+
+[23:46:26.805] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+  27. [Collection] T1005 (Data from Local System) - ls → /tmp
+  28. [Collection] T1005 (Data from Local System) - pine → ~/.bash_history
+  29. [Initial Access] T1190 (Exploit Public-Facing Application) - 198.51.100.1:8080 → sh
+  30. [Collection] T1005 (Data from Local System) - uname → /proc/version
+  31. [Collection] T1005 (Data from Local System) - texec → /var/log/auth.log
+
+[23:46:27.017] --- Action Recorded ---
+Action: 查找写入文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:46:27.271] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:46:27.520] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:46:27.703] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:46:28.001] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:46:28.102] --- Action Recorded ---
+Action: 查找进程 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[23:46:28.291] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[23:46:37.546] 
+============================================================
+[23:46:37.546] [迭代 143] MEMORY STATE UPDATE
+============================================================
+
+[23:46:37.546] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 及 C2 节点 198.51.100.1:8080 均通过 T1190 漏洞主动向 texec 和 sh 进程回传载荷，构建多通道 DNS 隧道（T1071.004）与 Web 协议 C2（T1071.001）。新确认攻击链扩展：内部 IP 192.168.1.1:22（SSH 端口）亦通过 T1190 漏洞直接向 sshd 进程投递载荷（T32），表明攻击者已实现内网横向渗透并反向利用 SSH 服务作为新入口。pine 派生 texec 和 bash 子进程，并读取 ~/.bash_history（T1005）窃取操作痕迹；texec 立即重执行 /tmp/texec 实现自持久化（T1059.004），高频向 128.55.12.0/24 网段内九台主机（含 128.55.12.1、128.55.12.73、128.55.12.67 等）、207.103.191.4:80、103.12.253.24:80、162.66.239.75:80 及 198.51.100.1:8080 发起 Web 通信（T1071.001），同时持续与 8.8.8.8:53 交互；其子进程 sh 新增与 198.51.100.1:8080 的双向通信并执行 /tmp/payload.sh（T1059）；texec 还读取敏感文档 dfa21dsacxz.docx、系统认证日志 /var/log/auth.log（T1005），派生 uname 探测内核版本（T1005），并衍生 sh 执行后续指令；bash 进程由 ls 升级为 grep 检索敏感内容（T1059.004），ls 遍历 /tmp（T1005），bash 读取 /etc/passwd（T1005）后派生 sshd（T1059.004），极可能用于密钥提取或反向隧道建立。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互、DNS 隧道原始结构、bash→grep 输入源、ls→/tmp 遍历结果、bash→/etc/passwd 后续利用，以及 bash→sshd 所涉密钥与目标探测行为。
+
+[23:46:37.546] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+  27. [Collection] T1005 (Data from Local System) - ls → /tmp
+  28. [Collection] T1005 (Data from Local System) - pine → ~/.bash_history
+  29. [Initial Access] T1190 (Exploit Public-Facing Application) - 198.51.100.1:8080 → sh
+  30. [Collection] T1005 (Data from Local System) - uname → /proc/version
+  31. [Collection] T1005 (Data from Local System) - texec → /var/log/auth.log
+  32. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:22 → sshd
+
+[23:46:37.660] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40104D-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:46:37.788] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:46:37.970] --- Action Recorded ---
+Action: 查找与 IP 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:46:38.241] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:46:38.435] --- Malicious Event Added ---
+Event ID: 8D401071-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:46:48.375] 
+============================================================
+[23:46:48.375] [迭代 147] MEMORY STATE UPDATE
+============================================================
+
+[23:46:48.375] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 128.55.12.167 利用面向公众应用漏洞（T1190）向 pine 进程发起初始入侵；另确认 DNS 服务器 8.8.8.8:53 及 C2 节点 198.51.100.1:8080 均通过 T1190 漏洞主动向 texec 和 sh 进程回传载荷，构建多通道 DNS 隧道（T1071.004）与 Web 协议 C2（T1071.001）；内部 IP 192.168.1.1:22 更通过 T1190 漏洞直接向 sshd 进程投递载荷（T32），标志攻击者已完成内网横向渗透并反向利用 SSH 服务作为新入口。pine 派生 texec 和 bash 子进程，读取 ~/.bash_history（T1005）窃取操作痕迹；texec 实现自持久化（T1059.004），高频扫描 128.55.12.0/24 网段内九台主机，并持续与 207.103.191.4:80、103.12.253.24:80、162.66.239.75:80 及 C2 服务器 198.51.100.1:8080 通信（T1071.001），同时读取 /var/log/auth.log（T1005）、dfa21dsacxz.docx 并派生 uname 探测内核（T1005）；其子进程 sh 执行 /tmp/payload.sh（T1059）并与 C2 双向交互。bash 进程由 ls 升级为 grep 检索敏感内容（T1059.004），遍历 /tmp（T1005）、读取 /etc/passwd（T1005）后派生 sshd（T1059.004），极可能用于密钥提取或反向隧道；最新确认 grep 进一步读取 /var/log/auth.log（T1005），强化凭证与登录行为分析。当前调查焦点为 texec 与 162.66.239.75:80 及 198.51.100.1:8080 的载荷交互、DNS 隧道原始结构、bash→grep 输入源、ls→/tmp 遍历结果、bash→/etc/passwd 后续利用，以及 bash→sshd 所涉密钥与目标探测行为。
+
+[23:46:48.375] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - pine → texec
+  2. [Execution] T1059.004 (Unix Shell) - pine → bash
+  3. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.73
+  4. [Command and Control] T1071.001 (Web Protocols) - texec → 207.103.191.4:80
+  5. [Command and Control] T1071.001 (Web Protocols) - texec → 103.12.253.24:80
+  6. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.1
+  7. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.67
+  8. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.110
+  9. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.103
+  10. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.141
+  11. [Command and Control] T1071.001 (Web Protocols) - texec → 128.55.12.166
+  12. [Command and Control] T1071.001 (Web Protocols) - texec → 162.66.239.75:80
+  13. [Command and Control] T1071.001 (Web Protocols) - texec → 8.8.8.8:53
+  14. [Execution] T1059.004 (Unix Shell) - /tmp/texec → texec
+  15. [Collection] T1005 (Data from Local System) - dfa21dsacxz.docx → texec
+  16. [Execution] T1059.004 (Unix Shell) - texec → uname
+  17. [Execution] T1059.004 (Unix Shell) - texec → sh
+  18. [Execution] T1059.004 (Unix Shell) - bash → ls
+  19. [Execution] T1059.004 (Unix Shell) - bash → grep
+  20. [Execution] T1059.004 (Unix Shell) - bash → sshd
+  21. [Command and Control] T1071.001 (Web Protocols) - pine → 128.55.12.73
+  22. [Execution] T1059 (Command and Scripting Interpreter) - sh → /tmp/payload.sh
+  23. [Initial Access] T1190 (Exploit Public-Facing Application) - 128.55.12.167 → pine
+  24. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → texec
+  25. [Command and Control] T1071.001 (Web Protocols) - sh → 198.51.100.1:8080
+  26. [Collection] T1005 (Data from Local System) - bash → /etc/passwd
+  27. [Collection] T1005 (Data from Local System) - ls → /tmp
+  28. [Collection] T1005 (Data from Local System) - pine → ~/.bash_history
+  29. [Initial Access] T1190 (Exploit Public-Facing Application) - 198.51.100.1:8080 → sh
+  30. [Collection] T1005 (Data from Local System) - uname → /proc/version
+  31. [Collection] T1005 (Data from Local System) - texec → /var/log/auth.log
+  32. [Initial Access] T1190 (Exploit Public-Facing Application) - 192.168.1.1:22 → sshd
+  33. [Collection] T1005 (Data from Local System) - grep → /var/log/auth.log
+  34. [Execution] T1059.004 (Unix Shell) - /var/log/auth.log → /tmp/texec
+  35. [Execution] T1059.004 (Unix Shell) - bash → 8.8.8.8:53
+  36. [Collection] T1005 (Data from Local System) - 128.55.12.141 → 103.12.253.24:80
+  37. [Execution] T1059.004 (Unix Shell) - 207.103.191.4:80 → 8.8.8.8:53
+  38. [Execution] T1059 (Command and Scripting Interpreter) - /tmp/texec → 128.55.12.110
+  39. [Collection] T1005 (Data from Local System) - 162.66.239.75:80 → texec
+  40. [Command and Control] T1105 (Ingress Tool Transfer) - grep → sshd
+  41. [Execution] T1059 (Command and Scripting Interpreter) - pine → 128.55.12.167
+  42. [Collection] T1005 (Data from Local System) - uname → 128.55.12.141
+  43. [Execution] T1059.004 (Unix Shell) - 162.66.239.75:80 → ls
+  44. [Execution] T1059.004 (Unix Shell) - bash → sh
+  45. [Execution] T1059.004 (Unix Shell) - dfa21dsacxz.docx → ls
+  46. [Execution] T1059.004 (Unix Shell) - /tmp/payload.sh → pine
+  47. [Execution] T1059 (Command and Scripting Interpreter) - sshd → 128.55.12.103
+  48. [Collection] T1005 (Data from Local System) - /tmp/payload.sh → ls
+  49. [Collection] T1005 (Data from Local System) - /tmp/texec → 128.55.12.103
+  50. [Execution] T1059.004 (Unix Shell) - uname → ~/.bash_history
+  51. [Command and Control] T1105 (Ingress Tool Transfer) - /tmp/texec → 162.66.239.75:80
+  52. [Execution] T1059.004 (Unix Shell) - dfa21dsacxz.docx → /proc/version
+  53. [Execution] T1059.004 (Unix Shell) - /var/log/auth.log → grep

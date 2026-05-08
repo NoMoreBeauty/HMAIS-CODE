@@ -1,0 +1,216 @@
+digraph Attack_Investigation_Result {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "64.233.191.255:8000" [shape=diamond];
+    "132.197.158.98:80" [shape=diamond];
+    "142.20.57.147" [shape=diamond];
+    "142.20.58.149" [shape=diamond];
+    "172.217.16.142:443" [shape=diamond];
+    "239.255.255.250:1900" [shape=diamond];
+    "192.168.1.1:53" [shape=diamond];
+    "192.168.1.5:445" [shape=diamond];
+
+    "runme.bat" [shape=ellipse];
+    "ping_sweep.ps1" [shape=ellipse];
+    "ntuser.dat" [shape=ellipse];
+    "user32.dll" [shape=ellipse];
+    "kernel32.dll" [shape=ellipse];
+    "places.sqlite" [shape=ellipse];
+    "cookies.sqlite" [shape=ellipse];
+    "sam.log" [shape=ellipse];
+    "crypt32.dll" [shape=ellipse];
+    "kernelbase.dll" [shape=ellipse];
+    "ntdll.dll" [shape=ellipse];
+    "temp_log.txt" [shape=ellipse];
+    "wuauserv.log" [shape=ellipse];
+    "taskbar.icon" [shape=ellipse];
+    "webcache.dat" [shape=ellipse];
+    "wmi.dll" [shape=ellipse];
+
+    "cmd.exe" [shape=box];
+    "firefox.exe" [shape=box];
+    "Agent_VL8B5T3U" [shape=box];
+    "Agent_LUAVR71T" [shape=box];
+    "mimikatz.exe" [shape=box];
+    "lsass.exe" [shape=box];
+    "Agent_NEK5H8GX" [shape=box];
+    "Agent_DS29HY41" [shape=box];
+    "explorer.exe" [shape=box];
+    "services.exe" [shape=box];
+    "svchost.exe" [shape=box];
+    "conhost.exe" [shape=box];
+    "Process_4480" [shape=box];
+    "net1.exe" [shape=box];
+    "taskhostw.exe" [shape=box];
+
+    "cmd.exe" -> "firefox.exe" [label="fork"];
+
+    "firefox.exe" -> "64.233.191.255:8000" [label="send_to"];
+
+    "64.233.191.255:8000" -> "firefox.exe" [label="recv_from"];
+
+    "firefox.exe" -> "runme.bat" [label="write"];
+
+    "cmd.exe" -> "runme.bat" [label="execute"];
+
+    "runme.bat" -> "Agent_VL8B5T3U" [label="execute"];
+
+    "Agent_VL8B5T3U" -> "132.197.158.98:80" [label="send_to"];
+
+    "132.197.158.98:80" -> "Agent_VL8B5T3U" [label="recv_from"];
+
+    "Agent_VL8B5T3U" -> "Agent_LUAVR71T" [label="fork"];
+
+    "Agent_LUAVR71T" -> "132.197.158.98:80" [label="send_to"];
+
+    "132.197.158.98:80" -> "Agent_LUAVR71T" [label="recv_from"];
+
+    "Agent_LUAVR71T" -> "mimikatz.exe" [label="fork"];
+
+    "Agent_LUAVR71T" -> "lsass.exe" [label="write"];
+
+    "Agent_LUAVR71T" -> "142.20.57.147" [label="send_to"];
+
+    "142.20.57.147" -> "Agent_NEK5H8GX" [label="recv_from"];
+
+    "Agent_NEK5H8GX" -> "132.197.158.98:80" [label="send_to"];
+
+    "132.197.158.98:80" -> "Agent_NEK5H8GX" [label="recv_from"];
+
+    "Agent_NEK5H8GX" -> "ping_sweep.ps1" [label="write"];
+
+    "ping_sweep.ps1" -> "Agent_NEK5H8GX" [label="execute"];
+
+    "Agent_NEK5H8GX" -> "142.20.58.149" [label="send_to"];
+
+    "142.20.58.149" -> "Agent_DS29HY41" [label="recv_from"];
+
+    "Agent_DS29HY41" -> "132.197.158.98:80" [label="send_to"];
+
+
+    "explorer.exe" -> "cmd.exe" [label="fork"];
+
+    "user32.dll" -> "explorer.exe" [label="read"];
+
+    "explorer.exe" -> "ntuser.dat" [label="write"];
+
+    "taskbar.icon" -> "explorer.exe" [label="read"];
+
+    "kernel32.dll" -> "firefox.exe" [label="read"];
+
+    "firefox.exe" -> "172.217.16.142:443" [label="send_to"];
+
+    "172.217.16.142:443" -> "firefox.exe" [label="recv_from"];
+
+    "firefox.exe" -> "places.sqlite" [label="write"];
+
+    "cookies.sqlite" -> "firefox.exe" [label="read"];
+
+    "services.exe" -> "lsass.exe" [label="fork"];
+
+    "lsass.exe" -> "sam.log" [label="write"];
+
+    "crypt32.dll" -> "lsass.exe" [label="read"];
+
+    "services.exe" -> "svchost.exe" [label="fork"];
+
+    "svchost.exe" -> "239.255.255.250:1900" [label="send_to"];
+
+    "svchost.exe" -> "192.168.1.1:53" [label="send_to"];
+
+    "192.168.1.1:53" -> "svchost.exe" [label="recv_from"];
+
+    "svchost.exe" -> "wuauserv.log" [label="write"];
+
+    "wmi.dll" -> "svchost.exe" [label="read"];
+
+    "cmd.exe" -> "conhost.exe" [label="fork"];
+
+    "kernelbase.dll" -> "conhost.exe" [label="read"];
+
+    "ntdll.dll" -> "Agent_LUAVR71T" [label="read"];
+
+    "Agent_LUAVR71T" -> "temp_log.txt" [label="write"];
+
+    "services.exe" -> "Process_4480" [label="fork"];
+
+    "kernel32.dll" -> "Process_4480" [label="read"];
+
+    "Agent_DS29HY41" -> "net1.exe" [label="fork"];
+
+    "net1.exe" -> "192.168.1.5:445" [label="send_to"];
+
+    "192.168.1.5:445" -> "net1.exe" [label="recv_from"];
+
+    "services.exe" -> "taskhostw.exe" [label="fork"];
+
+    "taskhostw.exe" -> "webcache.dat" [label="write"];
+    "lsass.exe" -> "192.168.1.5:445" [label="sendto"];
+    "explorer.exe" -> "mimikatz.exe" [label="sendto"];
+    "142.20.58.149" -> "ntdll.dll" [label="recvfrom"];
+    "conhost.exe" -> "142.20.58.149" [label="write"];
+    "user32.dll" -> "Agent_DS29HY41" [label="write"];
+    "taskbar.icon" -> "kernel32.dll" [label="recvfrom"];
+    "Agent_NEK5H8GX" -> "taskbar.icon" [label="recvfrom"];
+    "132.197.158.98:80" -> "sam.log" [label="execute"];
+    "places.sqlite" -> "kernel32.dll" [label="read"];
+    "wuauserv.log" -> "runme.bat" [label="recvfrom"];
+    "sam.log" -> "64.233.191.255:8000" [label="execute"];
+    "kernelbase.dll" -> "Process_4480" [label="execute"];
+    "conhost.exe" -> "explorer.exe" [label="read"];
+    "cmd.exe" -> "Agent_NEK5H8GX" [label="execute"];
+    "net1.exe" -> "temp_log.txt" [label="write"];
+    "wuauserv.log" -> "taskhostw.exe" [label="write"];
+    "firefox.exe" -> "wmi.dll" [label="fork"];
+    "Process_4480" -> "142.20.58.149" [label="sendto"];
+    "explorer.exe" -> "Agent_NEK5H8GX" [label="write"];
+    "conhost.exe" -> "142.20.57.147" [label="execute"];
+    "192.168.1.1:53" -> "services.exe" [label="recvfrom"];
+    "svchost.exe" -> "wuauserv.log" [label="recvfrom"];
+    "132.197.158.98:80" -> "conhost.exe" [label="read"];
+    "places.sqlite" -> "132.197.158.98:80" [label="fork"];
+    "kernelbase.dll" -> "svchost.exe" [label="sendto"];
+    "Agent_NEK5H8GX" -> "ntdll.dll" [label="read"];
+    "runme.bat" -> "Process_4480" [label="write"];
+    "cookies.sqlite" -> "taskhostw.exe" [label="execute"];
+    "Agent_VL8B5T3U" -> "sam.log" [label="recvfrom"];
+    "temp_log.txt" -> "crypt32.dll" [label="execute"];
+    "taskhostw.exe" -> "Agent_DS29HY41" [label="recvfrom"];
+    "taskbar.icon" -> "142.20.57.147" [label="fork"];
+    "svchost.exe" -> "ntdll.dll" [label="recvfrom"];
+    "user32.dll" -> "132.197.158.98:80" [label="fork"];
+    "svchost.exe" -> "runme.bat" [label="read"];
+    "Process_4480" -> "lsass.exe" [label="read"];
+    "cmd.exe" -> "172.217.16.142:443" [label="recvfrom"];
+    "places.sqlite" -> "cookies.sqlite" [label="sendto"];
+    "142.20.57.147" -> "taskbar.icon" [label="write"];
+    "taskhostw.exe" -> "runme.bat" [label="recvfrom"];
+    "Agent_VL8B5T3U" -> "192.168.1.5:445" [label="write"];
+    "lsass.exe" -> "239.255.255.250:1900" [label="fork"];
+    "cookies.sqlite" -> "ping_sweep.ps1" [label="execute"];
+    "132.197.158.98:80" -> "firefox.exe" [label="write"];
+    "explorer.exe" -> "64.233.191.255:8000" [label="sendto"];
+    "192.168.1.5:445" -> "conhost.exe" [label="recvfrom"];
+    "kernelbase.dll" -> "ntuser.dat" [label="recvfrom"];
+    "net1.exe" -> "172.217.16.142:443" [label="sendto"];
+    "Agent_LUAVR71T" -> "cookies.sqlite" [label="read"];
+    "192.168.1.5:445" -> "Agent_VL8B5T3U" [label="write"];
+    "mimikatz.exe" -> "kernel32.dll" [label="recvfrom"];
+    "Agent_VL8B5T3U" -> "Process_4480" [label="execute"];
+    "taskbar.icon" -> "Agent_NEK5H8GX" [label="fork"];
+    "ntdll.dll" -> "192.168.1.1:53" [label="write"];
+    "ntuser.dat" -> "Process_4480" [label="read"];
+    "192.168.1.1:53" -> "wuauserv.log" [label="execute"];
+    "172.217.16.142:443" -> "192.168.1.1:53" [label="write"];
+    "kernelbase.dll" -> "ntdll.dll" [label="fork"];
+    "64.233.191.255:8000" -> "lsass.exe" [label="recvfrom"];
+    "conhost.exe" -> "lsass.exe" [label="recvfrom"];
+    "132.197.158.98:80" -> "Agent_VL8B5T3U" [label="execute"];
+    "Agent_NEK5H8GX" -> "192.168.1.5:445" [label="sendto"];
+    "ping_sweep.ps1" -> "conhost.exe" [label="sendto"];
+    "services.exe" -> "temp_log.txt" [label="write"];
+    "mimikatz.exe" -> "cookies.sqlite" [label="execute"];
+    "runme.bat" -> "wmi.dll" [label="sendto"];
+    "Agent_VL8B5T3U" -> "cmd.exe" [label="read"];
+}

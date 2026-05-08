@@ -1,0 +1,59 @@
+digraph G {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "207.103.191.4:80" [shape=diamond];
+    "103.12.253.24:80" [shape=diamond];
+    "128.55.12.1" [shape=diamond];
+    "128.55.12.67" [shape=diamond];
+    "128.55.12.110" [shape=diamond];
+    "128.55.12.103" [shape=diamond];
+    "128.55.12.141" [shape=diamond];
+    "128.55.12.166" [shape=diamond];
+    "128.55.12.167" [shape=diamond];
+    "128.55.12.73" [shape=diamond];
+    "162.66.239.75:80" [shape=diamond];
+    "198.51.100.1:8080" [shape=diamond];
+    "192.168.1.1:22" [shape=diamond];
+
+    "dfa21dsacxz.docx" [shape=box];
+    "/tmp/texec" [shape=box];
+    "~/.bash_history" [shape=box];
+    "/tmp/payload.sh" [shape=box];
+    "/var/log/auth.log" [shape=box];
+
+    "pine" [shape=ellipse];
+    "texec" [shape=ellipse];
+    "uname" [shape=ellipse];
+    "bash" [shape=ellipse];
+    "sh" [shape=ellipse];
+    "grep" [shape=ellipse];
+    "sshd" [shape=ellipse];
+
+    "pine" -> "texec" [label="fork"];
+    "/tmp/texec" -> "texec" [label="read"];
+    "pine" -> "128.55.12.73" [label="sendto"];
+    "128.55.12.167" -> "pine" [label="recvfrom"];
+    "texec" -> "128.55.12.73" [label="sendto"];
+    "texec" -> "207.103.191.4:80" [label="sendto"];
+    "texec" -> "103.12.253.24:80" [label="sendto"];
+    "texec" -> "128.55.12.1" [label="sendto"];
+    "texec" -> "128.55.12.67" [label="sendto"];
+    "texec" -> "128.55.12.110" [label="sendto"];
+    "texec" -> "128.55.12.103" [label="sendto"];
+    "texec" -> "128.55.12.141" [label="sendto"];
+    "texec" -> "128.55.12.166" [label="sendto"];
+    "texec" -> "162.66.239.75:80" [label="sendto"];
+    "texec" -> "uname" [label="fork"];
+    "dfa21dsacxz.docx" -> "texec" [label="read"];
+    "pine" -> "bash" [label="fork"];
+    "pine" -> "~/.bash_history" [label="read"];
+    "texec" -> "sh" [label="fork"];
+    "sh" -> "/tmp/payload.sh" [label="execute"];
+    "sh" -> "198.51.100.1:8080" [label="sendto"];
+    "198.51.100.1:8080" -> "sh" [label="recvfrom"];
+    "texec" -> "/var/log/auth.log" [label="read"];
+    "bash" -> "grep" [label="fork"];
+    "bash" -> "sshd" [label="fork"];
+    "192.168.1.1:22" -> "sshd" [label="recvfrom"];
+}

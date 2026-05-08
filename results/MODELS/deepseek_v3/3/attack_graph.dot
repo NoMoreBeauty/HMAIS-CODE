@@ -1,0 +1,165 @@
+digraph Case3 {
+rankdir=TB;
+node [fontname="Arial"];
+
+"204.68.111.100" [shape=diamond];
+"53.192.68.50:8080" [shape=diamond];
+"142.20.56.0/22" [shape=diamond];
+"203.0.113.55" [shape=diamond];
+"192.168.1.1:53" [shape=diamond];
+
+"update.exe" [shape=ellipse];
+"myHbYXTpViwX.vbx" [shape=ellipse];
+"HKLM_Run_RTqWaEHv" [shape=ellipse];
+"TimeStomped_Files" [shape=ellipse];
+"Local_Admin_Group" [shape=ellipse];
+"wuauserv.dll" [shape=ellipse];
+"WebCache" [shape=ellipse];
+"winsrv.dll" [shape=ellipse];
+"desktop.ini" [shape=ellipse];
+"shell32.dll" [shape=ellipse];
+"msctf.dll" [shape=ellipse];
+"kernelbase.dll" [shape=ellipse];
+"EventLog" [shape=ellipse];
+"ntdll.dll" [shape=ellipse];
+"kernel32.dll" [shape=ellipse];
+
+"notepad++.exe" [shape=box];
+"cKfGW.exe" [shape=box];
+"cmd.exe" [shape=box];
+"lsass.exe" [shape=box];
+"mimikatz.exe" [shape=box];
+"RDP_Service" [shape=box];
+"Process_1932" [shape=box];
+"Iwabeat.exe" [shape=box];
+"System" [shape=box];
+"smss.exe" [shape=box];
+"wininit.exe" [shape=box];
+"services.exe" [shape=box];
+"svchost.exe" [shape=box];
+"taskhostw.exe" [shape=box];
+"csrss.exe" [shape=box];
+"winlogon.exe" [shape=box];
+"LogonUI.exe" [shape=box];
+"userinit.exe" [shape=box];
+"explorer.exe" [shape=box];
+"ctfmon.exe" [shape=box];
+"conhost.exe" [shape=box];
+"spoolsv.exe" [shape=box];
+
+"notepad++.exe" -> "204.68.111.100" [label="send_to"];
+
+"204.68.111.100" -> "notepad++.exe" [label="recv_from"];
+
+"notepad++.exe" -> "update.exe" [label="write"];
+
+"notepad++.exe" -> "update.exe" [label="execute"];
+
+"update.exe" -> "cKfGW.exe" [label="fork"];
+
+"cKfGW.exe" -> "53.192.68.50:8080" [label="send_to"];
+
+"53.192.68.50:8080" -> "cKfGW.exe" [label="recv_from"];
+
+"cKfGW.exe" -> "cmd.exe" [label="fork"];
+
+"cKfGW.exe" -> "142.20.56.0/22" [label="send_to"];
+
+"cKfGW.exe" -> "lsass.exe" [label="fork"];
+
+"lsass.exe" -> "mimikatz.exe" [label="fork"];
+
+"lsass.exe" -> "myHbYXTpViwX.vbx" [label="write"];
+
+"lsass.exe" -> "HKLM_Run_RTqWaEHv" [label="write"];
+
+"lsass.exe" -> "TimeStomped_Files" [label="write"];
+
+"lsass.exe" -> "Local_Admin_Group" [label="write"];
+
+"203.0.113.55" -> "RDP_Service" [label="send_to"];
+
+"RDP_Service" -> "Local_Admin_Group" [label="read"];
+
+"update.exe" -> "Process_1932" [label="fork"];
+
+"Process_1932" -> "53.192.68.50:8080" [label="send_to"];
+
+"53.192.68.50:8080" -> "Process_1932" [label="recv_from"];
+
+"Process_1932" -> "Iwabeat.exe" [label="fork"];
+
+"Iwabeat.exe" -> "53.192.68.50:8080" [label="send_to"];
+
+"53.192.68.50:8080" -> "Iwabeat.exe" [label="recv_from"];
+
+"142.20.56.0/22" -> "cKfGW.exe" [label="recv_from"];
+
+"RDP_Service" -> "203.0.113.55" [label="recv_from"];
+
+"cKfGW.exe" -> "ntdll.dll" [label="read"];
+
+"mimikatz.exe" -> "kernel32.dll" [label="read"];
+
+
+"System" -> "smss.exe" [label="fork"];
+
+"smss.exe" -> "wininit.exe" [label="fork"];
+
+"wininit.exe" -> "services.exe" [label="fork"];
+
+"wininit.exe" -> "lsass.exe" [label="fork"];
+
+"services.exe" -> "svchost.exe" [label="fork"];
+
+"svchost.exe" -> "wuauserv.dll" [label="read"];
+
+"svchost.exe" -> "192.168.1.1:53" [label="send_to"];
+
+"192.168.1.1:53" -> "svchost.exe" [label="recv_from"];
+
+"svchost.exe" -> "taskhostw.exe" [label="fork"];
+
+"taskhostw.exe" -> "WebCache" [label="read"];
+
+"smss.exe" -> "csrss.exe" [label="fork"];
+
+"csrss.exe" -> "winsrv.dll" [label="read"];
+
+"smss.exe" -> "winlogon.exe" [label="fork"];
+
+"winlogon.exe" -> "LogonUI.exe" [label="fork"];
+
+"winlogon.exe" -> "userinit.exe" [label="fork"];
+
+"userinit.exe" -> "explorer.exe" [label="fork"];
+
+"explorer.exe" -> "notepad++.exe" [label="fork"];
+
+"explorer.exe" -> "desktop.ini" [label="read"];
+
+"explorer.exe" -> "shell32.dll" [label="read"];
+
+"explorer.exe" -> "ctfmon.exe" [label="fork"];
+
+"ctfmon.exe" -> "msctf.dll" [label="read"];
+
+"cmd.exe" -> "conhost.exe" [label="fork"];
+
+"conhost.exe" -> "kernelbase.dll" [label="read"];
+
+"svchost.exe" -> "EventLog" [label="write"];
+
+"services.exe" -> "spoolsv.exe" [label="fork"];
+    "update.exe" -> "cmd.exe" [label="sendto"];
+    "services.exe" -> "53.192.68.50:8080" [label="write"];
+    "smss.exe" -> "EventLog" [label="read"];
+    "lsass.exe" -> "ntdll.dll" [label="sendto"];
+    "winsrv.dll" -> "conhost.exe" [label="execute"];
+    "TimeStomped_Files" -> "203.0.113.55" [label="fork"];
+    "mimikatz.exe" -> "kernel32.dll" [label="recvfrom"];
+    "TimeStomped_Files" -> "kernel32.dll" [label="write"];
+    "userinit.exe" -> "142.20.56.0/22" [label="recvfrom"];
+    "smss.exe" -> "desktop.ini" [label="recvfrom"];
+    "shell32.dll" -> "mimikatz.exe" [label="read"];
+}

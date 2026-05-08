@@ -1,0 +1,1337 @@
+{
+  "poi": {
+    "event_id": "8D401054-39B3-11E8-BF66-D9AA8AFF4A69",
+    "details": {
+      "POI类型": "事件 (Event)",
+      "Event UUID": "8D401054-39B3-11E8-BF66-D9AA8AFF4A69",
+      "关系类型": "WRITE",
+      "事件类别": "write",
+      "事件类型": "EVENT_WRITE",
+      "事件名称": "aue_write",
+      "源节点": "Firefox (process)",
+      "目标节点": "/tmp/memtrace.so (file)",
+      "源节点ID": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+      "目标节点ID": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69"
+    }
+  },
+  "attack_graph": {
+    "nodes": [
+      {
+        "uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "Firefox",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "gtcache",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "sshd",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "whoami",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401034-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "ps",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "apt",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "bash",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "ls",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "systemd",
+        "type": "process"
+      },
+      {
+        "uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "cron",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "sh",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "cat",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "curl",
+        "type": "process"
+      },
+      {
+        "uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/tmp/memtrace.so",
+        "type": "file"
+      },
+      {
+        "uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/var/log/xdev",
+        "type": "file"
+      },
+      {
+        "uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/var/log/mail",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/etc/passwd",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/var/log/syslog",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401042-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/var/log/auth.log",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401043-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/home/user/.bashrc",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "/var/log/wdev",
+        "type": "file"
+      },
+      {
+        "uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "104.228.117.212:80",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401046-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "141.43.176.203:80",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401047-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "146.153.68.151:80",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "149.52.198.23:80",
+        "type": "network"
+      },
+      {
+        "uuid": "7D401049-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.73",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40104A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.166",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40104B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.67",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40104C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "128.55.12.141",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40104D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "192.168.1.1:22",
+        "type": "network"
+      },
+      {
+        "uuid": "7D40104E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "name": "8.8.8.8:53",
+        "type": "network"
+      }
+    ],
+    "edges": [
+      {
+        "event_uuid": "8D401075-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "systemd",
+        "target_name": "sshd",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168411"
+      },
+      {
+        "event_uuid": "8D401067-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "8.8.8.8:53",
+        "target_name": "Firefox",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168369"
+      },
+      {
+        "event_uuid": "8D401076-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "systemd",
+        "target_name": "apt",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168414"
+      },
+      {
+        "event_uuid": "8D401079-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "cat",
+        "target_name": "/etc/passwd",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168427"
+      },
+      {
+        "event_uuid": "8D40105A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "Firefox",
+        "target_name": "/var/log/wdev",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168332"
+      },
+      {
+        "event_uuid": "8D401058-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "Firefox",
+        "target_name": "/var/log/xdev",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168325"
+      },
+      {
+        "event_uuid": "8D401072-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401038-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "systemd",
+        "target_name": "cron",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168406"
+      },
+      {
+        "event_uuid": "8D40105C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "Firefox",
+        "target_name": "/var/log/mail",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168339"
+      },
+      {
+        "event_uuid": "8D40106A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sshd",
+        "target_name": "bash",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168378"
+      },
+      {
+        "event_uuid": "8D401066-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "Firefox",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168364"
+      },
+      {
+        "event_uuid": "8D401054-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "Firefox",
+        "target_name": "/tmp/memtrace.so",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168308"
+      },
+      {
+        "event_uuid": "8D40105F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401049-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "apt",
+        "target_name": "128.55.12.73",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168347"
+      },
+      {
+        "event_uuid": "8D401060-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "apt",
+        "target_name": "128.55.12.166",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168349"
+      },
+      {
+        "event_uuid": "8D401063-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "Firefox",
+        "target_name": "bash",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168357"
+      },
+      {
+        "event_uuid": "8D401068-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401040-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sshd",
+        "target_name": "/etc/passwd",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168373"
+      },
+      {
+        "event_uuid": "8D40105E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401048-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "apt",
+        "target_name": "149.52.198.23:80",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168345"
+      },
+      {
+        "event_uuid": "8D401065-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401043-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "/home/user/.bashrc",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168362"
+      },
+      {
+        "event_uuid": "8D401050-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401045-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "104.228.117.212:80",
+        "target_name": "Firefox",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168301"
+      },
+      {
+        "event_uuid": "8D40106E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401041-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "apt",
+        "target_name": "/var/log/syslog",
+        "relation_type": "WRITE",
+        "event_type": "EVENT_WRITE",
+        "event_name": "aue_write",
+        "timestamp": "1523028173276168392"
+      },
+      {
+        "event_uuid": "8D401071-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "curl",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168401"
+      },
+      {
+        "event_uuid": "8D40106F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401035-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40104E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "apt",
+        "target_name": "8.8.8.8:53",
+        "relation_type": "SENDTO",
+        "event_type": "EVENT_SENDTO",
+        "event_name": "aue_sendto",
+        "timestamp": "1523028173276168396"
+      },
+      {
+        "event_uuid": "8D401055-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401031-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "Firefox",
+        "target_name": "gtcache",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168313"
+      },
+      {
+        "event_uuid": "8D40106B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40104D-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "192.168.1.1:22",
+        "target_name": "sshd",
+        "relation_type": "RECVFROM",
+        "event_type": "EVENT_RECVFROM",
+        "event_name": "aue_recvfrom",
+        "timestamp": "1523028173276168382"
+      },
+      {
+        "event_uuid": "8D401074-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "sh",
+        "target_name": "/var/log/mail",
+        "relation_type": "READ",
+        "event_type": "EVENT_READ",
+        "event_name": "aue_read",
+        "timestamp": "1523028173276168409"
+      },
+      {
+        "event_uuid": "8D40106C-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401033-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "whoami",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168387"
+      },
+      {
+        "event_uuid": "8D40107A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401044-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/var/log/wdev",
+        "target_name": "sshd",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168430"
+      },
+      {
+        "event_uuid": "8D40107B-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D40103E-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401032-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "/var/log/xdev",
+        "target_name": "sshd",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168433"
+      },
+      {
+        "event_uuid": "8D401073-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401039-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D40103A-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "cron",
+        "target_name": "sh",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168407"
+      },
+      {
+        "event_uuid": "8D401064-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_uuid": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+        "target_uuid": "7D401037-39B3-11E8-BF66-D9AA8AFF4A69",
+        "source_name": "bash",
+        "target_name": "ls",
+        "relation_type": "FORK",
+        "event_type": "EVENT_FORK",
+        "event_name": "aue_fork",
+        "timestamp": "1523028173276168361"
+      }
+    ]
+  },
+  "narrative_summary": "攻击始于三个独立的外部 IP 地址——104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53——利用 Firefox 浏览器漏洞（T1190）发起三重初始入侵；其中 DNS 服务器 8.8.8.8:53 不仅作为入口点，更被复用于加密出站通信（T1071.001），构建双向隐蔽信道。Firefox 入侵后立即执行 whoami、ps 及 gtcache（T1059.004），完成权限探测（T1082）与环境测绘，并向 /var/log/xdev、/var/log/wdev 和 /var/log/mail 写入可疑载荷（T1105）。随后，/tmp/memtrace.so 被 gtcache 进程直接读取并执行（T1059.004），形成内存加载执行链；/var/log/mail 被异常执行并调用 apt（T1059），apt 进而向 /var/log/syslog 注入数据（T1105）以掩盖痕迹。当前调查焦点为 bash 子进程（由 Firefox 派生，T1059.004），其高频执行 ls、whoami（两次）、ps 与 cat，持续开展横向侦察；该进程亦深度参与 C2 流量分发——apt 与 curl 已被劫持，形成覆盖 8.8.8.8:53、149.52.198.23:80 及五个 128.55.12.x 地址（含最新确认的 128.55.12.141）的六节点冗余 C2 网络（T1071.001）；尤为关键的是，bash 进程新确认读取 /home/user/.bashrc（T1005），且 apt 进程新确认派生 curl 子进程（T1059.004），进一步扩展命令执行能力与信道弹性。此外，gtcache 进程新确认向 146.153.68.151:80 发起外联（T1071.001），标志着攻击者已拓展第七个 C2 节点，强化多源指令接收与抗封锁能力。",
+  "ttp_chain": [
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "Firefox → whoami"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "Firefox → ps"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "Firefox → gtcache"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "Firefox → bash"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "104.228.117.212:80 → Firefox"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "141.43.176.203:80 → Firefox"
+    },
+    {
+      "technique": "T1190",
+      "tactic": "Initial Access",
+      "name": "Exploit Public-Facing Application",
+      "event_desc": "8.8.8.8:53 → Firefox"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → ls"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → whoami"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → ps"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "bash → cat"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "Firefox → /var/log/xdev"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "Firefox → /var/log/wdev"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "Firefox → /var/log/mail"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "Firefox → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "apt → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "curl → 8.8.8.8:53"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "apt → 149.52.198.23:80"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "apt → 128.55.12.73"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "apt → 128.55.12.166"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "apt → 128.55.12.67"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "apt → 128.55.12.141"
+    },
+    {
+      "technique": "T1059",
+      "tactic": "Execution",
+      "name": "Command and Scripting Interpreter",
+      "event_desc": "/var/log/mail → apt"
+    },
+    {
+      "technique": "T1105",
+      "tactic": "Command and Control",
+      "name": "Ingress Tool Transfer",
+      "event_desc": "apt → /var/log/syslog"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "/tmp/memtrace.so → gtcache"
+    },
+    {
+      "technique": "T1005",
+      "tactic": "Collection",
+      "name": "Data from Local System",
+      "event_desc": "bash → /home/user/.bashrc"
+    },
+    {
+      "technique": "T1059.004",
+      "tactic": "Execution",
+      "name": "Unix Shell",
+      "event_desc": "apt → curl"
+    },
+    {
+      "technique": "T1071.001",
+      "tactic": "Command and Control",
+      "name": "Web Protocols",
+      "event_desc": "gtcache → 146.153.68.151:80"
+    }
+  ],
+  "action_history": [
+    {
+      "iteration": 1,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 2,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 3,
+      "action": "查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 4,
+      "action": "查找写入文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 5,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 6,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401052-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 7,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 8,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 9,
+      "action": "查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 10,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 11,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401053-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 12,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 13,
+      "action": "查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 14,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401055-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 15,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 16,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 17,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 18,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 19,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 20,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401063-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 21,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 22,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 23,
+      "action": "查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 24,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401050-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 25,
+      "action": "查找 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 26,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 27,
+      "action": "查找哪些进程向 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 28,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401051-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 29,
+      "action": "查找哪些进程向 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 30,
+      "action": "查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 31,
+      "action": "查找与 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 32,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 33,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D401067-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 34,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 35,
+      "action": "查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 36,
+      "action": "查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 37,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401064-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 38,
+      "action": "查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 39,
+      "action": "查找 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 40,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D40106C-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 41,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 42,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 43,
+      "action": "查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 44,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40106D-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 45,
+      "action": "查找与 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 46,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 47,
+      "action": "查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 48,
+      "action": "查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401078-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 49,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 50,
+      "action": "查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 51,
+      "action": "查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 52,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401058-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 53,
+      "action": "查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 54,
+      "action": "查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 55,
+      "action": "查找哪些进程向 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 56,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 57,
+      "action": "查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 58,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105A-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 59,
+      "action": "查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 60,
+      "action": "查找与 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 61,
+      "action": "查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 62,
+      "action": "查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D40105C-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 63,
+      "action": "查找写入文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 64,
+      "action": "查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 65,
+      "action": "查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 66,
+      "action": "查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 67,
+      "action": "查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 68,
+      "action": "查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 接收了哪些进程的数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401066-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 69,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 70,
+      "action": "查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 71,
+      "action": "查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 接收了哪些进程的数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40106F-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 72,
+      "action": "查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 73,
+      "action": "查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 74,
+      "action": "查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 75,
+      "action": "查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 76,
+      "action": "查找写入文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 77,
+      "action": "查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 接收了哪些进程的数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D401071-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 78,
+      "action": "查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 79,
+      "action": "查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 80,
+      "action": "查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 81,
+      "action": "查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 2,
+      "discovered_events": [
+        "8D40105E-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 82,
+      "action": "查找哪些进程向 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送数据",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 83,
+      "action": "查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 84,
+      "action": "查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 85,
+      "action": "查找与 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信",
+      "result": "no_results",
+      "events_found": 0
+    },
+    {
+      "iteration": 86,
+      "action": "查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据",
+      "result": "success",
+      "events_found": 1,
+      "discovered_events": [
+        "8D40105F-39B3-11E8-BF66-D9AA8AFF4A69"
+      ]
+    },
+    {
+      "iteration": 87,
+      "action": "查找写入文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的进程",
+      "result": "no_results",
+      "events_found": 0
+    }
+  ],
+  "evaluated_events": [
+    {
+      "event_uuid": "8D40107A-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_FORK",
+      "source": "Firefox",
+      "target": "logger",
+      "is_malicious": false,
+      "reason": "系统日志记录子进程"
+    },
+    {
+      "event_uuid": "8D40107B-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_RECVFROM",
+      "source": "10.0.0.1:53",
+      "target": "Firefox",
+      "is_malicious": false,
+      "reason": "DNS 解析请求"
+    },
+    {
+      "event_uuid": "8D40107C-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_RECVFROM",
+      "source": "127.0.0.1:3306",
+      "target": "Firefox",
+      "is_malicious": false,
+      "reason": "本地数据库连接"
+    },
+    {
+      "event_uuid": "8D40107D-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_FORK",
+      "source": "bash",
+      "target": "logger",
+      "is_malicious": false,
+      "reason": "系统日志记录子进程"
+    },
+    {
+      "event_uuid": "8D40107E-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_WRITE",
+      "source": "Firefox",
+      "target": "/var/log/nginx/access.log",
+      "is_malicious": false,
+      "reason": "Web 服务访问日志写入"
+    },
+    {
+      "event_uuid": "8D40107F-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/hosts",
+      "target": "apt",
+      "is_malicious": false,
+      "reason": "hosts 文件解析"
+    },
+    {
+      "event_uuid": "8D401080-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/passwd",
+      "target": "apt",
+      "is_malicious": false,
+      "reason": "NSS 用户名解析"
+    },
+    {
+      "event_uuid": "8D401081-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_WRITE",
+      "source": "apt",
+      "target": "/var/log/syslog",
+      "is_malicious": false,
+      "reason": "标准日志写入"
+    },
+    {
+      "event_uuid": "8D401082-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_READ",
+      "source": "/etc/nginx/nginx.conf",
+      "target": "gtcache",
+      "is_malicious": false,
+      "reason": "标准配置文件读取"
+    },
+    {
+      "event_uuid": "8D401083-39B3-11E8-BF66-D9AA8AFF4A69",
+      "event_type": "EVENT_FORK",
+      "source": "apt",
+      "target": "awk",
+      "is_malicious": false,
+      "reason": "文本处理子进程"
+    }
+  ],
+  "metadata": {
+    "session_dir": "20251201_233907",
+    "total_iterations": 87,
+    "malicious_events": 29,
+    "benign_events": 10
+  }
+}

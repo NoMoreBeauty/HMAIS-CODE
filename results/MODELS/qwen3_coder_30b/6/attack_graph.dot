@@ -1,0 +1,148 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "192.168.52.133:16415" [shape=diamond];
+    "BITTER_ALUMINUM.exe" [shape=ellipse];
+    "C:\\\\Users\\\\34381\\\\Downloads.zip" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe" [shape=box];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip" [shape=box];
+    "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [shape=box];
+    "ELECTRICAL_LEMUR.exe" [shape=ellipse];
+    "INCREASING_MAKE.exe" [shape=ellipse];
+    "SearchProtocolHost.exe" [shape=ellipse];
+    "msedge.exe" [shape=ellipse];
+    "powershell.exe" [shape=ellipse];
+    "regsvr32.exe" [shape=ellipse];
+    "explorer.exe" [shape=ellipse];
+    "svchost.exe" [shape=ellipse];
+    "C:\\\\Windows\\\\System32\\\\ntdll.dll" [shape=box];
+    "C:\\\\Windows\\\\System32\\\\kernel32.dll" [shape=box];
+    "8.8.8.8:53" [shape=diamond];
+    "C:\\\\ProgramData\\\\app.log" [shape=box];
+
+    "msedge.exe" -> "192.168.52.133:16415" [label="recv_from"];
+
+    "msedge.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip" [label="read"];
+
+    "msedge.exe" -> "powershell.exe" [label="fork"];
+
+    "powershell.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip" [label="read"];
+
+    "powershell.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="read"];
+
+    "powershell.exe" -> "BITTER_ALUMINUM.exe" [label="fork"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="execute"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\new\\\\ELECTRICAL_LEMUR.exe" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "regsvr32.exe" [label="fork"];
+
+    "regsvr32.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "ELECTRICAL_LEMUR.exe" [label="fork"];
+
+    "BITTER_ALUMINUM.exe" -> "INCREASING_MAKE.exe" [label="fork"];
+
+    "ELECTRICAL_LEMUR.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe" [label="execute"];
+
+    "INCREASING_MAKE.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [label="execute"];
+
+    "BITTER_ALUMINUM.exe" -> "SearchProtocolHost.exe" [label="fork"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads.zip" [label="read"];
+
+
+    "explorer.exe" -> "msedge.exe" [label="fork"];
+
+    "msedge.exe" -> "C:\\\\Windows\\\\System32\\\\ntdll.dll" [label="read"];
+
+    "msedge.exe" -> "C:\\\\Windows\\\\System32\\\\kernel32.dll" [label="read"];
+
+    "msedge.exe" -> "8.8.8.8:53" [label="send_to"];
+
+    "powershell.exe" -> "C:\\\\Windows\\\\System32\\\\ntdll.dll" [label="read"];
+
+    "powershell.exe" -> "C:\\\\Windows\\\\System32\\\\kernel32.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Windows\\\\System32\\\\ntdll.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Windows\\\\System32\\\\kernel32.dll" [label="read"];
+
+    "BITTER_ALUMINUM.exe" -> "8.8.8.8:53" [label="send_to"];
+
+    "BITTER_ALUMINUM.exe" -> "svchost.exe" [label="fork"];
+
+    "svchost.exe" -> "C:\\\\ProgramData\\\\app.log" [label="write"];
+
+    "SearchProtocolHost.exe" -> "C:\\\\Windows\\\\System32\\\\ntdll.dll" [label="read"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe" -> "C:\\\\ProgramData\\\\app.log" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" -> "C:\\\\ProgramData\\\\app.log" [label="write"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe" -> "explorer.exe" [label="execute"];
+    "INCREASING_MAKE.exe" -> "C:\\\\Users\\\\34381\\\\Downloads.zip" [label="recvfrom"];
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Windows\\\\System32\\\\kernel32.dll" [label="fork"];
+    "explorer.exe" -> "192.168.52.133:16415" [label="sendto"];
+    "explorer.exe" -> "C:\\\\Windows\\\\System32\\\\kernel32.dll" [label="read"];
+    "explorer.exe" -> "msedge.exe" [label="fork"];
+    "C:\\\\Windows\\\\System32\\\\kernel32.dll" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [label="write"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe" -> "C:\\\\Users\\\\34381\\\\Downloads.zip" [label="fork"];
+    "C:\\\\Windows\\\\System32\\\\ntdll.dll" -> "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [label="read"];
+    "explorer.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="recvfrom"];
+    "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" -> "ELECTRICAL_LEMUR.exe" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip" -> "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [label="write"];
+    "powershell.exe" -> "explorer.exe" [label="read"];
+    "C:\\\\ProgramData\\\\app.log" -> "svchost.exe" [label="recvfrom"];
+    "192.168.52.133:16415" -> "INCREASING_MAKE.exe" [label="recvfrom"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe" -> "BITTER_ALUMINUM.exe" [label="fork"];
+    "C:\\\\Windows\\\\System32\\\\ntdll.dll" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll" [label="read"];
+    "svchost.exe" -> "ELECTRICAL_LEMUR.exe" [label="recvfrom"];
+    "C:\\\\ProgramData\\\\app.log" -> "BITTER_ALUMINUM.exe" [label="execute"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe" -> "explorer.exe" [label="fork"];
+    "C:\\\\Windows\\\\System32\\\\ntdll.dll" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="execute"];
+    "BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\store.zip" [label="read"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" -> "explorer.exe" [label="read"];
+    "C:\\\\ProgramData\\\\app.log" -> "C:\\\\ProgramData\\\\app.log" [label="fork"];
+    "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" -> "regsvr32.exe" [label="execute"];
+    "regsvr32.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="sendto"];
+    "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll" [label="execute"];
+    "msedge.exe" -> "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [label="write"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" -> "svchost.exe" [label="read"];
+    "powershell.exe" -> "ELECTRICAL_LEMUR.exe" [label="fork"];
+    "C:\\\\Windows\\\\System32\\\\kernel32.dll" -> "BITTER_ALUMINUM.exe" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe" -> "msedge.exe" [label="execute"];
+    "C:\\\\Windows\\\\System32\\\\ntdll.dll" -> "msedge.exe" [label="fork"];
+    "192.168.52.133:16415" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe" [label="sendto"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" -> "explorer.exe" [label="execute"];
+    "C:\\\\Windows\\\\System32\\\\ntdll.dll" -> "ELECTRICAL_LEMUR.exe" [label="sendto"];
+    "C:\\\\ProgramData\\\\app.log" -> "192.168.52.133:16415" [label="read"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\start1\\\\ELECTRICAL_LEMUR.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="read"];
+    "C:\\\\Windows\\\\System32\\\\ntdll.dll" -> "svchost.exe" [label="execute"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\ELECTRICAL_LEMUR.exe" -> "C:\\\\ProgramData\\\\app.log" [label="fork"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\start3\\\\INCREASING_MAKE.exe" [label="recvfrom"];
+    "8.8.8.8:53" -> "C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf" [label="recvfrom"];
+    "8.8.8.8:53" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="write"];
+}

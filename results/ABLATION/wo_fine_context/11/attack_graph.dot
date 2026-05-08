@@ -1,0 +1,58 @@
+digraph G {
+    "81.49.200.166" [shape=diamond];
+    "nignx" [shape=ellipse];
+    "/etc/group" [shape=box];
+    "/etc/password" [shape=box];
+    "78.205.235.65:80" [shape=diamond];
+    "200.36.109.214:80" [shape=diamond];
+    "/var/log/devc" [shape=box];
+    "/usr/log/devc" [shape=box];
+    "/tmp/vUgefal" [shape=box];
+    "vUgefal" [shape=ellipse];
+    "139.123.0.113:80" [shape=diamond];
+    "154.145.113.18:80" [shape=diamond];
+    "61.167.39.128:80" [shape=diamond];
+    "sshd" [shape=ellipse];
+    "/tmp/vUgefal" -> "vUgefal" [label="execute"];
+
+    "sshd" -> "/root/.ssh/authorized_keys" [label="write"];
+
+    "nignx" -> "/tmp/vUgefal" [label="write"];
+
+    "/etc/group" -> "nignx" [label="read"];
+
+    "/tmp/vUgefal" -> "nignx" [label="read"];
+
+    "php-fpm" -> "/var/www/html/backdoor.php" [label="write"];
+
+    "78.205.235.65:80" -> "nignx" [label="recv_from"];
+
+    "192.0.2.5:443" -> "nignx" [label="recv_from"];
+
+    "nignx" -> "php-fpm" [label="fork"];
+
+    "vUgefal" -> "logs-aggregator" [label="send_to"];
+
+    "/etc/password" -> "nignx" [label="read"];
+
+    "vUgefal" -> "139.123.0.113:80" [label="send_to"];
+
+    "/var/www/html/backdoor.php" -> "php-fpm" [label="execute"];
+
+
+    "81.49.200.166" -> "nignx" [label="recv_from"];
+
+    "logs-aggregator" -> "10.0.0.9:9000" [label="send_to"];
+
+    "mactor" -> "61.167.39.128:80" [label="send_to"];
+
+    "vUgefal" -> "sshd" [label="fork"];
+
+    "vUgefal" -> "10.10.10.7:8080" [label="send_to"];
+
+    "nignx" -> "/var/log/devc" [label="write"];
+
+    "154.145.113.18:80" -> "nignx" [label="recv_from"];
+
+    "/var/www/html/session.tmp" -> "nignx" [label="read"];
+}

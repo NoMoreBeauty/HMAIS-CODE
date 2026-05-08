@@ -1,0 +1,1352 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2026-02-07T00:13:51.269641
+================================================================================
+
+[01:06:08.307] 
+============================================================
+[01:06:08.307] POI REGISTERED
+============================================================
+
+[01:06:08.307] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401054-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "Firefox (process)",
+  "目标节点": "/tmp/memtrace.so (file)",
+  "源节点ID": "7D401030-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D40103D-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[01:06:08.531] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:06:08.760] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:06:08.951] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:06:09.102] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:06:09.400] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:06:19.013] 
+============================================================
+[01:06:19.013] [迭代 4] MEMORY STATE UPDATE
+============================================================
+
+[01:06:19.013] --- 叙述性攻击摘要 ---
+攻击始于 Firefox 浏览器进程执行 whoami 命令（T1059.004），表明攻击者已通过浏览器漏洞或恶意网页获得初始执行权限，并立即开展本地权限探测。该行为属于典型的命令行脚本执行（Unix Shell）技术，旨在确认当前上下文权限级别，为后续横向移动或提权操作铺路。当前调查焦点为 Firefox 进程的异常子进程派生行为。
+
+[01:06:19.013] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+
+[01:06:19.152] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:06:19.299] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:06:19.431] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:06:19.544] --- Action Recorded ---
+Action: 查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:06:19.789] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:06:19.938] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:06:31.963] 
+============================================================
+[01:06:31.963] [迭代 9] MEMORY STATE UPDATE
+============================================================
+
+[01:06:31.963] --- 叙述性攻击摘要 ---
+攻击始于 Firefox 浏览器进程执行 whoami 命令（T1059.004），确认当前用户权限；随后立即派生 ps 子进程（T1059.004），枚举系统运行中的进程列表，进一步开展环境侦察。这两步操作均属于 Unix Shell 命令行脚本执行技术，构成典型的初始访问后快速侦察阶段行为，旨在掌握宿主系统状态，为后续横向移动、持久化或提权决策提供依据。当前调查焦点为 Firefox 进程的异常子进程派生行为，需重点分析其命令执行上下文、触发来源（如恶意网页或漏洞利用载荷）及是否存在隐蔽的父进程劫持或进程注入迹象。
+
+[01:06:31.963] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+
+[01:06:32.088] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:06:32.247] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:06:32.520] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:06:32.760] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:06:32.965] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:06:33.253] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:06:42.447] 
+============================================================
+[01:06:42.447] [迭代 14] MEMORY STATE UPDATE
+============================================================
+
+[01:06:42.447] --- 叙述性攻击摘要 ---
+攻击始于 Firefox 浏览器进程执行 whoami 命令（T1059.004），确认当前用户权限；随后立即派生 ps 子进程（T1059.004），枚举系统运行中的进程列表；紧接着又派生 gtcache 进程（T1059.004），该二进制文件未在标准路径中注册，疑似恶意载荷或内存驻留工具。三步操作均通过 Unix Shell 命令行执行技术实现，时间紧密衔接，构成高度连贯的初始访问后侦察链：whoami 用于权限判别，ps 用于进程环境测绘，gtcache 则可能承担后续通信、持久化或提权功能。当前调查焦点为 Firefox 进程的异常子进程派生行为，需重点分析其命令执行上下文、触发来源（如恶意网页或漏洞利用载荷）及是否存在隐蔽的父进程劫持或进程注入迹象。
+
+[01:06:42.447] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+
+[01:06:42.652] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:06:42.754] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:06:42.937] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:06:43.190] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:06:43.382] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:06:54.633] 
+============================================================
+[01:06:54.633] [迭代 18] MEMORY STATE UPDATE
+============================================================
+
+[01:06:54.633] --- 叙述性攻击摘要 ---
+攻击始于 Firefox 浏览器进程执行 whoami 命令（T1059.004），确认当前用户权限；随后立即派生 ps 子进程（T1059.004）枚举系统进程，继而启动非常规二进制 gtcache（T1059.004），该文件未在标准路径注册，疑似用于后续通信或持久化；最后派生 bash 进程（T1059.004），形成完整初始侦察链。四步操作均通过 Unix Shell 命令行技术实现，时间高度连贯，体现典型的“权限判别→环境测绘→载荷加载→交互控制”战术演进：whoami 为权限评估，ps 支撑横向感知，gtcache 可能承载隐蔽功能，而 bash 的出现标志着攻击者正转向交互式命令执行与进一步载荷投递。当前调查焦点为 Firefox 进程的异常子进程派生行为，需重点分析其命令执行上下文、触发来源（如恶意网页或漏洞利用载荷）及是否存在父进程劫持、内存注入或 shellcode 直接调用等隐蔽执行痕迹。
+
+[01:06:54.633] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+
+[01:06:54.869] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:06:55.023] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:06:55.249] --- Action Recorded ---
+Action: 查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:06:55.437] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:06:55.704] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[01:06:55.886] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[01:07:08.406] 
+============================================================
+[01:07:08.406] [迭代 23] MEMORY STATE UPDATE
+============================================================
+
+[01:07:08.406] --- 叙述性攻击摘要 ---
+攻击始于外部 IP 104.228.117.212:80 利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施初始入侵，成功注入恶意执行流。随后，Firefox 进程立即启动本地侦察链：先执行 whoami 命令（T1059.004）判别当前权限；紧接着派生 ps 子进程（T1059.004）枚举系统进程以测绘运行环境；继而加载并执行非常规二进制文件 gtcache（T1059.004），该文件未在标准路径注册，疑似用于隐蔽通信或持久化；最后派生交互式 bash 进程（T1059.004），标志攻击者已获取可控命令执行能力，为后续横向移动或载荷投递建立基础。整条 TTP 链高度连贯，体现“漏洞利用→权限评估→环境感知→载荷加载→交互控制”的典型战术演进。当前调查焦点为 Firefox 进程的异常子进程派生行为，需重点分析其命令执行上下文、漏洞触发路径（如恶意网页诱导或内存喷射）、以及是否存在父进程劫持、JS 引擎漏洞利用（如 Spectre 变种）或 WebAssembly 混淆 shellcode 等高级执行痕迹。
+
+[01:07:08.406] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+
+[01:07:08.596] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:07:08.708] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:07:08.817] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:07:08.995] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[01:07:09.099] --- Malicious Event Added ---
+Event ID: 8D401051-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[01:07:20.606] 
+============================================================
+[01:07:20.606] [迭代 27] MEMORY STATE UPDATE
+============================================================
+
+[01:07:20.606] --- 叙述性攻击摘要 ---
+攻击始于两个独立的外部 IP（104.228.117.212:80 和 141.43.176.203:80）先后利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施初始入侵，表明攻击者采用多源投递策略提升成功率。Firefox 进程被成功劫持后，立即启动本地侦察链：先执行 whoami（T1059.004）判别权限；继而调用 ps（T1059.004）枚举进程以测绘系统环境；随后加载并执行非常规二进制文件 gtcache（T1059.004），该文件未在标准路径注册，疑似承载隐蔽通信或持久化功能；最终派生交互式 bash 进程（T1059.004），标志攻击者已建立稳定命令控制通道。整条 TTP 链清晰体现“多点漏洞利用→权限评估→环境感知→载荷加载→交互控制”的战术演进。当前调查焦点为 Firefox 进程的异常子进程派生行为，需重点分析其命令执行上下文、漏洞触发路径（如恶意网页诱导、JS 引擎漏洞利用或 WebAssembly 混淆 shellcode）、以及是否存在父进程劫持或内存喷射等高级执行痕迹。
+
+[01:07:20.606] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+
+[01:07:20.770] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:07:20.950] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:07:21.140] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: success
+
+[01:07:21.324] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1190
+
+[01:07:31.923] 
+============================================================
+[01:07:31.923] [迭代 30] MEMORY STATE UPDATE
+============================================================
+
+[01:07:31.923] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）先后利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接尤为可疑，表明攻击者可能通过 DNS 隧道化或恶意解析响应触发漏洞，进一步佐证其多源投递与协议混淆策略。Firefox 进程被劫持后，立即启动本地侦察链：执行 whoami（T1059.004）判别权限；调用 ps（T1059.004）枚举进程以测绘系统环境；加载并执行非常规二进制文件 gtcache（T1059.004），该文件未在标准路径注册，疑似承载隐蔽通信或持久化功能；最终派生交互式 bash 进程（T1059.004），标志攻击者已建立稳定命令控制通道。整条 TTP 链清晰体现“多点漏洞利用（含非常规协议端口）→权限评估→环境感知→载荷加载→交互控制”的战术演进。当前调查焦点为 Firefox 进程的异常子进程派生行为，需重点分析其命令执行上下文、漏洞触发路径（如恶意网页诱导、JS 引擎漏洞利用、WebAssembly 混淆 shellcode 或 DNS 响应注入）、以及是否存在父进程劫持或内存喷射等高级执行痕迹。
+
+[01:07:31.923] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+
+[01:07:32.069] --- Action Recorded ---
+Action: 查找写入文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:07:32.257] --- Action Recorded ---
+Action: 查找 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:07:32.376] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:07:32.577] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:07:44.285] 
+============================================================
+[01:07:44.285] [迭代 33] MEMORY STATE UPDATE
+============================================================
+
+[01:07:44.285] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）先后利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接尤为可疑，表明攻击者可能通过 DNS 隧道化或恶意解析响应触发漏洞，体现其多源投递与协议混淆策略。Firefox 进程被劫持后迅速启动本地侦察链：执行 whoami（T1059.004）判别权限；调用 ps（T1059.004）枚举进程以测绘系统环境；加载并执行非常规二进制文件 gtcache（T1059.004），该文件未在标准路径注册，疑似承载隐蔽通信或持久化功能；随后派生交互式 bash 进程（T1059.004），标志攻击者已建立稳定命令控制通道。当前，该 bash 进程进一步执行 ls 命令（T1059.004），表明攻击者正从权限探查阶段转入横向目录遍历与敏感文件定位阶段。整条 TTP 链清晰呈现“多点漏洞利用→权限评估→环境感知→载荷加载→交互控制→文件系统侦察”的战术演进。当前调查焦点为 Firefox 进程的异常子进程派生行为，需重点分析其命令执行上下文、漏洞触发路径（如恶意网页诱导、JS 引擎漏洞利用、WebAssembly 混淆 shellcode 或 DNS 响应注入）、以及是否存在父进程劫持或内存喷射等高级执行痕迹。
+
+[01:07:44.285] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+
+[01:07:44.487] --- Action Recorded ---
+Action: 查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:07:44.615] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:07:44.736] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:07:44.872] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:07:45.162] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:07:53.466] 
+============================================================
+[01:07:53.466] [迭代 37] MEMORY STATE UPDATE
+============================================================
+
+[01:07:53.466] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接高度可疑，暗示 DNS 隧道化或恶意响应注入等协议混淆手法。Firefox 被劫持后立即启动本地侦察：先后执行 whoami（T1059.004）、ps（T1059.004）评估权限与环境，并加载非常规二进制 gtcache（T1059.004）；随后派生交互式 bash 进程（T1059.004），确立稳定命令控制通道。当前 bash 进程已执行 ls（T1059.004）开展目录遍历，并再次调用 whoami（T1059.004），表明攻击者正反复验证执行上下文权限，强化对系统状态的实时感知，为后续横向移动或敏感数据定位做准备。整条 TTP 链呈现“多点漏洞利用→权限/环境测绘→隐蔽载荷加载→交互控制建立→文件系统深度侦察”的递进式战术演进。当前调查焦点仍为 Firefox 进程的异常子进程派生行为，需重点分析其漏洞触发路径（如恶意网页诱导、JS 引擎漏洞利用、WebAssembly 混淆 shellcode 或 DNS 响应注入）及是否存在内存喷射或父进程劫持等高级执行痕迹。
+
+[01:07:53.466] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+
+[01:07:53.725] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:07:54.018] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:07:54.284] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:07:54.405] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:08:08.399] 
+============================================================
+[01:08:08.399] [迭代 40] MEMORY STATE UPDATE
+============================================================
+
+[01:08:08.399] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接高度可疑，暗示 DNS 隧道化或恶意响应注入等协议混淆手法。Firefox 被劫持后立即启动本地侦察：执行 whoami、ps（T1059.004）评估权限与环境，并加载非常规二进制 gtcache（T1059.004）；随后派生交互式 bash 进程（T1059.004），确立稳定命令控制通道。当前 bash 进程已开展深度系统测绘——先后执行 ls、whoami 和 ps（T1059.004），持续验证执行上下文、枚举运行进程并遍历文件系统，表明攻击者正强化对宿主状态的实时感知，为横向移动或敏感数据定位做准备。整条 TTP 链呈现“多点漏洞利用→权限/环境测绘→隐蔽载荷加载→交互控制建立→多维度系统侦察”的递进式战术演进。当前调查焦点仍为 Firefox 进程的异常子进程派生行为，需重点分析其漏洞触发路径及是否存在内存喷射、父进程劫持或 WebAssembly 混淆 shellcode 等高级执行痕迹。
+
+[01:08:08.399] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+
+[01:08:08.558] --- Action Recorded ---
+Action: 查找与 IP 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:08:08.846] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:08:09.082] --- Action Recorded ---
+Action: 查找与 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:08:09.267] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:08:09.369] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:08:09.642] --- Malicious Event Added ---
+Event ID: 8D401078-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:08:21.728] 
+============================================================
+[01:08:21.728] [迭代 45] MEMORY STATE UPDATE
+============================================================
+
+[01:08:21.728] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接高度可疑，暗示 DNS 隧道化或恶意响应注入等协议混淆手法。Firefox 被劫持后立即启动本地侦察：执行 whoami、ps（T1059.004）评估权限与环境，并加载非常规二进制 gtcache（T1059.004）；随后派生交互式 bash 进程（T1059.004），确立稳定命令控制通道。当前 bash 进程已开展深度系统测绘——先后执行 ls、whoami、ps（T1059.004），并新增调用 cat 命令（T1059.004），持续验证执行上下文、枚举运行进程、遍历文件系统及读取关键配置或日志内容，表明攻击者正强化对宿主状态的实时感知，并开始定向提取敏感信息，为横向移动或数据外泄做准备。整条 TTP 链呈现“多点漏洞利用→权限/环境测绘→隐蔽载荷加载→交互控制建立→多维度系统侦察→敏感内容读取”的递进式战术演进。当前调查焦点仍为 Firefox 进程的异常子进程派生行为，需重点分析其漏洞触发路径及是否存在内存喷射、父进程劫持或 WebAssembly 混淆 shellcode 等高级执行痕迹。
+
+[01:08:21.728] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+
+[01:08:21.840] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:08:21.969] --- Action Recorded ---
+Action: 查找文件 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:08:22.188] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:08:22.476] --- Action Recorded ---
+Action: 查找与 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:08:22.687] --- Action Recorded ---
+Action: 查找进程 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:08:22.975] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:08:23.125] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:08:37.902] 
+============================================================
+[01:08:37.902] [迭代 51] MEMORY STATE UPDATE
+============================================================
+
+[01:08:37.902] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接高度可疑，暗示 DNS 隧道化或恶意响应注入等协议混淆手法。Firefox 被劫持后立即启动本地侦察：执行 whoami、ps（T1059.004）评估权限与环境，并加载非常规二进制 gtcache（T1059.004）；随后派生交互式 bash 进程（T1059.004），确立稳定命令控制通道。值得关注的是，Firefox 进程在初始阶段即向 /var/log/xdev 写入数据（T1105），该路径伪装为系统日志目录，实为隐蔽载荷投递或 C2 数据中继节点，显著强化了攻击持久性与隐蔽性。当前 bash 进程已开展深度系统测绘——先后执行 ls、whoami、ps 及 cat（均属 T1059.004），持续验证执行上下文、枚举运行进程、遍历文件系统及读取关键配置或日志内容，表明攻击者正强化对宿主状态的实时感知，并开始定向提取敏感信息，为横向移动或数据外泄做准备。整条 TTP 链呈现“多点漏洞利用→隐蔽载荷投递（/var/log/xdev）→权限/环境测绘→交互控制建立→多维度系统侦察→敏感内容读取”的递进式战术演进。当前调查焦点仍为 Firefox 进程的异常子进程派生行为及 /var/log/xdev 文件的写入来源与内容，需重点分析其漏洞触发路径及是否存在内存喷射、父进程劫持或 WebAssembly 混淆 shellcode 等高级执行痕迹。
+
+[01:08:37.902] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+
+[01:08:38.144] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:08:38.422] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:08:38.711] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:08:38.880] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:08:53.566] 
+============================================================
+[01:08:53.566] [迭代 54] MEMORY STATE UPDATE
+============================================================
+
+[01:08:53.566] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接高度可疑，暗示 DNS 隧道化或恶意响应注入等协议混淆手法。Firefox 被劫持后立即启动本地侦察：执行 whoami、ps（T1059.004）评估权限与环境，并加载非常规二进制 gtcache（T1059.004）；随后派生交互式 bash 进程（T1059.004），确立稳定命令控制通道。值得关注的是，Firefox 进程在初始阶段即向 /var/log/xdev 和 /var/log/wdev 双路径写入数据（均属 T1105），二者均伪装为系统日志目录，实为隐蔽载荷投递或 C2 数据中继节点，显著强化攻击持久性与冗余通信能力。当前 bash 进程已开展深度系统测绘——先后执行 ls、whoami、ps 及 cat（均属 T1059.004），持续验证执行上下文、枚举运行进程、遍历文件系统及读取关键配置或日志内容，表明攻击者正强化对宿主状态的实时感知，并开始定向提取敏感信息，为横向移动或数据外泄做准备。整条 TTP 链呈现“多点漏洞利用→双路径隐蔽载荷投递（/var/log/xdev、/var/log/wdev）→权限/环境测绘→交互控制建立→多维度系统侦察→敏感内容读取”的递进式战术演进。当前调查焦点仍为 Firefox 进程的异常子进程派生行为及 /var/log/xdev 与 /var/log/wdev 文件的写入来源、内容差异与协同机制，需重点分析其漏洞触发路径及是否存在内存喷射、父进程劫持或 WebAssembly 混淆 shellcode 等高级执行痕迹。
+
+[01:08:53.566] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+
+[01:08:53.734] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:08:53.859] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:08:53.998] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:08:54.112] --- Action Recorded ---
+Action: 查找进程 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:08:54.302] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:09:02.825] 
+============================================================
+[01:09:02.825] [迭代 58] MEMORY STATE UPDATE
+============================================================
+
+[01:09:02.825] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵，其中 DNS 服务器地址 8.8.8.8:53 的异常入站连接高度可疑，暗示 DNS 隧道化或恶意响应注入等协议混淆手法。Firefox 被劫持后立即启动本地侦察：执行 whoami、ps（T1059.004）评估权限与环境，并加载非常规二进制 gtcache（T1059.004）；随后派生交互式 bash 进程（T1059.004），确立稳定命令控制通道。值得关注的是，Firefox 进程在初始阶段即向 /var/log/xdev、/var/log/wdev 及新增发现的 /var/log/mail 三路径写入数据（均属 T1105），三者均伪装为系统日志目录，实为隐蔽载荷投递或 C2 数据中继节点，显著强化攻击持久性、通信冗余性与横向扩展能力。当前 bash 进程已开展深度系统测绘——先后执行 ls、whoami、ps 及 cat（均属 T1059.004），持续验证执行上下文、枚举运行进程、遍历文件系统及读取关键配置或日志内容，表明攻击者正强化对宿主状态的实时感知，并开始定向提取敏感信息，为横向移动或数据外泄做准备。整条 TTP 链呈现“多点漏洞利用→三路径隐蔽载荷投递（/var/log/xdev、/var/log/wdev、/var/log/mail）→权限/环境测绘→交互控制建立→多维度系统侦察→敏感内容读取”的递进式战术演进。当前调查焦点仍为 Firefox 进程的异常子进程派生行为及三日志路径的写入来源、内容差异与协同机制，需重点分析其漏洞触发路径及是否存在内存喷射、父进程劫持或 WebAssembly 混淆 shellcode 等高级执行痕迹。
+
+[01:09:02.825] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+
+[01:09:02.993] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:09:03.281] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:09:03.529] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:09:03.793] --- Action Recorded ---
+Action: 查找写入文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:09:04.025] --- Action Recorded ---
+Action: 查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 接收了哪些进程的数据
+Result: success
+
+[01:09:04.258] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:09:14.016] 
+============================================================
+[01:09:14.016] [迭代 63] MEMORY STATE UPDATE
+============================================================
+
+[01:09:14.016] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中 DNS 服务器地址 8.8.8.8:53 不仅作为攻击入口（T1190），更被 Firefox 进程主动发起异常出站 DNS 查询（T1071.001），印证其被深度劫持并用于协议混淆型 C2 通信。Firefox 被控后立即执行本地侦察：调用 whoami、ps 及非常规二进制 gtcache（均属 T1059.004），并派生交互式 bash 进程（T1059.004），建立稳定命令控制通道。尤为关键的是，Firefox 同步向 /var/log/xdev、/var/log/wdev 和 /var/log/mail 三路径写入数据（T1105），三者均伪装为系统日志目录，实为隐蔽载荷投递与冗余 C2 中继节点，显著增强持久性与抗检测能力。当前 bash 进程正开展深度系统测绘——持续执行 ls、whoami、ps 及 cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段，为横向移动或数据外泄铺路。整条 TTP 链呈现“多点漏洞利用→DNS 协议滥用+三路径隐蔽投递→交互控制确立→多维度系统侦察→敏感内容提取”的递进式演进。当前调查焦点仍为 Firefox 异常子进程派生行为、三日志路径写入内容差异及与 8.8.8.8:53 的双向通信协同机制，需重点分析其是否涉及内存驻留、WebAssembly 混淆 shellcode 或父进程上下文劫持等高级执行痕迹。
+
+[01:09:14.016] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+
+[01:09:14.131] --- Action Recorded ---
+Action: 查找 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:09:14.396] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:09:14.628] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:09:14.743] --- Action Recorded ---
+Action: 查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 接收了哪些进程的数据
+Result: success
+
+[01:09:14.868] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:09:27.635] 
+============================================================
+[01:09:27.635] [迭代 67] MEMORY STATE UPDATE
+============================================================
+
+[01:09:27.635] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中 DNS 服务器地址 8.8.8.8:53 不仅作为攻击入口，更被 Firefox 进程主动发起异常出站 DNS 查询（T1071.001），印证其遭深度劫持并用于协议混淆型 C2 通信。值得注意的是，系统级 apt 进程亦被植入或劫持，同步向同一地址 8.8.8.8:53 发起 DNS 请求（T1071.001），表明攻击者已突破用户态边界，实现跨进程、跨权限层级的 C2 协同控制。Firefox 被控后立即执行本地侦察：调用 whoami、ps 及非常规二进制 gtcache（均属 T1059.004），并派生交互式 bash 进程（T1059.004），建立稳定命令通道。与此同时，Firefox 向 /var/log/xdev、/var/log/wdev 和 /var/log/mail 三路径写入数据（T1105），三者伪装为系统日志目录，实为隐蔽载荷投递与冗余 C2 中继节点。当前 bash 进程正开展深度系统测绘——持续执行 ls、whoami、ps 及 cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点仍为 Firefox 异常子进程派生行为、三日志路径写入内容差异、8.8.8.8:53 的双向通信协同机制，以及 apt 进程被劫持的注入路径与持久化载体。
+
+[01:09:27.635] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+
+[01:09:27.781] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:09:28.005] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:09:28.210] --- Action Recorded ---
+Action: 查找写入文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:09:28.377] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:09:28.596] --- Action Recorded ---
+Action: 查找 IP 7D40104E-39B3-11E8-BF66-D9AA8AFF4A69 接收了哪些进程的数据
+Result: success
+
+[01:09:28.807] --- Malicious Event Added ---
+Event ID: 8D401071-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:09:37.724] 
+============================================================
+[01:09:37.724] [迭代 72] MEMORY STATE UPDATE
+============================================================
+
+[01:09:37.724] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部 IP（104.228.117.212:80、141.43.176.203:80 和 8.8.8.8:53）利用 Firefox 浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中 DNS 服务器地址 8.8.8.8:53 不仅作为攻击入口，更被 Firefox 进程主动发起异常出站 DNS 查询（T1071.001），印证其遭深度劫持并用于协议混淆型 C2 通信。系统级 apt 进程亦被同步劫持，向同一地址 8.8.8.8:53 发起 DNS 请求（T1071.001），表明攻击者已突破用户态边界，实现跨进程、跨权限层级的 C2 协同控制。新确认事件显示，curl 进程亦被植入并直接向 8.8.8.8:53 发起 DNS 请求（T1071.001），进一步扩展了C2信标覆盖范围，形成 Firefox–apt–curl 三节点协同回连架构。Firefox 被控后立即执行本地侦察：调用 whoami、ps 及非常规二进制 gtcache（均属 T1059.004），并派生交互式 bash 进程（T1059.004），建立稳定命令通道。与此同时，Firefox 向 /var/log/xdev、/var/log/wdev 和 /var/log/mail 三路径写入数据（T1105），三者伪装为系统日志目录，实为隐蔽载荷投递与冗余 C2 中继节点。当前 bash 进程正开展深度系统测绘——持续执行 ls、whoami、ps 及 cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为 Firefox 异常子进程派生行为、三日志路径写入内容差异、8.8.8.8:53 的三方（Firefox/apt/curl）通信协同机制，以及 apt 与 curl 被劫持的注入路径与持久化载体。
+
+[01:09:37.724] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+
+[01:09:37.994] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:09:38.106] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:09:38.266] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:09:38.450] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:09:38.580] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:09:38.830] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:09:50.405] 
+============================================================
+[01:09:50.405] [迭代 77] MEMORY STATE UPDATE
+============================================================
+
+[01:09:50.405] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。尤为关键的是，apt进程还额外向新发现的C2地址149.52.198.23:80发起HTTP通信（T1071.001），揭示攻击者已部署多跳、多协议冗余信标，显著增强隐蔽性与抗断连能力。Firefox被控后立即执行本地侦察：调用whoami、ps及非常规二进制gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；同时向伪装路径/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递与中继节点。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异、8.8.8.8:53与149.52.198.23:80双C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:09:50.405] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+
+[01:09:50.572] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:09:50.692] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:09:50.861] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:09:51.157] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:09:51.261] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:09:51.411] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:09:59.536] 
+============================================================
+[01:09:59.536] [迭代 82] MEMORY STATE UPDATE
+============================================================
+
+[01:09:59.536] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。apt进程进一步扩展信标矩阵，新增向128.55.12.73:80（T1071.001）及既有149.52.198.23:80（T1071.001）的HTTP通信，形成四点C2冗余网络，显著强化抗检测与断连恢复能力。Firefox被控后立即执行本地侦察：调用whoami、ps及非常规二进制gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；同时向伪装路径/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递与中继节点。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异、8.8.8.8:53、149.52.198.23:80与128.55.12.73三C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:09:59.536] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+
+[01:09:59.798] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:09:59.920] --- Action Recorded ---
+Action: 查找文件 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:10:00.191] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:10:00.301] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:10:13.799] 
+============================================================
+[01:10:13.799] [迭代 85] MEMORY STATE UPDATE
+============================================================
+
+[01:10:13.799] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。apt进程进一步扩展信标矩阵，新增向128.55.12.73:80、149.52.198.23:80及最新发现的128.55.12.166:80（T1071.001）三处HTTP通信，形成五点C2冗余网络，显著强化抗检测与断连恢复能力。Firefox被控后立即执行本地侦察：调用whoami、ps及非常规二进制gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；同时向伪装路径/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递与中继节点。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异、8.8.8.8:53、149.52.198.23:80、128.55.12.73及新确认的128.55.12.166四C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:10:13.799] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+
+[01:10:13.943] --- Action Recorded ---
+Action: 查找与 IP 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:10:14.047] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:10:14.182] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:10:14.311] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:10:14.597] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:10:14.737] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:10:29.422] 
+============================================================
+[01:10:29.422] [迭代 90] MEMORY STATE UPDATE
+============================================================
+
+[01:10:29.422] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。apt进程持续扩展信标矩阵，除已知的128.55.12.73:80、149.52.198.23:80及128.55.12.166:80外，最新确认其新增向128.55.12.67:80发起HTTP通信（T1071.001），形成六点C2冗余网络，显著强化抗检测与断连恢复能力。Firefox被控后立即执行本地侦察：调用whoami、ps及非常规二进制gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；同时向伪装路径/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递与中继节点。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异、8.8.8.8:53、149.52.198.23:80、128.55.12.73、128.55.12.166及新确认的128.55.12.67五处C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:10:29.422] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+
+[01:10:29.541] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:10:29.714] --- Action Recorded ---
+Action: 查找 IP 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:10:29.891] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:10:30.110] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:10:44.174] 
+============================================================
+[01:10:44.174] [迭代 93] MEMORY STATE UPDATE
+============================================================
+
+[01:10:44.174] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。apt进程持续扩展信标矩阵，除已知的128.55.12.73:80、149.52.198.23:80、128.55.12.166:80及最新确认的128.55.12.67:80外，本轮新增向128.55.12.141:80发起HTTP通信（T1071.001），形成七点C2冗余网络，显著强化抗检测与断连恢复能力。Firefox被控后立即执行本地侦察：调用whoami、ps及非常规二进制gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；同时向伪装路径/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递与中继节点。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异、8.8.8.8:53、149.52.198.23:80、128.55.12.73、128.55.12.166、128.55.12.67及新确认的128.55.12.141七处C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:10:44.174] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+  22. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.141
+
+[01:10:44.349] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:10:44.554] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:10:44.687] --- Action Recorded ---
+Action: 查找 IP 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:10:44.870] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[01:10:45.073] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: success
+
+[01:10:45.273] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[01:11:00.249] 
+============================================================
+[01:11:00.249] [迭代 98] MEMORY STATE UPDATE
+============================================================
+
+[01:11:00.249] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。Firefox被控后立即执行本地侦察：调用whoami、ps及非常规二进制gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；同时向伪装路径/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递节点。**最新确认：攻击者从已写入的/var/log/mail文件直接执行apt进程（T1059），形成“日志文件→包管理器”的非典型执行链，显著规避基于脚本或内存注入的传统检测逻辑。** apt进程持续扩展信标矩阵，除已知的128.55.12.73:80、149.52.198.23:80、128.55.12.166:80及128.55.12.67:80外，本轮新增向128.55.12.141:80发起HTTP通信（T1071.001），形成七点C2冗余网络。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异（尤其/var/log/mail的可执行性）、8.8.8.8:53、149.52.198.23:80、128.55.12.73、128.55.12.166、128.55.12.67及128.55.12.141七处C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:11:00.249] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+  22. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.141
+  23. [Execution] T1059 (Command and Scripting Interpreter) - /var/log/mail → apt
+
+[01:11:00.403] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[01:11:00.663] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[01:11:00.817] --- Action Recorded ---
+Action: 查找与 IP 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:11:01.036] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:11:01.169] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[01:11:01.288] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[01:11:16.089] 
+============================================================
+[01:11:16.089] [迭代 103] MEMORY STATE UPDATE
+============================================================
+
+[01:11:16.089] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。Firefox被控后立即执行本地侦察：调用whoami、ps及gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；同时向/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递节点。**最新确认：攻击者从已写入的/var/log/mail文件直接执行apt进程（T1059），形成“日志文件→包管理器”的非典型执行链；随后apt进程进一步向系统关键日志路径/var/log/syslog写入内容（T1105），实现信标伪装与持久化痕迹覆盖。** apt进程持续扩展信标矩阵，除已知的128.55.12.73:80、149.52.198.23:80、128.55.12.166:80及128.55.12.67:80外，本轮新增向128.55.12.141:80发起HTTP通信（T1071.001），形成七点C2冗余网络。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异（尤其/var/log/mail的可执行性与/var/log/syslog的写入动机）、8.8.8.8:53、149.52.198.23:80、128.55.12.73、128.55.12.166、128.55.12.67及128.55.12.141七处C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:11:16.089] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+  22. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.141
+  23. [Execution] T1059 (Command and Scripting Interpreter) - /var/log/mail → apt
+  24. [Command and Control] T1105 (Ingress Tool Transfer) - apt → /var/log/syslog
+
+[01:11:16.199] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[01:11:16.356] --- Action Recorded ---
+Action: 查找 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:11:16.496] --- Action Recorded ---
+Action: 查找与 IP 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:11:16.679] --- Action Recorded ---
+Action: 查找写入文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:11:16.894] --- Action Recorded ---
+Action: 查找与 IP 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[01:11:17.019] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[01:11:17.266] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1059.004
+
+[01:11:29.282] 
+============================================================
+[01:11:29.282] [迭代 109] MEMORY STATE UPDATE
+============================================================
+
+[01:11:29.282] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。Firefox被控后立即执行本地侦察：调用whoami、ps及gtcache，并派生交互式bash进程（T1059.004），建立稳定命令通道；值得注意的是，gtcache进程实际由/tmp/memtrace.so加载执行（T1059.004），揭示攻击者已通过恶意共享库注入实现隐蔽执行。Firefox同时向/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递节点。最新确认：攻击者从/var/log/mail文件直接执行apt进程（T1059），形成“日志文件→包管理器”非典型执行链；apt随即向/var/log/syslog写入内容（T1105），实现信标伪装与持久化痕迹覆盖，并扩展C2通信至七点冗余网络（含新增128.55.12.141:80）。当前bash进程正开展深度系统测绘——持续执行ls、whoami、ps及cat（T1059.004），遍历文件系统、枚举进程、验证权限并定向读取敏感配置或日志内容，表明攻击者已进入信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异（尤其/var/log/mail的可执行性与/var/log/syslog的写入动机）、8.8.8.8:53、149.52.198.23:80、128.55.12.73、128.55.12.166、128.55.12.67及128.55.12.141七处C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:11:29.282] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+  22. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.141
+  23. [Execution] T1059 (Command and Scripting Interpreter) - /var/log/mail → apt
+  24. [Command and Control] T1105 (Ingress Tool Transfer) - apt → /var/log/syslog
+  25. [Execution] T1059.004 (Unix Shell) - /tmp/memtrace.so → gtcache
+
+[01:11:29.559] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:11:29.798] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:11:30.030] --- Action Recorded ---
+Action: 查找文件 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[01:11:30.268] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[01:11:39.241] 
+============================================================
+[01:11:39.241] [迭代 112] MEMORY STATE UPDATE
+============================================================
+
+[01:11:39.241] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。Firefox被控后立即执行本地侦察：调用whoami、ps及gtcache，并派生交互式bash进程（T1059.004）；gtcache实际由/tmp/memtrace.so加载执行（T1059.004），揭示恶意共享库注入路径。Firefox同时向/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递节点。随后，攻击者直接从/var/log/mail执行apt进程（T1059），形成“日志→包管理器”非典型执行链；apt随即向/var/log/syslog写入内容（T1105），实现信标伪装与痕迹覆盖，并扩展C2通信至七点冗余网络（含149.52.198.23:80、128.55.12.73、128.55.12.166、128.55.12.67及128.55.12.141:80）。当前bash进程正开展深度系统测绘：持续执行ls、whoami、ps及cat（T1059.004），并已读取/home/user/.bashrc（T1005），表明攻击者正定向采集用户级持久化配置与凭证环境，进入高价值信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异（尤其/var/log/mail的可执行性与/var/log/syslog的写入动机）、8.8.8.8:53等七处C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:11:39.241] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+  22. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.141
+  23. [Execution] T1059 (Command and Scripting Interpreter) - /var/log/mail → apt
+  24. [Command and Control] T1105 (Ingress Tool Transfer) - apt → /var/log/syslog
+  25. [Execution] T1059.004 (Unix Shell) - /tmp/memtrace.so → gtcache
+  26. [Collection] T1005 (Data from Local System) - bash → /home/user/.bashrc
+
+[01:11:39.421] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:11:39.537] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[01:11:39.796] --- Action Recorded ---
+Action: 查找 IP 7D40104C-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:11:40.059] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[01:11:40.268] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[01:11:40.391] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[01:11:40.656] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[01:11:53.953] 
+============================================================
+[01:11:53.953] [迭代 118] MEMORY STATE UPDATE
+============================================================
+
+[01:11:53.953] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。Firefox被控后立即执行本地侦察：调用whoami、ps及gtcache（后者由/tmp/memtrace.so加载执行，T1059.004），并派生交互式bash进程（T1059.004）；同时向/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递节点。随后，攻击者直接从/var/log/mail执行apt进程（T1059），形成“日志→包管理器”非典型执行链；apt随即向/var/log/syslog写入内容（T1105）实现信标伪装，并进一步派生curl进程（T1059.004），强化C2通信冗余——除8.8.8.8:53外，还扩展至149.52.198.23:80、128.55.12.73、128.55.12.166、128.55.12.67及128.55.12.141:80共七处地址（T1071.001）。当前bash进程正开展深度系统测绘：持续执行ls、whoami、ps及cat（T1059.004），并已读取/home/user/.bashrc（T1005），表明攻击者正定向采集用户级持久化配置与凭证环境，进入高价值信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异（尤其/var/log/mail的可执行性与/var/log/syslog的写入动机）、8.8.8.8:53等七处C2地址的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:11:53.953] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+  22. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.141
+  23. [Execution] T1059 (Command and Scripting Interpreter) - /var/log/mail → apt
+  24. [Command and Control] T1105 (Ingress Tool Transfer) - apt → /var/log/syslog
+  25. [Execution] T1059.004 (Unix Shell) - /tmp/memtrace.so → gtcache
+  26. [Collection] T1005 (Data from Local System) - bash → /home/user/.bashrc
+  27. [Execution] T1059.004 (Unix Shell) - apt → curl
+
+[01:11:54.095] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[01:11:54.355] --- Action Recorded ---
+Action: 查找写入文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[01:11:54.519] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[01:11:54.778] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[01:11:54.921] --- Action Recorded ---
+Action: 查找进程 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[01:11:55.184] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[01:12:08.824] 
+============================================================
+[01:12:08.824] [迭代 123] MEMORY STATE UPDATE
+============================================================
+
+[01:12:08.824] --- 叙述性攻击摘要 ---
+攻击始于三个独立外部IP（104.228.117.212:80、141.43.176.203:80和8.8.8.8:53）利用Firefox浏览器暴露的公共接口漏洞（T1190）实施多源初始入侵；其中DNS服务器8.8.8.8:53兼具入口与C2双重角色——Firefox、apt及curl进程均被劫持，同步向其发起异常DNS查询（T1071.001），构成跨进程、跨权限层级的三节点协议混淆型C2协同架构。Firefox被控后立即执行本地侦察：调用whoami、ps及gtcache（后者由/tmp/memtrace.so加载执行，T1059.004），并派生交互式bash进程（T1059.004）；同时向/var/log/xdev、/var/log/wdev和/var/log/mail写入数据（T1105），构建隐蔽载荷投递节点。值得注意的是，gtcache进程新增向146.153.68.151:80发起网络通信（T1071.001），扩展C2通道至第八个地址，强化横向响应弹性。随后，攻击者直接从/var/log/mail执行apt进程（T1059），形成“日志→包管理器”非典型执行链；apt随即向/var/log/syslog写入内容（T1105）实现信标伪装，并进一步派生curl进程（T1059.004），强化C2通信冗余——除8.8.8.8:53外，还扩展至149.52.198.23:80、128.55.12.73、128.55.12.166、128.55.12.67及128.55.12.141:80共七处地址（T1071.001）。当前bash进程正开展深度系统测绘：持续执行ls、whoami、ps及cat（T1059.004），并已读取/home/user/.bashrc（T1005），表明攻击者正定向采集用户级持久化配置与凭证环境，进入高价值信息收割阶段。当前调查焦点为Firefox异常子进程派生行为、三日志路径写入内容差异（尤其/var/log/mail的可执行性与/var/log/syslog的写入动机）、八处C2地址（含新增146.153.68.151:80）的通信分工机制，以及apt与curl被劫持的注入路径与持久化载体。
+
+[01:12:08.824] --- MITRE TTP 链 ---
+  1. [Execution] T1059.004 (Unix Shell) - Firefox → whoami
+  2. [Execution] T1059.004 (Unix Shell) - Firefox → ps
+  3. [Execution] T1059.004 (Unix Shell) - Firefox → gtcache
+  4. [Execution] T1059.004 (Unix Shell) - Firefox → bash
+  5. [Initial Access] T1190 (Exploit Public-Facing Application) - 104.228.117.212:80 → Firefox
+  6. [Initial Access] T1190 (Exploit Public-Facing Application) - 141.43.176.203:80 → Firefox
+  7. [Initial Access] T1190 (Exploit Public-Facing Application) - 8.8.8.8:53 → Firefox
+  8. [Execution] T1059.004 (Unix Shell) - bash → ls
+  9. [Execution] T1059.004 (Unix Shell) - bash → whoami
+  10. [Execution] T1059.004 (Unix Shell) - bash → ps
+  11. [Execution] T1059.004 (Unix Shell) - bash → cat
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/xdev
+  13. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/wdev
+  14. [Command and Control] T1105 (Ingress Tool Transfer) - Firefox → /var/log/mail
+  15. [Command and Control] T1071.001 (Web Protocols) - Firefox → 8.8.8.8:53
+  16. [Command and Control] T1071.001 (Web Protocols) - apt → 8.8.8.8:53
+  17. [Command and Control] T1071.001 (Web Protocols) - curl → 8.8.8.8:53
+  18. [Command and Control] T1071.001 (Web Protocols) - apt → 149.52.198.23:80
+  19. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.73
+  20. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.166
+  21. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.67
+  22. [Command and Control] T1071.001 (Web Protocols) - apt → 128.55.12.141
+  23. [Execution] T1059 (Command and Scripting Interpreter) - /var/log/mail → apt
+  24. [Command and Control] T1105 (Ingress Tool Transfer) - apt → /var/log/syslog
+  25. [Execution] T1059.004 (Unix Shell) - /tmp/memtrace.so → gtcache
+  26. [Collection] T1005 (Data from Local System) - bash → /home/user/.bashrc
+  27. [Execution] T1059.004 (Unix Shell) - apt → curl
+  28. [Command and Control] T1071.001 (Web Protocols) - gtcache → 146.153.68.151:80
+
+[01:12:08.967] --- Action Recorded ---
+Action: 查找 IP 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[01:12:09.264] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[01:12:09.465] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results

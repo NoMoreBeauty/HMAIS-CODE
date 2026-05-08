@@ -1,0 +1,124 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "Firefox" [shape=ellipse];
+    "gtcache" [shape=ellipse];
+    "sshd" [shape=ellipse];
+    "whoami" [shape=ellipse];
+    "ps" [shape=ellipse];
+    "apt" [shape=ellipse];
+    "bash" [shape=ellipse];
+    "ls" [shape=ellipse];
+    "systemd" [shape=ellipse];
+    "cron" [shape=ellipse];
+    "sh" [shape=ellipse];
+    "cat" [shape=ellipse];
+    "curl" [shape=ellipse];
+
+    "/tmp/memtrace.so" [shape=box];
+    "/var/log/xdev" [shape=box];
+    "/var/log/mail" [shape=box];
+    "/etc/passwd" [shape=box];
+    "/var/log/syslog" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "/home/user/.bashrc" [shape=box];
+    "/var/log/wdev" [shape=box];
+
+    "104.228.117.212:80" [shape=diamond];
+    "141.43.176.203:80" [shape=diamond];
+    "146.153.68.151:80" [shape=diamond];
+    "149.52.198.23:80" [shape=diamond];
+    "128.55.12.73" [shape=diamond];
+    "128.55.12.166" [shape=diamond];
+    "128.55.12.67" [shape=diamond];
+    "128.55.12.141" [shape=diamond];
+    "192.168.1.1:22" [shape=diamond];
+    "8.8.8.8:53" [shape=diamond];
+    "192.168.1.1:22" -> "sshd" [label="recv_from"];
+
+    "apt" -> "128.55.12.67" [label="send_to"];
+
+    "sh" -> "curl" [label="fork"];
+
+    "Firefox" -> "ps" [label="fork"];
+
+    "apt" -> "/var/log/syslog" [label="write"];
+
+    "curl" -> "8.8.8.8:53" [label="send_to"];
+
+    "Firefox" -> "8.8.8.8:53" [label="send_to"];
+
+    "Firefox" -> "/var/log/wdev" [label="write"];
+
+    "apt" -> "128.55.12.166" [label="send_to"];
+
+    "systemd" -> "apt" [label="fork"];
+
+    "bash" -> "/home/user/.bashrc" [label="read"];
+
+    "sshd" -> "/var/log/auth.log" [label="write"];
+
+    "bash" -> "ps" [label="fork"];
+
+    "apt" -> "128.55.12.73" [label="send_to"];
+
+    "bash" -> "whoami" [label="fork"];
+
+    "/var/log/xdev" -> "sshd" [label="inject (failed)"];
+
+    "Firefox" -> "/tmp/memtrace.so" [label="write"];
+
+    "sshd" -> "/etc/passwd" [label="read"];
+
+    "bash" -> "cat" [label="fork"];
+
+
+    "104.228.117.212:80" -> "Firefox" [label="recv_from"];
+
+    "/var/log/mail" -> "apt" [label="execute"];
+
+    "/tmp/memtrace.so" -> "gtcache" [label="read"];
+
+    "Firefox" -> "/var/log/xdev" [label="write"];
+
+    "apt" -> "149.52.198.23:80" [label="send_to"];
+
+    "sh" -> "/var/log/mail" [label="read"];
+
+    "Firefox" -> "gtcache" [label="fork"];
+
+    "cat" -> "/etc/passwd" [label="read"];
+
+    "systemd" -> "cron" [label="fork"];
+
+    "bash" -> "ls" [label="fork"];
+
+    "sshd" -> "bash" [label="fork"];
+
+    "141.43.176.203:80" -> "Firefox" [label="recv_from"];
+
+    "systemd" -> "sshd" [label="fork"];
+
+
+    "Firefox" -> "bash" [label="fork"];
+
+    "apt" -> "8.8.8.8:53" [label="send_to"];
+
+    "cron" -> "sh" [label="fork"];
+
+    "/var/log/wdev" -> "sshd" [label="inject (failed)"];
+
+    "Firefox" -> "/var/log/mail" [label="write"];
+
+    "gtcache" -> "146.153.68.151:80" [label="send_to"];
+
+    "8.8.8.8:53" -> "Firefox" [label="recv_from"];
+
+    "apt" -> "curl" [label="fork"];
+
+    "Firefox" -> "whoami" [label="fork"];
+
+    "apt" -> "128.55.12.141" [label="send_to"];
+}

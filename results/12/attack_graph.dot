@@ -1,0 +1,34 @@
+digraph G {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "155.162.39.48:80" [shape=diamond];
+    "76.56.184.25:80" [shape=diamond];
+    "203.0.113.12:8080" [shape=diamond];
+
+    "/tmp/grain" [shape=box];
+    "/etc/group" [shape=box];
+    "/etc/passwd" [shape=box];
+    "/root/.ssh/authorized_keys" [shape=box];
+    "/usr/log/xsd" [shape=box];
+
+    "nginx" [shape=ellipse];
+    "grain" [shape=ellipse];
+    "sshd" [shape=ellipse];
+    "root-shell" [shape=ellipse];
+    "bash" [shape=ellipse];
+    "crontab" [shape=ellipse];
+
+    "nginx" -> "/tmp/grain" [label="write"];
+    "/tmp/grain" -> "grain" [label="execute"];
+    "grain" -> "/usr/log/xsd" [label="write"];
+    "/etc/group" -> "nginx" [label="read"];
+    "nginx" -> "155.162.39.48:80" [label="sendto"];
+    "root-shell" -> "/root/.ssh/authorized_keys" [label="write"];
+    "/root/.ssh/authorized_keys" -> "sshd" [label="read"];
+    "nginx" -> "203.0.113.12:8080" [label="sendto"];
+    "203.0.113.12:8080" -> "bash" [label="recvfrom"];
+    "/etc/passwd" -> "crontab" [label="read"];
+    "nginx" -> "crontab" [label="fork"];
+    "76.56.184.25:80" -> "nginx" [label="recvfrom"];
+}

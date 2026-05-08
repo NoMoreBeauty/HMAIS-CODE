@@ -1,0 +1,73 @@
+NGINX WEB SHELL INTRUSION CAMPAIGN
+
+OVERVIEW
+This campaign targets Linux web servers running nginx, exploiting web application vulnerabilities to establish persistent backdoor access. The attack involves dropping custom malware to /tmp directories, harvesting credentials, and establishing SSH-based persistence [T1505.003].
+
+INITIAL ACCESS
+Attackers exploit vulnerable web applications served by nginx. Malicious HTTP requests are received from multiple external IP addresses (e.g., 81.49.200.166, 78.205.235.65, 200.36.109.214) [T1190]. The nginx process is compromised through web application exploitation.
+
+EXECUTION
+Once the web server is compromised, the nginx process writes malicious payloads to temporary directories:
+- /tmp/vUgefal - Primary malware payload with randomized naming
+- /tmp/grain - Secondary payload
+- /var/log/devc - Disguised log file for persistence
+
+The dropped file is then executed, spawning a new process with the same randomized name (vUgefal) [T1059.004].
+
+CREDENTIAL HARVESTING
+The malware reads sensitive system files for reconnaissance and credential harvesting:
+- /etc/passwd - User account enumeration [T1087.001]
+- /etc/group - Group membership information
+- /etc/password (alternate path) - Password file access
+
+This information is used to identify privileged accounts and potential lateral movement targets.
+
+PERSISTENCE
+The attack establishes SSH-based persistence through multiple mechanisms:
+
+1. SSH Key Injection [T1098.004]:
+   - The malware forks an sshd process
+   - Writes attacker-controlled public keys to /root/.ssh/authorized_keys
+   - Enables passwordless SSH access for the attacker
+
+2. Backdoor PHP Files [T1505.003]:
+   - php-fpm process writes /var/www/html/backdoor.php
+   - Web shell provides ongoing remote access
+
+COMMAND AND CONTROL
+The malware establishes C2 channels with multiple external servers:
+- 139.123.0.113:80 - Primary C2 server
+- 10.10.10.7:8080 - Secondary C2 channel
+- 61.167.39.128:80 - Tertiary C2 endpoint
+- 10.0.0.9:9000 - Internal network pivot point
+
+A process named "logs-aggregator" is used to disguise C2 communications as legitimate log aggregation traffic [T1071.001].
+
+DEFENSE EVASION
+The campaign employs several evasion techniques:
+- Randomized payload names (vUgefal, grain, pEja72mA) to evade signature detection
+- Using /tmp directory which is commonly writable and less monitored
+- Disguising malicious files in log directories (/var/log/devc)
+- Naming C2 process as "logs-aggregator" to blend with legitimate services
+
+LATERAL MOVEMENT
+After establishing persistence, attackers use:
+- mactor process for additional C2 communication
+- SSH access via injected authorized_keys for lateral movement [T1021.004]
+
+INDICATORS OF COMPROMISE
+- Unusual files in /tmp with random names (vUgefal, grain, pEja72mA)
+- nginx process writing to /tmp or forking unexpected child processes
+- Modifications to /root/.ssh/authorized_keys
+- php-fpm writing new PHP files to web directories
+- Outbound connections from nginx child processes to external IPs
+
+MITRE ATT&CK TECHNIQUES
+[T1190] Exploit Public-Facing Application
+[T1059.004] Command and Scripting Interpreter: Unix Shell
+[T1087.001] Account Discovery: Local Account
+[T1098.004] Account Manipulation: SSH Authorized Keys
+[T1505.003] Server Software Component: Web Shell
+[T1071.001] Application Layer Protocol: Web Protocols
+[T1021.004] Remote Services: SSH
+[T1036.005] Masquerading: Match Legitimate Name or Location

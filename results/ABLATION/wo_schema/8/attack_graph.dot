@@ -1,0 +1,104 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "pine" [shape=ellipse];
+    "dfa21dsacxz.docx" [shape=box];
+    "/tmp/texec" [shape=box];
+    "texec" [shape=ellipse];
+    "207.103.191.4:80" [shape=diamond];
+    "103.12.253.24:80" [shape=diamond];
+    "128.55.12.1" [shape=diamond];
+    "128.55.12.67" [shape=diamond];
+    "128.55.12.110" [shape=diamond];
+    "128.55.12.103" [shape=diamond];
+    "128.55.12.141" [shape=diamond];
+    "128.55.12.166" [shape=diamond];
+    "128.55.12.167" [shape=diamond];
+    "128.55.12.73" [shape=diamond];
+    "uname" [shape=ellipse];
+    "162.66.239.75:80" [shape=diamond];
+
+    "bash" [shape=ellipse];
+    "/etc/passwd" [shape=box];
+    "ls" [shape=ellipse];
+    "/tmp" [shape=box];
+    "~/.bash_history" [shape=box];
+    "8.8.8.8:53" [shape=diamond];
+    "sh" [shape=ellipse];
+    "/tmp/payload.sh" [shape=box];
+    "198.51.100.1:8080" [shape=diamond];
+    "/proc/version" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "grep" [shape=ellipse];
+    "sshd" [shape=ellipse];
+    "192.168.1.1:22" [shape=diamond];
+    "texec" -> "128.55.12.103" [label="send_to"];
+
+    "texec" -> "103.12.253.24:80" [label="send_to"];
+
+    "texec" -> "128.55.12.110" [label="send_to"];
+
+    "128.55.12.167" -> "pine" [label="recv_from"];
+
+    "texec" -> "162.66.239.75:80" [label="send_to"];
+
+    "texec" -> "128.55.12.73" [label="send_to"];
+
+    "texec" -> "128.55.12.67" [label="send_to"];
+
+    "bash" -> "ls" [label="fork"];
+
+    "pine" -> "texec" [label="fork"];
+
+    "texec" -> "sh" [label="fork"];
+
+    "uname" -> "/proc/version" [label="read"];
+
+    "texec" -> "/var/log/auth.log" [label="read"];
+
+    "sh" -> "198.51.100.1:8080" [label="send_to"];
+
+    "sh" -> "/tmp/payload.sh" [label="execute"];
+
+    "bash" -> "/etc/passwd" [label="read"];
+
+    "198.51.100.1:8080" -> "sh" [label="recv_from"];
+
+    "grep" -> "/var/log/auth.log" [label="read"];
+
+    "192.168.1.1:22" -> "sshd" [label="recv_from"];
+
+    "/tmp/texec" -> "texec" [label="read"];
+
+    "bash" -> "sshd" [label="fork"];
+
+    "dfa21dsacxz.docx" -> "texec" [label="read"];
+
+    "texec" -> "128.55.12.141" [label="send_to"];
+
+    
+    "pine" -> "dfa21dsacxz.docx" [label="write"];
+
+
+    "pine" -> "bash" [label="fork"];
+
+    "8.8.8.8:53" -> "texec" [label="recv_from"];
+
+    "pine" -> "128.55.12.73" [label="send_to"];
+
+    "pine" -> "~/.bash_history" [label="read"];
+
+    "ls" -> "/tmp" [label="read"];
+
+    "texec" -> "128.55.12.1" [label="send_to"];
+
+    "bash" -> "grep" [label="fork"];
+
+    "texec" -> "8.8.8.8:53" [label="send_to"];
+
+    "texec" -> "207.103.191.4:80" [label="send_to"];
+
+    "texec" -> "uname" [label="fork"];
+}

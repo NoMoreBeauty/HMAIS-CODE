@@ -1,0 +1,28 @@
+# ===== 环境与敏感配置 =====
+.env
+*.env
+!.env.example
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ===== 日志与临时文件 =====
+
+# ===== 数据文件（较大/含隐私）=====
+
+# ===== macOS =====
+.DS_Store
+.AppleDouble
+
+# ===== IDE =====
+.vscode/
+.idea/
+*.swp

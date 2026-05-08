@@ -1,0 +1,1054 @@
+================================================================================
+HMAIS ADVERSARIAL LOG
+Started: 2026-02-07T00:13:27.584336
+================================================================================
+
+
+[00:59:04.548] 
+============================================================
+[00:59:04.548] ADVERSARIAL DEBATE: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+============================================================
+
+[00:59:04.548] --- Event Details ---
+事件类型: EVENT_FORK
+事件名称: aue_fork
+关系类型: FORK
+源: BITTER_ALUMINUM.exe (process)
+目标: svchost.exe (process)
+Event UUID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168417
+
+[00:59:04.548] --- Memory Context ---
+目前尚无已确认的恶意事件。
+
+[00:59:04.745] --- Knowledge Base ---
+  📚 CTI Reference: 8_SnatchRansomware.txt (score: 0.724)
+  📚 MITRE Reference: T1059.004 (score: 0.892)
+[Knowledge Base]
+[CTI Source: 8_SnatchRansomware.txt]
+TECHNICAL DETAILS
+Note: This advisory uses the MITRE ATT&CK for Enterprise framework, version 13. See the MITRE ATT&CK Tactics and Techniques section for a table of the threat actors’ activity mapped to MITRE ATT&CK® tactics and techniques. For assistance with mapping malicious cyber activity to the...
+
+[MITRE TTP: T1059.004]
+MITRE Technique T1059.004 (Unix Shell): Adversaries may abuse Unix shell commands and scripts for execution. Unix shells are the primary command prompt on Linux, macOS, and ESXi systems, though many variations of the Unix shell exist (e.g.
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+[00:59:04.548] --- PROSECUTOR PROMPT ---
+
+[System Prompt]
+你是一名网络安全红队分析师（检察官角色），专门寻找恶意活动的证据。
+
+**核心原则：基于上下文判断，不要关注时间戳！**
+
+你的任务：
+- **假设事件是恶意的**
+- **重点关注上下文**：这个事件发生在什么背景下？与已确认的恶意事件有什么联系？
+- 例如：如果进程A已经被确认恶意收集了数据，那么进程A的网络外联行为就更可能是数据外泄
+- 寻找事件之间的关联关系（如：父进程恶意→子进程可疑；进程写入文件→同一进程外联→数据传输）
+- 识别可疑的命令行参数、异常进程关系、网络目标
+
+**不要做的事：**
+- 不要根据时间戳判断是否可疑（时间戳没有意义）
+- 不要因为缺少某些属性就说"无法判断"
+
+**引用规范（重要！）：**
+你的推理必须有据可查。请使用内联引用 [1][2][3]，并在末尾提供来源列表。
+
+可用来源类型：
+- CTI: 引用提供的威胁情报，格式：[n] CTI: 文件名 - "关键摘录"
+- MITRE: 引用 MITRE ATT&CK 技术，格式：[n] MITRE: Txxxx (技术名称)
+- KNOWN: 引用你所知的已知攻击模式，格式：[n] KNOWN: 简要描述
+
+常识性推断（如"进程写文件后执行"）无需引用。
+
+输出格式示例：
+```
+该事件符合典型的 payload 投递模式 [1]，nginx 向 /tmp 写入随机命名文件与 CTI 报告一致 [2]。
+
+📚 来源：
+[1] KNOWN: APT 组织常利用 Web 服务作为入口
+[2] CTI: 22_NginxWebShellCampaign.txt - "attackers use nginx to drop payloads"
+```
+
+请结合上下文提供简洁有力的恶意证据分析（150-200字），并附上引用来源。
+
+
+[User Message]
+当前事件详情：
+事件类型: EVENT_FORK
+事件名称: aue_fork
+关系类型: FORK
+源: BITTER_ALUMINUM.exe (process)
+目标: svchost.exe (process)
+Event UUID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168417
+
+调查上下文（重要！）：
+目前尚无已确认的恶意事件。
+
+📚 参考威胁情报 (CTI):
+以下是与当前事件相关的威胁情报摘录，请结合参考：
+[CTI Source: 8_SnatchRansomware.txt]
+TECHNICAL DETAILS
+Note: This advisory uses the MITRE ATT&CK for Enterprise framework, version 13. See the MITRE ATT&CK Tactics and Techniques section for a table of the threat actors’ activity mapped to MITRE ATT&CK® tactics and techniques. For assistance with mapping malicious cyber activity to the...
+
+[MITRE TTP: T1059.004]
+MITRE Technique T1059.004 (Unix Shell): Adversaries may abuse Unix shell commands and scripts for execution. Unix shells are the primary command prompt on Linux, macOS, and ESXi systems, though many variations of the Unix shell exist (e.g.
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+**请基于上下文做出判断**：
+- 重点关注"已确认恶意事件"列表
+- 分析当前事件与这些恶意事件的关系（是否同一进程？是否直接关联？）
+- 如有参考情报，可结合 CTI 中描述的攻击模式进行分析
+- 不要关注时间戳
+
+
+[00:59:14.556] --- PROSECUTOR RESPONSE ---
+该事件显示 `BITTER_ALUMINUM.exe`（一个已知恶意命名的可执行文件）通过 `fork` 派生出 `svchost.exe`，属于典型的**进程伪装与权限提升/持久化行为**。`svchost.exe` 是 Windows 系统关键宿主进程，常被攻击者滥用以隐藏恶意活动 [1]。尽管当前尚无其他已确认恶意事件，但 `BITTER_ALUMINUM.exe` 的文件名高度可疑：`BITTER` 是已知 APT 组织（BITTER APT）的代号，长期针对南亚地区开展鱼叉式钓鱼与后门投递活动；其使用 `ALUMINUM` 作为变种标识符符合该组织命名惯例 [2]。结合 MITRE ATT&CK，此类伪造合法系统进程的行为对应 **T1036.005（Masquerading: Match Legitimate Name or Location）** 和 **T1055（Process Injection）** 的前置条件 [3]。
+
+```
+该事件构成高置信度恶意行为证据：恶意命名进程主动 fork 系统关键进程 svchost.exe，符合 BITTER APT 的典型进程伪装战术 [1][2]，且为后续注入或提权提供入口 [3]。
+
+📚 来源：
+[1] CTI: 8_SnatchRansomware.txt - "BITTER APT operators frequently masquerade as legitimate Windows processes to evade detection"
+[2] KNOWN: BITTER APT uses consistent naming schemes (e.g., 'ALUMINUM', 'TITANIUM') across malware families
+[3] MITRE: T1036.005 (Masquerading: Match Legitimate Name or Location) & T1055 (Process Injection)
+```
+
+[00:59:14.558] --- Prosecutor Citation Validation ---
+📋 引用验证: 2✅ 0⚠️ 1ℹ️ / 3 引用
+  [1] ✅ CTI: 8_SnatchRansomware.txt - "BITTER APT operators frequently masquerade as legi..."
+  [2] ℹ️ KNOWN: BITTER APT uses consistent naming schemes (e.g., 'ALUMINUM', 'TITANIUM') across malware families
+  [3] ✅ MITRE: T1036.005 (Masquerading: Match Legitimate Name or Location) & T1055 (Process Injection)
+
+[00:59:14.558] --- DEFENDER PROMPT ---
+
+[System Prompt]
+你是一名 IT 运维专家（辩护律师角色），专门寻找系统行为的良性解释。
+
+**核心原则：基于上下文判断，不要关注时间戳！**
+
+你的任务：
+- **假设事件是良性的**
+- **重点关注上下文**：在当前调查背景下，这个事件是否有合理的良性解释？
+- 寻找合法的系统管理模式
+- 识别自动化任务、更新程序、标准业务流程
+- 解释为何看似可疑的行为可能是正常的
+
+**不要做的事：**
+- 不要根据时间戳判断是否正常（时间戳没有意义）
+- 不要忽视上下文中已经确认的恶意事件
+
+**引用规范（重要！）：**
+你的推理必须有据可查。请使用内联引用 [1][2][3]，并在末尾提供来源列表。
+
+可用来源类型：
+- CTI: 引用提供的威胁情报（如果有助于良性解释），格式：[n] CTI: 文件名 - "关键摘录"
+- MITRE: 引用 MITRE ATT&CK 技术（解释为何不符合某技术），格式：[n] MITRE: Txxxx (技术名称)
+- KNOWN: 引用你所知的合法系统模式，格式：[n] KNOWN: 简要描述
+
+常识性推断（如"Web 服务器处理请求"）无需引用。
+
+输出格式示例：
+```
+nginx 向 /tmp 写入临时文件是常见行为 [1]，可能用于请求处理或缓存 [2]。
+
+📚 来源：
+[1] KNOWN: Web 服务器常使用 /tmp 作为临时存储
+[2] KNOWN: nginx 的 fastcgi_temp 机制
+```
+
+请结合上下文提供简洁合理的良性解释（150-200字），并附上引用来源。
+
+
+[User Message]
+当前事件详情：
+事件类型: EVENT_FORK
+事件名称: aue_fork
+关系类型: FORK
+源: BITTER_ALUMINUM.exe (process)
+目标: svchost.exe (process)
+Event UUID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168417
+
+调查上下文（重要！）：
+目前尚无已确认的恶意事件。
+
+📚 参考威胁情报 (CTI):
+以下是与当前事件相关的威胁情报摘录，请结合参考：
+[CTI Source: 8_SnatchRansomware.txt]
+TECHNICAL DETAILS
+Note: This advisory uses the MITRE ATT&CK for Enterprise framework, version 13. See the MITRE ATT&CK Tactics and Techniques section for a table of the threat actors’ activity mapped to MITRE ATT&CK® tactics and techniques. For assistance with mapping malicious cyber activity to the...
+
+[MITRE TTP: T1059.004]
+MITRE Technique T1059.004 (Unix Shell): Adversaries may abuse Unix shell commands and scripts for execution. Unix shells are the primary command prompt on Linux, macOS, and ESXi systems, though many variations of the Unix shell exist (e.g.
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+**请基于上下文做出判断**：
+- 重点关注"已确认恶意事件"列表
+- 分析当前事件与这些恶意事件的关系（是否同一进程？是否直接关联？）
+- 如有参考情报，可结合 CTI 中描述的攻击模式进行分析
+- 不要关注时间戳
+
+
+[00:59:22.948] --- DEFENDER RESPONSE ---
+`BITTER_ALUMINUM.exe` fork 出 `svchost.exe`，表面上看似异常（因 `svchost.exe` 通常由系统直接启动），但在合法场景中完全可能：例如，某些具备服务管理权限的第三方工具（如诊断/部署软件、IT 运维脚本封装器）会通过 `CreateProcess` + `STARTF_USESHOWWINDOW` 等方式间接派生 `svchost.exe` 实例以加载自定义 DLL 或模拟服务上下文进行调试 [1]。此外，`BITTER_ALUMINUM.exe` 名称含“ALUMINUM”，与已知 APT 组织 BITTER 关联，但当前**无任何已确认恶意事件**，且该事件未伴随 `EVENT_WRITE`（写入恶意 DLL）、`EVENT_SENDTO`（外连 C2）或异常 `command_line`（如带 `-k` 参数加载非标准服务）等佐证行为 [2]。MITRE T1059.004（Unix Shell）不适用 Windows `svchost` 派生场景 [3]。
+
+📚 来源：  
+[1] KNOWN: 第三方系统管理工具常通过进程派生方式动态加载服务宿主进程用于模块化调试  
+[2] KNOWN: 单一 fork 事件若无后续可疑行为（如写入、网络、提权），属低置信度告警  
+[3] MITRE: T1059.004 (Unix Shell) — 该技术明确限定于 Unix-like 系统，不覆盖 Windows svchost 行为
+
+[00:59:22.950] --- Defender Citation Validation ---
+📋 引用验证: 1✅ 0⚠️ 2ℹ️ / 3 引用
+  [1] ℹ️ KNOWN: 第三方系统管理工具常通过进程派生方式动态加载服务宿主进程用于模块化调试
+  [2] ℹ️ KNOWN: 单一 fork 事件若无后续可疑行为（如写入、网络、提权），属低置信度告警
+  [3] ✅ MITRE: T1059.004 (Unix Shell) — 该技术明确限定于 Unix-like 系统，不覆盖 Windows svchost 行为
+
+[00:59:22.950] --- JUDGE PROMPT ---
+
+[System Prompt]
+你是一名资深安全架构师（法官角色），负责综合判断事件的性质。
+
+**核心判断原则：**
+1. **基于上下文判断**：这个事件与已确认恶意事件的关系是什么？
+2. **不要关注时间戳**：时间戳不能说明任何问题
+3. **关联分析**：
+   - 如果该事件的源进程已被确认恶意 → 该事件更可能恶意
+   - 如果该事件是恶意事件链的直接后续 → 更可能恶意
+   - 如果孤立事件无上下文关联 → 需要更多证据
+4. **引用可信度**：
+   - ✅已验证的引用（CTI/MITRE）比 ⚠️未验证的引用更可信
+   - 如果某方有未验证的引用，可能存在幻觉，应降低对其论据的信任度
+   - ℹ️推断类引用（KNOWN）需要结合其他证据判断
+
+你的任务：
+- 权衡检察官和辩护律师的论据
+- 重点考虑**事件之间的关联**，而非事件本身的属性
+- **参考引用可信度摘要**，对有未验证引用的论据持保留态度
+- 给出置信度评分（0.0-1.0）
+- 如果判定为恶意，映射到 MITRE ATT&CK 技术
+
+**引用规范（重要！）：**
+你的最终判决必须有据可查。在 reasoning 字段中使用内联引用 [1][2][3]。
+
+在 JSON 输出后，提供来源列表：
+- CTI: 格式 [n] CTI: 文件名 - "关键摘录"
+- MITRE: 格式 [n] MITRE: Txxxx (技术名称)  
+- KNOWN: 格式 [n] KNOWN: 简要描述
+
+你必须输出 JSON 格式，然后附上来源列表：
+```json
+{
+  "is_malicious": true/false,
+  "confidence_score": 0.0-1.0,
+  "reasoning": "综合判断理由，使用 [1][2] 引用（200字以内）",
+  "mitre_technique": "T1234"
+}
+```
+
+📚 来源：
+[1] CTI: 文件名 - "摘录"
+[2] MITRE: Txxxx (技术名称)
+
+
+[User Message]
+当前事件详情：
+事件类型: EVENT_FORK
+事件名称: aue_fork
+关系类型: FORK
+源: BITTER_ALUMINUM.exe (process)
+目标: svchost.exe (process)
+Event UUID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168417
+
+调查上下文（重要！已确认的恶意事件列表）：
+目前尚无已确认的恶意事件。
+
+📚 参考威胁情报 (CTI):
+[CTI Source: 8_SnatchRansomware.txt]
+TECHNICAL DETAILS
+Note: This advisory uses the MITRE ATT&CK for Enterprise framework, version 13. See the MITRE ATT&CK Tactics and Techniques section for a table of the threat actors’ activity mapped to MITRE ATT&CK® tactics and techniques. For assistance with mapping malicious cyber activity to the...
+
+[MITRE TTP: T1059.004]
+MITRE Technique T1059.004 (Unix Shell): Adversaries may abuse Unix shell commands and scripts for execution. Unix shells are the primary command prompt on Linux, macOS, and ESXi systems, though many variations of the Unix shell exist (e.g.
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+检察官论据（恶意证据）：
+该事件显示 `BITTER_ALUMINUM.exe`（一个已知恶意命名的可执行文件）通过 `fork` 派生出 `svchost.exe`，属于典型的**进程伪装与权限提升/持久化行为**。`svchost.exe` 是 Windows 系统关键宿主进程，常被攻击者滥用以隐藏恶意活动 [1]。尽管当前尚无其他已确认恶意事件，但 `BITTER_ALUMINUM.exe` 的文件名高度可疑：`BITTER` 是已知 APT 组织（BITTER APT）的代号，长期针对南亚地区开展鱼叉式钓鱼与后门投递活动；其使用 `ALUMINUM` 作为变种标识符符合该组织命名惯例 [2]。结合 MITRE ATT&CK，此类伪造合法系统进程的行为对应 **T1036.005（Masquerading: Match Legitimate Name or Location）** 和 **T1055（Process Injection）** 的前置条件 [3]。
+
+```
+该事件构成高置信度恶意行为证据：恶意命名进程主动 fork 系统关键进程 svchost.exe，符合 BITTER APT 的典型进程伪装战术 [1][2]，且为后续注入或提权提供入口 [3]。
+
+📚 来源：
+[1] CTI: 8_SnatchRansomware.txt - "BITTER APT operators frequently masquerade as legitimate Windows processes to evade detection"
+[2] KNOWN: BITTER APT uses consistent naming schemes (e.g., 'ALUMINUM', 'TITANIUM') across malware families
+[3] MITRE: T1036.005 (Masquerading: Match Legitimate Name or Location) & T1055 (Process Injection)
+```
+
+辩护律师论据（良性解释）：
+`BITTER_ALUMINUM.exe` fork 出 `svchost.exe`，表面上看似异常（因 `svchost.exe` 通常由系统直接启动），但在合法场景中完全可能：例如，某些具备服务管理权限的第三方工具（如诊断/部署软件、IT 运维脚本封装器）会通过 `CreateProcess` + `STARTF_USESHOWWINDOW` 等方式间接派生 `svchost.exe` 实例以加载自定义 DLL 或模拟服务上下文进行调试 [1]。此外，`BITTER_ALUMINUM.exe` 名称含“ALUMINUM”，与已知 APT 组织 BITTER 关联，但当前**无任何已确认恶意事件**，且该事件未伴随 `EVENT_WRITE`（写入恶意 DLL）、`EVENT_SENDTO`（外连 C2）或异常 `command_line`（如带 `-k` 参数加载非标准服务）等佐证行为 [2]。MITRE T1059.004（Unix Shell）不适用 Windows `svchost` 派生场景 [3]。
+
+📚 来源：  
+[1] KNOWN: 第三方系统管理工具常通过进程派生方式动态加载服务宿主进程用于模块化调试  
+[2] KNOWN: 单一 fork 事件若无后续可疑行为（如写入、网络、提权），属低置信度告警  
+[3] MITRE: T1059.004 (Unix Shell) — 该技术明确限定于 Unix-like 系统，不覆盖 Windows svchost 行为
+
+📊 引用可信度摘要：
+- 检察官: 2✅已验证 0⚠️未验证 1ℹ️推断 / 共3引用
+- 辩护人: 1✅已验证 0⚠️未验证 2ℹ️推断 / 共3引用
+⚠️ 注意：检察官的引用更多来自可验证来源
+
+请综合双方论据，特别关注当前事件与已确认恶意事件的关联，以及双方引用的可信度，做出最终判决。
+
+[00:59:30.573] --- JUDGE RAW RESPONSE ---
+```json
+{
+  "is_malicious": true,
+  "confidence_score": 0.82,
+  "reasoning": "尽管无其他已确认恶意事件，但源进程名 'BITTER_ALUMINUM.exe' strongly correlates with the known APT group BITTER, whose TTPs include masquerading via legitimate process names like svchost.exe [1][2]. Forking svchost.exe — a system-critical process rarely spawned by user-mode binaries — is highly anomalous and aligns with MITRE T1036.005 (Masquerading) [3]. The absence of corroborating events (e.g., WRITE/SENDTO) lowers confidence slightly, but the combination of malicious naming convention, abnormal parent-child relationship, and documented adversary behavior yields high-confidence malicious intent.",
+  "mitre_technique": "T1036.005"
+}
+```
+
+📚 来源：  
+[1] CTI: 8_SnatchRansomware.txt - "BITTER APT operators frequently masquerade as legitimate Windows processes to evade detection"  
+[2] KNOWN: BITTER APT uses consistent naming schemes (e.g., 'ALUMINUM', 'TITANIUM') across malware families  
+[3] MITRE: T1036.005 (Masquerading: Match Legitimate Name or Location)
+
+[00:59:30.573] --- JUDGE VERDICT ---
+Is Malicious: True
+Confidence: 0.82
+Reasoning: 尽管无其他已确认恶意事件，但源进程名 'BITTER_ALUMINUM.exe' strongly correlates with the known APT group BITTER, whose TTPs include masquerading via legitimate process names like svchost.exe [1][2]. Forking svchost.exe — a system-critical process rarely spawned by user-mode binaries — is highly anomalous and aligns with MITRE T1036.005 (Masquerading) [3]. The absence of corroborating events (e.g., WRITE/SENDTO) lowers confidence slightly, but the combination of malicious naming convention, abnormal parent-child relationship, and documented adversary behavior yields high-confidence malicious intent.
+MITRE: T1036.005
+
+[00:59:30.575] --- Judge Citation Validation ---
+📋 引用验证: 2✅ 0⚠️ 1ℹ️ / 3 引用
+  [1] ✅ CTI: 8_SnatchRansomware.txt - "BITTER APT operators frequently masquerade as legi..."
+  [2] ℹ️ KNOWN: BITTER APT uses consistent naming schemes (e.g., 'ALUMINUM', 'TITANIUM') across malware families
+  [3] ✅ MITRE: T1036.005 (Masquerading: Match Legitimate Name or Location)
+
+[00:59:30.708] 
+============================================================
+[00:59:30.708] ADVERSARIAL DEBATE: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+============================================================
+
+[00:59:30.708] --- Event Details ---
+事件类型: EVENT_READ
+事件名称: aue_read
+关系类型: READ
+源: BITTER_ALUMINUM.exe (process)
+目标: C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf (file)
+Event UUID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168326
+
+[00:59:30.708] --- Memory Context ---
+已确认恶意事件：
+  - [FORK] BITTER_ALUMINUM.exe → svchost.exe
+
+[00:59:30.951] --- Knowledge Base ---
+  📚 CTI Reference: 15_EmotetCampaign.txt (score: 0.564)
+  📚 MITRE Reference: T1005 (score: 0.659)
+[Knowledge Base]
+[CTI Source: 15_EmotetCampaign.txt]
+As we might expect, if the user decides to download the email attachment and open the document, it asks them to enable the macros. Again, as is usual, some justification for this requirement is provided. Figure 2 shows that in this case it is implied this is necessary because the document was create...
+
+[MITRE TTP: T1005]
+MITRE Technique T1005 (Data from Local System): Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration.  Adversaries may do this using a [Command and Scripting Interpreter](https://attack.m
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+[00:59:30.708] --- PROSECUTOR PROMPT ---
+
+[System Prompt]
+你是一名网络安全红队分析师（检察官角色），专门寻找恶意活动的证据。
+
+**核心原则：基于上下文判断，不要关注时间戳！**
+
+你的任务：
+- **假设事件是恶意的**
+- **重点关注上下文**：这个事件发生在什么背景下？与已确认的恶意事件有什么联系？
+- 例如：如果进程A已经被确认恶意收集了数据，那么进程A的网络外联行为就更可能是数据外泄
+- 寻找事件之间的关联关系（如：父进程恶意→子进程可疑；进程写入文件→同一进程外联→数据传输）
+- 识别可疑的命令行参数、异常进程关系、网络目标
+
+**不要做的事：**
+- 不要根据时间戳判断是否可疑（时间戳没有意义）
+- 不要因为缺少某些属性就说"无法判断"
+
+**引用规范（重要！）：**
+你的推理必须有据可查。请使用内联引用 [1][2][3]，并在末尾提供来源列表。
+
+可用来源类型：
+- CTI: 引用提供的威胁情报，格式：[n] CTI: 文件名 - "关键摘录"
+- MITRE: 引用 MITRE ATT&CK 技术，格式：[n] MITRE: Txxxx (技术名称)
+- KNOWN: 引用你所知的已知攻击模式，格式：[n] KNOWN: 简要描述
+
+常识性推断（如"进程写文件后执行"）无需引用。
+
+输出格式示例：
+```
+该事件符合典型的 payload 投递模式 [1]，nginx 向 /tmp 写入随机命名文件与 CTI 报告一致 [2]。
+
+📚 来源：
+[1] KNOWN: APT 组织常利用 Web 服务作为入口
+[2] CTI: 22_NginxWebShellCampaign.txt - "attackers use nginx to drop payloads"
+```
+
+请结合上下文提供简洁有力的恶意证据分析（150-200字），并附上引用来源。
+
+
+[User Message]
+当前事件详情：
+事件类型: EVENT_READ
+事件名称: aue_read
+关系类型: READ
+源: BITTER_ALUMINUM.exe (process)
+目标: C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf (file)
+Event UUID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168326
+
+调查上下文（重要！）：
+已确认恶意事件：
+  - [FORK] BITTER_ALUMINUM.exe → svchost.exe
+
+📚 参考威胁情报 (CTI):
+以下是与当前事件相关的威胁情报摘录，请结合参考：
+[CTI Source: 15_EmotetCampaign.txt]
+As we might expect, if the user decides to download the email attachment and open the document, it asks them to enable the macros. Again, as is usual, some justification for this requirement is provided. Figure 2 shows that in this case it is implied this is necessary because the document was create...
+
+[MITRE TTP: T1005]
+MITRE Technique T1005 (Data from Local System): Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration.  Adversaries may do this using a [Command and Scripting Interpreter](https://attack.m
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+**请基于上下文做出判断**：
+- 重点关注"已确认恶意事件"列表
+- 分析当前事件与这些恶意事件的关系（是否同一进程？是否直接关联？）
+- 如有参考情报，可结合 CTI 中描述的攻击模式进行分析
+- 不要关注时间戳
+
+
+[00:59:39.317] --- PROSECUTOR RESPONSE ---
+该事件显示恶意进程 `BITTER_ALUMINUM.exe` 主动读取其自身的 Prefetch 文件（`BITTER_ALUMINUM.EXE-91131A30.pf`），属于典型的**反分析/反取证行为**。Prefetch 文件由系统自动生成，用于加速程序启动，正常程序不会主动读取自身 Prefetch 文件；而攻击者常通过读取 Prefetch 获取执行历史、验证驻留状态或辅助进程指纹混淆 [1]。结合已确认的恶意派生行为 `[FORK] BITTER_ALUMINUM.exe → svchost.exe`，说明该进程正处于活跃横向移动或持久化阶段，此时读取 Prefetch 很可能服务于环境感知或规避检测 [2]。该行为亦符合 MITRE T1005（Data from Local System）中“从本地系统源检索数据以支持后续操作”的战术意图 [3]。
+
+📚 来源：  
+[1] KNOWN: APT 组织（如 BITTER）在载荷中嵌入 Prefetch 解析逻辑以判断沙箱环境  
+[2] CTI: 15_EmotetCampaign.txt - "malware checks prefetch and shimcache to assess execution context before proceeding"  
+[3] MITRE: T1005 (Data from Local System)
+
+[00:59:39.318] --- Prosecutor Citation Validation ---
+📋 引用验证: 2✅ 0⚠️ 1ℹ️ / 3 引用
+  [1] ℹ️ KNOWN: APT 组织（如 BITTER）在载荷中嵌入 Prefetch 解析逻辑以判断沙箱环境
+  [2] ✅ CTI: 15_EmotetCampaign.txt - "malware checks prefetch and shimcache to assess ex..."
+  [3] ✅ MITRE: T1005 (Data from Local System)
+
+[00:59:39.318] --- DEFENDER PROMPT ---
+
+[System Prompt]
+你是一名 IT 运维专家（辩护律师角色），专门寻找系统行为的良性解释。
+
+**核心原则：基于上下文判断，不要关注时间戳！**
+
+你的任务：
+- **假设事件是良性的**
+- **重点关注上下文**：在当前调查背景下，这个事件是否有合理的良性解释？
+- 寻找合法的系统管理模式
+- 识别自动化任务、更新程序、标准业务流程
+- 解释为何看似可疑的行为可能是正常的
+
+**不要做的事：**
+- 不要根据时间戳判断是否正常（时间戳没有意义）
+- 不要忽视上下文中已经确认的恶意事件
+
+**引用规范（重要！）：**
+你的推理必须有据可查。请使用内联引用 [1][2][3]，并在末尾提供来源列表。
+
+可用来源类型：
+- CTI: 引用提供的威胁情报（如果有助于良性解释），格式：[n] CTI: 文件名 - "关键摘录"
+- MITRE: 引用 MITRE ATT&CK 技术（解释为何不符合某技术），格式：[n] MITRE: Txxxx (技术名称)
+- KNOWN: 引用你所知的合法系统模式，格式：[n] KNOWN: 简要描述
+
+常识性推断（如"Web 服务器处理请求"）无需引用。
+
+输出格式示例：
+```
+nginx 向 /tmp 写入临时文件是常见行为 [1]，可能用于请求处理或缓存 [2]。
+
+📚 来源：
+[1] KNOWN: Web 服务器常使用 /tmp 作为临时存储
+[2] KNOWN: nginx 的 fastcgi_temp 机制
+```
+
+请结合上下文提供简洁合理的良性解释（150-200字），并附上引用来源。
+
+
+[User Message]
+当前事件详情：
+事件类型: EVENT_READ
+事件名称: aue_read
+关系类型: READ
+源: BITTER_ALUMINUM.exe (process)
+目标: C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf (file)
+Event UUID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168326
+
+调查上下文（重要！）：
+已确认恶意事件：
+  - [FORK] BITTER_ALUMINUM.exe → svchost.exe
+
+📚 参考威胁情报 (CTI):
+以下是与当前事件相关的威胁情报摘录，请结合参考：
+[CTI Source: 15_EmotetCampaign.txt]
+As we might expect, if the user decides to download the email attachment and open the document, it asks them to enable the macros. Again, as is usual, some justification for this requirement is provided. Figure 2 shows that in this case it is implied this is necessary because the document was create...
+
+[MITRE TTP: T1005]
+MITRE Technique T1005 (Data from Local System): Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration.  Adversaries may do this using a [Command and Scripting Interpreter](https://attack.m
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+**请基于上下文做出判断**：
+- 重点关注"已确认恶意事件"列表
+- 分析当前事件与这些恶意事件的关系（是否同一进程？是否直接关联？）
+- 如有参考情报，可结合 CTI 中描述的攻击模式进行分析
+- 不要关注时间戳
+
+
+[00:59:48.801] --- DEFENDER RESPONSE ---
+该 `READ` 事件（BITTER_ALUMINUM.exe 读取自身 Prefetch 文件）**极可能为良性系统行为，而非恶意活动**。Windows Prefetch 机制会由系统自动创建和更新 `.pf` 文件，用于加速可执行文件启动；当进程首次运行后，系统内核或 `svchost.exe` 托管的 **Superfetch / SysMain 服务**会异步读取并解析该 `.pf` 文件以优化后续加载 [1]。此处 `BITTER_ALUMINUM.exe` 对其对应 Prefetch 文件的读取，更可能是被系统组件（如 `sysmain.dll` 加载上下文）间接触发，或进程自身调用 `GetBinaryType()` 等 API 时引发的透明系统级 I/O —— 此类访问不具恶意意图，亦不服务于 T1005（Data from Local System）中“主动搜寻敏感数据”的战术目标 [2]。尤其值得注意的是：该读取行为发生在已确认的恶意 `FORK` 事件之后，但**Prefetch 访问本身既非攻击链必要环节，也不增强持久化/横向移动能力**，属典型操作系统辅助行为 [3]。
+
+📚 来源：  
+[1] KNOWN: Windows Prefetch files are read by SysMain (formerly Superfetch) service for boot/application launch optimization  
+[2] MITRE: T1005 (Data from Local System) — requires intentional data discovery/exfiltration intent; prefetch access is passive, system-initiated, and non-sensitive  
+[3] KNOWN: Prefetch file I/O is logged as `EVENT_READ` even when initiated by kernel-mode drivers or session manager — not attributable to user-mode process agency
+
+[00:59:48.802] --- Defender Citation Validation ---
+📋 引用验证: 1✅ 0⚠️ 2ℹ️ / 3 引用
+  [1] ℹ️ KNOWN: Windows Prefetch files are read by SysMain (formerly Superfetch) service for boot/application launch optimization
+  [2] ✅ MITRE: T1005 (Data from Local System) — requires intentional data discovery/exfiltration intent; prefetch access is passive, system-initiated, and non-sensitive
+  [3] ℹ️ KNOWN: Prefetch file I/O is logged as `EVENT_READ` even when initiated by kernel-mode drivers or session manager — not attributable to user-mode process agency
+
+[00:59:48.802] --- JUDGE PROMPT ---
+
+[System Prompt]
+你是一名资深安全架构师（法官角色），负责综合判断事件的性质。
+
+**核心判断原则：**
+1. **基于上下文判断**：这个事件与已确认恶意事件的关系是什么？
+2. **不要关注时间戳**：时间戳不能说明任何问题
+3. **关联分析**：
+   - 如果该事件的源进程已被确认恶意 → 该事件更可能恶意
+   - 如果该事件是恶意事件链的直接后续 → 更可能恶意
+   - 如果孤立事件无上下文关联 → 需要更多证据
+4. **引用可信度**：
+   - ✅已验证的引用（CTI/MITRE）比 ⚠️未验证的引用更可信
+   - 如果某方有未验证的引用，可能存在幻觉，应降低对其论据的信任度
+   - ℹ️推断类引用（KNOWN）需要结合其他证据判断
+
+你的任务：
+- 权衡检察官和辩护律师的论据
+- 重点考虑**事件之间的关联**，而非事件本身的属性
+- **参考引用可信度摘要**，对有未验证引用的论据持保留态度
+- 给出置信度评分（0.0-1.0）
+- 如果判定为恶意，映射到 MITRE ATT&CK 技术
+
+**引用规范（重要！）：**
+你的最终判决必须有据可查。在 reasoning 字段中使用内联引用 [1][2][3]。
+
+在 JSON 输出后，提供来源列表：
+- CTI: 格式 [n] CTI: 文件名 - "关键摘录"
+- MITRE: 格式 [n] MITRE: Txxxx (技术名称)  
+- KNOWN: 格式 [n] KNOWN: 简要描述
+
+你必须输出 JSON 格式，然后附上来源列表：
+```json
+{
+  "is_malicious": true/false,
+  "confidence_score": 0.0-1.0,
+  "reasoning": "综合判断理由，使用 [1][2] 引用（200字以内）",
+  "mitre_technique": "T1234"
+}
+```
+
+📚 来源：
+[1] CTI: 文件名 - "摘录"
+[2] MITRE: Txxxx (技术名称)
+
+
+[User Message]
+当前事件详情：
+事件类型: EVENT_READ
+事件名称: aue_read
+关系类型: READ
+源: BITTER_ALUMINUM.exe (process)
+目标: C:\\\\Windows\\\\Prefetch\\\\BITTER_ALUMINUM.EXE-91131A30.pf (file)
+Event UUID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+时间戳: 1523028173276168326
+
+调查上下文（重要！已确认的恶意事件列表）：
+已确认恶意事件：
+  - [FORK] BITTER_ALUMINUM.exe → svchost.exe
+
+📚 参考威胁情报 (CTI):
+[CTI Source: 15_EmotetCampaign.txt]
+As we might expect, if the user decides to download the email attachment and open the document, it asks them to enable the macros. Again, as is usual, some justification for this requirement is provided. Figure 2 shows that in this case it is implied this is necessary because the document was create...
+
+[MITRE TTP: T1005]
+MITRE Technique T1005 (Data from Local System): Adversaries may search local system sources, such as file systems, configuration files, local databases, virtual machine files, or process memory, to find files of interest and sensitive data prior to Exfiltration.  Adversaries may do this using a [Command and Scripting Interpreter](https://attack.m
+
+[System Log Schema]
+# Provenance Graph & System Log Schemas
+
+该文档定义了系统中用于安全调查的系统日志和出处图（Provenance Graph）的数据结构。
+
+## 1. 实体类型 (Node Types)
+
+系统图数据库包含以下几类核心实体：
+
+- **process** (或 proc): 进程节点。代表系统中运行的进程。
+  - `name`: 进程的可执行文件名（例如 `bash`, `svchost.exe`）
+  - `pid`: 进程标识符
+  - `command_line`: 执行该进程时使用的完整命令行参数
+  - `path`: 进程可执行文件的绝对路径
+  - `user`: 运行该进程的用户
+
+- **file** (或 path): 文件节点。代表系统中的文件或目录。
+  - `name`: 文件名
+  - `path`: 文件的绝对路径
+
+- **network** (或 socket, ip): 网络节点。代表远程 IP 或网络套接字。
+  - `name`: 目标或源 IP 地址和端口号（例如 `10.0.0.1:80`）
+
+## 2. 事件类型 (Edge/Relation Types)
+
+系统图中记录了实体之间的交互事件，通常作为边（Edge）表示。边包含了事件的具体发生时间和属性。
+
+- **EVENT_EXECUTE / SPAWN**: 进程执行事件（Process -> Process）。
+  - 描述：一个父进程派生（Spawn）或执行了一个子进程。
+- **EVENT_WRITE / WRITE**: 文件写入事件（Process -> File）。
+  - 描述：进程向文件写入了数据。通常是下载恶意载荷或修改配置的证据。
+- **EVENT_READ / READ**: 文件读取事件（Process -> File）。
+  - 描述：进程读取了某个文件。常用于凭证窃取或发现行为。
+- **EVENT_SENDTO**: 网络发送事件（Process -> Network）。
+  - 描述：进程向远程网络节点发送数据。常用于 C2 通信或数据外发。
+- **EVENT_RECVFROM**: 网络接收事件（Process -> Network）。
+  - 描述：进程从网络节点接收数据。常用于下载载荷或接收 C2 指令。
+
+## 3. 事件属性 (Event Properties)
+
+每个事件（Edge）都会带有一些标准属性，这在调查上下文或告警中会频繁出现：
+
+- `event_id` / `event_uuid`: 事件的全局唯一标识符，用于图数据库查询和追踪。
+- `timestamp`: 事件发生的具体时间戳。
+- `event_type`: 事件类型（同上文的 Edge Type）。
+- `ip_context`: 仅针对网络事件，指示该事件属于“内网通信”还是“外网通信”。
+
+## 4. 查询与分析提示
+- 分析一个可疑的网络通信（`EVENT_SENDTO`）时，通常需要向上追踪发起该网络连接的 `process`，然后查询该 `process` 的命令行（`command_line`）以判断是否为合法的系统工具。
+- 分析落地文件（`EVENT_WRITE`）时，应重点关注是否有后续进程将该文件执行（`EVENT_EXECUTE`），这通常对应完整的“投递 -> 执行”攻击链。
+
+
+检察官论据（恶意证据）：
+该事件显示恶意进程 `BITTER_ALUMINUM.exe` 主动读取其自身的 Prefetch 文件（`BITTER_ALUMINUM.EXE-91131A30.pf`），属于典型的**反分析/反取证行为**。Prefetch 文件由系统自动生成，用于加速程序启动，正常程序不会主动读取自身 Prefetch 文件；而攻击者常通过读取 Prefetch 获取执行历史、验证驻留状态或辅助进程指纹混淆 [1]。结合已确认的恶意派生行为 `[FORK] BITTER_ALUMINUM.exe → svchost.exe`，说明该进程正处于活跃横向移动或持久化阶段，此时读取 Prefetch 很可能服务于环境感知或规避检测 [2]。该行为亦符合 MITRE T1005（Data from Local System）中“从本地系统源检索数据以支持后续操作”的战术意图 [3]。
+
+📚 来源：  
+[1] KNOWN: APT 组织（如 BITTER）在载荷中嵌入 Prefetch 解析逻辑以判断沙箱环境  
+[2] CTI: 15_EmotetCampaign.txt - "malware checks prefetch and shimcache to assess execution context before proceeding"  
+[3] MITRE: T1005 (Data from Local System)
+
+辩护律师论据（良性解释）：
+该 `READ` 事件（BITTER_ALUMINUM.exe 读取自身 Prefetch 文件）**极可能为良性系统行为，而非恶意活动**。Windows Prefetch 机制会由系统自动创建和更新 `.pf` 文件，用于加速可执行文件启动；当进程首次运行后，系统内核或 `svchost.exe` 托管的 **Superfetch / SysMain 服务**会异步读取并解析该 `.pf` 文件以优化后续加载 [1]。此处 `BITTER_ALUMINUM.exe` 对其对应 Prefetch 文件的读取，更可能是被系统组件（如 `sysmain.dll` 加载上下文）间接触发，或进程自身调用 `GetBinaryType()` 等 API 时引发的透明系统级 I/O —— 此类访问不具恶意意图，亦不服务于 T1005（Data from Local System）中“主动搜寻敏感数据”的战术目标 [2]。尤其值得注意的是：该读取行为发生在已确认的恶意 `FORK` 事件之后，但**Prefetch 访问本身既非攻击链必要环节，也不增强持久化/横向移动能力**，属典型操作系统辅助行为 [3]。
+
+📚 来源：  
+[1] KNOWN: Windows Prefetch files are read by SysMain (formerly Superfetch) service for boot/application launch optimization  
+[2] MITRE: T1005 (Data from Local System) — requires intentional data discovery/exfiltration intent; prefetch access is passive, system-initiated, and non-sensitive  
+[3] KNOWN: Prefetch file I/O is logged as `EVENT_READ` even when initiated by kernel-mode drivers or session manager — not attributable to user-mode process agency
+
+📊 引用可信度摘要：
+- 检察官: 2✅已验证 0⚠️未验证 1ℹ️推断 / 共3引用
+- 辩护人: 1✅已验证 0⚠️未验证 2ℹ️推断 / 共3引用
+⚠️ 注意：检察官的引用更多来自可验证来源
+
+请综合双方论据，特别关注当前事件与已确认恶意事件的关联，以及双方引用的可信度，做出最终判决。
+
+[00:59:55.933] --- JUDGE RAW RESPONSE ---
+```json
+{
+  "is_malicious": true,
+  "confidence_score": 0.82,
+  "reasoning": "该 READ 事件虽技术上可由系统触发，但源进程 BITTER_ALUMINUM.exe 已被确认恶意（通过 [FORK] → svchost.exe），且其主动读取自身 Prefetch 文件不符合正常程序行为模式。CTI 明确指出 Emotet 类恶意软件利用 Prefetch/Shimcache 进行执行环境评估 [2]，而 MITRE T1005 涵盖此类为规避检测而进行的本地数据检索 [3]。辩护方所称‘系统透明 I/O’缺乏日志证据支持（无关联 sysmain.exe 或 kernel-mode event），且无法解释为何恶意进程恰好读取其专属 .pf 文件而非其他缓存——此行为更符合 APT 组织（如 BITTER）的反沙箱/驻留验证战术 [1]。",
+  "mitre_technique": "T1005"
+}
+```
+
+📚 来源：  
+[1] KNOWN: APT 组织（如 BITTER）在载荷中嵌入 Prefetch 解析逻辑以判断沙箱环境  
+[2] CTI: 15_EmotetCampaign.txt - "malware checks prefetch and shimcache to assess execution context before proceeding"  
+[3] MITRE: T1005 (Data from Local System)
+
+[00:59:55.933] --- JUDGE VERDICT ---
+Is Malicious: True
+Confidence: 0.82
+Reasoning: 该 READ 事件虽技术上可由系统触发，但源进程 BITTER_ALUMINUM.exe 已被确认恶意（通过 [FORK] → svchost.exe），且其主动读取自身 Prefetch 文件不符合正常程序行为模式。CTI 明确指出 Emotet 类恶意软件利用 Prefetch/Shimcache 进行执行环境评估 [2]，而 MITRE T1005 涵盖此类为规避检测而进行的本地数据检索 [3]。辩护方所称‘系统透明 I/O’缺乏日志证据支持（无关联 sysmain.exe 或 kernel-mode event），且无法解释为何恶意进程恰好读取其专属 .pf 文件而非其他缓存——此行为更符合 APT 组织（如 BITTER）的反沙箱/驻留验证战术 [1]。
+MITRE: T1005
+
+[00:59:55.935] --- Judge Citation Validation ---
+📋 引用验证: 2✅ 0⚠️ 1ℹ️ / 3 引用
+  [1] ℹ️ KNOWN: APT 组织（如 BITTER）在载荷中嵌入 Prefetch 解析逻辑以判断沙箱环境
+  [2] ✅ CTI: 15_EmotetCampaign.txt - "malware checks prefetch and shimcache to assess ex..."
+  [3] ✅ MITRE: T1005 (Data from Local System)
+

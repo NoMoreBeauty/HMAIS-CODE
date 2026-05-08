@@ -1,0 +1,103 @@
+LINUX ADVANCED PERSISTENT THREAT CAMPAIGN
+
+OVERVIEW
+This sophisticated APT campaign targets Linux web servers with a multi-stage attack chain involving multiple malware families: microapt, libdrakon, and XIM. The operation features privilege escalation, network reconnaissance, and lateral movement capabilities [T1190].
+
+INITIAL ACCESS
+The attack begins with exploitation of nginx web server via malicious HTTP requests from:
+- 25.159.96.207:80 (primary entry point)
+- 76.56.184.25:80, 155.162.39.48:80 (alternate entry points)
+
+EXECUTION - STAGE 1
+After initial compromise, nginx spawns backdoor_process which establishes a shell [T1059.004]:
+- backdoor_process writes to /var/log/devc for persistence
+- Shell connects to C2 for command retrieval
+- System reconnaissance via /bin/ps execution
+
+EXECUTION - STAGE 2 (MICROAPT)
+The shell downloads and deploys microapt malware:
+- Connects to 76.56.184.25:80 and 98.15.44.232:80
+- Writes microapt_file which drops /tmp/tmux-1002
+- tmux-1002 is executed, spawning elevate_process for privilege escalation
+- Additional component /tmp/minions deployed for redundancy
+
+EXECUTION - STAGE 3 (LIBDRAKON)
+The libdrakon component provides additional capabilities:
+- Downloaded from 198.115.236.119:80
+- Deploys /tmp/font as executable payload
+- Establishes separate C2 channel
+
+EXECUTION - STAGE 4 (XIM)
+The XIM module serves as the primary implant:
+- Downloaded from 53.158.101.118:80
+- Writes drakon_file which creates /tmp/XIM
+- XIM_process spawns and maintains persistent C2
+- Writes /var/log/netlog for operational logging
+
+PRIVILEGE ESCALATION
+Multiple privilege escalation techniques are employed:
+
+1. Sudo Exploitation [T1548.003]:
+   - elevate_process spawns sudo_process
+   - Reads /etc/sudoers to identify sudo rules
+   - Exploits misconfigured sudo permissions
+
+2. Process Chain:
+   - elevate_process → sudo_process → shell (elevated)
+
+CREDENTIAL ACCESS AND RECONNAISSANCE
+The malware performs extensive system reconnaissance:
+- Reads /etc/group and /etc/password for user enumeration [T1087.001]
+- Accesses /home/user/.bash_history for command history [T1552.003]
+- Reads /etc/nginx/nginx.conf for web server configuration
+- Accesses /proc/net/tcp for network connection enumeration [T1049]
+
+LATERAL MOVEMENT
+Network scanning and SSH-based lateral movement:
+
+1. Network Scanning [T1046]:
+   - scan_process probes internal network (128.55.12.x subnet)
+   - Targets multiple hosts: .166, .67, .141, .110-.120
+   - Reads /proc/net/tcp for connection state
+
+2. SSH Lateral Movement [T1021.004]:
+   - XIM_process spawns ssh_process
+   - Connects to 208.67.222.222:22
+   - Reads /tmp/data.tmp for SSH credentials/keys
+
+PERSISTENCE
+Multiple persistence mechanisms:
+
+1. Cron-based Persistence [T1053.003]:
+   - cron_process reads /etc/crontab
+   - Spawns shell2 for secondary C2
+
+2. Log File Masquerading:
+   - /var/log/devc, /var/log/netlog appear as log files
+   - Survive log rotation with careful naming
+
+COMMAND AND CONTROL
+Extensive C2 infrastructure:
+- Multiple HTTP-based C2 servers on port 80
+- Secondary channel via shell2 to 192.113.144.28:80
+- DNS queries via 8.8.8.8:53 for connectivity checks
+
+INDICATORS OF COMPROMISE
+- Unusual files in /tmp: tmux-1002, minions, font, XIM, test
+- Processes: backdoor_process, elevate_process, XIM_process, scan_process
+- Log files with unusual content: /var/log/devc, /var/log/netlog
+- nginx spawning unexpected shell processes
+- Outbound SSH from non-standard processes
+- Network scanning activity targeting internal subnets
+
+MITRE ATT&CK TECHNIQUES
+[T1190] Exploit Public-Facing Application
+[T1059.004] Command and Scripting Interpreter: Unix Shell
+[T1548.003] Abuse Elevation Control Mechanism: Sudo and Sudo Caching
+[T1087.001] Account Discovery: Local Account
+[T1552.003] Unsecured Credentials: Bash History
+[T1049] System Network Connections Discovery
+[T1046] Network Service Discovery
+[T1021.004] Remote Services: SSH
+[T1053.003] Scheduled Task/Job: Cron
+[T1071.001] Application Layer Protocol: Web Protocols

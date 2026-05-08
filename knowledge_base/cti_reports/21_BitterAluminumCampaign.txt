@@ -1,0 +1,52 @@
+BITTER ALUMINUM MALWARE CAMPAIGN
+
+OVERVIEW
+BITTER ALUMINUM is a sophisticated Windows malware campaign that leverages browser-based delivery mechanisms and multiple evasion techniques. The attack chain involves downloading malicious archives, PowerShell-based extraction, DLL sideloading, and UAC bypass techniques [T1548.002].
+
+INITIAL ACCESS
+The attack begins when victims visit compromised websites or click on malicious links. The Edge browser (msedge.exe) downloads a ZIP archive containing the malware payload from attacker-controlled servers [T1566.002]. The archive is saved to the user's Downloads folder with names like "store.zip" or "create1.zip".
+
+EXECUTION
+After download, PowerShell.exe is spawned to extract and execute the primary payload [T1059.001]. The main executable "BITTER_ALUMINUM.exe" is extracted and launched. This executable serves as a dropper, writing multiple additional files:
+- MUDDY_SAW.dll - A malicious DLL for persistence
+- ABSTRACT_MOONSCAPE.dll - Additional malicious module
+- INCREASING_MAKE.exe - Secondary payload
+- ELECTRICAL_LEMUR.exe - Tertiary payload
+- DEPRESSED_TEXT.bin - Encrypted configuration or payload
+
+DLL SIDELOADING AND EVASION
+The malware uses regsvr32.exe to load MUDDY_SAW.dll [T1218.010], a common technique to bypass application whitelisting. The use of signed Windows binaries to execute malicious code helps evade security controls.
+
+PRIVILEGE ESCALATION
+BITTER ALUMINUM employs UAC bypass techniques using ComputerDefaults.exe [T1548.002]. This legitimate Windows binary is abused to elevate privileges without triggering UAC prompts. The process chain involves:
+1. BITTER_ALUMINUM.exe spawns ComputerDefaults.exe
+2. ComputerDefaults.exe spawns SearchProtocolHost.exe
+3. Malicious code executes with elevated privileges
+
+CREDENTIAL ACCESS
+The malware attempts to read sensitive credential stores:
+- C:\Windows\System32\config\SAM - Windows Security Account Manager database [T1003.002]
+- lsass.exe memory - For credential dumping [T1003.001]
+
+COMMAND AND CONTROL
+The malware establishes C2 communication with external servers on port 47138 [T1071.001]. DNS queries to 8.8.8.8 are used for connectivity checks [T1071.004].
+
+DEFENSE EVASION
+The attack creates files in the Windows Prefetch folder (BITTER_ALUMINUM.EXE-91131A30.pf) and uses system processes like svchost.exe for network communications to blend with normal traffic [T1036.004].
+
+INDICATORS OF COMPROMISE
+- Executable names: BITTER_ALUMINUM.exe, INCREASING_MAKE.exe, ELECTRICAL_LEMUR.exe
+- DLL names: MUDDY_SAW.dll, ABSTRACT_MOONSCAPE.dll
+- Suspicious PowerShell activity spawned from browser processes
+- regsvr32.exe loading DLLs from user directories
+- ComputerDefaults.exe spawning unexpected child processes
+
+MITRE ATT&CK TECHNIQUES
+[T1566.002] Phishing: Spearphishing Link
+[T1059.001] Command and Scripting Interpreter: PowerShell
+[T1218.010] Signed Binary Proxy Execution: Regsvr32
+[T1548.002] Abuse Elevation Control Mechanism: Bypass User Account Control
+[T1003.001] OS Credential Dumping: LSASS Memory
+[T1003.002] OS Credential Dumping: Security Account Manager
+[T1071.001] Application Layer Protocol: Web Protocols
+[T1036.004] Masquerading: Masquerade Task or Service

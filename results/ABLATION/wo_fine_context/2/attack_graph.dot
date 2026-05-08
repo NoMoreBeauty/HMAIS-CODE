@@ -1,0 +1,153 @@
+digraph Attack_Investigation_Result {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "27.133.155.120" [shape=diamond];
+    "202.6.172.98:443" [shape=diamond];
+    "142.20.61.130" [shape=diamond];
+    "142.20.57.246" [shape=diamond];
+    "64.233.191.255:8080" [shape=diamond];
+    "64.233.191.255:9999" [shape=diamond];
+    "64.233.191.255:4445" [shape=diamond];
+    "45.33.32.156" [shape=diamond];
+    "142.20.58.107" [shape=diamond];
+    "142.20.56.11" [shape=diamond];
+    "142.20.61.135" [shape=diamond];
+    "52.96.123.15:443" [shape=diamond];
+    "172.217.14.238:443" [shape=diamond];
+    "13.107.4.50:443" [shape=diamond];
+
+    "payroll.docx" [shape=ellipse];
+    "PowerShell_Stager" [shape=ellipse];
+    "WMI_Subscription" [shape=ellipse];
+    "plink.exe" [shape=ellipse];
+    "Transfer1000.exe" [shape=ellipse];
+    "export.zip" [shape=ellipse];
+    "outlook.ost" [shape=ellipse];
+    "normal.dotm" [shape=ellipse];
+    "ntdll.dll" [shape=ellipse];
+    "kernel32.dll" [shape=ellipse];
+    "user32.dll" [shape=ellipse];
+    "History" [shape=ellipse];
+    "Cookies" [shape=ellipse];
+    "eventlog.dat" [shape=ellipse];
+
+    "outlook.exe" [shape=box];
+    "winword.exe" [shape=box];
+    "Agent_K3G1U8DN" [shape=box];
+    "Agent_DS8V3RNH" [shape=box];
+    "Agent_4BW2MKUF" [shape=box];
+    "DeathStar_Process" [shape=box];
+    "Agent_VUBW3KYE" [shape=box];
+    "Agent_6H8SZPCW" [shape=box];
+    "Plink_Process" [shape=box];
+    "RDP_Service" [shape=box];
+    "Chrome_Process" [shape=box];
+    "nc_process_1" [shape=box];
+    "RDP_Session_0974" [shape=box];
+    "RDP_Session_0005" [shape=box];
+    "explorer.exe" [shape=box];
+    "services.exe" [shape=box];
+    "svchost.exe" [shape=box];
+    "chrome_child.exe" [shape=box];
+    "RDP_Session_0005" -> "142.20.61.135" [label="send_to"];
+
+    "Chrome_Process" -> "export.zip" [label="write"];
+
+    "Plink_Process" -> "ntdll.dll" [label="read"];
+
+    "outlook.exe" -> "outlook.ost" [label="read"];
+
+    "Agent_6H8SZPCW" -> "plink.exe" [label="write"];
+
+    "winword.exe" -> "Agent_K3G1U8DN" [label="fork"];
+
+    "payroll.docx" -> "winword.exe" [label="execute"];
+
+    "RDP_Service" -> "142.20.58.107" [label="send_to"];
+
+    "Chrome_Process" -> "64.233.191.255:8080" [label="send_to"];
+
+    "Agent_VUBW3KYE" -> "142.20.57.246" [label="send_to"];
+
+    "svchost.exe" -> "eventlog.dat" [label="read"];
+
+    "RDP_Session_0974" -> "explorer.exe" [label="fork"];
+
+    "45.33.32.156" -> "Plink_Process" [label="recv_from"];
+
+    "202.6.172.98:443" -> "Agent_DS8V3RNH" [label="recv_from"];
+
+    "202.6.172.98:443" -> "Agent_VUBW3KYE" [label="recv_from"];
+
+    "Chrome_Process" -> "ntdll.dll" [label="read"];
+
+    "svchost.exe" -> "ntdll.dll" [label="read"];
+
+    "Agent_4BW2MKUF" -> "kernel32.dll" [label="read"];
+
+    "DeathStar_Process" -> "142.20.61.130" [label="send_to"];
+
+    "Chrome_Process" -> "chrome_child.exe" [label="fork"];
+
+    "Transfer1000.exe" -> "nc_process_1" [label="execute"];
+
+    "RDP_Session_0974" -> "user32.dll" [label="read"];
+
+    "DeathStar_Process" -> "kernel32.dll" [label="read"];
+
+    "142.20.58.107" -> "RDP_Session_0974" [label="recv_from"];
+
+    "services.exe" -> "svchost.exe" [label="fork"];
+
+    "explorer.exe" -> "user32.dll" [label="read"];
+
+    "explorer.exe" -> "outlook.exe" [label="fork"];
+
+    "Agent_DS8V3RNH" -> "ntdll.dll" [label="read"];
+
+    "Agent_4BW2MKUF" -> "202.6.172.98:443" [label="send_to"];
+
+    "142.20.57.246" -> "Agent_6H8SZPCW" [label="recv_from"];
+
+    "PowerShell_Stager" -> "Agent_4BW2MKUF" [label="execute"];
+
+    "nc_process_1" -> "64.233.191.255:9999" [label="send_to"];
+
+    "nc_process_1" -> "ntdll.dll" [label="read"];
+
+    "Chrome_Process" -> "Transfer1000.exe" [label="write"];
+
+    "svchost.exe" -> "13.107.4.50:443" [label="send_to"];
+
+    "Agent_DS8V3RNH" -> "kernel32.dll" [label="read"];
+
+    "RDP_Session_0005" -> "winword.exe" [label="fork"];
+
+    "winword.exe" -> "Agent_DS8V3RNH" [label="fork"];
+
+    "13.107.4.50:443" -> "svchost.exe" [label="recv_from"];
+
+
+    "27.133.155.120" -> "outlook.exe" [label="recv_from"];
+
+    "Agent_VUBW3KYE" -> "202.6.172.98:443" [label="send_to"];
+
+    "172.217.14.238:443" -> "Chrome_Process" [label="recv_from"];
+
+    "Agent_6H8SZPCW" -> "WMI_Subscription" [label="write"];
+
+    "winword.exe" -> "normal.dotm" [label="read"];
+
+    "outlook.exe" -> "outlook.ost" [label="write"];
+
+    "chrome_child.exe" -> "kernel32.dll" [label="read"];
+
+    "Agent_DS8V3RNH" -> "202.6.172.98:443" [label="send_to"];
+
+    "Chrome_Process" -> "user32.dll" [label="read"];
+
+    "142.20.61.130" -> "Agent_VUBW3KYE" [label="recv_from"];
+
+    "chrome_child.exe" -> "Cookies" [label="read"];
+}

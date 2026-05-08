@@ -1,0 +1,75 @@
+digraph G {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "64.233.191.255:8000" [shape=diamond];
+    "132.197.158.98:80" [shape=diamond];
+    "142.20.57.147" [shape=diamond];
+    "142.20.58.149" [shape=diamond];
+    "172.217.16.142:443" [shape=diamond];
+    "192.168.1.5:445" [shape=diamond];
+
+    "cmd.exe" [shape=box];
+    "firefox.exe" [shape=box];
+    "Agent_VL8B5T3U" [shape=box];
+    "Agent_LUAVR71T" [shape=box];
+    "mimikatz.exe" [shape=box];
+    "lsass.exe" [shape=box];
+    "Agent_NEK5H8GX" [shape=box];
+    "Agent_DS29HY41" [shape=box];
+    "explorer.exe" [shape=box];
+    "svchost.exe" [shape=box];
+    "net1.exe" [shape=box];
+
+    "runme.bat" [shape=ellipse];
+    "ping_sweep.ps1" [shape=ellipse];
+    "ntuser.dat" [shape=ellipse];
+    "user32.dll" [shape=ellipse];
+    "kernel32.dll" [shape=ellipse];
+    "places.sqlite" [shape=ellipse];
+    "cookies.sqlite" [shape=ellipse];
+    "sam.log" [shape=ellipse];
+    "crypt32.dll" [shape=ellipse];
+    "ntdll.dll" [shape=ellipse];
+    "taskbar.icon" [shape=ellipse];
+    "wmi.dll" [shape=ellipse];
+
+    "cmd.exe" -> "firefox.exe" [label="fork"];
+    "firefox.exe" -> "64.233.191.255:8000" [label="sendto"];
+    "64.233.191.255:8000" -> "firefox.exe" [label="recvfrom"];
+    "firefox.exe" -> "runme.bat" [label="write"];
+    "cmd.exe" -> "runme.bat" [label="execute"];
+    "runme.bat" -> "Agent_VL8B5T3U" [label="execute"];
+    "Agent_VL8B5T3U" -> "132.197.158.98:80" [label="sendto"];
+    "132.197.158.98:80" -> "Agent_VL8B5T3U" [label="recvfrom"];
+    "Agent_VL8B5T3U" -> "Agent_LUAVR71T" [label="fork"];
+    "Agent_LUAVR71T" -> "132.197.158.98:80" [label="sendto"];
+    "132.197.158.98:80" -> "Agent_LUAVR71T" [label="recvfrom"];
+    "Agent_LUAVR71T" -> "mimikatz.exe" [label="fork"];
+    "Agent_LUAVR71T" -> "lsass.exe" [label="write"];
+    "Agent_LUAVR71T" -> "142.20.57.147" [label="sendto"];
+    "142.20.57.147" -> "Agent_NEK5H8GX" [label="recvfrom"];
+    "Agent_NEK5H8GX" -> "132.197.158.98:80" [label="sendto"];
+    "132.197.158.98:80" -> "Agent_NEK5H8GX" [label="recvfrom"];
+    "Agent_NEK5H8GX" -> "ping_sweep.ps1" [label="write"];
+    "ping_sweep.ps1" -> "Agent_NEK5H8GX" [label="execute"];
+    "Agent_NEK5H8GX" -> "142.20.58.149" [label="sendto"];
+    "142.20.58.149" -> "Agent_DS29HY41" [label="recvfrom"];
+    "Agent_DS29HY41" -> "132.197.158.98:80" [label="sendto"];
+    "explorer.exe" -> "cmd.exe" [label="fork"];
+    "user32.dll" -> "explorer.exe" [label="read"];
+    "explorer.exe" -> "ntuser.dat" [label="write"];
+    "taskbar.icon" -> "explorer.exe" [label="read"];
+    "kernel32.dll" -> "firefox.exe" [label="read"];
+    "firefox.exe" -> "172.217.16.142:443" [label="sendto"];
+    "172.217.16.142:443" -> "firefox.exe" [label="recvfrom"];
+    "firefox.exe" -> "places.sqlite" [label="write"];
+    "cookies.sqlite" -> "firefox.exe" [label="read"];
+    "lsass.exe" -> "sam.log" [label="write"];
+    "crypt32.dll" -> "lsass.exe" [label="read"];
+    "wmi.dll" -> "svchost.exe" [label="read"];
+    "ntdll.dll" -> "Agent_LUAVR71T" [label="read"];
+    "Agent_DS29HY41" -> "net1.exe" [label="fork"];
+    "net1.exe" -> "192.168.1.5:445" [label="sendto"];
+    "192.168.1.5:445" -> "net1.exe" [label="recvfrom"];
+}

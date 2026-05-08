@@ -1,0 +1,55 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "firefox" [shape=ellipse];
+    "cache" [shape=ellipse];
+    "bash" [shape=ellipse];
+    "sshd" [shape=ellipse];
+    "cron" [shape=ellipse];
+
+    "/dev/dev/yta_dsa_675" [shape=box];
+    "/etc/passwd" [shape=box];
+    "/etc/group" [shape=box];
+    "/home/admin/cache" [shape=box];
+    "/deploy/archive/libdrakon.linux.x64.so_5.214.163.155" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "/var/log/syslog" [shape=box];
+    "/home/admin/.bash_history" [shape=box];
+
+    "145.199.103.57:80" [shape=diamond];
+    "61.130.69.232:80" [shape=diamond];
+    "2.233.33.53:80" [shape=diamond];
+    "192.168.0.1:22" [shape=diamond];
+    "8.8.8.8:53" [shape=diamond];
+    "/etc/passwd" -> "cache" [label="read"];
+
+    "/etc/group" -> "cache" [label="read"];
+
+    "firefox" -> "/deploy/archive/libdrakon.linux.x64.so_5.214.163.155" [label="write"];
+
+    "firefox" -> "/home/admin/cache" [label="write"];
+
+    "2.233.33.53:80" -> "firefox" [label="recv_from"];
+
+    "sshd" -> "/var/log/auth.log" [label="write"];
+
+    "firefox" -> "cache" [label="fork"];
+
+    "/etc/group" -> "firefox" [label="read"];
+
+    "cron" -> "bash" [label="fork"];
+
+    "/etc/passwd" -> "firefox" [label="read"];
+
+    "firefox" -> "/dev/dev/yta_dsa_675" [label="write"];
+
+    "sshd" -> "bash" [label="fork"];
+
+    "bash" -> "/home/admin/.bash_history" [label="write"];
+
+    "145.199.103.57:80" -> "firefox" [label="recv_from"];
+
+    "firefox" -> "8.8.8.8:53" [label="send_to"];
+}

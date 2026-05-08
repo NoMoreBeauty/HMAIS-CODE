@@ -1,0 +1,87 @@
+digraph G {
+    graph [fontname="Arial"];
+    node [fontname="Arial"];
+    edge [fontname="Arial"];
+
+    "141.43.176.203:80" [shape=diamond];
+    "104.228.117.212:80" [shape=diamond];
+    "128.55.12.167:8018" [shape=diamond];
+    "146.153.68.151:80" [shape=diamond];
+    "161.116.88.72:80" [shape=diamond];
+    "8.8.8.8:53" [shape=diamond];
+    "192.168.1.1:22" [shape=diamond];
+
+    "firefox" [shape=ellipse];
+    "ps" [shape=ellipse];
+    "whoami" [shape=ellipse];
+    "clean" [shape=ellipse];
+    "sh" [shape=ellipse];
+    "ls" [shape=ellipse];
+    "uname" [shape=ellipse];
+    "cat" [shape=ellipse];
+    "grep" [shape=ellipse];
+    "sshd" [shape=ellipse];
+    "bash" [shape=ellipse];
+    "cron" [shape=ellipse];
+
+    "/home/admin/clean" [shape=box];
+    "/dev/glx_alsa_675" [shape=box];
+    "/etc/hosts" [shape=box];
+    "/tmp/ff_cache" [shape=box];
+    "/home/admin/.bashrc" [shape=box];
+    "/home/admin" [shape=box];
+    "/etc/passwd" [shape=box];
+    "/proc/version" [shape=box];
+    "/var/log/syslog" [shape=box];
+    "/tmp/data.log" [shape=box];
+    "/var/log/auth.log" [shape=box];
+    "clean" -> "cat" [label="fork"];
+
+    "firefox" -> "/home/admin/clean" [label="write"];
+
+    "sshd" -> "bash" [label="fork"];
+
+    "cron" -> "sh" [label="fork"];
+
+    "sh" -> "ls" [label="fork"];
+
+    "grep" -> "/var/log/syslog" [label="read"];
+
+    "clean" -> "/tmp/data.log" [label="write"];
+
+    "sh" -> "/home/admin/.bashrc" [label="read"];
+
+    "clean" -> "/proc/version" [label="read"];
+
+    "cron" -> "/var/log/syslog" [label="write"];
+
+    "/dev/glx_alsa_675" -> "clean" [label="execute"];
+
+    "whoami" -> "/etc/passwd" [label="read"];
+
+    "ps" -> "/proc/version" [label="read"];
+
+    "firefox" -> "clean" [label="fork"];
+
+    "8.8.8.8:53" -> "firefox" [label="recv_from"];
+
+    "clean" -> "161.116.88.72:80" [label="send_to"];
+
+    "clean" -> "whoami" [label="fork"];
+
+    "ls" -> "/home/admin" [label="read"];
+
+    "firefox" -> "whoami" [label="fork"];
+
+    "128.55.12.167:8018" -> "firefox" [label="recv_from"];
+
+    "clean" -> "/etc/passwd" [label="read"];
+
+    "firefox" -> "/dev/glx_alsa_675" [label="write"];
+
+    "firefox" -> "146.153.68.151:80" [label="send_to"];
+
+    "/home/admin/clean" -> "clean" [label="execute"];
+
+    "104.228.117.212:80" -> "firefox" [label="recv_from"];
+}

@@ -1,0 +1,493 @@
+{
+    "15_EmotetCampaign.txt": {
+        "title": "Emotet Infection via Malicious Document",
+        "techniques": [
+            "T1059.005",
+            "T1059.003",
+            "T1059.001",
+            "T1105",
+            "T1547.001",
+            "T1071.001"
+        ]
+    },
+    "18_EspionageCampaign.txt": {
+        "title": "Spear Phishing and RAT Deployment via Malicious Excel Macro",
+        "techniques": [
+            "T1566.001",
+            "T1059.005",
+            "T1105",
+            "T1140",
+            "T1056.001",
+            "T1113",
+            "T1123",
+            "T1071",
+            "T1090"
+        ]
+    },
+    "20_Crambus.txt": {
+        "title": "Crambus Attack Campaign Report",
+        "techniques": [
+            "T1003",
+            "T1012",
+            "T1021.001",
+            "T1021.002",
+            "T1033",
+            "T1040",
+            "T1041",
+            "T1046",
+            "T1047",
+            "T1049",
+            "T1050",
+            "T1056.001",
+            "T1059.001",
+            "T1083",
+            "T1102.002",
+            "T1105",
+            "T1112",
+            "T1114",
+            "T1115",
+            "T1572"
+        ]
+    },
+    "4_PhobosRansomware.txt": {
+        "title": "Phobos Ransomware Technical Advisory",
+        "techniques": [
+            "T1001.003",
+            "T1003.001",
+            "T1003.005",
+            "T1027.002",
+            "T1047",
+            "T1048",
+            "T1055.002",
+            "T1055.004",
+            "T1057",
+            "T1059.003",
+            "T1071.002",
+            "T1078",
+            "T1082",
+            "T1083",
+            "T1087.002",
+            "T1105",
+            "T1106",
+            "T1110",
+            "T1133",
+            "T1134.001",
+            "T1134.002",
+            "T1140",
+            "T1204.002",
+            "T1219",
+            "T1486",
+            "T1490",
+            "T1547.001",
+            "T1555.003",
+            "T1555.005",
+            "T1560",
+            "T1562",
+            "T1562.004",
+            "T1566.001",
+            "T1567.002",
+            "T1585",
+            "T1588.002",
+            "T1593",
+            "T1595.001",
+            "T1598",
+            "T1657"
+        ]
+    },
+    "27_LibdrakonBrowserCampaign.txt": {
+        "title": "LIBDRAKON BROWSER EXPLOITATION CAMPAIGN",
+        "techniques": [
+            "T1189",
+            "T1036.005",
+            "T1574.006",
+            "T1087.001",
+            "T1552.003",
+            "T1098.004",
+            "T1053.003",
+            "T1071.004"
+        ]
+    },
+    "7_ScatteredSpider.txt": {
+        "title": "Scattered Spider Threat Actor Activities",
+        "techniques": [
+            "T1018",
+            "T1021.007",
+            "T1074",
+            "T1078",
+            "T1078.002",
+            "T1083",
+            "T1114",
+            "T1136",
+            "T1199",
+            "T1204",
+            "T1213.002",
+            "T1213.003",
+            "T1219",
+            "T1484.002",
+            "T1486",
+            "T1530",
+            "T1538",
+            "T1552.001",
+            "T1552.004",
+            "T1556.006",
+            "T1566",
+            "T1566.004",
+            "T1567.002",
+            "T1578.002",
+            "T1583.001",
+            "T1585.001",
+            "T1589",
+            "T1598",
+            "T1606",
+            "T1621",
+            "T1648",
+            "T1656",
+            "T1657",
+            "T1660"
+        ]
+    },
+    "23_FirefoxBrowserExploit.txt": {
+        "title": "FIREFOX BROWSER EXPLOITATION CAMPAIGN",
+        "techniques": [
+            "T1189",
+            "T1082",
+            "T1055",
+            "T1574",
+            "T1071.001",
+            "T1071.004",
+            "T1546.004",
+            "T1036.005"
+        ]
+    },
+    "29_FirefoxCleanMalwareCampaign.txt": {
+        "title": "FIREFOX CLEAN MALWARE CAMPAIGN",
+        "techniques": [
+            "T1189",
+            "T1057",
+            "T1016",
+            "T1082",
+            "T1087.001",
+            "T1546.004",
+            "T1074.001",
+            "T1071.004",
+            "T1071.001",
+            "T1036.005"
+        ]
+    },
+    "16_UroburosCampaign.txt": {
+        "title": "ComRAT Malware Installation and Persistence Analysis",
+        "techniques": [
+            "T1218.011",
+            "T1547.001",
+            "T1071.001"
+        ]
+    },
+    "12_DustySkyCampaign.txt": {
+        "title": "DustySky Malware Delivery via Malicious Emails and Fake Software Websites",
+        "techniques": [
+            "T1566",
+            "T1566.001",
+            "T1566.002",
+            "T1204",
+            "T1059.001",
+            "T1584.005",
+            "T1219"
+        ]
+    },
+    "1_AA23-341A.txt": {
+        "title": "OUTLINE OF THE ATTACKS",
+        "techniques": [
+            "T1589",
+            "T1593",
+            "T1585.001",
+            "T1585.002",
+            "T1583.001",
+            "T1566.002",
+            "T1566.001",
+            "T1539",
+            "T1550.004",
+            "T1078",
+            "T1114.002",
+            "T1114.003",
+            "T1586.002"
+        ]
+    },
+    "14_HawkEyeCampaign.txt": {
+        "title": "HawkEye Variant Analysis",
+        "techniques": [
+            "T1029",
+            "T1048.003",
+            "T1055",
+            "T1056.002",
+            "T1059",
+            "T1105",
+            "T1555.003",
+            "T1555.005",
+            "T1566"
+        ]
+    },
+    "13_TrickLoadSpywareCampaign.txt": {
+        "title": "TrickBot Spyware Activity",
+        "techniques": [
+            "T1053.005",
+            "T1055",
+            "T1059",
+            "T1105",
+            "T1204.002",
+            "T1480",
+            "T1071.001",
+            "T1082"
+        ]
+    },
+    "5_PlayRansomware.txt": {
+        "title": "Play Ransomware Group Technical Advisory",
+        "techniques": [
+            "T1078",
+            "T1190",
+            "T1133",
+            "T1016",
+            "T1518.001",
+            "T1562.001",
+            "T1070.001",
+            "T1552",
+            "T1003",
+            "T1059",
+            "T1570",
+            "T1484.001",
+            "T1560.001",
+            "T1048",
+            "T1486",
+            "T1657"
+        ]
+    },
+    "10_RoyalRansomware.txt": {
+        "title": "Royal ransomware",
+        "techniques": [
+            "T1566",
+            "T1566.001",
+            "T1566.002",
+            "T1190",
+            "T1105",
+            "T1572",
+            "T1021.001",
+            "T1133",
+            "T1078",
+            "T1562.001",
+            "T1484.001",
+            "T1486",
+            "T1078.002",
+            "T1119",
+            "T1070.001"
+        ]
+    },
+    "26_SSHPersistenceTechniques.txt": {
+        "title": "SSH-BASED PERSISTENCE TECHNIQUES",
+        "techniques": [
+            "T1098.004",
+            "T1021.004",
+            "T1552.004",
+            "T1087.001",
+            "T1070.006",
+            "T1563.001"
+        ]
+    },
+    "22_NginxWebShellCampaign.txt": {
+        "title": "NGINX WEB SHELL INTRUSION CAMPAIGN",
+        "techniques": [
+            "T1190",
+            "T1059.004",
+            "T1087.001",
+            "T1098.004",
+            "T1505.003",
+            "T1071.001",
+            "T1021.004",
+            "T1036.005"
+        ]
+    },
+    "8_SnatchRansomware.txt": {
+        "title": "Snatch Ransomware Technical Advisory",
+        "techniques": [
+            "T1005",
+            "T1012",
+            "T1021.001",
+            "T1036",
+            "T1057",
+            "T1059.003",
+            "T1070.004",
+            "T1071.001",
+            "T1078",
+            "T1078.002",
+            "T1110.001",
+            "T1112",
+            "T1133",
+            "T1486",
+            "T1490",
+            "T1562.001",
+            "T1562.009",
+            "T1569.002",
+            "T1583.003",
+            "T1590"
+        ]
+    },
+    "6_RhysidaRansomware.txt": {
+        "title": "Rhysida Ransomware Technical Advisory",
+        "techniques": [
+            "T1003.003",
+            "T1016",
+            "T1018",
+            "T1021.001",
+            "T1021.004",
+            "T1033",
+            "T1055.002",
+            "T1059.001",
+            "T1069.001",
+            "T1069.002",
+            "T1070.001",
+            "T1070.004",
+            "T1078",
+            "T1087.002",
+            "T1112",
+            "T1190",
+            "T1219",
+            "T1482",
+            "T1486",
+            "T1564.003",
+            "T1566",
+            "T1587",
+            "T1657"
+        ]
+    },
+    "19_SSHBinFmt-Elevate.txt": {
+        "title": "Exploitation via SSH and SCP for Privilege Escalation and Data Exfiltration",
+        "techniques": [
+            "T1020",
+            "T1021.004",
+            "T1078",
+            "T1547.012",
+            "T1005"
+        ]
+    },
+    "9_BlackBasta.txt": {
+        "title": "Technical Details on Black Basta Affiliates",
+        "techniques": [
+            "T1566",
+            "T1190",
+            "T1078",
+            "T1036",
+            "T1068",
+            "T1059.001",
+            "T1562.001",
+            "T1486",
+            "T1490"
+        ]
+    },
+    "21_BitterAluminumCampaign.txt": {
+        "title": "BITTER ALUMINUM MALWARE CAMPAIGN",
+        "techniques": [
+            "T1548.002",
+            "T1566.002",
+            "T1059.001",
+            "T1218.010",
+            "T1003.001",
+            "T1003.002",
+            "T1071.001",
+            "T1071.004",
+            "T1036.004"
+        ]
+    },
+    "25_RandomizedMalwareCampaign.txt": {
+        "title": "RANDOMIZED MALWARE LINUX CAMPAIGN",
+        "techniques": [
+            "T1190",
+            "T1027",
+            "T1574.006",
+            "T1087.001",
+            "T1082",
+            "T1016",
+            "T1098.004",
+            "T1071.001",
+            "T1036.005"
+        ]
+    },
+    "28_PineEmailClientExploit.txt": {
+        "title": "PINE EMAIL CLIENT EXPLOITATION CAMPAIGN",
+        "techniques": [
+            "T1566.001",
+            "T1059.004",
+            "T1082",
+            "T1046",
+            "T1087.001",
+            "T1552.003",
+            "T1021.004",
+            "T1027",
+            "T1071.001"
+        ]
+    },
+    "24_LinuxAPTCampaign.txt": {
+        "title": "LINUX ADVANCED PERSISTENT THREAT CAMPAIGN",
+        "techniques": [
+            "T1190",
+            "T1059.004",
+            "T1548.003",
+            "T1087.001",
+            "T1552.003",
+            "T1049",
+            "T1046",
+            "T1021.004",
+            "T1053.003",
+            "T1071.001"
+        ]
+    },
+    "3_ALPHVBlackcat.txt": {
+        "title": "ALPHV Blackcat Threat Intelligence Report",
+        "techniques": [
+            "T1598",
+            "T1586",
+            "T1558",
+            "T1557",
+            "T1555"
+        ]
+    },
+    "11_DeputydogCampaign.txt": {
+        "title": "Zero-Day Exploit CVE-2014-0322 on VFW Website Leading to ZxShell Backdoor",
+        "techniques": [
+            "T1189",
+            "T1203",
+            "T1497",
+            "T1105",
+            "T1027",
+            "T1059",
+            "T1133",
+            "T1071"
+        ]
+    },
+    "2_AA24-046A.txt": {
+        "title": "State Government Organization Compromised via Former Employee Account Leading to Dark Web Data Posting",
+        "techniques": [
+            "T1018",
+            "T1021",
+            "T1021.002",
+            "T1021.007",
+            "T1046",
+            "T1078.002",
+            "T1078.004",
+            "T1083",
+            "T1087.002",
+            "T1133",
+            "T1213.002",
+            "T1482",
+            "T1552.001",
+            "T1589.001"
+        ]
+    },
+    "17_APT41Campaign.txt": {
+        "title": "APT41 Exploitation of Zoho ManageEngine Desktop Central Vulnerability",
+        "techniques": [
+            "T1190",
+            "T1059.001",
+            "T1105",
+            "T1071",
+            "T1547.001"
+        ]
+    }
+}

@@ -1,0 +1,112 @@
+digraph G {
+graph [fontname="Arial"];
+node [fontname="Arial"];
+edge [fontname="Arial"];
+
+"192.168.52.133:16415" [shape=diamond];
+"192.168.52.133:47138" [shape=diamond];
+"dns.google:53" [shape=diamond];
+"update.microsoft.com:443" [shape=diamond];
+
+"BITTER_ALUMINUM.exe" [shape=ellipse];
+"explorer.exe" [shape=ellipse];
+"msedge.exe" [shape=ellipse];
+"powershell.exe" [shape=ellipse];
+"regsvr32.exe" [shape=ellipse];
+"INCREASING_MAKE.exe" [shape=ellipse];
+"svchost.exe" [shape=ellipse];
+"lsass.exe" [shape=ellipse];
+"services.exe" [shape=ellipse];
+"winlogon.exe" [shape=ellipse];
+"tasklist.exe" [shape=ellipse];
+
+"C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\auto" [shape=box];
+"C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe" [shape=box];
+"C:\\\\Users\\\\34381\\\\Desktop\\\\middle" [shape=box];
+"C:\\\\Windows\\\\System32\\\\config\\\\SAM" [shape=box];
+"C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt" [shape=box];
+"C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts" [shape=box];
+
+"msedge.exe" -> "192.168.52.133:16415" [label="recv_from"];
+
+"msedge.exe" -> "C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip" [label="write"];
+
+"explorer.exe" -> "C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip" [label="read"];
+
+"explorer.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="write"];
+
+"explorer.exe" -> "BITTER_ALUMINUM.exe" [label="fork"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" [label="execute"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\auto" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "powershell.exe" [label="fork"];
+
+"BITTER_ALUMINUM.exe" -> "regsvr32.exe" [label="fork"];
+
+"regsvr32.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="read"];
+
+"BITTER_ALUMINUM.exe" -> "INCREASING_MAKE.exe" [label="fork"];
+
+"INCREASING_MAKE.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe" [label="execute"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Users\\\\34381\\\\Desktop\\\\middle" [label="write"];
+
+"BITTER_ALUMINUM.exe" -> "192.168.52.133:47138" [label="send_to"];
+
+
+"powershell.exe" -> "tasklist.exe" [label="fork"];
+
+"tasklist.exe" -> "C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt" [label="write"];
+
+"powershell.exe" -> "C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt" [label="read"];
+
+"powershell.exe" -> "update.microsoft.com:443" [label="send_to"];
+
+"powershell.exe" -> "C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts" [label="read"];
+
+"msedge.exe" -> "dns.google:53" [label="send_to"];
+
+"svchost.exe" -> "dns.google:53" [label="send_to"];
+
+"explorer.exe" -> "svchost.exe" [label="fork"];
+
+"svchost.exe" -> "192.168.52.133:16415" [label="recv_from"];
+
+"INCREASING_MAKE.exe" -> "lsass.exe" [label="read"];
+
+"BITTER_ALUMINUM.exe" -> "C:\\\\Windows\\\\System32\\\\config\\\\SAM" [label="read"];
+
+"explorer.exe" -> "C:\\\\Users\\\\34381\\\\Desktop\\\\middle" [label="read"];
+
+"powershell.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin" [label="read"];
+
+"services.exe" -> "powershell.exe" [label="fork"];
+
+"winlogon.exe" -> "services.exe" [label="fork"];
+
+"winlogon.exe" -> "lsass.exe" [label="fork"];
+
+"explorer.exe" -> "C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll" [label="read"];
+    "C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe" -> "winlogon.exe" [label="write"];
+}

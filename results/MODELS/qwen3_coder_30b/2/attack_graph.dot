@@ -1,0 +1,295 @@
+digraph Attack_Investigation_Result {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "27.133.155.120" [shape=diamond];
+    "202.6.172.98:443" [shape=diamond];
+    "142.20.61.130" [shape=diamond];
+    "142.20.57.246" [shape=diamond];
+    "64.233.191.255:8080" [shape=diamond];
+    "64.233.191.255:9999" [shape=diamond];
+    "64.233.191.255:4445" [shape=diamond];
+    "45.33.32.156" [shape=diamond];
+    "142.20.58.107" [shape=diamond];
+    "142.20.56.11" [shape=diamond];
+    "142.20.61.135" [shape=diamond];
+    "52.96.123.15:443" [shape=diamond];
+    "172.217.14.238:443" [shape=diamond];
+    "13.107.4.50:443" [shape=diamond];
+
+    "payroll.docx" [shape=ellipse];
+    "PowerShell_Stager" [shape=ellipse];
+    "WMI_Subscription" [shape=ellipse];
+    "plink.exe" [shape=ellipse];
+    "Transfer1000.exe" [shape=ellipse];
+    "export.zip" [shape=ellipse];
+    "outlook.ost" [shape=ellipse];
+    "normal.dotm" [shape=ellipse];
+    "ntdll.dll" [shape=ellipse];
+    "kernel32.dll" [shape=ellipse];
+    "user32.dll" [shape=ellipse];
+    "History" [shape=ellipse];
+    "Cookies" [shape=ellipse];
+    "eventlog.dat" [shape=ellipse];
+
+    "outlook.exe" [shape=box];
+    "winword.exe" [shape=box];
+    "Agent_K3G1U8DN" [shape=box];
+    "Agent_DS8V3RNH" [shape=box];
+    "Agent_4BW2MKUF" [shape=box];
+    "DeathStar_Process" [shape=box];
+    "Agent_VUBW3KYE" [shape=box];
+    "Agent_6H8SZPCW" [shape=box];
+    "Plink_Process" [shape=box];
+    "RDP_Service" [shape=box];
+    "Chrome_Process" [shape=box];
+    "nc_process_1" [shape=box];
+    "RDP_Session_0974" [shape=box];
+    "RDP_Session_0005" [shape=box];
+    "explorer.exe" [shape=box];
+    "services.exe" [shape=box];
+    "svchost.exe" [shape=box];
+    "chrome_child.exe" [shape=box];
+
+    "27.133.155.120" -> "outlook.exe" [label="recv_from"];
+
+    "outlook.exe" -> "payroll.docx" [label="write"];
+
+    "payroll.docx" -> "winword.exe" [label="execute"];
+
+    "winword.exe" -> "Agent_K3G1U8DN" [label="fork"];
+
+    "winword.exe" -> "Agent_DS8V3RNH" [label="fork"];
+
+    "Agent_K3G1U8DN" -> "PowerShell_Stager" [label="write"];
+
+    "PowerShell_Stager" -> "Agent_4BW2MKUF" [label="execute"];
+
+    "Agent_4BW2MKUF" -> "202.6.172.98:443" [label="send_to"];
+
+    "202.6.172.98:443" -> "Agent_4BW2MKUF" [label="recv_from"];
+
+    "Agent_DS8V3RNH" -> "202.6.172.98:443" [label="send_to"];
+
+    "202.6.172.98:443" -> "Agent_DS8V3RNH" [label="recv_from"];
+
+    "Agent_4BW2MKUF" -> "DeathStar_Process" [label="fork"];
+
+    "DeathStar_Process" -> "142.20.61.130" [label="send_to"];
+
+    "142.20.61.130" -> "Agent_VUBW3KYE" [label="recv_from"];
+
+    "Agent_VUBW3KYE" -> "202.6.172.98:443" [label="send_to"];
+
+    "202.6.172.98:443" -> "Agent_VUBW3KYE" [label="recv_from"];
+
+    "Agent_VUBW3KYE" -> "142.20.57.246" [label="send_to"];
+
+    "142.20.57.246" -> "Agent_6H8SZPCW" [label="recv_from"];
+
+    "Agent_6H8SZPCW" -> "WMI_Subscription" [label="write"];
+
+    "Agent_6H8SZPCW" -> "plink.exe" [label="write"];
+
+    "plink.exe" -> "Plink_Process" [label="execute"];
+
+    "Plink_Process" -> "45.33.32.156" [label="send_to"];
+
+    "45.33.32.156" -> "Plink_Process" [label="recv_from"];
+
+    "45.33.32.156" -> "RDP_Service" [label="recv_from"];
+
+    "RDP_Service" -> "Chrome_Process" [label="fork"];
+
+    "Chrome_Process" -> "64.233.191.255:8080" [label="send_to"];
+
+    "64.233.191.255:8080" -> "Chrome_Process" [label="recv_from"];
+
+    "Chrome_Process" -> "Transfer1000.exe" [label="write"];
+
+    "Chrome_Process" -> "export.zip" [label="write"];
+
+    "Transfer1000.exe" -> "nc_process_1" [label="execute"];
+
+    "export.zip" -> "nc_process_1" [label="read"];
+
+    "nc_process_1" -> "64.233.191.255:9999" [label="send_to"];
+
+    "RDP_Service" -> "142.20.58.107" [label="send_to"];
+
+    "142.20.58.107" -> "RDP_Session_0974" [label="recv_from"];
+
+    "RDP_Session_0974" -> "142.20.56.11" [label="send_to"];
+
+    "142.20.56.11" -> "RDP_Session_0005" [label="recv_from"];
+
+    "RDP_Session_0005" -> "142.20.61.135" [label="send_to"];
+
+    "142.20.61.135" -> "RDP_Session_0005" [label="recv_from"];
+
+    "RDP_Session_0005" -> "64.233.191.255:4445" [label="send_to"];
+
+    "explorer.exe" -> "outlook.exe" [label="fork"];
+
+    "explorer.exe" -> "user32.dll" [label="read"];
+
+    "outlook.exe" -> "outlook.ost" [label="read"];
+
+    "outlook.exe" -> "outlook.ost" [label="write"];
+
+    "outlook.exe" -> "52.96.123.15:443" [label="send_to"];
+
+    "52.96.123.15:443" -> "outlook.exe" [label="recv_from"];
+
+    "winword.exe" -> "normal.dotm" [label="read"];
+
+    "services.exe" -> "RDP_Service" [label="fork"];
+
+    "services.exe" -> "svchost.exe" [label="fork"];
+
+    "svchost.exe" -> "eventlog.dat" [label="write"];
+
+    "svchost.exe" -> "eventlog.dat" [label="read"];
+
+    "svchost.exe" -> "ntdll.dll" [label="read"];
+
+    "svchost.exe" -> "13.107.4.50:443" [label="send_to"];
+
+    "13.107.4.50:443" -> "svchost.exe" [label="recv_from"];
+
+    "RDP_Service" -> "kernel32.dll" [label="read"];
+
+    "RDP_Session_0974" -> "explorer.exe" [label="fork"];
+
+    "Chrome_Process" -> "chrome_child.exe" [label="fork"];
+
+    "chrome_child.exe" -> "History" [label="read"];
+
+    "chrome_child.exe" -> "Cookies" [label="read"];
+
+    "Chrome_Process" -> "172.217.14.238:443" [label="send_to"];
+
+    "172.217.14.238:443" -> "Chrome_Process" [label="recv_from"];
+
+    "Chrome_Process" -> "ntdll.dll" [label="read"];
+
+    "chrome_child.exe" -> "kernel32.dll" [label="read"];
+
+    "Chrome_Process" -> "user32.dll" [label="read"];
+
+    "Agent_DS8V3RNH" -> "ntdll.dll" [label="read"];
+
+    "Agent_DS8V3RNH" -> "kernel32.dll" [label="read"];
+
+    "Agent_4BW2MKUF" -> "kernel32.dll" [label="read"];
+
+    "Agent_K3G1U8DN" -> "user32.dll" [label="read"];
+
+    "RDP_Session_0005" -> "winword.exe" [label="fork"];
+
+    "Plink_Process" -> "ntdll.dll" [label="read"];
+
+    "Agent_VUBW3KYE" -> "kernel32.dll" [label="read"];
+
+    "nc_process_1" -> "ntdll.dll" [label="read"];
+
+    "DeathStar_Process" -> "kernel32.dll" [label="read"];
+
+    "RDP_Session_0974" -> "user32.dll" [label="read"];
+    "64.233.191.255:8080" -> "Agent_4BW2MKUF" [label="fork"];
+    "ntdll.dll" -> "nc_process_1" [label="read"];
+    "normal.dotm" -> "eventlog.dat" [label="write"];
+    "142.20.56.11" -> "RDP_Session_0974" [label="recvfrom"];
+    "202.6.172.98:443" -> "nc_process_1" [label="execute"];
+    "Chrome_Process" -> "142.20.57.246" [label="sendto"];
+    "outlook.exe" -> "Agent_DS8V3RNH" [label="fork"];
+    "Agent_K3G1U8DN" -> "172.217.14.238:443" [label="read"];
+    "nc_process_1" -> "Agent_4BW2MKUF" [label="write"];
+    "eventlog.dat" -> "DeathStar_Process" [label="execute"];
+    "chrome_child.exe" -> "svchost.exe" [label="recvfrom"];
+    "export.zip" -> "RDP_Service" [label="read"];
+    "Agent_4BW2MKUF" -> "Plink_Process" [label="fork"];
+    "nc_process_1" -> "outlook.exe" [label="sendto"];
+    "Agent_6H8SZPCW" -> "Cookies" [label="recvfrom"];
+    "142.20.61.135" -> "payroll.docx" [label="read"];
+    "Transfer1000.exe" -> "WMI_Subscription" [label="execute"];
+    "chrome_child.exe" -> "outlook.ost" [label="fork"];
+    "172.217.14.238:443" -> "27.133.155.120" [label="read"];
+    "normal.dotm" -> "nc_process_1" [label="read"];
+    "142.20.57.246" -> "Cookies" [label="sendto"];
+    "History" -> "172.217.14.238:443" [label="sendto"];
+    "export.zip" -> "Agent_4BW2MKUF" [label="write"];
+    "outlook.exe" -> "142.20.58.107" [label="recvfrom"];
+    "kernel32.dll" -> "kernel32.dll" [label="write"];
+    "64.233.191.255:4445" -> "172.217.14.238:443" [label="sendto"];
+    "52.96.123.15:443" -> "WMI_Subscription" [label="recvfrom"];
+    "RDP_Service" -> "Agent_K3G1U8DN" [label="fork"];
+    "outlook.ost" -> "ntdll.dll" [label="write"];
+    "64.233.191.255:9999" -> "ntdll.dll" [label="execute"];
+    "explorer.exe" -> "64.233.191.255:4445" [label="execute"];
+    "Plink_Process" -> "nc_process_1" [label="execute"];
+    "45.33.32.156" -> "services.exe" [label="read"];
+    "ntdll.dll" -> "payroll.docx" [label="execute"];
+    "64.233.191.255:4445" -> "eventlog.dat" [label="execute"];
+    "142.20.61.135" -> "WMI_Subscription" [label="sendto"];
+    "normal.dotm" -> "64.233.191.255:9999" [label="write"];
+    "142.20.56.11" -> "142.20.57.246" [label="write"];
+    "64.233.191.255:4445" -> "64.233.191.255:4445" [label="read"];
+    "Chrome_Process" -> "chrome_child.exe" [label="execute"];
+    "64.233.191.255:9999" -> "Agent_DS8V3RNH" [label="fork"];
+    "64.233.191.255:4445" -> "Chrome_Process" [label="sendto"];
+    "ntdll.dll" -> "PowerShell_Stager" [label="execute"];
+    "payroll.docx" -> "services.exe" [label="sendto"];
+    "64.233.191.255:9999" -> "142.20.58.107" [label="write"];
+    "64.233.191.255:4445" -> "Agent_4BW2MKUF" [label="execute"];
+    "plink.exe" -> "ntdll.dll" [label="write"];
+    "202.6.172.98:443" -> "WMI_Subscription" [label="write"];
+    "plink.exe" -> "RDP_Session_0005" [label="write"];
+    "normal.dotm" -> "13.107.4.50:443" [label="write"];
+    "svchost.exe" -> "Agent_4BW2MKUF" [label="sendto"];
+    "export.zip" -> "kernel32.dll" [label="read"];
+    "normal.dotm" -> "RDP_Service" [label="execute"];
+    "142.20.57.246" -> "outlook.exe" [label="sendto"];
+    "eventlog.dat" -> "plink.exe" [label="execute"];
+    "142.20.61.130" -> "Agent_6H8SZPCW" [label="execute"];
+    "142.20.61.135" -> "52.96.123.15:443" [label="write"];
+    "RDP_Session_0974" -> "Agent_6H8SZPCW" [label="sendto"];
+    "142.20.57.246" -> "payroll.docx" [label="write"];
+    "winword.exe" -> "Cookies" [label="fork"];
+    "PowerShell_Stager" -> "user32.dll" [label="fork"];
+    "PowerShell_Stager" -> "outlook.ost" [label="execute"];
+    "eventlog.dat" -> "64.233.191.255:4445" [label="execute"];
+    "WMI_Subscription" -> "nc_process_1" [label="fork"];
+    "user32.dll" -> "45.33.32.156" [label="recvfrom"];
+    "52.96.123.15:443" -> "RDP_Session_0974" [label="recvfrom"];
+    "explorer.exe" -> "RDP_Session_0005" [label="sendto"];
+    "RDP_Session_0005" -> "Cookies" [label="read"];
+    "outlook.ost" -> "64.233.191.255:4445" [label="recvfrom"];
+    "Cookies" -> "Agent_6H8SZPCW" [label="recvfrom"];
+    "142.20.61.130" -> "64.233.191.255:4445" [label="read"];
+    "svchost.exe" -> "142.20.61.135" [label="execute"];
+    "Agent_6H8SZPCW" -> "user32.dll" [label="execute"];
+    "Plink_Process" -> "52.96.123.15:443" [label="execute"];
+    "nc_process_1" -> "Agent_4BW2MKUF" [label="read"];
+    "27.133.155.120" -> "ntdll.dll" [label="recvfrom"];
+    "142.20.58.107" -> "Agent_K3G1U8DN" [label="execute"];
+    "Plink_Process" -> "WMI_Subscription" [label="fork"];
+    "Agent_VUBW3KYE" -> "RDP_Session_0005" [label="read"];
+    "RDP_Session_0974" -> "WMI_Subscription" [label="fork"];
+    "ntdll.dll" -> "user32.dll" [label="recvfrom"];
+    "Agent_K3G1U8DN" -> "svchost.exe" [label="fork"];
+    "Transfer1000.exe" -> "142.20.61.130" [label="read"];
+    "payroll.docx" -> "Agent_VUBW3KYE" [label="write"];
+    "user32.dll" -> "64.233.191.255:4445" [label="read"];
+    "PowerShell_Stager" -> "services.exe" [label="execute"];
+    "RDP_Session_0005" -> "142.20.58.107" [label="execute"];
+    "Agent_4BW2MKUF" -> "payroll.docx" [label="recvfrom"];
+    "kernel32.dll" -> "64.233.191.255:4445" [label="recvfrom"];
+    "Chrome_Process" -> "svchost.exe" [label="execute"];
+    "WMI_Subscription" -> "64.233.191.255:8080" [label="fork"];
+    "explorer.exe" -> "142.20.58.107" [label="execute"];
+    "RDP_Service" -> "RDP_Session_0974" [label="recvfrom"];
+    "27.133.155.120" -> "DeathStar_Process" [label="sendto"];
+    "202.6.172.98:443" -> "plink.exe" [label="recvfrom"];
+    "WMI_Subscription" -> "64.233.191.255:9999" [label="fork"];
+}

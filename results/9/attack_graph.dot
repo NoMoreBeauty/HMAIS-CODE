@@ -1,0 +1,47 @@
+digraph G {
+    rankdir=TB;
+    node [fontname="Arial"];
+
+    "104.228.117.212:80" [shape=diamond];
+    "128.55.12.167:8018" [shape=diamond];
+    "146.153.68.151:80" [shape=diamond];
+    "161.116.88.72:80" [shape=diamond];
+    "192.168.1.1:22" [shape=diamond];
+
+    "/home/admin/clean" [shape=box];
+    "/dev/glx_alsa_675" [shape=box];
+    "/etc/hosts" [shape=box];
+    "/tmp/data.log" [shape=box];
+
+    "firefox" [shape=ellipse];
+    "ps" [shape=ellipse];
+    "whoami" [shape=ellipse];
+    "clean" [shape=ellipse];
+    "sh" [shape=ellipse];
+    "ls" [shape=ellipse];
+    "uname" [shape=ellipse];
+    "cat" [shape=ellipse];
+    "grep" [shape=ellipse];
+    "sshd" [shape=ellipse];
+
+    "104.228.117.212:80" -> "firefox" [label="recvfrom"];
+    "128.55.12.167:8018" -> "firefox" [label="recvfrom"];
+    "firefox" -> "ps" [label="fork"];
+    "firefox" -> "146.153.68.151:80" [label="sendto"];
+    "firefox" -> "whoami" [label="fork"];
+    "firefox" -> "/home/admin/clean" [label="write"];
+    "firefox" -> "/dev/glx_alsa_675" [label="write"];
+    "firefox" -> "clean" [label="fork"];
+    "/home/admin/clean" -> "clean" [label="execute"];
+    "/dev/glx_alsa_675" -> "clean" [label="execute"];
+    "clean" -> "whoami" [label="fork"];
+    "clean" -> "161.116.88.72:80" [label="sendto"];
+    "firefox" -> "/etc/hosts" [label="read"];
+    "firefox" -> "sh" [label="fork"];
+    "sh" -> "ls" [label="fork"];
+    "clean" -> "uname" [label="fork"];
+    "clean" -> "cat" [label="fork"];
+    "clean" -> "/tmp/data.log" [label="write"];
+    "ps" -> "grep" [label="fork"];
+    "192.168.1.1:22" -> "sshd" [label="recvfrom"];
+}

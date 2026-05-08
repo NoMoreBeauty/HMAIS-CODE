@@ -1,0 +1,1895 @@
+================================================================================
+HMAIS MEMORY LOG
+Started: 2025-12-01T22:42:56.548545
+================================================================================
+
+[23:46:58.125] 
+============================================================
+[23:46:58.125] POI REGISTERED
+============================================================
+
+[23:46:58.125] {
+  "POI类型": "事件 (Event)",
+  "Event UUID": "8D401051-39B3-11E8-BF66-D9AA8AFF4A69",
+  "关系类型": "WRITE",
+  "事件类别": "write",
+  "事件类型": "EVENT_WRITE",
+  "事件名称": "aue_write",
+  "源节点": "msedge.exe (process)",
+  "目标节点": "C:\\\\\\\\Users\\\\\\\\34381\\\\\\\\Desktop\\\\\\\\store.zip (file)",
+  "源节点ID": "7D401036-39B3-11E8-BF66-D9AA8AFF4A69",
+  "目标节点ID": "7D40103F-39B3-11E8-BF66-D9AA8AFF4A69"
+}
+
+[23:46:58.340] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:46:58.574] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:46:58.745] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:46:59.030] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:46:59.222] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:46:59.420] --- Action Recorded ---
+Action: 查找 IP 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[23:46:59.656] --- Malicious Event Added ---
+Event ID: 8D401050-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1071
+
+[23:47:12.786] 
+============================================================
+[23:47:12.786] [迭代 6] MEMORY STATE UPDATE
+============================================================
+
+[23:47:12.786] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:47:12.786] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+
+[23:47:13.057] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:47:13.325] --- Action Recorded ---
+Action: 查找文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:47:13.444] --- Action Recorded ---
+Action: 查找与 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:47:13.595] --- Action Recorded ---
+Action: 查找写入文件 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:47:13.810] --- Action Recorded ---
+Action: 查找进程 7D40103F-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: success
+
+[23:47:14.046] --- Malicious Event Added ---
+Event ID: 8D401052-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:47:26.988] 
+============================================================
+[23:47:26.988] [迭代 11] MEMORY STATE UPDATE
+============================================================
+
+[23:47:26.988] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 进程读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），该行为高度可疑，可能涉及载荷提取、敏感数据收集或后续恶意模块释放。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点关注 store.zip 文件的完整性、解压行为及其与 explorer.exe 的交互细节。
+
+[23:47:26.988] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+
+[23:47:27.211] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:47:27.508] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:47:27.685] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:47:27.932] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:47:28.210] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:47:28.338] --- Malicious Event Added ---
+Event ID: 8D401054-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:47:43.232] 
+============================================================
+[23:47:43.232] [迭代 16] MEMORY STATE UPDATE
+============================================================
+
+[23:47:43.232] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 进程读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），该行为高度可疑，可能涉及载荷提取或敏感数据收集；紧接着，explorer.exe 派生并执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成从载荷落地到执行的关键跃迁。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点关注 store.zip 文件的完整性、解压行为、BITTER_ALUMINUM.exe 的内存特征与持久化动作，以及三者之间的时序关联与控制流依赖。
+
+[23:47:43.232] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+
+[23:47:43.478] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:47:43.745] --- Action Recorded ---
+Action: 查找 IP 7D401030-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:47:43.960] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:47:44.125] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:47:44.271] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:47:44.519] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:47:44.685] --- Malicious Event Added ---
+Event ID: 8D40106B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:47:56.045] 
+============================================================
+[23:47:56.045] [迭代 22] MEMORY STATE UPDATE
+============================================================
+
+[23:47:56.045] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。值得注意的是，explorer.exe 还进一步派生 svchost.exe 进程（T1059.004），此举极可能用于进程注入、权限提升或隐蔽持久化，显著增强攻击链的隐蔽性与危害性。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 的内存驻留特征、svchost.exe 的异常子进程调用与服务伪装行为，以及四者之间的时间序列、父子进程关系与控制流依赖。
+
+[23:47:56.045] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+
+[23:47:56.256] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:47:56.407] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:47:56.691] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:47:56.943] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:47:57.129] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:47:57.341] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:47:57.465] --- Malicious Event Added ---
+Event ID: 8D401056-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:48:06.007] 
+============================================================
+[23:48:06.007] [迭代 28] MEMORY STATE UPDATE
+============================================================
+
+[23:48:06.007] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll 写入恶意DLL（T1105），为后续注入或模块化加载做准备。与此同时，explorer.exe 还派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装，增强隐蔽性与持久化能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对 ABSTRACT_MOONSCAPE.dll 的写入动机与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及四者之间的时间序列、父子进程关系与控制流依赖。
+
+[23:48:06.007] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+
+[23:48:06.137] --- Action Recorded ---
+Action: 查找写入文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:48:06.429] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:48:06.615] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:48:06.775] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:48:07.047] --- Action Recorded ---
+Action: 查找文件 7D401041-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:48:07.161] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:48:07.279] --- Malicious Event Added ---
+Event ID: 8D401057-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:48:21.047] 
+============================================================
+[23:48:21.047] [迭代 34] MEMORY STATE UPDATE
+============================================================
+
+[23:48:21.047] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads\ABSTRACT_MOONSCAPE.dll 写入恶意DLL（T1105），同时写入另一载荷文件 DEPRESSED_TEXT.bin（T1105），二者均指向模块化加载或后续注入策略。与此同时，explorer.exe 还派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装，增强隐蔽性与持久化能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对两个下载文件（ABSTRACT_MOONSCAPE.dll 与 DEPRESSED_TEXT.bin）的写入动机与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及四者之间的时间序列、父子进程关系与控制流依赖。
+
+[23:48:21.047] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+
+[23:48:21.296] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:48:21.570] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:48:21.695] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:48:21.946] --- Malicious Event Added ---
+Event ID: 8D401058-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:48:35.411] 
+============================================================
+[23:48:35.411] [迭代 37] MEMORY STATE UPDATE
+============================================================
+
+[23:48:35.411] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入三个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin 和 INCREASING_MAKE.exe（均属 T1105），构成模块化加载体系，分别可能承担DLL注入、配置解析与二次执行功能。与此同时，explorer.exe 还派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装，增强隐蔽性与持久化能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对三个下载文件的写入时序与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及四者之间的时间序列、父子进程关系与控制流依赖。
+
+[23:48:35.411] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+
+[23:48:35.631] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:48:35.894] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:48:36.065] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:48:36.238] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:48:36.461] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:48:36.627] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:48:36.731] --- Malicious Event Added ---
+Event ID: 8D401059-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:48:50.083] 
+============================================================
+[23:48:50.083] [迭代 43] MEMORY STATE UPDATE
+============================================================
+
+[23:48:50.083] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入四个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe 和新确认的 MUDDY_SAW.dll（均属 T1105），构成模块化加载体系，分别可能承担 DLL 注入、配置解析、二次执行及隐蔽驻留功能。与此同时，explorer.exe 还派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装，增强隐蔽性与持久化能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对四份下载文件的写入时序与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及各组件间的时间序列、父子进程关系与控制流依赖。
+
+[23:48:50.083] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+
+[23:48:50.240] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:48:50.532] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:48:50.801] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:48:50.927] --- Malicious Event Added ---
+Event ID: 8D40105A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:49:02.505] 
+============================================================
+[23:49:02.505] [迭代 46] MEMORY STATE UPDATE
+============================================================
+
+[23:49:02.505] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入五个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll 及新确认的 auto 文件（均属 T1105），构成模块化加载体系，分别可能承担 DLL 注入、配置解析、二次执行、隐蔽驻留及自动化调度功能。与此同时，explorer.exe 还派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装，增强隐蔽性与持久化能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对五份下载文件的写入时序与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及各组件间的时间序列、父子进程关系与控制流依赖。
+
+[23:49:02.505] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+
+[23:49:02.666] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:02.826] --- Action Recorded ---
+Action: 查找文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:03.091] --- Action Recorded ---
+Action: 查找写入文件 7D401044-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:49:03.253] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:49:03.436] --- Malicious Event Added ---
+Event ID: 8D40105B-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:49:15.804] 
+============================================================
+[23:49:15.804] [迭代 50] MEMORY STATE UPDATE
+============================================================
+
+[23:49:15.804] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入五个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll 及 auto 文件（均属 T1105）；进一步在 auto 子目录中再次写入 INCREASING_MAKE.exe（T1105），体现模块化载荷的嵌套部署与动态调度意图。与此同时，explorer.exe 还派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对六处文件（含子目录内重复写入）的写入时序与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及各组件间的时间序列、父子进程关系与控制流依赖。
+
+[23:49:15.804] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+
+[23:49:15.936] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:16.069] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:16.324] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:16.597] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:49:16.857] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:49:17.121] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:49:17.236] --- Malicious Event Added ---
+Event ID: 8D401061-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:49:29.804] 
+============================================================
+[23:49:29.804] [迭代 56] MEMORY STATE UPDATE
+============================================================
+
+[23:49:29.804] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入六个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录，以及动态生成的 #{output_zip_folder_path} 文件夹（均属 T1105）；其中在 auto 子目录中再次写入 INCREASING_MAKE.exe，体现模块化载荷的嵌套部署与动态调度意图。与此同时，explorer.exe 还派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对七处文件/目录（含子目录内重复写入及动态路径）的写入时序与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及各组件间的时间序列、父子进程关系与控制流依赖。
+
+[23:49:29.804] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+
+[23:49:30.000] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:49:30.153] --- Action Recorded ---
+Action: 查找文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:30.261] --- Action Recorded ---
+Action: 查找写入文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:49:30.471] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:49:30.652] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:49:30.890] --- Malicious Event Added ---
+Event ID: 8D401062-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:49:39.113] 
+============================================================
+[23:49:39.113] [迭代 61] MEMORY STATE UPDATE
+============================================================
+
+[23:49:39.113] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取用户桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004），完成初始执行。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入六个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录，以及动态生成的 #{output_zip_folder_path} 文件夹（均属 T1105）；其中在 auto 子目录中再次写入 INCREASING_MAKE.exe，体现模块化载荷的嵌套部署与动态调度意图。此外，BITTER_ALUMINUM.exe 还向桌面新建目录 C:\Users\34381\Desktop\middle 写入数据（T1105），进一步扩展持久化与横向移动准备面。与此同时，explorer.exe 派生 svchost.exe 进程（T1059.004），极可能用于进程注入、权限提升或服务伪装。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，同时需重点分析 store.zip 的解压行为、BITTER_ALUMINUM.exe 对八处文件/目录（含子目录内重复写入、动态路径及新增 desktop\middle）的写入时序与调用上下文、svchost.exe 的异常子进程与服务注册行为，以及各组件间的时间序列、父子进程关系与控制流依赖。
+
+[23:49:39.113] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+
+[23:49:39.409] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:39.519] --- Action Recorded ---
+Action: 查找文件 7D401047-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:49:39.709] --- Action Recorded ---
+Action: 查找文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:49:39.820] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:49:40.070] --- Malicious Event Added ---
+Event ID: 8D40105C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:49:53.862] 
+============================================================
+[23:49:53.862] [迭代 65] MEMORY STATE UPDATE
+============================================================
+
+[23:49:53.862] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入六个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录，以及动态生成的 #{output_zip_folder_path} 文件夹；其中在 auto 子目录中再次写入 INCREASING_MAKE.exe，体现模块化载荷的嵌套部署意图（均属 T1105）；同时向桌面新建目录 C:\Users\34381\Desktop\middle 写入数据（T1105），扩展持久化与横向移动准备面。此外，explorer.exe 派生 svchost.exe（T1059.004），BITTER_ALUMINUM.exe 则进一步派生 powershell.exe（T1059.004），构成多层执行链，显著增强隐蔽性与逃逸能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录（含子目录重复写入与动态路径）的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、服务注册痕迹及注入特征，并需厘清各组件间的时间序列、父子进程关系与控制流依赖。
+
+[23:49:53.862] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+
+[23:49:54.093] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:49:54.321] --- Action Recorded ---
+Action: 查找写入文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:49:54.526] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:49:54.816] --- Action Recorded ---
+Action: 查找文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:49:55.055] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:49:55.250] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:49:55.351] --- Malicious Event Added ---
+Event ID: 8D40105D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:50:06.079] 
+============================================================
+[23:50:06.079] [迭代 71] MEMORY STATE UPDATE
+============================================================
+
+[23:50:06.079] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接，执行命令与控制通信（T1071），表明该浏览器进程已被劫持或滥用为C2信道。随后，explorer.exe 读取桌面路径下的压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并从中提取载荷；紧接着派生执行恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）。BITTER_ALUMINUM.exe 随即向 C:\Users\34381\Downloads 目录写入六个恶意载荷：ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹；并在 auto 子目录中重复写入 INCREASING_MAKE.exe（T1105），体现模块化载荷的嵌套部署意图；同时向桌面新建目录 C:\Users\34381\Desktop\middle 写入数据（T1105）。此外，explorer.exe 派生 svchost.exe（T1059.004），BITTER_ALUMINUM.exe 则进一步派生 powershell.exe（T1059.004）与 regsvr32.exe（T1059.004），构成多层执行链，显著增强隐蔽性与逃逸能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载行为及注入特征，并需厘清各组件间的时间序列、父子进程关系与控制流依赖。
+
+[23:50:06.079] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+
+[23:50:06.263] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:50:06.539] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:50:06.742] --- Action Recorded ---
+Action: 查找文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:50:06.963] --- Action Recorded ---
+Action: 查找写入文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:50:07.137] --- Action Recorded ---
+Action: 查找写入文件 7D401043-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:50:07.358] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:50:07.606] --- Malicious Event Added ---
+Event ID: 8D40105F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:50:21.670] 
+============================================================
+[23:50:21.670] [迭代 77] MEMORY STATE UPDATE
+============================================================
+
+[23:50:21.670] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），作为初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），并在 auto 子目录中重复写入 INCREASING_MAKE.exe（T1105），体现模块化部署特征；同时向桌面新建 middle 目录写入数据（T1105）。BITTER_ALUMINUM.exe 还派生 svchost.exe、powershell.exe 和 regsvr32.exe（均属 T1059.004），构建多层执行链以增强隐蔽性；尤为关键的是，其直接 fork 出 INCREASING_MAKE.exe（新增 T1059.004），标志着攻击进入载荷二次执行阶段。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖。
+
+[23:50:21.670] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+
+[23:50:21.948] --- Action Recorded ---
+Action: 查找文件 7D401045-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:50:22.182] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:50:22.340] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:50:22.570] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:50:22.831] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:50:23.069] --- Malicious Event Added ---
+Event ID: 8D401066-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:50:37.631] 
+============================================================
+[23:50:37.631] [迭代 82] MEMORY STATE UPDATE
+============================================================
+
+[23:50:37.631] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），作为初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），并在 auto 子目录中重复写入 INCREASING_MAKE.exe，同时向桌面新建 middle 目录写入数据（均属 T1105）；BITTER_ALUMINUM.exe 还派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），构建多层执行链；尤为关键的是，其直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动。最新确认：powershell.exe 进一步读取临时报告文件 C:\Users\34381\AppData\Local\Temp\tmp_report.txt（T1005），表明攻击者正开展本地数据收集与横向评估。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖，同时需溯源 tmp_report.txt 的生成来源与内容用途。
+
+[23:50:37.631] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+
+[23:50:37.784] --- Action Recorded ---
+Action: 查找写入文件 7D401048-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:50:38.077] --- Action Recorded ---
+Action: 查找写入文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:50:38.260] --- Action Recorded ---
+Action: 查找文件 7D401040-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:50:38.439] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:50:38.633] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:50:38.840] --- Malicious Event Added ---
+Event ID: 8D401068-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:50:47.092] 
+============================================================
+[23:50:47.092] [迭代 87] MEMORY STATE UPDATE
+============================================================
+
+[23:50:47.092] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），作为初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），并在 auto 子目录中重复写入 INCREASING_MAKE.exe，同时向桌面新建 middle 目录写入数据（均属 T1105）；BITTER_ALUMINUM.exe 还派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），构建多层执行链，并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动。最新确认：powershell.exe 不仅读取临时报告文件 C:\Users\34381\AppData\Local\Temp\tmp_report.txt（T1005），用于本地数据收集与横向评估，还进一步读取系统 hosts 文件 C:\Windows\System32\drivers\etc\hosts（T1005），意图篡改域名解析以实现持久化跳转或规避检测。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖，同时需溯源 tmp_report.txt 与 hosts 文件的访问动机及关联操作。
+
+[23:50:47.092] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+
+[23:50:47.218] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:50:47.441] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:50:47.649] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:50:47.869] --- Action Recorded ---
+Action: 查找文件 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:50:48.158] --- Malicious Event Added ---
+Event ID: 8D401070-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:51:02.778] 
+============================================================
+[23:51:02.778] [迭代 91] MEMORY STATE UPDATE
+============================================================
+
+[23:51:02.778] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），作为初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），并在 auto 子目录中重复写入 INCREASING_MAKE.exe，同时向桌面新建 middle 目录写入数据（均属 T1105）；BITTER_ALUMINUM.exe 还派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），构建多层执行链，并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动。powershell.exe 不仅读取临时报告文件 C:\Users\34381\AppData\Local\Temp\tmp_report.txt 与系统 hosts 文件（T1005），用于本地数据收集、横向评估及潜在域名解析篡改，还进一步读取已下载的 C:\Users\34381\Downloads\DEPRESSED_TEXT.bin（T1005），表明其正对前期投递的载荷进行解析或解密操作，强化了C2指令解析与载荷调度闭环。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖，同时需溯源 tmp_report.txt 与 hosts 文件的访问动机及关联操作。
+
+[23:51:02.778] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+
+[23:51:02.972] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:51:03.144] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:51:03.443] --- Action Recorded ---
+Action: 查找写入文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:51:03.730] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:51:03.885] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:51:04.105] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:51:04.217] --- Malicious Event Added ---
+Event ID: 8D40106F-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:51:16.222] 
+============================================================
+[23:51:16.222] [迭代 97] MEMORY STATE UPDATE
+============================================================
+
+[23:51:16.222] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），作为初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面新建 middle 目录写入数据（T1105），且 explorer.exe 后续再次读取该 middle 目录（T1005），表明其被用作中转缓存或指令同步区；BITTER_ALUMINUM.exe 还派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），构建多层执行链，并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动。powershell.exe 不仅读取临时报告文件 C:\Users\34381\AppData\Local\Temp\tmp_report.txt 与系统 hosts 文件（T1005），用于本地数据收集、横向评估及潜在域名解析篡改，还进一步读取已下载的 C:\Users\34381\Downloads\DEPRESSED_TEXT.bin（T1005），表明其正对前期投递的载荷进行解析或解密操作，强化了C2指令解析与载荷调度闭环。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖，同时需溯源 tmp_report.txt 与 hosts 文件的访问动机及关联操作。
+
+[23:51:16.222] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+
+[23:51:16.377] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:51:16.553] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:51:16.740] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:51:16.878] --- Action Recorded ---
+Action: 查找写入文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:51:17.078] --- Action Recorded ---
+Action: 查找文件 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:51:17.329] --- Malicious Event Added ---
+Event ID: 8D401074-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:51:27.187] 
+============================================================
+[23:51:27.187] [迭代 102] MEMORY STATE UPDATE
+============================================================
+
+[23:51:27.187] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），作为初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面新建 middle 目录写入数据（T1105），且 explorer.exe 后续再次读取该 middle 目录（T1005）及 Downloads 下的 MUDDY_SAW.dll（T1005），确认其作为中转缓存与载荷解析双用途区域；BITTER_ALUMINUM.exe 还派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），构建多层执行链，并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动。powershell.exe 不仅读取临时报告文件 C:\Users\34381\AppData\Local\Temp\tmp_report.txt 与系统 hosts 文件（T1005），用于本地数据收集与横向评估，还进一步读取已下载的 DEPRESSED_TEXT.bin（T1005）和新确认的 MUDDY_SAW.dll（T1005），强化C2指令解析与载荷调度闭环。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖，同时需溯源 tmp_report.txt 与 hosts 文件的访问动机及关联操作。
+
+[23:51:27.187] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+
+[23:51:27.423] --- Action Recorded ---
+Action: 查找文件 7D401046-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:51:27.589] --- Action Recorded ---
+Action: 查找文件 7D40104A-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:51:27.873] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:51:28.101] --- Action Recorded ---
+Action: 查找文件 7D40104B-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:51:28.214] --- Action Recorded ---
+Action: 查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[23:51:28.421] --- Malicious Event Added ---
+Event ID: 8D401055-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[23:51:38.642] 
+============================================================
+[23:51:38.642] [迭代 107] MEMORY STATE UPDATE
+============================================================
+
+[23:51:38.642] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面新建 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；值得注意的是，BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化持久化能力。此后，BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；powershell.exe 不仅读取临时报告文件 C:\Users\34381\AppData\Local\Temp\tmp_report.txt 与系统 hosts 文件（T1005），用于本地数据收集与横向评估，还进一步读取 DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），强化C2指令解析闭环；explorer.exe 后续再次读取 middle 目录及 MUDDY_SAW.dll（T1005），印证多进程协同调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖，同时需溯源 tmp_report.txt 与 hosts 文件的访问动机及关联操作。
+
+[23:51:38.642] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+
+[23:51:38.756] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程写入
+Result: no_results
+
+[23:51:38.905] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: no_results
+
+[23:51:39.084] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:51:39.302] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:51:39.457] --- Malicious Event Added ---
+Event ID: 8D401064-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:51:53.958] 
+============================================================
+[23:51:53.958] [迭代 111] MEMORY STATE UPDATE
+============================================================
+
+[23:51:53.958] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面新建 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化持久化能力。此后，BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；powershell.exe 不仅读取临时报告文件 C:\Users\34381\AppData\Local\Temp\tmp_report.txt 与系统 hosts 文件（T1005），还进一步读取 DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），强化C2指令解析闭环；值得注意的是，powershell.exe 新增派生 tasklist.exe（T1059.004），用于进程枚举与环境感知，印证横向探测意图；explorer.exe 后续再次读取 middle 目录及 MUDDY_SAW.dll（T1005），佐证多进程协同调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载与注入特征，并需厘清 INCREASING_MAKE.exe 的启动时机、参数来源及其与父进程的控制流依赖，同时需溯源 tmp_report.txt 与 hosts 文件的访问动机及关联操作。
+
+[23:51:53.958] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+
+[23:51:54.131] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:51:54.250] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:51:54.401] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:51:54.695] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:51:54.870] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: success
+
+[23:51:55.045] --- Malicious Event Added ---
+Event ID: 8D401060-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_EXECUTE
+MITRE: T1059
+
+[23:52:07.900] 
+============================================================
+[23:52:07.900] [迭代 116] MEMORY STATE UPDATE
+============================================================
+
+[23:52:07.900] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持。随后，explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化持久化能力。此后，BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；值得注意的是，新确认事件显示 INCREASING_MAKE.exe 随即执行自复制操作，写入 C:\Users\34381\Downloads\INCREASING_MAKE.exe（T1059），形成递归驻留路径；powershell.exe 不仅读取 tmp_report.txt、hosts 文件、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），还派生 tasklist.exe（T1059.004）开展进程枚举，印证横向探测意图；explorer.exe 多次协同访问 middle 目录与 MUDDY_SAW.dll（T1005），佐证多进程调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载特征，并需厘清 INCREASING_MAKE.exe 的自复制动机、参数来源及其与父进程的控制流依赖。
+
+[23:52:07.900] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+
+[23:52:08.024] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:52:08.290] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:52:08.514] --- Action Recorded ---
+Action: 查找进程 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:52:08.643] --- Action Recorded ---
+Action: 查找写入文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 的进程
+Result: no_results
+
+[23:52:08.827] --- Action Recorded ---
+Action: 查找进程 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:52:09.125] --- Malicious Event Added ---
+Event ID: 8D401063-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:52:20.764] 
+============================================================
+[23:52:20.764] [迭代 121] MEMORY STATE UPDATE
+============================================================
+
+[23:52:20.764] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后 BITTER_ALUMINUM.exe 新增向同一内网IP的 47138 端口发起 Web 协议通信（T1071.001），扩展C2通道冗余能力。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化持久化能力。此后，BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作，写入 C:\Users\34381\Downloads\INCREASING_MAKE.exe（T1059），形成递归驻留路径；powershell.exe 不仅读取 tmp_report.txt、hosts 文件、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），还派生 tasklist.exe（T1059.004）开展进程枚举，印证横向探测意图；explorer.exe 多次协同访问 middle 目录与 MUDDY_SAW.dll（T1005），佐证多进程调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载特征，并需厘清 INCREASING_MAKE.exe 的自复制动机、参数来源及其与父进程的控制流依赖。
+
+[23:52:20.764] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+
+[23:52:20.877] --- Action Recorded ---
+Action: 查找进程 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:52:21.101] --- Action Recorded ---
+Action: 查找文件 7D401042-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
+
+[23:52:21.312] --- Action Recorded ---
+Action: 查找 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:52:21.579] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:52:21.843] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:52:22.094] --- Malicious Event Added ---
+Event ID: 8D401067-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:52:34.156] 
+============================================================
+[23:52:34.156] [迭代 126] MEMORY STATE UPDATE
+============================================================
+
+[23:52:34.156] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后 BITTER_ALUMINUM.exe 新增向同一内网IP的 47138 端口发起 Web 协议通信（T1071.001），扩展C2通道冗余能力。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化持久化能力。此后，BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作，写入 C:\Users\34381\Downloads\INCREASING_MAKE.exe（T1059）；powershell.exe 不仅读取 tmp_report.txt、hosts 文件、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），还派生 tasklist.exe（T1059.004）开展进程枚举，并新发现向 update.microsoft.com:443 发起外联（T1071.001），疑似伪装合法更新流量实施C2通信；explorer.exe 多次协同访问 middle 目录与 MUDDY_SAW.dll（T1005），佐证多进程调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载特征，并需厘清 INCREASING_MAKE.exe 的自复制动机、参数来源及其与父进程的控制流依赖。
+
+[23:52:34.156] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+
+[23:52:34.307] --- Action Recorded ---
+Action: 查找与 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:52:34.535] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:52:34.809] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:52:34.930] --- Action Recorded ---
+Action: 查找 IP 7D401033-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:52:35.168] --- Action Recorded ---
+Action: 查找进程 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:52:35.291] --- Malicious Event Added ---
+Event ID: 8D40106A-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:52:49.992] 
+============================================================
+[23:52:49.992] [迭代 131] MEMORY STATE UPDATE
+============================================================
+
+[23:52:49.992] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后 BITTER_ALUMINUM.exe 新增向同一内网IP的 47138 端口发起 Web 协议通信（T1071.001），扩展C2通道冗余能力。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），强化持久化能力。此后，BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），并直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作，写入 C:\Users\34381\Downloads\INCREASING_MAKE.exe（T1059）；powershell.exe 不仅读取 tmp_report.txt、hosts 文件、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），还派生 tasklist.exe（T1059.004）开展进程枚举，并新发现向 update.microsoft.com:443 发起外联（T1071.001），疑似伪装合法更新流量实施C2通信；值得注意的是，新确认 svchost.exe 进程主动向 dns.google:53 发起DNS查询（T1071.001），进一步暴露其参与隐蔽信道构建；explorer.exe 多次协同访问 middle 目录与 MUDDY_SAW.dll（T1005），佐证多进程调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动，重点分析 store.zip 解压行为、BITTER_ALUMINUM.exe 对八处文件/目录的写入时序与调用上下文、svchost.exe 与 powershell.exe 的异常子进程行为、regsvr32.exe 的DLL加载特征，并需厘清 INCREASING_MAKE.exe 的自复制动机、参数来源及其与父进程的控制流依赖。
+
+[23:52:49.992] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+
+[23:52:50.141] --- Action Recorded ---
+Action: 查找 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: no_results
+
+[23:52:50.282] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:52:50.558] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:52:50.815] --- Action Recorded ---
+Action: 查找进程 7D401035-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:52:50.988] --- Malicious Event Added ---
+Event ID: 8D401053-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:53:02.638] 
+============================================================
+[23:53:02.638] [迭代 135] MEMORY STATE UPDATE
+============================================================
+
+[23:53:02.638] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后 BITTER_ALUMINUM.exe 新增向同一内网IP的 47138 端口发起 Web 协议通信（T1071.001），扩展C2通道冗余能力。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；值得注意的是，explorer.exe 新增直接将 BITTER_ALUMINUM.exe 写入 Downloads 目录（T1105），与此前 BITTER_ALUMINUM.exe 自我复制行为（T1059）形成双重持久化路径。BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），并派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），同时直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作（T1059）；powershell.exe 读取 tmp_report.txt、hosts、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），派生 tasklist.exe 枚举进程（T1059.004），并向 update.microsoft.com:443 外联（T1071.001）；svchost.exe 主动向 dns.google:53 发起DNS查询（T1071.001），暴露隐蔽信道构建意图；explorer.exe 多次协同访问 middle 目录与 MUDDY_SAW.dll（T1005），佐证多进程调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:53:02.638] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+
+[23:53:02.787] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:53:03.039] --- Action Recorded ---
+Action: 查找与 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:53:03.291] --- Action Recorded ---
+Action: 查找文件 7D401038-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:53:03.495] --- Malicious Event Added ---
+Event ID: 8D40105E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:53:12.607] 
+============================================================
+[23:53:12.607] [迭代 138] MEMORY STATE UPDATE
+============================================================
+
+[23:53:12.607] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后 BITTER_ALUMINUM.exe 新增向同一内网IP的 47138 端口发起 Web 协议通信（T1071.001），扩展C2通道冗余能力。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；值得注意的是，explorer.exe 新增直接将 BITTER_ALUMINUM.exe 写入 Downloads 目录（T1105），与此前 BITTER_ALUMINUM.exe 自我复制行为（T1059）形成双重持久化路径。BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），并派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），同时直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作（T1059）；powershell.exe 读取 tmp_report.txt、hosts、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），派生 tasklist.exe 枚举进程（T1059.004），并向 update.microsoft.com:443 外联（T1071.001）；svchost.exe 主动向 dns.google:53 发起DNS查询（T1071.001），暴露隐蔽信道构建意图；regsvr32.exe 当前正加载执行 C:\Users\34381\Downloads\MUDDY_SAW.dll（T1005），完成DLL侧加载注入，强化横向控制能力；explorer.exe 多次协同访问 middle 目录与 MUDDY_SAW.dll（T1005），佐证多进程调度机制。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:53:12.607] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+
+[23:53:12.773] --- Action Recorded ---
+Action: 查找哪些进程向 IP 7D401032-39B3-11E8-BF66-D9AA8AFF4A69 发送数据
+Result: no_results
+
+[23:53:12.875] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:53:13.057] --- Action Recorded ---
+Action: 查找与 IP 7D401031-39B3-11E8-BF66-D9AA8AFF4A69 的其他通信
+Result: no_results
+
+[23:53:13.174] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:53:13.376] --- Action Recorded ---
+Action: 查找进程 7D40103E-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: success
+
+[23:53:13.548] --- Malicious Event Added ---
+Event ID: 8D401065-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_WRITE
+MITRE: T1105
+
+[23:53:26.894] 
+============================================================
+[23:53:26.894] [迭代 143] MEMORY STATE UPDATE
+============================================================
+
+[23:53:26.894] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后 BITTER_ALUMINUM.exe 新增向同一内网IP的 47138 端口发起 Web 协议通信（T1071.001），扩展C2通道冗余能力。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；值得注意的是，explorer.exe 新增直接将 BITTER_ALUMINUM.exe 写入 Downloads 目录（T1105），与此前 BITTER_ALUMINUM.exe 自我复制行为（T1059）形成双重持久化路径。BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），并派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），同时直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作（T1059）；powershell.exe 读取 tmp_report.txt、hosts、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），派生 tasklist.exe 枚举进程（T1059.004），并向 update.microsoft.com:443 外联（T1071.001）；svchost.exe 主动向 dns.google:53 发起DNS查询（T1071.001），暴露隐蔽信道构建意图；regsvr32.exe 当前正加载执行 C:\Users\34381\Downloads\MUDDY_SAW.dll（T1005），完成DLL侧加载注入；tasklist.exe 则将枚举结果写入 C:\Users\34381\AppData\Local\Temp\tmp_report.txt（T1105），闭环支撑 powershell 的后续情报收集。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:53:26.894] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+
+[23:53:27.129] --- Action Recorded ---
+Action: 查找进程 7D401036-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: success
+
+[23:53:27.317] --- Malicious Event Added ---
+Event ID: 8D401069-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_SENDTO
+MITRE: T1071.001
+
+[23:53:35.486] 
+============================================================
+[23:53:35.486] [迭代 144] MEMORY STATE UPDATE
+============================================================
+
+[23:53:35.486] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后该进程新增向 dns.google:53 发起DNS查询（T1071.001），暴露其参与隐蔽信道构建的双重意图。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；值得注意的是，explorer.exe 新增直接将 BITTER_ALUMINUM.exe 写入 Downloads 目录（T1105），与此前 BITTER_ALUMINUM.exe 自我复制行为（T1059）形成双重持久化路径。BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），并派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），同时直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作（T1059）；powershell.exe 读取 tmp_report.txt、hosts、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），派生 tasklist.exe 枚举进程（T1059.004），并向 update.microsoft.com:443 外联（T1071.001）；svchost.exe 主动向 dns.google:53 发起DNS查询（T1071.001），进一步强化隐蔽通信能力；regsvr32.exe 当前正加载执行 C:\Users\34381\Downloads\MUDDY_SAW.dll（T1005），完成DLL侧加载注入；tasklist.exe 则将枚举结果写入 C:\Users\34381\AppData\Local\Temp\tmp_report.txt（T1105），闭环支撑 powershell 的后续情报收集。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:53:35.486] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  30. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → dns.google:53
+
+[23:53:35.642] --- Action Recorded ---
+Action: 查找 IP 7D40103A-39B3-11E8-BF66-D9AA8AFF4A69 发送给哪些进程
+Result: success
+
+[23:53:35.845] --- Malicious Event Added ---
+Event ID: 8D40106C-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_RECVFROM
+MITRE: T1071
+
+[23:53:45.072] 
+============================================================
+[23:53:45.072] [迭代 145] MEMORY STATE UPDATE
+============================================================
+
+[23:53:45.072] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后该进程新增向 dns.google:53 发起DNS查询（T1071.001），暴露其参与隐蔽信道构建的双重意图。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；值得注意的是，explorer.exe 新增直接将 BITTER_ALUMINUM.exe 写入 Downloads 目录（T1105），与此前 BITTER_ALUMINUM.exe 自我复制行为（T1059）形成双重持久化路径。BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），并派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），同时直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作（T1059）；powershell.exe 读取 tmp_report.txt、hosts、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），派生 tasklist.exe 枚举进程（T1059.004），并向 update.microsoft.com:443 外联（T1071.001）；svchost.exe 主动向 dns.google:53（T1071.001）及同一C2地址 192.168.52.133:16415（T1071）发起双向通信，强化信道冗余与隐蔽性；regsvr32.exe 当前正加载执行 C:\Users\34381\Downloads\MUDDY_SAW.dll（T1005），完成DLL侧加载注入；tasklist.exe 则将枚举结果写入 C:\Users\34381\AppData\Local\Temp\tmp_report.txt（T1105），闭环支撑 powershell 的后续情报收集。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:53:45.072] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  30. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → dns.google:53
+  31. [Command and Control] T1071 (Application Layer Protocol) - svchost.exe → 192.168.52.133:16415
+
+[23:53:45.326] --- Action Recorded ---
+Action: 查找进程 7D401037-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[23:53:45.499] --- Malicious Event Added ---
+Event ID: 8D401071-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:53:58.947] 
+============================================================
+[23:53:58.947] [迭代 146] MEMORY STATE UPDATE
+============================================================
+
+[23:53:58.947] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，表明浏览器已被劫持；随后该进程新增向 dns.google:53 发起DNS查询（T1071.001），暴露其参与隐蔽信道构建的双重意图。explorer.exe 读取桌面压缩文件 C:\Users\34381\Desktop\store.zip（T1005），并执行其中释放的恶意可执行文件 BITTER_ALUMINUM.exe（T1059.004）；该进程随即向 Downloads 目录写入六类载荷（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态生成的 #{output_zip_folder_path} 文件夹），同时向桌面 middle 目录写入数据（T1105），确认其作为中转缓存与载荷解析双用途区域；值得注意的是，explorer.exe 新增直接将 BITTER_ALUMINUM.exe 写入 Downloads 目录（T1105），与此前 BITTER_ALUMINUM.exe 自我复制行为（T1059）形成双重持久化路径。BITTER_ALUMINUM.exe 还自我复制至 C:\Users\34381\Downloads\BITTER_ALUMINUM.exe（T1059），并派生 svchost.exe、powershell.exe 和 regsvr32.exe（T1059.004），同时直接 fork 出 INCREASING_MAKE.exe（T1059.004），标志载荷二次执行阶段启动；INCREASING_MAKE.exe 随即执行自复制操作（T1059）；powershell.exe 读取 tmp_report.txt、hosts、DEPRESSED_TEXT.bin 和 MUDDY_SAW.dll（T1005），派生 tasklist.exe 枚举进程（T1059.004），并向 update.microsoft.com:443 外联（T1071.001）；svchost.exe 主动向 dns.google:53（T1071.001）及同一C2地址 192.168.52.133:16415（T1071）发起双向通信，强化信道冗余与隐蔽性；regsvr32.exe 当前正加载执行 C:\Users\34381\Downloads\MUDDY_SAW.dll（T1005），完成DLL侧加载注入；tasklist.exe 则将枚举结果写入 C:\Users\34381\AppData\Local\Temp\tmp_report.txt（T1105），闭环支撑 powershell 的后续情报收集。最新发现 services.exe 派生 powershell.exe（T1059.004），引入系统服务层级的执行路径，显著提升攻击驻留深度与权限隐蔽性。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:53:58.947] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  30. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → dns.google:53
+  31. [Command and Control] T1071 (Application Layer Protocol) - svchost.exe → 192.168.52.133:16415
+  32. [Execution] T1059.004 (Unix Shell) - services.exe → powershell.exe
+
+[23:53:59.201] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:53:59.367] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:53:59.566] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:53:59.738] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:54:00.015] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: success
+
+[23:54:00.200] --- Malicious Event Added ---
+Event ID: 8D401072-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:54:10.524] 
+============================================================
+[23:54:10.524] [迭代 151] MEMORY STATE UPDATE
+============================================================
+
+[23:54:10.524] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，并同步向 dns.google:53 发起DNS查询（T1071.001），暴露其构建隐蔽信道的双重意图。随后，explorer.exe 读取桌面压缩包 C:\Users\34381\Desktop\store.zip（T1005），释放并执行 BITTER_ALUMINUM.exe（T1059.004）；该载荷向 Downloads 目录写入六类组件（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态 #{output_zip_folder_path} 文件夹），并向桌面 middle 目录写入数据（T1105），同时直接将自身复制至 Downloads（T1105）并完成自复制（T1059），形成双重持久化路径。BITTER_ALUMINUM.exe 随即派生 svchost.exe、powershell.exe、regsvr32.exe 和 INCREASING_MAKE.exe（T1059.004）；其中 powershell.exe 读取本地敏感文件（tmp_report.txt、hosts、DEPRESSED_TEXT.bin、MUDDY_SAW.dll）、调用 tasklist.exe 枚举进程（T1059.004）并外联 update.microsoft.com:443（T1071.001）；svchost.exe 强化C2冗余，双向通信于 192.168.52.133:16415（T1071）与 dns.google:53（T1071.001）；regsvr32.exe 加载 MUDDY_SAW.dll 实现DLL侧加载（T1005）；tasklist.exe 将结果回写至 tmp_report.txt（T1105）。最新发现 winlogon.exe 派生 services.exe（T1059.004），后者再启动 powershell.exe（T1059.004），将攻击链延伸至系统服务层级，显著提升驻留深度与权限隐蔽性。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:54:10.524] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  30. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → dns.google:53
+  31. [Command and Control] T1071 (Application Layer Protocol) - svchost.exe → 192.168.52.133:16415
+  32. [Execution] T1059.004 (Unix Shell) - services.exe → powershell.exe
+  33. [Execution] T1059.004 (Unix Shell) - winlogon.exe → services.exe
+
+[23:54:10.802] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:54:10.943] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:54:11.135] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:54:11.294] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:54:11.573] --- Action Recorded ---
+Action: 查找进程 7D40103C-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:54:11.866] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: success
+
+[23:54:12.149] --- Malicious Event Added ---
+Event ID: 8D401073-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_FORK
+MITRE: T1059.004
+
+[23:54:26.180] 
+============================================================
+[23:54:26.180] [迭代 157] MEMORY STATE UPDATE
+============================================================
+
+[23:54:26.180] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，并同步向 dns.google:53 发起DNS查询（T1071.001），暴露其构建隐蔽信道的双重意图。随后，explorer.exe 读取桌面压缩包 C:\Users\34381\Desktop\store.zip（T1005），释放并执行 BITTER_ALUMINUM.exe（T1059.004）；该载荷向 Downloads 目录写入六类组件（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态 #{output_zip_folder_path} 文件夹），并向桌面 middle 目录写入数据（T1105），同时将自身复制至 Downloads（T1105）并完成自复制（T1059），形成双重持久化路径。BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe、regsvr32.exe 和 INCREASING_MAKE.exe（T1059.004）；其中 powershell.exe 枚举进程（tasklist.exe）、读取敏感文件（tmp_report.txt、hosts、DEPRESSED_TEXT.bin、MUDDY_SAW.dll）并外联 update.microsoft.com:443（T1071.001）；svchost.exe 强化C2冗余，双向通信于 192.168.52.133:16415 与 dns.google:53；regsvr32.exe 加载 MUDDY_SAW.dll 实现DLL侧加载（T1005）；tasklist.exe 将结果回写至 tmp_report.txt（T1105）。攻击链进一步升级：winlogon.exe 先派生 services.exe（T1059.004），再直接派生 lsass.exe（T1059.004），后者为高权限系统关键进程，此举显著提升驻留深度、规避检测能力及横向渗透潜力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:54:26.180] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  30. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → dns.google:53
+  31. [Command and Control] T1071 (Application Layer Protocol) - svchost.exe → 192.168.52.133:16415
+  32. [Execution] T1059.004 (Unix Shell) - services.exe → powershell.exe
+  33. [Execution] T1059.004 (Unix Shell) - winlogon.exe → services.exe
+  34. [Execution] T1059.004 (Unix Shell) - winlogon.exe → lsass.exe
+
+[23:54:26.322] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 读取的文件
+Result: no_results
+
+[23:54:26.618] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的父进程
+Result: no_results
+
+[23:54:26.738] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:54:26.953] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 执行的文件
+Result: no_results
+
+[23:54:27.151] --- Action Recorded ---
+Action: 查找文件 7D401039-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:54:27.334] --- Malicious Event Added ---
+Event ID: 8D40106D-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:54:36.711] 
+============================================================
+[23:54:36.711] [迭代 162] MEMORY STATE UPDATE
+============================================================
+
+[23:54:36.711] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），建立初始C2信道，并同步向 dns.google:53 发起DNS查询（T1071.001），暴露其构建隐蔽信道的双重意图。随后，explorer.exe 读取桌面压缩包 C:\Users\34381\Desktop\store.zip（T1005），释放并执行 BITTER_ALUMINUM.exe（T1059.004）；该载荷向 Downloads 目录写入六类组件（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态 #{output_zip_folder_path} 文件夹），并向桌面 middle 目录写入数据（T1105），同时将自身复制至 Downloads（T1105）并完成自复制（T1059）。BITTER_ALUMINUM.exe 派生 svchost.exe、powershell.exe、regsvr32.exe 和 INCREASING_MAKE.exe（T1059.004）；其中 powershell.exe 枚举进程、读取敏感文件（tmp_report.txt、hosts、DEPRESSED_TEXT.bin、MUDDY_SAW.dll）并外联 update.microsoft.com:443（T1071.001）；svchost.exe 强化C2冗余，双向通信于 192.168.52.133:16415 与 dns.google:53；regsvr32.exe 加载 MUDDY_SAW.dll 实现DLL侧加载（T1005）；tasklist.exe 将结果回写至 tmp_report.txt（T1105）。攻击链进一步升级：winlogon.exe 先派生 services.exe，再直接派生 lsass.exe（T1059.004）；而新确认事件显示，INCREASING_MAKE.exe 直接读取 lsass.exe 内存（T1005），表明攻击者正实施凭证转储或内存窃取，显著提升横向渗透与权限维持能力。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:54:36.711] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  30. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → dns.google:53
+  31. [Command and Control] T1071 (Application Layer Protocol) - svchost.exe → 192.168.52.133:16415
+  32. [Execution] T1059.004 (Unix Shell) - services.exe → powershell.exe
+  33. [Execution] T1059.004 (Unix Shell) - winlogon.exe → services.exe
+  34. [Execution] T1059.004 (Unix Shell) - winlogon.exe → lsass.exe
+  35. [Collection] T1005 (Data from Local System) - INCREASING_MAKE.exe → lsass.exe
+
+[23:54:36.849] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 接收的网络数据
+Result: no_results
+
+[23:54:37.131] --- Action Recorded ---
+Action: 查找进程 7D40103D-39B3-11E8-BF66-D9AA8AFF4A69 发送的网络数据
+Result: no_results
+
+[23:54:37.266] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 的子进程
+Result: no_results
+
+[23:54:37.545] --- Action Recorded ---
+Action: 查找进程 7D40103B-39B3-11E8-BF66-D9AA8AFF4A69 写入的文件
+Result: no_results
+
+[23:54:37.761] --- Action Recorded ---
+Action: 查找文件 7D401034-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程读取
+Result: success
+
+[23:54:37.888] --- Malicious Event Added ---
+Event ID: 8D40106E-39B3-11E8-BF66-D9AA8AFF4A69
+Event Type: EVENT_READ
+MITRE: T1005
+
+[23:54:49.670] 
+============================================================
+[23:54:49.670] [迭代 167] MEMORY STATE UPDATE
+============================================================
+
+[23:54:49.670] --- 叙述性攻击摘要 ---
+攻击始于 msedge.exe 进程向内网地址 192.168.52.133:16415 发起网络连接（T1071），并同步向 dns.google:53 发起DNS查询（T1071.001），构建双重C2信道。随后，explorer.exe 读取桌面压缩包 C:\Users\34381\Desktop\store.zip（T1005），释放并执行 BITTER_ALUMINUM.exe（T1059.004）；该载荷向 Downloads 目录写入六类组件（ABSTRACT_MOONSCAPE.dll、DEPRESSED_TEXT.bin、INCREASING_MAKE.exe、MUDDY_SAW.dll、auto 子目录及动态 #{output_zip_folder_path} 文件夹），并向桌面 middle 目录写入数据（T1105），同时将自身复制至 Downloads 完成自持久化（T1059）。关键升级在于：BITTER_ALUMINUM.exe 直接读取系统敏感文件 C:\Windows\System32\config\SAM（T1005），意图窃取本地账户凭证；其派生的 INCREASING_MAKE.exe 进一步实施 lsass.exe 内存读取（T1005），表明攻击者已进入凭证转储与横向渗透阶段。此外，winlogon.exe 派生 services.exe 后再启动 lsass.exe（T1059.004），强化权限链控制；svchost.exe 和 powershell.exe 分别维持与 192.168.52.133:16415 及 update.microsoft.com:443 的通信（T1071/T1071.001），regsvr32.exe 加载 MUDDY_SAW.dll 实现DLL侧加载（T1005）。当前调查焦点为 msedge.exe 的后续网络行为及潜在载荷投递活动。
+
+[23:54:49.670] --- MITRE TTP 链 ---
+  1. [Command and Control] T1071 (Application Layer Protocol) - msedge.exe → 192.168.52.133:16415
+  2. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\store.zip
+  3. [Execution] T1059.004 (Unix Shell) - explorer.exe → BITTER_ALUMINUM.exe
+  4. [Execution] T1059.004 (Unix Shell) - explorer.exe → svchost.exe
+  5. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\ABSTRACT_MOONSCAPE.dll
+  6. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  7. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  8. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  9. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto
+  10. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\auto\\\\INCREASING_MAKE.exe
+  11. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\#{output_zip_folder_path}
+  12. [Command and Control] T1105 (Ingress Tool Transfer) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  13. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → powershell.exe
+  14. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → regsvr32.exe
+  15. [Execution] T1059.004 (Unix Shell) - BITTER_ALUMINUM.exe → INCREASING_MAKE.exe
+  16. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  17. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Windows\\\\System32\\\\drivers\\\\etc\\\\hosts
+  18. [Collection] T1005 (Data from Local System) - powershell.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\DEPRESSED_TEXT.bin
+  19. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Desktop\\\\middle
+  20. [Collection] T1005 (Data from Local System) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  21. [Execution] T1059 (Command and Scripting Interpreter) - BITTER_ALUMINUM.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  22. [Execution] T1059.004 (Unix Shell) - powershell.exe → tasklist.exe
+  23. [Execution] T1059 (Command and Scripting Interpreter) - INCREASING_MAKE.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\INCREASING_MAKE.exe
+  24. [Command and Control] T1071.001 (Web Protocols) - BITTER_ALUMINUM.exe → 192.168.52.133:47138
+  25. [Command and Control] T1071.001 (Web Protocols) - powershell.exe → update.microsoft.com:443
+  26. [Command and Control] T1071.001 (Web Protocols) - svchost.exe → dns.google:53
+  27. [Command and Control] T1105 (Ingress Tool Transfer) - explorer.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\BITTER_ALUMINUM.exe
+  28. [Collection] T1005 (Data from Local System) - regsvr32.exe → C:\\\\Users\\\\34381\\\\Downloads\\\\MUDDY_SAW.dll
+  29. [Command and Control] T1105 (Ingress Tool Transfer) - tasklist.exe → C:\\\\Users\\\\34381\\\\AppData\\\\Local\\\\Temp\\\\tmp_report.txt
+  30. [Command and Control] T1071.001 (Web Protocols) - msedge.exe → dns.google:53
+  31. [Command and Control] T1071 (Application Layer Protocol) - svchost.exe → 192.168.52.133:16415
+  32. [Execution] T1059.004 (Unix Shell) - services.exe → powershell.exe
+[23:54:49.960] --- Action Recorded ---
+Action: 查找文件 7D401049-39B3-11E8-BF66-D9AA8AFF4A69 被哪些进程执行
+Result: no_results
